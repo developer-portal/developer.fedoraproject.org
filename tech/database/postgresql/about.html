@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>PostgreSQL &mdash; Fedora Developer Portal</title>
+  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+  <link rel="canonical" href="http://developer.fedoraproject.org/tech/database/postgresql/about.html">
+
+  <!-- Link to Sitemap -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+  <link href="/css/main.css" rel="stylesheet" media="screen, print">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!--  <link href="/static/css/patternfly.min.css" rel="stylesheet" media="screen, print"> -->
+  <script src="/static/components/jquery/dist/jquery.min.js"></script>
+  <script src="/static/components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/static/components/datatables/media/js/jquery.dataTables.js"></script>
+  <script src="/static/js/patternfly.min.js"></script>
+
+  <!-- Site search -->
+  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    $(function() {
+      $('#search-query').lunrSearch({
+        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
+        results : '#search-results',  // selector for containing search results element
+        entries : '.entries',         // selector for search entries containing element (contained within results above)
+        template: '#search-results-template'  // selector for Mustache.js template
+      });
+    });
+  </script>
+</head>
+
+  <body>
+    <div class="container" id="header">
+  <div class="row" id="top">
+    <div class="col-sm-2" id="logo-col">
+      <div class="text-center">
+        <a href="/">
+          <img src="/static/logo.png" style="height: 46px; width: 152px;">
+          <span>Fedora Developer Portal</span>
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-7">
+      <nav>
+  <ul class="nav navbar-nav">
+    <li class="">
+      <a href="/tools.html">Get tools</a>
+    </li>
+    <li class=" active ">
+      <a href="/tech.html">Languages &amp; databases</a>
+    </li>
+    <li class="">
+      <a href="/deployment.html">Deploy and distribute</a>
+    </li>
+    <!--
+    <li class="">
+      <a href="/">Resources</a>
+    </li>
+    <li class="">
+      <a href="/">Blogs</a>
+    </li>
+    -->
+  </ul>
+</nav>
+
+    </div>
+    <div class="col-sm-3">
+      
+  <form class="input-group" id="search" action="/search.html" method="get">
+    <input type="text" id="search-query" class="form-control" name="q" placeholder="Search" autocomplete="off">
+    <span class="input-group-btn">
+      <button class="btn btn-default glyphicon glyphicon-search" type="submit" aria-hidden="true"></button>
+    </span>
+  </form>
+  <section id="search-results" style="display: none;">
+    <div class="entries">
+    </div>
+  </section>
+
+  
+  <script id="search-results-template" type="text/mustache">
+    {{#entries}}
+      <article>
+        <a href="{{url}}">{{title}}</a>
+      </article>
+    {{/entries}}
+  </script>
+  
+</div>
+
+
+    </div>
+  </div>
+</div>
+
+    <div class="title container" id="tech-database">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-xs-12" id="page-logo">
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                  <img class="img-circle" src="/static/logo/postgresql.png">
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                  <h1>PostgreSQL</h1>
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </div>
+          <div class="col-sm-6 Xhidden-xs" id="page-description">
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                  <p>World's most advanced open source database.</p>
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-sm-3 col-sm-push-9">
+          <div class="list-group">
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                <a href="/tech/database/postgresql/about.html" class="list-group-item  active ">PostgreSQL</a>
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                <a href="/tech/database/postgresql/postgresql-in-rpms.html" class="list-group-item ">PostgreSQL in RPMs</a>
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </div>
+        </div>
+        <div class="col-sm-9 col-sm-pull-3">
+          <!--
+TODOs
+- mention somehow
+  - database role == PostgreSQL
+  - open postgresql monitoring (OPM)
+- README.rpm-dist export to MD
+- quickstart
+  - python/perl/c/c++
+-->
+
+<h1 id="postgresql">PostgreSQL</h1>
+
+<p>PostgreSQL is an advanced Object-Relational database management system (DBMS).</p>
+
+<p>Fedora distribution provides feature-full package set for PostgreSQL client and
+server, server-compatible plug-ins and database connectors.</p>
+
+<h2 id="quick-start">Quick Start</h2>
+
+<p>PostgreSQL installation on Fedora box and basic command-line usage:</p>
+
+<pre><code class="language-bash">$ sudo yum install postgresql postgresql-server # install client/server
+$ sudo postgresql-setup initdb                  # initialize PG cluster
+$ sudo systemctl start postgresql               # start cluster
+$ sudo su - postgres                            # login as DB admin
+$ createdb quick-start                          # create testing database
+$ psql -d quick-start                           # connect to the new database
+psql (9.3.9)
+Type "help" for help.
+
+quick-start=# create table test (id int);       -- create testing table
+CREATE TABLE
+quick-start=# insert into test values (1);      -- insert some data
+INSERT 0 1
+quick-start=# select * from test;               -- query data
+ id
+----
+  1
+(1 row)
+
+quick-start=#
+</code></pre>
+
+<h1 id="controlling-access-to-pg-cluster-pghbaconf-users-passwords">Controlling access to PG cluster (pg_hba.conf, users, passwords)</h1>
+
+<p>Sometimes is useful to create new user (with password) for specific database
+application.  There is set of utilities in <code>postgresql</code> package (see
+<code>rpm -ql postgresql | grep /usr/bin</code>) that may ease some of those tasks.  Lets try to
+create additional user, password and database:</p>
+
+<pre><code>$ sudo su - postgres
+$ createuser testuser -P
+Enter password for new role:
+Enter it again:
+$ createdb testdb --owner testuser
+$ # add 'local all testuser md5' line **before** 'local all all peer' line
+$ # (typical mistake is "just" appending the line at the and of the file)
+$ vim ~/data/pg_hba.conf
+$ cat ~/data/pg_hba.conf | grep ^local
+local   all             testuser                                md5
+local   all             all                                     peer
+$ ^D
+$ sudo systemctl restart postgresql
+$ psql -d testdb -U testuser
+Password for user testuser:
+psql (9.3.9)
+Type "help" for help.
+
+testdb=&gt;
+</code></pre>
+
+<h2 id="documentation">Documentation</h2>
+
+<p>Packaging documentation is available as <a href="postgresql-in-rpms.html">README.rpm-dist</a>
+file in <code>postgresql</code> package (client package).  Anybody running PostgreSQL on
+Fedora should start here:</p>
+
+<pre><code class="language-bash">$ rpm -qd postgresql | grep README.rpm-dist
+/usr/share/doc/postgresql/README.rpm-dist
+$ less /usr/share/doc/postgresql/README.rpm-dist
+</code></pre>
+
+<p>Install/use official documentation with:</p>
+
+<pre><code>$ sudo yum install postgresql-docs
+$ firefox /usr/share/doc/postgresql-docs/html/index.html         # HTML version
+$ rpm -ql postgresql-docs | grep pdf
+/usr/share/doc/postgresql-docs/postgresql-9.3.9-US.pdf
+$ okular /usr/share/doc/postgresql-docs/postgresql-9.3.9-US.pdf  # PDF version
+</code></pre>
+
+<p>This documentation is also available <a href="http://www.postgresql.org/docs/">online</a>,
+please choose the version installed on your box
+(<code>rpm -q postgresql --qf "%{VERSION}\n"</code>).</p>
+
+<p>Other documentation available online:</p>
+
+<ul>
+  <li><a href="https://fedoraproject.org/wiki/PostgreSQL">Fedora PostgreSQL Homepage</a></li>
+  <li><a href="http://www.postgresql.org/about/">PostgreSQL project</a></li>
+  <li><a href="https://wiki.postgresql.org/wiki/Main_Page">PostgreSQL wiki</a></li>
+</ul>
+
+<h2 id="graphical-db-management-tools">Graphical DB management tools</h2>
+
+<ul>
+  <li><a href="https://admin.fedoraproject.org/pkgdb/packages/pgadmin3">pgadmin3</a></li>
+  <li><a href="https://admin.fedoraproject.org/pkgdb/packages/phpPgAdmin">phpPgAdmin</a></li>
+</ul>
+
+<h2 id="extensionstools-available-in-fedorarhelepel-packages">Extensions/Tools available in (Fedora/RHEL/EPEL packages)</h2>
+
+<ul>
+  <li>postgresql-contrib (bunch of extensions, see
+<code>rpm -ql postgresql-contrib | grep so$</code>), postgresql-plperl,
+postgresql-plpython, postgresql-plpython3, postgresql-pltcl (language bindings
+extending SQL syntax)</li>
+  <li><a href="https://admin.fedoraproject.org/pkgdb/packages/postgis">postgis</a></li>
+  <li><a href="https://admin.fedoraproject.org/pkgdb/packages/postgresql-pgpool-II">postgresql-pgpool-II</a></li>
+  <li><a href="https://admin.fedoraproject.org/pkgdb/packages/pg-semver">pg-semver</a></li>
+  <li><a href="https://admin.fedoraproject.org/pkgdb/packages/postgresql-ip4r">postgresql-ip4r</a></li>
+</ul>
+
+<h3 id="how-to-use-extension">How to use extension:</h3>
+
+<p>PostgreSQL implements <a href="http://www.postgresql.org/docs/9.4/static/sql-createextension.html">CREATE
+EXTENSION</a>
+syntax (example with
+<a href="http://www.postgresql.org/docs/9.4/static/hstore.html">hstore</a> extension):</p>
+
+<pre><code>$ sudo yum install postgresql-contrib           -- install extension (hstore)
+$ sudo su - postgres                            -- switch user to DB admin
+$ psql -d quick-start                           -- connect to an existing DB
+psql (9.3.9)
+Type "help" for help.
+
+quick-start=# CREATE EXTENSION hstore;          -- install extension to actual db
+CREATE EXTENSION
+quick-start=# SELECT 'a=&gt;1,b=&gt;2'::hstore;       -- use the extension
+  hstore
+  ----------
+   "a"=&gt;"1"
+   (1 row)
+</code></pre>
+
+<h2 id="language-connectorsadapters-packages">Language connectors/adapters (packages)</h2>
+
+<ul>
+  <li>Python – <a href="https://admin.fedoraproject.org/pkgdb/packages/python-psycopg2">python-psycopg2</a></li>
+  <li>Perl – <a href="https://admin.fedoraproject.org/pkgdb/packages/perl-DBD-Pg">perl-DBD-Pg</a></li>
+  <li>Java – <a href="https://admin.fedoraproject.org/pkgdb/packages/postgresql-jdbc">postgresql-jdbc</a></li>
+  <li>Tcl – <a href="https://admin.fedoraproject.org/pkgdb/packages/tcl-pgtcl">tcl-pgtcl</a></li>
+  <li>ODBC – <a href="https://admin.fedoraproject.org/pkgdb/packages/postgresql-odbc">postgresql-odbc</a></li>
+</ul>
+
+<h2 id="postgresql-in-containers">PostgreSQL in containers</h2>
+
+<p>Currently there is prepared Docker container for Fedora 21.  Documentation
+is available on the <a href="https://github.com/fedora-cloud/Fedora-Dockerfiles/tree/master/postgresql">Fedora-Dockerfiles github
+page</a>.</p>
+
+<p>There is also available PostgreSQL image
+<a href="https://github.com/openshift/postgresql">for OpenShift</a>.</p>
+
+        </div>
+        <div class="col-xs-12">
+          <hr>
+          <div id="ask-fedora">
+            Have a question?
+            
+              <a href="//ask.fedoraproject.org/en/questions/scope:all/sort:age-desc/tags:postgresql/page:1/">Ask Fedora.</a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+  <div class="container">
+    <div class="row footerlinks">
+      <div class="col-sm-3 col-xs-6 widget">
+        <h3 class="widget-title">About</h3>
+        <div class="widget-body">
+          <dl>
+            <dd><a href="/about.html">About Developer Portal</a></dd>
+            <dd><a href="//getfedora.org/en/sponsors">About Fedora</a></dd>
+            <dd><a href="//getfedora.org/en/sponsors">Sponsors</a></dd>
+            <dd><a href="http://fedoramagazine.org">Fedora Magazine</a></dd>
+            <dd><a href="//fedoraproject.org/wiki/Legal:Main#Legal">Legal</a></dd>
+          </dl>
+          <ul class="list-inline">
+            <li>
+              <a class="btn-social btn-outline" href="//www.facebook.com/TheFedoraProject"><i class="fa fa-fw fa-facebook"></i></a>
+            </li>
+            <li>
+              <a class="btn-social btn-outline" href="//plus.google.com/112917221531140868607"><i class="fa fa-fw fa-google-plus"></i></a>
+            </li>
+            <li>
+              <a class="btn-social btn-outline" href="//twitter.com/fedora"><i class="fa fa-fw fa-twitter"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6 widget">
+        <h3 class="widget-title uppercase">Download</h3>
+        <div class="widget-body">
+          <dl>
+            <dd><a href="//getfedora.org/en/workstation/download">Get Fedora Workstation</a></dd>
+            <dd><a href="//getfedora.org/en/server/download">Get Fedora Server</a></dd>
+            <dd><a href="//getfedora.org/en/cloud/download">Get Fedora Cloud</a></dd>
+            <dd><a href="//spins.fedoraproject.org">Fedora Spins</a></dd>
+            <dd><a href="//labs.fedoraproject.org">Fedora Labs</a></dd>
+            <dd><a href="//arm.fedoraproject.org">Fedora ARM<span class="sup">&reg;</span></a></dd>
+            <dd><a href="http://torrents.fedoraproject.org">Torrent Downloads</a></dd>
+          </dl>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6 widget">
+        <h3 class="widget-title">Support</h3>
+          <div class="widget-body">
+            <dl>
+              <dd><a href="//fedoraproject.org/wiki/Communicating_and_getting_help">Get Help</a></dd>
+              <dd><a href="//ask.fedoraproject.org/">Ask Fedora</a></dd>
+              <dd><a href="http://fedoraforum.org/">Forums</a></dd>
+              <dd><a href="//fedoraproject.org/wiki/Common_F22_bugs">Common Bugs</a></dd>
+              <dd><a href="//docs.fedoraproject.org/en-US/Fedora/22/html/Installation_Guide">Installation Guide</a></dd>
+            </dl>
+          </div>
+        </div>
+        <div class="col-sm-3 col-xs-6 widget">
+          <h3 class="widget-title">Join</h3>
+            <div class="widget-body">
+            <dl>
+              <dd><a href="//fedoraproject.org/wiki/Join">Join Fedora</a></dd>
+              <dd><a href="http://fedoraplanet.org">Planet Fedora</a></dd>
+              <dd><a href="//fedoraproject.org/wiki/SIGs">Fedora SIGs</a></dd>
+              <dd><a href="//admin.fedoraproject.org/accounts/">Fedora Account System</a></dd>
+              <dd><a href="http://fedoracommunity.org/">Fedora Community</a></dd>
+            </dl>
+          </div>
+        </div>
+      </div> <!-- /row of widgets -->
+      <div class="row">
+        <div class="col-md-2">
+          <div class="widget-body">
+            <a href="http://www.redhat.com/"><img alt="Red Hat Logo" src="/static/logo/redhat.png" class="rh-logo"></a>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="widget-body">
+            <p class="sponsor">Fedora is sponsored by Red Hat.</p>
+            <p class="sponsor"><a href="//www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
+            <p class="copy">&copy; 2015 Red Hat, Inc. and others.</p>
+          </div>
+        </div>
+        <!-- /row of widgets -->
+      </div>
+</footer>
+
+  </body>
+</html>

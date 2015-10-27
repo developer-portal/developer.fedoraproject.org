@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Vagrant with Docker provider &mdash; Fedora Developer Portal</title>
+  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+  <link rel="canonical" href="http://developer.fedoraproject.org/tools/vagrant/vagrant-docker.html">
+
+  <!-- Link to Sitemap -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+  <link href="/css/main.css" rel="stylesheet" media="screen, print">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!--  <link href="/static/css/patternfly.min.css" rel="stylesheet" media="screen, print"> -->
+  <script src="/static/components/jquery/dist/jquery.min.js"></script>
+  <script src="/static/components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/static/components/datatables/media/js/jquery.dataTables.js"></script>
+  <script src="/static/js/patternfly.min.js"></script>
+
+  <!-- Site search -->
+  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    $(function() {
+      $('#search-query').lunrSearch({
+        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
+        results : '#search-results',  // selector for containing search results element
+        entries : '.entries',         // selector for search entries containing element (contained within results above)
+        template: '#search-results-template'  // selector for Mustache.js template
+      });
+    });
+  </script>
+</head>
+
+  <body>
+    <div class="container" id="header">
+  <div class="row" id="top">
+    <div class="col-sm-2" id="logo-col">
+      <div class="text-center">
+        <a href="/">
+          <img src="/static/logo.png" style="height: 46px; width: 152px;">
+          <span>Fedora Developer Portal</span>
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-7">
+      <nav>
+  <ul class="nav navbar-nav">
+    <li class=" active ">
+      <a href="/tools.html">Get tools</a>
+    </li>
+    <li class="">
+      <a href="/tech.html">Languages &amp; databases</a>
+    </li>
+    <li class="">
+      <a href="/deployment.html">Deploy and distribute</a>
+    </li>
+    <!--
+    <li class="">
+      <a href="/">Resources</a>
+    </li>
+    <li class="">
+      <a href="/">Blogs</a>
+    </li>
+    -->
+  </ul>
+</nav>
+
+    </div>
+    <div class="col-sm-3">
+      
+  <form class="input-group" id="search" action="/search.html" method="get">
+    <input type="text" id="search-query" class="form-control" name="q" placeholder="Search" autocomplete="off">
+    <span class="input-group-btn">
+      <button class="btn btn-default glyphicon glyphicon-search" type="submit" aria-hidden="true"></button>
+    </span>
+  </form>
+  <section id="search-results" style="display: none;">
+    <div class="entries">
+    </div>
+  </section>
+
+  
+  <script id="search-results-template" type="text/mustache">
+    {{#entries}}
+      <article>
+        <a href="{{url}}">{{title}}</a>
+      </article>
+    {{/entries}}
+  </script>
+  
+</div>
+
+
+    </div>
+  </div>
+</div>
+
+    <div class="title container" id="">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-xs-12" id="page-logo">
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                  <img class="img-circle" src="/static/logo/vagrant.png">
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                  <h1>Vagrant</h1>
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+            
+          </div>
+          <div class="col-sm-6 Xhidden-xs" id="page-description">
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                  <p>Create reproducible and portable development environments that can be easily shared in your team.</p>
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-sm-3 col-sm-push-9">
+          <div class="list-group">
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                <a href="/tools/vagrant/about.html" class="list-group-item ">Vagrant</a>
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                <a href="/tools/vagrant/vagrant-libvirt.html" class="list-group-item ">Vagrant with libvirt provider</a>
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                <a href="/tools/vagrant/vagrant-virtualbox.html" class="list-group-item ">Vagrant with VirtualBox provider</a>
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                <a href="/tools/vagrant/vagrant-docker.html" class="list-group-item  active ">Vagrant with Docker provider</a>
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                <a href="/tools/vagrant/vagrant-plugins.html" class="list-group-item ">Vagrant plugins</a>
+                
+              
+            
+              
+            
+              
+            
+              
+                
+                <a href="/tools/vagrant/vagrant-nfs.html" class="list-group-item ">Synced folders with NFS</a>
+                
+              
+            
+              
+            
+          </div>
+        </div>
+        <div class="col-sm-9 col-sm-pull-3">
+          <h1 id="vagrant-with-docker-support-installation">Vagrant with Docker support installation</h1>
+
+<p>To use Vagrant with Docker, you need to install the <code>vagrant</code> and <code>docker</code> packages:</p>
+
+<pre><code>$ sudo dnf install vagrant docker
+</code></pre>
+
+<p>And start <code>docker</code> service:</p>
+
+<pre><code>$ sudo systemctl start docker
+</code></pre>
+
+<p>Vagrant itself comes with the support for Docker baked-in. By installing Docker alongside
+Vagrant you can start using Docker both as a provider and a provisioner. Please refer to
+the official documentation at https://docs.vagrantup.com/v2/ for more.</p>
+
+<p>Note: All Vagrant commands have to be ran as root (e.g. with <code>sudo</code>). This is similar to running
+Docker commands directly.</p>
+
+<h2 id="using-docker-as-a-default">Using Docker as a default</h2>
+
+<p>To use Docker provider with any Vagrant commands, one has to explicitly append <code>--provider=docker</code>.</p>
+
+<p>To avoid this, you can set the default provider for your project in the beginning of your
+Vagrantfile as:</p>
+
+<pre><code># Vagrantfile
+ENV['VAGRANT_DEFAULT_PROVIDER'] = 'docker'
+...
+</code></pre>
+
+<p>Or set it for your environment with:</p>
+
+<pre><code>export VAGRANT_DEFAULT_PROVIDER=docker
+</code></pre>
+
+<h2 id="using-docker-from-vagrant-without-password-prompts">Using Docker from Vagrant without password prompts</h2>
+
+<p>To use Vagrant with Docker without password prompts it is enough to add yourself to the <code>vagrant</code>
+group. This will make <code>docker</code> commands password-less as well.</p>
+
+<p>To do so, type:</p>
+
+<pre><code>$ sudo groupadd docker &amp;&amp; sudo gpasswd -a ${USER} docker &amp;&amp; sudo systemctl restart docker
+$ newgrp docker
+</code></pre>
+
+<p>Above commands will create the group <code>vagrant</code> and add current running user to this group. This user
+also need to have administrator privileges.</p>
+
+<p>Note: This has security implications, read about this in the official docs at
+https://docs.docker.com/articles/security/#docker-daemon-attack-surface.</p>
+
+        </div>
+        <div class="col-xs-12">
+          <hr>
+          <div id="ask-fedora">
+            Have a question?
+            
+              <a href="//ask.fedoraproject.org/en/questions/scope:all/sort:age-desc/tags:vagrant/page:1/">Ask Fedora.</a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+  <div class="container">
+    <div class="row footerlinks">
+      <div class="col-sm-3 col-xs-6 widget">
+        <h3 class="widget-title">About</h3>
+        <div class="widget-body">
+          <dl>
+            <dd><a href="/about.html">About Developer Portal</a></dd>
+            <dd><a href="//getfedora.org/en/sponsors">About Fedora</a></dd>
+            <dd><a href="//getfedora.org/en/sponsors">Sponsors</a></dd>
+            <dd><a href="http://fedoramagazine.org">Fedora Magazine</a></dd>
+            <dd><a href="//fedoraproject.org/wiki/Legal:Main#Legal">Legal</a></dd>
+          </dl>
+          <ul class="list-inline">
+            <li>
+              <a class="btn-social btn-outline" href="//www.facebook.com/TheFedoraProject"><i class="fa fa-fw fa-facebook"></i></a>
+            </li>
+            <li>
+              <a class="btn-social btn-outline" href="//plus.google.com/112917221531140868607"><i class="fa fa-fw fa-google-plus"></i></a>
+            </li>
+            <li>
+              <a class="btn-social btn-outline" href="//twitter.com/fedora"><i class="fa fa-fw fa-twitter"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6 widget">
+        <h3 class="widget-title uppercase">Download</h3>
+        <div class="widget-body">
+          <dl>
+            <dd><a href="//getfedora.org/en/workstation/download">Get Fedora Workstation</a></dd>
+            <dd><a href="//getfedora.org/en/server/download">Get Fedora Server</a></dd>
+            <dd><a href="//getfedora.org/en/cloud/download">Get Fedora Cloud</a></dd>
+            <dd><a href="//spins.fedoraproject.org">Fedora Spins</a></dd>
+            <dd><a href="//labs.fedoraproject.org">Fedora Labs</a></dd>
+            <dd><a href="//arm.fedoraproject.org">Fedora ARM<span class="sup">&reg;</span></a></dd>
+            <dd><a href="http://torrents.fedoraproject.org">Torrent Downloads</a></dd>
+          </dl>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6 widget">
+        <h3 class="widget-title">Support</h3>
+          <div class="widget-body">
+            <dl>
+              <dd><a href="//fedoraproject.org/wiki/Communicating_and_getting_help">Get Help</a></dd>
+              <dd><a href="//ask.fedoraproject.org/">Ask Fedora</a></dd>
+              <dd><a href="http://fedoraforum.org/">Forums</a></dd>
+              <dd><a href="//fedoraproject.org/wiki/Common_F22_bugs">Common Bugs</a></dd>
+              <dd><a href="//docs.fedoraproject.org/en-US/Fedora/22/html/Installation_Guide">Installation Guide</a></dd>
+            </dl>
+          </div>
+        </div>
+        <div class="col-sm-3 col-xs-6 widget">
+          <h3 class="widget-title">Join</h3>
+            <div class="widget-body">
+            <dl>
+              <dd><a href="//fedoraproject.org/wiki/Join">Join Fedora</a></dd>
+              <dd><a href="http://fedoraplanet.org">Planet Fedora</a></dd>
+              <dd><a href="//fedoraproject.org/wiki/SIGs">Fedora SIGs</a></dd>
+              <dd><a href="//admin.fedoraproject.org/accounts/">Fedora Account System</a></dd>
+              <dd><a href="http://fedoracommunity.org/">Fedora Community</a></dd>
+            </dl>
+          </div>
+        </div>
+      </div> <!-- /row of widgets -->
+      <div class="row">
+        <div class="col-md-2">
+          <div class="widget-body">
+            <a href="http://www.redhat.com/"><img alt="Red Hat Logo" src="/static/logo/redhat.png" class="rh-logo"></a>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="widget-body">
+            <p class="sponsor">Fedora is sponsored by Red Hat.</p>
+            <p class="sponsor"><a href="//www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
+            <p class="copy">&copy; 2015 Red Hat, Inc. and others.</p>
+          </div>
+        </div>
+        <!-- /row of widgets -->
+      </div>
+</footer>
+
+  </body>
+</html>

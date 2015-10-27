@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Gems &mdash; Fedora Developer Portal</title>
+  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/ruby/gems-installation.html">
+
+  <!-- Link to Sitemap -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+  <link href="/css/main.css" rel="stylesheet" media="screen, print">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!--  <link href="/static/css/patternfly.min.css" rel="stylesheet" media="screen, print"> -->
+  <script src="/static/components/jquery/dist/jquery.min.js"></script>
+  <script src="/static/components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/static/components/datatables/media/js/jquery.dataTables.js"></script>
+  <script src="/static/js/patternfly.min.js"></script>
+
+  <!-- Site search -->
+  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    $(function() {
+      $('#search-query').lunrSearch({
+        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
+        results : '#search-results',  // selector for containing search results element
+        entries : '.entries',         // selector for search entries containing element (contained within results above)
+        template: '#search-results-template'  // selector for Mustache.js template
+      });
+    });
+  </script>
+</head>
+
+  <body>
+    <div class="container" id="header">
+  <div class="row" id="top">
+    <div class="col-sm-2" id="logo-col">
+      <div class="text-center">
+        <a href="/">
+          <img src="/static/logo.png" style="height: 46px; width: 152px;">
+          <span>Fedora Developer Portal</span>
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-7">
+      <nav>
+  <ul class="nav navbar-nav">
+    <li class="">
+      <a href="/tools.html">Get tools</a>
+    </li>
+    <li class=" active ">
+      <a href="/tech.html">Languages &amp; databases</a>
+    </li>
+    <li class="">
+      <a href="/deployment.html">Deploy and distribute</a>
+    </li>
+    <!--
+    <li class="">
+      <a href="/">Resources</a>
+    </li>
+    <li class="">
+      <a href="/">Blogs</a>
+    </li>
+    -->
+  </ul>
+</nav>
+
+    </div>
+    <div class="col-sm-3">
+      
+  <form class="input-group" id="search" action="/search.html" method="get">
+    <input type="text" id="search-query" class="form-control" name="q" placeholder="Search" autocomplete="off">
+    <span class="input-group-btn">
+      <button class="btn btn-default glyphicon glyphicon-search" type="submit" aria-hidden="true"></button>
+    </span>
+  </form>
+  <section id="search-results" style="display: none;">
+    <div class="entries">
+    </div>
+  </section>
+
+  
+  <script id="search-results-template" type="text/mustache">
+    {{#entries}}
+      <article>
+        <a href="{{url}}">{{title}}</a>
+      </article>
+    {{/entries}}
+  </script>
+  
+</div>
+
+
+    </div>
+  </div>
+</div>
+
+    <div class="title container" id="">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-xs-12" id="page-logo">
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                
+                  <img class="img-circle" src="/static/logo/ruby.png">
+                
+              
+            
+              
+                
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                
+                  <h1>Ruby</h1>
+                
+              
+            
+              
+                
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </div>
+          <div class="col-sm-6 Xhidden-xs" id="page-description">
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                
+                  <p>A dynamic programming language with a focus on readability, simplicity and productivity.</p>
+                
+              
+            
+              
+                
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-sm-3 col-sm-push-9">
+          <div class="list-group">
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                <a href="/tech/languages/ruby/ruby-installation.html" class="list-group-item ">Ruby</a>
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+                
+              
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                <a href="/tech/languages/ruby/gems-installation.html" class="list-group-item  active ">Gems</a>
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                <a href="/tech/languages/ruby/bundler-installation.html" class="list-group-item ">Bundler</a>
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                <a href="/tech/languages/ruby/ror-installation.html" class="list-group-item ">Ruby on Rails</a>
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                <a href="/tech/languages/ruby/sinatra-installation.html" class="list-group-item ">Sinatra</a>
+                
+              
+            
+              
+            
+              
+            
+              
+                
+                <a href="/tech/languages/ruby/ruby-sig.html" class="list-group-item ">Ruby SIG</a>
+                
+              
+            
+              
+            
+              
+                
+                <a href="/tech/languages/ruby/ruby-devassistant.html" class="list-group-item ">Ruby assistants for DevAssistant</a>
+                
+              
+            
+          </div>
+        </div>
+        <div class="col-sm-9 col-sm-pull-3">
+          <h1 id="gems-installation">Gems installation</h1>
+
+<p>You can install new gems on Fedora by either installing upstream gems from RubyGems.org or packaged gems from Fedora official repositories.</p>
+
+<h2 id="installing-gems-from-rubygemsorg">Installing gems from RubyGems.org</h2>
+
+<p>Installing upstream gems is as easy as running <code>gem install GEM_NAME</code> command, however some gems might fail to install due to complication errors. If you need to compile gems C extensions, install Ruby header files with the following command:</p>
+
+<pre><code>$ sudo dnf install ruby-devel
+</code></pre>
+
+<p>In case you lack the C compiler on your Fedora, you can install C development tools group:</p>
+
+<pre><code>$ sudo dnf group install "C Development Tools and Libraries"
+</code></pre>
+
+<p>Other missing header files will depend on the particular gem you want to install. In Fedora the sub-packages containing header files are always suffixed with <code>-devel</code> so for example to install the <code>pg</code> gem, you will need to compile its C extensions against PostgreSQL header files that can be installed by installing <code>postgresql-devel</code> sub-package.</p>
+
+<p>If you installed all the above, but the extensions would still not compile, you are probably running a Fedora image that misses <code>redhat-rpm-config</code> package. In that case <code>gcc</code> compiler would complain about one of the following:
+<code>
+gcc: error: conftest.c: No such file or directory
+gcc: error: /usr/lib/rpm/redhat/redhat-hardened-cc1: No such file or directory
+</code>
+To solve this, simply run <code>sudo dnf install redhat-rpm-config</code>.</p>
+
+<p>If you are getting compilation issues mentioning <code>Failed to complete patch task</code>, you are likely missing <code>patch</code> command:
+<code>
+$ sudo dnf install patch
+</code></p>
+
+<h2 id="installing-gems-from-official-fedora-repositories">Installing gems from official Fedora repositories</h2>
+
+<p>Many gems from RubyGems.org are packaged and available in base Fedora to install. These packages have <code>rubygem-</code> prefix to upstream gem names and a <code>rubygem(name)</code> virtual provide, and also comes with precompiled extensions.</p>
+
+<p>To install <code>thor</code> gem you therefore install <code>rubygem-thor</code> package:</p>
+
+<pre><code>$ sudo dnf install rubygem-thor
+or
+$ sudo dnf install 'rubygem(thor)'
+</code></pre>
+
+<p>This variant have the advantage of properly stating of all system dependencies and no need for any header files or development tools. Therefore you can just install the package and run it. It might also contain any security fixes or fixes that makes the gems run smoothly on Fedora without additional tweaking. This makes it a safer choice as you get the security fixes for your gems with your system updates.</p>
+
+<p>The disadvantage of installing Fedora packaged gems is the lack of versions to choose from. There is only one version that is usually available for a given Fedora at a time. To use the packaged gems successfully with Bundler, you will need to lock the exact version of the gem in the project’s Gemfile. If all gems are installed from Fedora repositories, you can take advantage of Bundler’s <code>--local</code> switch:</p>
+
+<pre><code>$ bundle --local
+</code></pre>
+
+<p>This way Bundler won’t try to get other gems from RubyGems.org and will only use and lock the gems found on your machine.</p>
+
+<p>Note that system gems are installed into <code>/usr/share/gems</code> and this path needs to be included in <code>$GEM_PATH</code> in case you are about to modify it.</p>
+
+<h3 id="isitfedoraruby">IsItFedoraRuby</h3>
+
+<p>To look whether the required gem is available as an RPM package, look at
+<a href="http://isitfedoraruby.com/">IsItFedoraRuby.com</a> site which tracks the Ruby
+integration within the Fedora project by listing available information about
+packaged gems.</p>
+
+        </div>
+        <div class="col-xs-12">
+          <hr>
+          <div id="ask-fedora">
+            Have a question?
+            
+              <a href="//ask.fedoraproject.org/en/questions/scope:all/sort:age-desc/tags:ruby,rails,sinatra/page:1/">Ask Fedora.</a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+  <div class="container">
+    <div class="row footerlinks">
+      <div class="col-sm-3 col-xs-6 widget">
+        <h3 class="widget-title">About</h3>
+        <div class="widget-body">
+          <dl>
+            <dd><a href="/about.html">About Developer Portal</a></dd>
+            <dd><a href="//getfedora.org/en/sponsors">About Fedora</a></dd>
+            <dd><a href="//getfedora.org/en/sponsors">Sponsors</a></dd>
+            <dd><a href="http://fedoramagazine.org">Fedora Magazine</a></dd>
+            <dd><a href="//fedoraproject.org/wiki/Legal:Main#Legal">Legal</a></dd>
+          </dl>
+          <ul class="list-inline">
+            <li>
+              <a class="btn-social btn-outline" href="//www.facebook.com/TheFedoraProject"><i class="fa fa-fw fa-facebook"></i></a>
+            </li>
+            <li>
+              <a class="btn-social btn-outline" href="//plus.google.com/112917221531140868607"><i class="fa fa-fw fa-google-plus"></i></a>
+            </li>
+            <li>
+              <a class="btn-social btn-outline" href="//twitter.com/fedora"><i class="fa fa-fw fa-twitter"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6 widget">
+        <h3 class="widget-title uppercase">Download</h3>
+        <div class="widget-body">
+          <dl>
+            <dd><a href="//getfedora.org/en/workstation/download">Get Fedora Workstation</a></dd>
+            <dd><a href="//getfedora.org/en/server/download">Get Fedora Server</a></dd>
+            <dd><a href="//getfedora.org/en/cloud/download">Get Fedora Cloud</a></dd>
+            <dd><a href="//spins.fedoraproject.org">Fedora Spins</a></dd>
+            <dd><a href="//labs.fedoraproject.org">Fedora Labs</a></dd>
+            <dd><a href="//arm.fedoraproject.org">Fedora ARM<span class="sup">&reg;</span></a></dd>
+            <dd><a href="http://torrents.fedoraproject.org">Torrent Downloads</a></dd>
+          </dl>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6 widget">
+        <h3 class="widget-title">Support</h3>
+          <div class="widget-body">
+            <dl>
+              <dd><a href="//fedoraproject.org/wiki/Communicating_and_getting_help">Get Help</a></dd>
+              <dd><a href="//ask.fedoraproject.org/">Ask Fedora</a></dd>
+              <dd><a href="http://fedoraforum.org/">Forums</a></dd>
+              <dd><a href="//fedoraproject.org/wiki/Common_F22_bugs">Common Bugs</a></dd>
+              <dd><a href="//docs.fedoraproject.org/en-US/Fedora/22/html/Installation_Guide">Installation Guide</a></dd>
+            </dl>
+          </div>
+        </div>
+        <div class="col-sm-3 col-xs-6 widget">
+          <h3 class="widget-title">Join</h3>
+            <div class="widget-body">
+            <dl>
+              <dd><a href="//fedoraproject.org/wiki/Join">Join Fedora</a></dd>
+              <dd><a href="http://fedoraplanet.org">Planet Fedora</a></dd>
+              <dd><a href="//fedoraproject.org/wiki/SIGs">Fedora SIGs</a></dd>
+              <dd><a href="//admin.fedoraproject.org/accounts/">Fedora Account System</a></dd>
+              <dd><a href="http://fedoracommunity.org/">Fedora Community</a></dd>
+            </dl>
+          </div>
+        </div>
+      </div> <!-- /row of widgets -->
+      <div class="row">
+        <div class="col-md-2">
+          <div class="widget-body">
+            <a href="http://www.redhat.com/"><img alt="Red Hat Logo" src="/static/logo/redhat.png" class="rh-logo"></a>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="widget-body">
+            <p class="sponsor">Fedora is sponsored by Red Hat.</p>
+            <p class="sponsor"><a href="//www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
+            <p class="copy">&copy; 2015 Red Hat, Inc. and others.</p>
+          </div>
+        </div>
+        <!-- /row of widgets -->
+      </div>
+</footer>
+
+  </body>
+</html>
