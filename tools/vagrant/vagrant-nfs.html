@@ -237,6 +237,18 @@
               
             
               
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
                 
               
             
@@ -281,6 +293,18 @@
                 
                   <h1>Vagrant</h1>
                 
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
               
             
               
@@ -545,6 +569,18 @@
               
             
               
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
                 
               
             
@@ -663,32 +699,6 @@
               
             
               
-                
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-                
-              
-            
-              
-            
-              
             
               
             
@@ -715,6 +725,44 @@
               
             
               
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
                 
               
             
@@ -763,6 +811,14 @@
             
               
                 
+              
+            
+              
+            
+              
+            
+              
+            
               
             
               
@@ -817,6 +873,10 @@
                 
                 <a href="/tools/vagrant/vagrant-libvirt.html" class="list-group-item ">Vagrant with libvirt provider</a>
                 
+              
+            
+              
+            
               
             
               
@@ -942,7 +1002,8 @@ Cmnd_Alias VAGRANT_EXPORTS_REMOVE = /bin/sed -r -e * d -ibak /etc/exports
 
 <p>Afterwards add yourself to the <code>vagrant</code> group if you are not there already by running:</p>
 
-<pre><code>$ sudo gpasswd -a ${USER} vagrant
+<pre><code>$ sudo getent group vagrant &gt;/dev/null || sudo groupadd -r vagrant
+$ sudo gpasswd -a ${USER} vagrant
 $ newgrp vagrant
 </code></pre>
 

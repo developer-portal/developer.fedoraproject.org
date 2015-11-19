@@ -237,6 +237,18 @@
               
             
               
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
                 
               
             
@@ -281,6 +293,18 @@
                 
                   <h1>Vagrant</h1>
                 
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
               
             
               
@@ -545,6 +569,18 @@
               
             
               
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
                 
               
             
@@ -663,32 +699,6 @@
               
             
               
-                
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-                
-              
-            
-              
-            
-              
             
               
             
@@ -715,6 +725,44 @@
               
             
               
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
                 
               
             
@@ -763,6 +811,14 @@
             
               
                 
+              
+            
+              
+            
+              
+            
+              
+            
               
             
               
@@ -817,6 +873,10 @@
                 
                 <a href="/tools/vagrant/vagrant-libvirt.html" class="list-group-item  active ">Vagrant with libvirt provider</a>
                 
+              
+            
+              
+            
               
             
               
@@ -904,21 +964,12 @@ was created with using libvirt provider in mind.</p>
 
 <h2 id="using-libvirt-from-vagrant-without-password-prompts">Using libvirt from Vagrant without password prompts</h2>
 
-<p>Using <code>libvirt</code> provider require you to type your administrator password every time you create,
-start, halt or destroy your domains. Fortunately you can avoid this by setting <code>polkit rules</code>
-to allow Vagrant to use <code>libvirt</code> without explicit approvals. We included this file in <code>-doc</code>
-sub-package. To get it, type:</p>
+<p>Using <code>libvirt</code> provider requires you to type your administrator password every time you create,
+start, halt or destroy your domains. Fortunately you can avoid this by adding yourself to the <code>libvirt</code> group:</p>
 
-<pre><code>$ sudo dnf install vagrant-libvirt-doc
+<pre><code>$ sudo gpasswd -a ${USER} libvirt
+$ newgrp libvirt
 </code></pre>
-
-<p>And install the policy by coping the polkit <code>.rules</code> file:</p>
-
-<pre><code>$ sudo cp /usr/share/vagrant/gems/doc/vagrant-libvirt-0.0.30/polkit/10-vagrant-libvirt.rules /usr/share/polkit-1/rules.d/
-</code></pre>
-
-<p>This is example for Fedora 23, for other versions change the version of <code>vagrant-libvirt</code> component in
-the above path to the one installed.</p>
 
         </div>
         <div class="col-xs-12">

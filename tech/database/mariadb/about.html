@@ -248,6 +248,18 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
             
               
             
@@ -265,6 +277,18 @@
                 
                   <h1>MariaDB</h1>
                 
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
               
             
               
@@ -410,6 +434,18 @@
                 
                   <p>Transactional SQL database, an enhanced drop-in replacement for MySQL.</p>
                 
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
               
             
               
@@ -688,6 +724,18 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
             
               
             
@@ -829,15 +877,27 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
           </div>
         </div>
         <div class="col-sm-9 col-sm-pull-3">
           <h1 id="mariadb-sql-database">MariaDB SQL database</h1>
 
-<p><a href="https://mariadb.org/en/about/">MariaDB</a> is a dropin replacement of MySQL, forked by the community from the latter. To learn more about MariaDB, visit <a href="https://mariadb.com/kb/en/mariadb/mariadb-vs-mysql-features/">upstream feature page</a>, and to see main differences from MySQL, see <a href="https://mariadb.com/kb/en/mariadb/mariadb-vs-mysql-compatibility/">compatibility documentation</a>.</p>
+<p><a href="https://mariadb.org/en/about/">MariaDB</a> is a drop-in replacement of MySQL, forked by the community from the latter. To learn more about MariaDB, visit <a href="https://mariadb.com/kb/en/mariadb/mariadb-vs-mysql-features/">upstream feature page</a>, and to see main differences from MySQL, see <a href="https://mariadb.com/kb/en/mariadb/mariadb-vs-mysql-compatibility/">compatibility documentation</a>.</p>
 
 <h2 id="what-implementations-of-mysql-we-have-in-fedora">What implementations of MySQL we have in Fedora</h2>
-<p><a href="https://apps.fedoraproject.org/packages/mariadb">MariaDB</a> is preffered MySQL implementation in Fedora. MariaDB can be usually used instead of MySQL as a dropin replacement in most practical cases and most of the applications will work exactly the same. However, when you need to install Community MySQL, it is available as <a href="https://apps.fedoraproject.org/packages/community-mysql">community-mysql package</a> in Fedora repositories.</p>
+<p><a href="https://apps.fedoraproject.org/packages/mariadb">MariaDB</a> is preferred MySQL implementation in Fedora. MariaDB can be usually used instead of MySQL as a drop-in replacement in most practical cases and most of the applications will work exactly the same. However, when you need to install Community MySQL, it is available as <a href="https://apps.fedoraproject.org/packages/community-mysql">community-mysql package</a> in Fedora repositories.</p>
 
 <p>Generally, most of the <a href="http://dev.mysql.com/doc/">documentation for MySQL</a> is valid also for MariaDB.</p>
 
@@ -845,9 +905,9 @@
 
 <p>Fedora usually ships only the most recent stable version of MariaDB, which is 10.0. Learn more about this version at <a href="https://mariadb.com/kb/en/mariadb/what-is-mariadb-100/">upstream documentation</a>. The package is called <code>mariadb</code> (client tools) and <code>mariadb-server</code> (server daemon).</p>
 
-<p>However, you can get older version either by installing <a href="https://www.softwarecollections.org/en/scls/rhscl/mariadb55/">Software Collection package of MariaDB 5.5</a> or by downloading <a href="https://downloads.mariadb.org/">packages provided by upstream</a>.</p>
+<p>However, you can get an older version either by installing <a href="https://www.softwarecollections.org/en/scls/rhscl/mariadb55/">Software Collection package of MariaDB 5.5</a> or by downloading <a href="https://downloads.mariadb.org/">packages provided by upstream</a>.</p>
 
-<p>Fedora also ships MariaDB with Galera patch. The package with MariaDB Galera is called <code>mariadb-galera-server</code> and the wsrep plugin is available in package <code>galera</code>. See section <a href="#how-to-install-mariadb-galera-on-fedora">How to install MariaDB Galera on Fedora</a> for more information.</p>
+<p>Fedora also ships MariaDB with Galera patch. The package with MariaDB Galera is called <code>mariadb-galera-server</code> and the wsrep plug-in is available in package <code>galera</code>. See section <a href="#how-to-install-mariadb-galera-on-fedora">How to install MariaDB Galera on Fedora</a> for more information.</p>
 
 <h2 id="how-to-install-mariadb-on-fedora">How to install MariaDB on Fedora</h2>
 
@@ -866,7 +926,7 @@
 <pre><code>$ sudo dnf install phpMyAdmin
 </code></pre>
 
-<p>Or install Libre Office Base with JDBC plugin for MySQL:</p>
+<p>Or install Libre Office Base with JDBC plug-in for MySQL:</p>
 
 <pre><code>$ sudo dnf install libreoffice-base mysql-connector-java
 </code></pre>
@@ -878,7 +938,7 @@
 
 <h2 id="a-namebasic-tutorial-for-mariadb-in-fedoraabasic-tutorial-for-mariadb-in-fedora"><a name="basic-tutorial-for-mariadb-in-fedora"></a>Basic tutorial for MariaDB in Fedora</h2>
 
-<p>MariaDB runs on port 3306 by default and creates local unix socker at <code>/var/lib/mysql/mysql.sock</code>. Data are stored into <code>/var/lib/mysql</code> directory and logs are located under <code>/var/log/mariadb/</code> by default. In order to change these directories, pay attention to use correct SELinux context and owner.</p>
+<p>MariaDB runs on port 3306 by default and creates a local unix socket at <code>/var/lib/mysql/mysql.sock</code>. By default, data is stored in the <code>/var/lib/mysql</code> directory and logs are located under <code>/var/log/mariadb/</code>. In order to change these directories, pay attention to use correct SELinux context and owner.</p>
 
 <p>Right after installing, the data directory is empty. It is initialized during the first start.</p>
 
@@ -892,7 +952,7 @@
 <pre><code>$ sudo systemctl enable mariadb
 </code></pre>
 
-<p>Without any further configuration, root user has no password set by default and so it is allowed to connect without the password:</p>
+<p>The root user has no password set by default and so it is allowed to connect without the password:</p>
 
 <pre><code>mysql -u root
 </code></pre>
@@ -910,13 +970,12 @@
 
 <h3 id="how-to-configure-mariadb-server-for-local-development">How to configure MariaDB server for local development</h3>
 
-<p>When developing an application that uses MariaDB as the storage engine, developer uses typically one user account that has full access to one dedicated database scheme. In order to do so, run the commands from section <a href="#basic-tutorial-for-mariadb-in-fedora">Basic tutorial for MariaDB in Fedora</a> and then create the user and the dedicated database:</p>
+<p>When developing an application that uses MariaDB as the storage engine, developers typically use one user account that has full access to one dedicated database scheme. In order to do so, run the commands from section <a href="#basic-tutorial-for-mariadb-in-fedora">Basic tutorial for MariaDB in Fedora</a> and then create the user and the dedicated database:</p>
 
 <pre><code>$ sudo systemctl start mariadb
 $ sudo systemctl enable mariadb
 $ sudo mysql_secure_installation
-...
-$ sudo mysql -u root -p
+...My Account sudo mysql -u root -p
 MariaDB [(none)]&gt; create database db1;
 Query OK, 1 row affected (0.00 sec)
 
@@ -941,11 +1000,11 @@ Bye
 
 <h3 id="how-to-run-mariadb-in-production-development">How to run MariaDB in production development</h3>
 
-<p>In order to run MariaDB in production development, you should pay extra attention to setup the service with minimizing risk of being exploited. Except other things, this means:
+<p>In order to run MariaDB in production development, you should pay extra attention to setting up the service in order to minimize the risk of being exploited. Among other things, this means:
  * use <code>mysql_secure_installation</code> as mentioned above
- * do not accept connectoins from all adresses if not absolutely necessary
- * use strong passwords every-time
- * use only user permissions that are necessary for the application</p>
+ * do not accept connections from all addresses unless absolutely necessary
+ * <code>Always use a strong passwordd</code>
+ * Limit user permissions to those necessary for the application to run</p>
 
 <p>By default, MariaDB cannot be accessed from another computer. In order to allow access from another computer, we need to do the following things.</p>
 
@@ -961,9 +1020,9 @@ bind-address = 0.0.0.0
 
 <h3 id="other-common-configuration">Other common configuration</h3>
 
-<p>In order to change configuration paramenters for the MariaDB server, create the a configuration file under <code>/etc/my.cnf.d/</code> directory.</p>
+<p>In order to change configuration parameters for the MariaDB server, create the a configuration file under <code>/etc/my.cnf.d/</code> directory.</p>
 
-<p>The following example shows content of the file <code>/etc/my.cnf.d/myconfig.cnf</code> that contains several options, that are often changed (use any variables that matches your needs).
+<p>The following example shows content of the file <code>/etc/my.cnf.d/myconfig.cnf</code> which contains several commonly changed options (use any variables that matches your needs).
 ```
 # The maximum permitted number of simultaneous client connections:
 max_connections = 20</p>
@@ -972,7 +1031,7 @@ max_connections = 20</p>
 <p>ft_min_word_len = 3</p>
 
 <h1 id="the-maximum-length-of-the-word-to-be-included-in-a-fulltext-index">The maximum length of the word to be included in a FULLTEXT index:</h1>
-<p>ft_max_word_len = 15</p>
+<p>ft_max_word_len = My Account</p>
 
 <h1 id="in-case-the-native-aio-is-broken-it-can-be-disabled-by">In case the native AIO is broken, it can be disabled by:</h1>
 <p>innodb_use_native_aio = 0</p>
@@ -1021,7 +1080,7 @@ general_log_file = “/var/log/mariadb/query.log”
 
 <h2 id="mariadb-server-available-as-a-dynamic-library">MariaDB server available as a dynamic library:</h2>
 
-<p>In Fedora, MariaDB server is available also as a dynamic library, that can be handy in some applications. This library (<code>libmysqld.so</code>) is available in package <code>mariadb-embedded</code> and header files for building an application against this library are available in package <code>mariadb-embedded-devel</code>.</p>
+<p>In Fedora, MariaDB server is available also as a dynamic library, that can be handy in some applications. This library (<code>libmysqld.so</code>) is available in the package <code>mariadb-embedded</code> and header files for building an application against this library are available in the package <code>mariadb-embedded-devel</code>.</p>
 
         </div>
         <div class="col-xs-12">

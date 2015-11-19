@@ -43,6 +43,9 @@
     <loc>http://developer.fedoraproject.org/tech/languages/c/c_installation.html</loc>
   </url>
   <url>
+    <loc>http://developer.fedoraproject.org/tech/languages/haskell/cabal.html</loc>
+  </url>
+  <url>
     <loc>http://developer.fedoraproject.org/tech/languages/c/cmake.html</loc>
   </url>
   <url>
@@ -94,6 +97,9 @@
     <loc>http://developer.fedoraproject.org/tech/languages/groovy/groovy-installation.html</loc>
   </url>
   <url>
+    <loc>http://developer.fedoraproject.org/tech/languages/haskell/haskell-installation.html</loc>
+  </url>
+  <url>
     <loc>http://developer.fedoraproject.org/</loc>
   </url>
   <url>
@@ -110,6 +116,15 @@
   </url>
   <url>
     <loc>http://developer.fedoraproject.org/tech/languages/nodejs/modules.html</loc>
+  </url>
+  <url>
+    <loc>http://developer.fedoraproject.org/tech/languages/csharp/mono-build-tools-installation.html</loc>
+  </url>
+  <url>
+    <loc>http://developer.fedoraproject.org/tech/languages/csharp/mono-installation.html</loc>
+  </url>
+  <url>
+    <loc>http://developer.fedoraproject.org/tech/languages/csharp/mono-sig.html</loc>
   </url>
   <url>
     <loc>http://developer.fedoraproject.org/tech/languages/nodejs/nodejs-devassistant.html</loc>
@@ -169,10 +184,10 @@
     <loc>http://developer.fedoraproject.org/search.html</loc>
   </url>
   <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/ruby/sinatra-installation.html</loc>
+    <loc>http://developer.fedoraproject.org/tech/languages/haskell/sig.html</loc>
   </url>
   <url>
-    <loc>http://developer.fedoraproject.org/start.html</loc>
+    <loc>http://developer.fedoraproject.org/tech/languages/ruby/sinatra-installation.html</loc>
   </url>
   <url>
     <loc>http://developer.fedoraproject.org/tech/languages/php/symfony-installation.html</loc>

@@ -163,7 +163,17 @@
               
             
               
+            
+              
                 
+              
+            
+              
+            
+              
+            
+              
+            
               
             
               
@@ -235,53 +245,6 @@
               
             
               
-                
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
             
               
                 
@@ -309,6 +272,21 @@
             
               
             
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
               
             
               
@@ -319,6 +297,50 @@
             
               
                 
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
               
             
               
@@ -385,6 +407,8 @@
             
               
                 
+              
+            
               
             
               
@@ -475,7 +499,17 @@
               
             
               
+            
+              
                 
+              
+            
+              
+            
+              
+            
+              
+            
               
             
               
@@ -542,6 +576,8 @@
             
               
                 
+              
+            
               
             
               
@@ -639,6 +675,10 @@
               
             
               
+            
+              
+            
+              
                 
                 <a href="/tech/languages/ruby/ruby-installation.html" class="list-group-item ">Ruby</a>
                 
@@ -655,31 +695,9 @@
               
             
               
-                
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
             
               
                 
-              
-            
-              
-            
               
             
               
@@ -719,6 +737,36 @@
               
             
               
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
                 
               
             
@@ -794,7 +842,13 @@
               
             
               
+            
+              
+            
+              
                 
+              
+            
               
             
               
@@ -830,9 +884,15 @@
               
             
               
+            
+              
                 
                 <a href="/tech/languages/ruby/bundler-installation.html" class="list-group-item ">Bundler</a>
                 
+              
+            
+              
+            
               
             
               
@@ -910,7 +970,7 @@
 
 <h2 id="installing-gems-from-rubygemsorg">Installing gems from RubyGems.org</h2>
 
-<p>Installing upstream gems is as easy as running <code>gem install GEM_NAME</code> command, however some gems might fail to install due to complication errors. If you need to compile gems C extensions, install Ruby header files with the following command:</p>
+<p>Installing upstream gems is as easy as running <code>gem install GEM_NAME</code> command, however some gems might fail to install due to compilation errors. If you need to compile gems C extensions, install Ruby header files with the following command:</p>
 
 <pre><code>$ sudo dnf install ruby-devel
 </code></pre>
@@ -922,17 +982,18 @@
 
 <p>Other missing header files will depend on the particular gem you want to install. In Fedora the sub-packages containing header files are always suffixed with <code>-devel</code> so for example to install the <code>pg</code> gem, you will need to compile its C extensions against PostgreSQL header files that can be installed by installing <code>postgresql-devel</code> sub-package.</p>
 
-<p>If you installed all the above, but the extensions would still not compile, you are probably running a Fedora image that misses <code>redhat-rpm-config</code> package. In that case <code>gcc</code> compiler would complain about one of the following:
-<code>
-gcc: error: conftest.c: No such file or directory
-gcc: error: /usr/lib/rpm/redhat/redhat-hardened-cc1: No such file or directory
-</code>
-To solve this, simply run <code>sudo dnf install redhat-rpm-config</code>.</p>
+<p>If you installed all the above, but the extensions would still not compile, you are probably running a Fedora image that misses <code>redhat-rpm-config</code> package. In that case <code>gcc</code> compiler would complain about one of the following:</p>
 
-<p>If you are getting compilation issues mentioning <code>Failed to complete patch task</code>, you are likely missing <code>patch</code> command:
-<code>
-$ sudo dnf install patch
-</code></p>
+<pre><code>gcc: error: conftest.c: No such file or directory
+gcc: error: /usr/lib/rpm/redhat/redhat-hardened-cc1: No such file or directory
+</code></pre>
+
+<p>To solve this, simply run <code>sudo dnf install redhat-rpm-config</code>.</p>
+
+<p>If you are getting compilation issues mentioning <code>Failed to complete patch task</code>, you are likely missing <code>patch</code> command:</p>
+
+<pre><code>$ sudo dnf install patch
+</code></pre>
 
 <h2 id="installing-gems-from-official-fedora-repositories">Installing gems from official Fedora repositories</h2>
 
@@ -941,8 +1002,11 @@ $ sudo dnf install patch
 <p>To install <code>thor</code> gem you therefore install <code>rubygem-thor</code> package:</p>
 
 <pre><code>$ sudo dnf install rubygem-thor
-or
-$ sudo dnf install 'rubygem(thor)'
+</code></pre>
+
+<p>or</p>
+
+<pre><code>$ sudo dnf install 'rubygem(thor)'
 </code></pre>
 
 <p>This variant have the advantage of properly stating of all system dependencies and no need for any header files or development tools. Therefore you can just install the package and run it. It might also contain any security fixes or fixes that makes the gems run smoothly on Fedora without additional tweaking. This makes it a safer choice as you get the security fixes for your gems with your system updates.</p>

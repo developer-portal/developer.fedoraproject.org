@@ -205,7 +205,19 @@
               
             
               
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
                 
+              
+            
               
             
               
@@ -350,7 +362,19 @@
               
             
               
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
                 
+              
+            
               
             
               
@@ -497,7 +521,19 @@
               
             
               
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
                 
+              
+            
               
             
               
@@ -609,104 +645,120 @@
               
             
               
-                
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-            
-              
-            
-              
-            
-              
             
               
             
               
                 
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
               
             
               
@@ -841,6 +893,14 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+            
           </div>
         </div>
         <div class="col-sm-9 col-sm-pull-3">
@@ -865,7 +925,7 @@ server, server-compatible plug-ins and database connectors.</p>
 
 <p>PostgreSQL installation on Fedora box and basic command-line usage:</p>
 
-<pre><code class="language-bash">$ sudo yum install postgresql postgresql-server # install client/server
+<pre><code class="language-bash">$ sudo dnf install postgresql postgresql-server # install client/server
 $ sudo postgresql-setup initdb                  # initialize PG cluster
 $ sudo systemctl start postgresql               # start cluster
 $ sudo su - postgres                            # login as DB admin
@@ -889,9 +949,9 @@ quick-start=#
 
 <h1 id="controlling-access-to-pg-cluster-pghbaconf-users-passwords">Controlling access to PG cluster (pg_hba.conf, users, passwords)</h1>
 
-<p>Sometimes is useful to create new user (with password) for specific database
-application.  There is set of utilities in <code>postgresql</code> package (see
-<code>rpm -ql postgresql | grep /usr/bin</code>) that may ease some of those tasks.  Lets try to
+<p>Sometimes it is useful to create a new user (with password) for specific database
+applications.  There is set of utilities in the <code>postgresql</code> package (see
+<code>rpm -ql postgresql | grep /usr/bin</code>) that may simplify some of those tasks.  Lets try to
 create additional user, password and database:</p>
 
 <pre><code>$ sudo su - postgres
@@ -917,9 +977,7 @@ testdb=&gt;
 
 <h2 id="documentation">Documentation</h2>
 
-<p>Packaging documentation is available as <a href="postgresql-in-rpms.html">README.rpm-dist</a>
-file in <code>postgresql</code> package (client package).  Anybody running PostgreSQL on
-Fedora should start here:</p>
+<p>Packaging documentation is available as <a href="postgresql-in-rpms.html">README.rpm-dist</a> in the <code>postgresql</code> package (client package).  Anybody running PostgreSQL on Fedora should start here:</p>
 
 <pre><code class="language-bash">$ rpm -qd postgresql | grep README.rpm-dist
 /usr/share/doc/postgresql/README.rpm-dist
@@ -928,7 +986,7 @@ $ less /usr/share/doc/postgresql/README.rpm-dist
 
 <p>Install/use official documentation with:</p>
 
-<pre><code>$ sudo yum install postgresql-docs
+<pre><code>$ sudo dnf install postgresql-docs
 $ firefox /usr/share/doc/postgresql-docs/html/index.html         # HTML version
 $ rpm -ql postgresql-docs | grep pdf
 /usr/share/doc/postgresql-docs/postgresql-9.3.9-US.pdf
@@ -939,7 +997,7 @@ $ okular /usr/share/doc/postgresql-docs/postgresql-9.3.9-US.pdf  # PDF version
 please choose the version installed on your box
 (<code>rpm -q postgresql --qf "%{VERSION}\n"</code>).</p>
 
-<p>Other documentation available online:</p>
+<p>Other documentation available on-line:</p>
 
 <ul>
   <li><a href="https://fedoraproject.org/wiki/PostgreSQL">Fedora PostgreSQL Homepage</a></li>
@@ -967,14 +1025,14 @@ extending SQL syntax)</li>
   <li><a href="https://admin.fedoraproject.org/pkgdb/packages/postgresql-ip4r">postgresql-ip4r</a></li>
 </ul>
 
-<h3 id="how-to-use-extension">How to use extension:</h3>
+<h3 id="how-to-use-extensions">How to use extensions:</h3>
 
-<p>PostgreSQL implements <a href="http://www.postgresql.org/docs/9.4/static/sql-createextension.html">CREATE
+<p>PostgreSQL implements the <a href="http://www.postgresql.org/docs/9.4/static/sql-createextension.html">CREATE
 EXTENSION</a>
 syntax (example with
 <a href="http://www.postgresql.org/docs/9.4/static/hstore.html">hstore</a> extension):</p>
 
-<pre><code>$ sudo yum install postgresql-contrib           -- install extension (hstore)
+<pre><code>$ sudo dnf install postgresql-contrib           -- install extension (hstore)
 $ sudo su - postgres                            -- switch user to DB admin
 $ psql -d quick-start                           -- connect to an existing DB
 psql (9.3.9)
@@ -1001,11 +1059,11 @@ quick-start=# SELECT 'a=&gt;1,b=&gt;2'::hstore;       -- use the extension
 
 <h2 id="postgresql-in-containers">PostgreSQL in containers</h2>
 
-<p>Currently there is prepared Docker container for Fedora 21.  Documentation
+<p>Currently there is a prepared Docker container for Fedora 21.  Documentation
 is available on the <a href="https://github.com/fedora-cloud/Fedora-Dockerfiles/tree/master/postgresql">Fedora-Dockerfiles github
 page</a>.</p>
 
-<p>There is also available PostgreSQL image
+<p>There is also a PostgreSQL image available
 <a href="https://github.com/openshift/postgresql">for OpenShift</a>.</p>
 
         </div>
