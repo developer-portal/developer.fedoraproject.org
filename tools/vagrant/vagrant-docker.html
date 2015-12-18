@@ -249,6 +249,12 @@
               
             
               
+            
+              
+            
+              
+            
+              
                 
               
             
@@ -293,6 +299,12 @@
                 
                   <h1>Vagrant</h1>
                 
+              
+            
+              
+            
+              
+            
               
             
               
@@ -581,6 +593,12 @@
               
             
               
+            
+              
+            
+              
+            
+              
                 
               
             
@@ -731,18 +749,6 @@
               
             
               
-                
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
             
               
                 
@@ -759,11 +765,29 @@
               
             
               
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
             
               
             
               
                 
+              
+            
               
             
               
@@ -896,6 +920,8 @@
               
             
               
+            
+              
                 
                 <a href="/tools/vagrant/vagrant-virtualbox.html" class="list-group-item ">Vagrant with VirtualBox provider</a>
                 
@@ -932,9 +958,13 @@
               
             
               
+            
+              
                 
                 <a href="/tools/vagrant/vagrant-plugins.html" class="list-group-item ">Vagrant plugins</a>
                 
+              
+            
               
             
               
@@ -990,7 +1020,7 @@ ENV['VAGRANT_DEFAULT_PROVIDER'] = 'docker'
 
 <h2 id="using-docker-from-vagrant-without-password-prompts">Using Docker from Vagrant without password prompts</h2>
 
-<p>To use Vagrant with Docker without password prompts it is enough to add yourself to the <code>vagrant</code>
+<p>To use Vagrant with Docker without password prompts it is enough to add yourself to the <code>docker</code>
 group. This will make <code>docker</code> commands password-less as well.</p>
 
 <p>To do so, type:</p>
@@ -999,7 +1029,7 @@ group. This will make <code>docker</code> commands password-less as well.</p>
 $ newgrp docker
 </code></pre>
 
-<p>Above commands will create the group <code>vagrant</code> and add current user to this group. This user
+<p>Above commands will create the group <code>docker</code> and add current user to this group. This user
 also need to have administrator privileges.</p>
 
 <p>Note: This has security implications, read about this in the <a href="https://docs.docker.com/articles/security/#docker-daemon-attack-surface">official docs</a>.</p>

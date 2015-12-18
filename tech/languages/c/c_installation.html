@@ -127,6 +127,10 @@
               
             
               
+            
+              
+            
+              
                 
               
             
@@ -249,7 +253,7 @@
               
             
               
-            
+                
               
             
               
@@ -268,6 +272,14 @@
             
               
             
+              
+            
+              
+            
+            
+              
+            
+              
             
               
             
@@ -412,6 +424,10 @@
               
             
               
+                
+              
+            
+              
             
               
             
@@ -433,6 +449,10 @@
             
           </div>
           <div class="col-sm-6 Xhidden-xs" id="page-description">
+            
+              
+            
+              
             
               
             
@@ -577,6 +597,10 @@
               
             
               
+                
+              
+            
+              
             
               
             
@@ -605,6 +629,8 @@
         
         <div class="col-sm-3 col-sm-push-9">
           <div class="list-group">
+            
+              
             
               
             
@@ -677,8 +703,6 @@
               
             
               
-            
-              
                 
               
             
@@ -692,44 +716,6 @@
             
               
             
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-                
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-                
               
             
               
@@ -768,6 +754,54 @@
             
               
             
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+            
+              
             
               
             
@@ -805,8 +839,6 @@
             
               
                 
-              
-            
               
             
               
@@ -868,8 +900,10 @@
               
             
               
+            
+              
                 
-                <a href="/tech/languages/c/automake.html" class="list-group-item ">Automake</a>
+                <a href="/tech/languages/c/autotools.html" class="list-group-item ">Autotools</a>
                 
               
             
@@ -936,6 +970,14 @@
               
             
               
+                
+                <a href="/tech/languages/c/static-analysis.html" class="list-group-item ">Static Analysis</a>
+                
+              
+            
+              
+            
+              
             
           </div>
         </div>
@@ -971,6 +1013,18 @@ The <code>-o name</code> option simply states the name of the binary created by 
 To see all the options which you can use with <code>gcc</code> simply view its man page like this:</p>
 
 <pre><code>$ man gcc
+</code></pre>
+
+<h3 id="compiling-32-bit-binaries-on-a-64-bit-fedora">Compiling 32-bit binaries on a 64-bit Fedora</h3>
+
+<p>Let us assume you have a shiny modern computer with a 64-bit processor (AMD, Intel or similar compatible processor, this architecture is called x86_64 in Fedora) and installed 64-bit Fedora with gcc as per instructions above. GCC will naturally create 64-bit binaries suitable for your system. Yet sometimes for some sad reason you want to create a 32-bit binary (architecture like old Pentiums, called i686 in Fedora). Maybe you want to be compatible with some ancient piece of hardware or software. No matter the reason, first you need to</p>
+
+<pre><code>$ sudo dnf install libgcc.i686 glibc-devel.i686
+</code></pre>
+
+<p>If you use additional -devel packages, install them as well with the .i686 suffix. Then you can tell gcc to produce 32-bit binaries using “-m32” option:</p>
+
+<pre><code>$ gcc -m32 your_source.c -o your_binary
 </code></pre>
 
 <h2 id="clang-installation">CLANG installation</h2>
