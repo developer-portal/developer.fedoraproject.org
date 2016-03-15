@@ -15,13 +15,7 @@
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-<!--  <link href="/static/css/patternfly.min.css" rel="stylesheet" media="screen, print"> -->
-  <script src="/static/components/jquery/dist/jquery.min.js"></script>
-  <script src="/static/components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="/static/components/datatables/media/js/jquery.dataTables.js"></script>
-  <script src="/static/js/patternfly.min.js"></script>
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
 
   <!-- Site search -->
   <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
@@ -35,24 +29,43 @@
       });
     });
   </script>
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+    ga('create', 'UA-69605821-1', 'auto');
+    ga('send', 'pageview');
+  
+  </script>
 </head>
 
   <body>
-    <div class="container" id="splash">
-  <div class="row" id="top">
-    <div class="col-sm-2" id="logo-col">
-      <div class="text-center">
-        <h1>
-          <a href="/">
-            <img src="/static/logo_white.png" style="height: 46px; width: 152px;">
-            <span>Fedora Developer Portal</span>
-          </a>
-        </h1>
-      </div>
+    
+
+
+    <!-- The top blue thing -->
+    <div id="splash" class="splash-size-large splash-section-homepage">
+      <div class="container">
+        <div class="row" id="top">
+  <div class="col-sm-2" id="logo-col">
+    <div class="text-center">
+      <h1>
+        <a href="/">
+          <img src="/static/logo_white.png" style="height: 46px; width: 152px;">
+          <span>Fedora Developer Portal</span>
+        </a>
+      </h1>
     </div>
-    <div class="col-sm-7">
-      <nav>
+  </div>
+  <div class="col-sm-7" id="menu-col">
+    <nav>
   <ul class="nav navbar-nav">
+    <li class="">
+      <a href="/start.html">Start a project</a>
+    </li>
     <li class="">
       <a href="/tools.html">Get tools</a>
     </li>
@@ -73,9 +86,9 @@
   </ul>
 </nav>
 
-    </div>
-    <div class="col-sm-3">
-      
+  </div>
+  <div class="col-sm-3" id="search-col">
+    
   <form class="input-group" id="search" action="/search.html" method="get">
     <input type="text" id="search-query" class="form-control" name="q" placeholder="Search" autocomplete="off">
     <span class="input-group-btn">
@@ -96,185 +109,118 @@
     {{/entries}}
   </script>
   
-</div>
 
 
-    </div>
-  <div class="row" id="headlines">
-	  <div class="col-sm-12">
-		<h2>The developer workstation you've been waiting for.</h2>
-		<p>From mobile apps to web; from desktop GUIs to CLI tools. Create it all easily with Fedora.</p>
-	  </div>
-  </div>
-  <div class="row" id="attribution">
-    <div class="col-sm-12">
-      <a href="https://www.flickr.com/photos/duald/7423940266/">Union Station Abstract</a> by <a href="https://www.flickr.com/photos/duald/">DualD FlipFlop</a> on Flickr, CC-BY-2.0
-    </div>
-    </div>
   </div>
 </div>
 
+        <div class="row" id="headlines">
+  <div class="col-sm-12">
+  <h2>The developer workstation you've been waiting for.</h2>
+  <p>From mobile apps to web; from desktop GUIs to CLI tools. Create it all easily with Fedora.</p>
+  </div>
+</div>
+<div class="row" id="attribution">
+  <div class="col-sm-12">
+    <a href="https://www.flickr.com/photos/duald/7423940266/">Union Station Abstract</a> by <a href="https://www.flickr.com/photos/duald/">DualD FlipFlop</a> on Flickr, CC-BY-2.0
+  </div>
+</div>
+
+      </div>
+    </div>
+
+    <!-- Content -->
     <div class="container">
-      <div class="row text-center">
-<div class="row text-center" id="front-nav">
-  <div class="col-sm-4">
-	<a href="/tools.html"><img src="/static/img/nav-tools.png"></a>
-    <h3><a href="/tools.html">Get tools</a></h3>
-    <p>Prepare your environment with DevAssistant. Collaborate with Docker and Vagrant. Handle and debug crashes with ABRT.</p>
+      <div class="row" id="front-nav">
+  <div class="col-sm-3">
+    <a class="panel-link" href="/start.html">
+      <div class="panel panel-default">
+      	<img src="/static/img/nav-start.png">
+        <h3>Start a project</h3>
+        <p>How to do web, mobile, Arduino, and RaspberryPi development on Fedora.</p>
+      </div>
+    </a>
   </div>
-  <div class="col-sm-4">
-	<a href="/tech.html"><img src="/static/img/nav-tech.png"></a>
-    <h3><a href="/tech.html">Languages & databases</a></h3>
-    <p>Languages and their modules available in Fedora. Installing databases and their configuration.</p>
+  <div class="col-sm-3">
+    <a class="panel-link" href="/tools.html">
+      <div class="panel panel-default">
+      	<img src="/static/img/nav-tools.png">
+        <h3>Get tools</h3>
+        <p>Prepare your environment with DevAssistant and run it with Docker and Vagrant.</p>
+      </div>
+    </a>
   </div>
-  <div class="col-sm-4">
-	<a href="/deployment.html"><img src="/static/img/nav-deploy.png"></a>
-    <h3><a href="/deployment.html">Deploy and distribute</a></h3>
-    <p>Package as an RPM. Distribute with Copr. Deploy to OpenShift.</p>
+  <div class="col-sm-3">
+    <a class="panel-link" href="/tech.html">
+      <div class="panel panel-default">
+      	<img src="/static/img/nav-tech.png">
+        <h3>Languages & databases</h3>
+        <p>Languages and their modules available in Fedora. Installing databases and their configuration.</p>
+      </div>
+    </a>
+  </div>
+  <div class="col-sm-3">
+    <a class="panel-link" href="/deployment.html">
+      <div class="panel panel-default">
+      	<img src="/static/img/nav-deploy.png">
+        <h3>Deploy and distribute</h3>
+        <p>Package as an RPM. Distribute with Copr. Deploy to OpenShift.</p>
+      </div>
+    </a>
   </div>
 </div>
 
-
-</div>
-
     </div>
-    <div class="text-center">
-   <div id="myFedoraPortal" class="carousel slide" data-ride="carousel" >
-     <ol class="carousel-indicators">
-       <li data-target="#myFedoraPortal" data-slide-to="0" class="active"></li>
-       <li data-target="#myFedoraPortal" data-slide-to="1"></li>
-       <li data-target="#myFedoraPortal" data-slide-to="2"></li>
-       <li data-target="#myFedoraPortal" data-slide-to="3"></li>
-     </ol>
-     <!-- Wrapper for slides -->
-     <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <div class="container headlines" id="devassistant">
-            <div class="container">
-            <div class="row">
-              <div class="col-md-5 col-sm-6 col-xs-15">
-                <img src="/static/img/banners/banner_devassistant.png">
-              </div>
-              <div class="col-md-6 col-sm-5 col-xs-11 headlines-body">
-                <h2>Start developing with ease.</h2>
-                <p>Set up your development environment, publish your code, and do many of the chores that somehow keep you from the important stuff - writing your software.</p>
-                <p><a href="/tools/devassistant/about.html">Learn more <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></a></p>
-              </div>
-            </div>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="container headlines" id="devassistant">
-            <div class="container">
-            <div class="row">
-              <div class="col-md-5 col-sm-6 col-xs-15">
-                <img src="/static/img/banners/banner_vagrant.png">
-              </div>
-              <div class="col-md-6 col-sm-5 col-xs-11 headlines-body">
-                <h2>Easy development environment.</h2>
-                <p>Create reproducible and portable development environments that can be easily shared in your team.</p>
-                <p><a href="/tools/vagrant/about.html">Learn more <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></a></p>
-              </div>
-            </div>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="container headlines" id="devassistant">
-            <div class="container">
-            <div class="row">
-              <div class="col-md-5 col-sm-6 col-xs-15">
-                <img src="/static/img/banners/banner_docker.png">
-              </div>
-              <div class="col-md-6 col-sm-5 col-xs-11 headlines-body">
-                <h2>Make your app run everywhere.</h2>
-                <p>Docker is an open platform for building, shipping and running distributed applications.</p>
-                <p><a href="/tools/docker/about.html">Learn more <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></a></p>
-              </div>
-            </div>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="container headlines" id="devassistant">
-            <div class="container">
-            <div class="row">
-              <div class="col-md-5 col-sm-6 col-xs-15">
-                <img src="/static/img/banners/banner_virt-builder.png">
-              </div>
-              <div class="col-md-6 col-sm-5 col-xs-11 headlines-body">
-                <h2>Build virtual machine images quickly.</h2>
-                <p>Virt-builder is a tool for quickly building (and customizing) virtual machines.</p>
-                <p><a href="/tools/virt-builder/about.html">Learn more <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></a></p>
-              </div>
-            </div>
-            </div>
-          </div>
-        </div>
-    </div>
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myFedoraPortal" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myFedoraPortal" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
+
+    <!-- Some other stuff -->
+
+    <div class=" banner-contribute">
+  <div class="container">
+    <h2> Share your knowledge </h2>
+    <p> Fedora Developer Portal is a community effort to share guides and information about open-source development. And we need your help! </p>
+    <a href="http://developer-portal.github.io/contributing/" class="btn btn-primary">Learn how to contribute</a>
   </div>
 </div>
 
     <!-- BLOG_HEADLINES_START -->
-
-
 <div class="container" id="blog-headlines">
-    <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-          <h2><span>Fedora Planet</span></h2>
-      </div>
-    </div>
-    <div class="row">
-
+  <div class="container">
+  <div class="row">
+	  <div class="col-sm-12">
+	  	  <h2><span>Fedora Planet</span></h2>
+	  </div>
+  </div>
+  <div class="row">
     <div class="col-sm-6 blog-headlines">
-    
-        <article>
-        <h3><a href="https://fedoramagazine.org/fedora-openid-login-new-improved/"> Fedora OpenID login: New and improved</a></h3>
-        <p>Short history of Fedora OpenID In March 2013, we introduced an entirely new and rewritten OpenID provider: FAS-OpenID. This has since become the basis for...</p>
-        <p><a href="https://fedoramagazine.org/fedora-openid-login-new-improved/">Read more</a></p>
-        <p class="byline">by <span class="author">Fedora Magazine</span> <span class="date">Fri, 18 Dec 2015</span></p>
-        </article>
-
-        <article>
-        <h3><a href="http://www.rtnpro.com/atomicapp-0-3-0-released/"> Atomicapp 0.3.0 released!</a></h3>
-        <p>Atomicapp gets 0.3.0 release! A major highlight of this release is the new provider: Marathon. Apart from this, numerous other features and bug fixes and...</p>
-        <p><a href="http://www.rtnpro.com/atomicapp-0-3-0-released/">Read more</a></p>
-        <p class="byline">by <span class="author">Ratnadeep Debnath</span> <span class="date">Fri, 18 Dec 2015</span></p>
-        </article>
-
+	  <article>
+		<h3><a href="#">Dirty Tricks: Launching a helper process under memory and latency constraints (pthread_create and vfork)</a></h3>
+		<p>You need to launch a helper process, and while Linux’s fork is copy-on-write (COW), the page tables still need to be duplicated, and for a large virtual address space that...</p>
+		<p><a href="#">Read more ...</a></p>
+		<p class="byline">by <span class="author">Carlos O'Donnell</span> <span class="date">August 19, 2015</span></p>
+	  </article>
+	  <article>
+		<h3><a href="#">Repost: Developing process-enabled applications with BPA and BPM tools</a></h3>
+		<p>Developing business process-enabled applications can be messy—with numerous stakeholders using separate business process analysis (BPA) and business process...</p>
+		<p><a href="#">Read more ...</a></p>
+		<p class="byline">by <span class="author">Eric D. Schabell</span> <span class="date">August 5, 2015</span></p>
+	  </article>
     </div>
-
     <div class="col-sm-6 blog-headlines">
-    
-        <article>
-        <h3><a href="http://blog.remirepo.net/post/2015/12/18/PHP-version-7.0.1-en"> PHP version 7.0.1</a></h3>
-        <p>RPM of PHP version 7.0.1 are available in remi-php70 repository for Fedora ≥ 21 and Enterprise Linux ≥ 6 (RHEL, CentOS), and as Software Collection...</p>
-        <p><a href="http://blog.remirepo.net/post/2015/12/18/PHP-version-7.0.1-en">Read more</a></p>
-        <p class="byline">by <span class="author">Remi Collet</span> <span class="date">Fri, 18 Dec 2015</span></p>
-        </article>
-
-        <article>
-        <h3><a href="http://www.itrestauracion.com.ar/?p=2280"> PampaSeg – Dia 2 – Santa Rosa, La Pampa Argentina</a></h3>
-        <p>Este segundo dia del evento fue tambien muy entretenido, con charlas y talleres interesantes, ademas por ser un sabado el publico vino sin chistar !!...</p>
-        <p><a href="http://www.itrestauracion.com.ar/?p=2280">Read more</a></p>
-        <p class="byline">by <span class="author">Rino Rondan</span> <span class="date">Fri, 18 Dec 2015</span></p>
-        </article>
-
+      <article>
+		<h3><a href="#">DZone guide to the Internet of Things</a></h3>
+		<p>Interested in IoT?  Dzone has done a great job assembling this guide, but I’m also pleased that they’ve included my section, IoT Gateways and Architectures...</p>
+		<p><a href="#">Read more ...</a></p>
+		<p class="byline">by <span class="author">Henryk Konsek</span> <span class="date">August 24, 2015</span></p>
+	  </article>
+	  <article>
+		<h3><a href="#">4 Steps to Maximize Your DevOps and Agile Results</a></h3>
+		<p>It still amazes me how, after all the time and effort spent trying to figure out how to manage and execute technology projects, that some fundamental issues still remain...</p>
+		<p><a href="#">Read more ...</a></p>
+		<p class="byline">by <span class="author">Matt Lyteson</span> <span class="date">August 20, 2015</span></p>
+	  </article>
     </div>
-
-</div>
-</div>
+  </div>
+  </div>
 </div>
 <!-- BLOG_HEADLINES_END -->
 

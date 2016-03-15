@@ -1,234 +1,285 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/nodejs/SIG.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/about.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/deployment/rpm/about.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/deployment/copr/about.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/database/sqlite/about.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/database/postgresql/about.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/database/mariadb/about.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tools/devassistant/about.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tools/docker/about.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tools/vagrant/about.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tools/abrt/about.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tools/virt-builder/about.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/c/autotools.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/ruby/bundler-installation.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/c/c-devassistant.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/c/c_installation.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/haskell/cabal.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/c/cmake.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tools/docker/compose.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/deployment/copr/copr-cli.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/c/cpp_installation.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/deployment.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tools/devassistant/developers.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/python/django-installation.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tools/docker/docker-configuration.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tools/docker/docker-images.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tools/docker/docker-installation.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tools/docker/docker-usage.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/elixir/elixir-installation.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/python/flask-installation.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/ruby/gems-installation.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/go/go-installation.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/go/go-packages.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/groovy/groovy-installation.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/haskell/haskell-installation.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/java/java-build-tools-installation.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/java/java-devassistant.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/java/java-installation.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/java/java-sig.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/nodejs/modules.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/csharp/mono-build-tools-installation.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/csharp/mono-installation.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/csharp/mono-sig.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/nodejs/nodejs-devassistant.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/nodejs/nodejs.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tools/devassistant/notes.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/php/pear-installation.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/perl/perl-devassistant.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/perl/perl-installation.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/perl/perl-modules.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/php/php-devassistant.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/php/php-installation.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/database/postgresql/postgresql-in-rpms.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/python/pypi-installation.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/python/python-devassistant.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/python/python-installation.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/python/python-sig.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/ruby/ror-installation.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/ruby/ruby-devassistant.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/ruby/ruby-installation.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/ruby/ruby-sig.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/search.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/haskell/sig.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/ruby/sinatra-installation.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/python/sphinx.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/c/static-analysis.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/php/symfony-installation.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tools.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tools/devassistant/tutorials.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tools/vagrant/vagrant-docker.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tools/vagrant/vagrant-libvirt.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tools/vagrant/vagrant-nfs.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tools/vagrant/vagrant-plugins.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tools/vagrant/vagrant-virtualbox.html</loc>
-  </url>
-  <url>
-    <loc>http://developer.fedoraproject.org/tech/languages/php/zend-installation.html</loc>
-  </url>
+<url>
+<loc>http://developer.fedoraproject.org/fedora_features/Fedora23_Self_contained_Changes.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/fedora_features/Fedora23_System_Wide_Changes.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/nodejs/SIG.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/about.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/database/mariadb/about.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/database/postgresql/about.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/database/sqlite/about.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tools/docker/about.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tools/virt-builder/about.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tools/vagrant/about.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tools/abrt/about.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tools/devassistant/about.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/deployment/copr/about.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/deployment/rpm/about.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/deployment/openshift/about.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/start/tips/documentation/about.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/start/tips/collaborate/about.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/start/sw/cli-app/about.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/start/sw/gui-app/about.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/start/sw/web-app/about.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/start/hw/embeded-devices/about.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/start/hw/raspberry-pi/about.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/start/hw/arduino/about.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/c/autotools.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/ruby/bundler-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/c/c-devassistant.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/c/c_installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/haskell/cabal.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/c/cmake.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tools/docker/compose.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/contribute.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/deployment/copr/copr-cli.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/c/cpp_installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/deployment.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tools/devassistant/developers.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/python/django-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/start/sw/web-app/django.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tools/docker/docker-configuration.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tools/docker/docker-images.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tools/docker/docker-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tools/docker/docker-interactive-management.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tools/docker/docker-usage.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/elixir/elixir-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/python/flask-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/ruby/gems-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/go/go-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/go/go-packages.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/groovy/groovy-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/haskell/haskell-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/java/java-build-tools-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/java/java-devassistant.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/java/java-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/java/java-sig.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/start/sw/mobile-app/mobile-devassistant.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/start/sw/mobile-app/mobile-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/nodejs/modules.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/csharp/mono-build-tools-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/csharp/mono-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/csharp/mono-sig.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/nodejs/nodejs-devassistant.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/nodejs/nodejs.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tools/devassistant/notes.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/php/pear-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/perl/perl-devassistant.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/perl/perl-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/perl/perl-modules.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/php/php-devassistant.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/php/php-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/database/postgresql/postgresql-in-rpms.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/python/pypi-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/python/python-devassistant.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/python/python-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/python/python-sig.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/ruby/ror-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/ruby/ruby-devassistant.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/ruby/ruby-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/ruby/ruby-sig.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/search.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/haskell/sig.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/ruby/sinatra-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/python/sphinx.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/start.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/c/static-analysis.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/php/symfony-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tools.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tools/devassistant/tutorials.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tools/vagrant/vagrant-docker.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tools/vagrant/vagrant-libvirt.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tools/vagrant/vagrant-nfs.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tools/vagrant/vagrant-plugins.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tools/vagrant/vagrant-virtualbox.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/php/zend-installation.html</loc>
+</url>
 </urlset>
