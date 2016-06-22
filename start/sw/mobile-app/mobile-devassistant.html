@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Google Android Studio &mdash; Fedora Developer Portal</title>
-  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+  <meta name="description" content="Fedora Developer Portal provides information for developers running  Fedora on their workstation or virtual machines.
 ">
 
   <link rel="canonical" href="http://developer.fedoraproject.org/start/sw/mobile-app/mobile-devassistant.html">
@@ -15,6 +15,7 @@
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
 
   <!-- Site search -->
@@ -43,7 +44,15 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
 
 
     <!-- The top blue thing -->
@@ -117,6 +126,20 @@
         <div class="row" id="headlines">
   <div class="col-sm-12">
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -314,7 +337,33 @@
     
       
     
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -512,7 +561,33 @@
     
       
     
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -710,6 +785,18 @@
     
       
     
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   </div>
 </div>
 <div class="row" id="attribution">
@@ -727,6 +814,14 @@
         <div class="col-sm-3">
           <div class="list-group content-menu">
             
+            
+              
+            
+              
+            
+              
+            
+              
             
               
             
@@ -924,6 +1019,32 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+              
+            
+              
+            
+              
+            
+              
             
               
             
@@ -1121,6 +1242,24 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -1142,17 +1281,17 @@
             
             <h1 id="how-to-install-google-android-studio-on-fedora">How to install Google Android Studio on Fedora</h1>
 
-<p>First of all install <a href="https://devassistant.org">DevAssistant</a> project.</p>
+<p>First of all install <a href="https://devassistant.org">DevAssistant</a> project:</p>
 
 <pre><code>$ sudo dnf install devassistant
 </code></pre>
 
-<p>If you prefer GUI run</p>
+<p>If you prefer GUI run:</p>
 
 <pre><code>$ sudo dnf install devassistant-gui
 </code></pre>
 
-<p>Install DAP plugin <a href="https://github.com/phracek/dap-google-android-studio">Google Android studio</a> for DevAssistant</p>
+<p>Install DAP plugin <a href="https://github.com/phracek/dap-google-android-studio">Google Android studio</a> for DevAssistant:</p>
 
 <pre><code>$ da pkg install android-studio
 </code></pre>
@@ -1198,8 +1337,6 @@ $ da crt android-studio --name my_test --avd
 <pre><code>$ da crt android-studio --name my_text --sdk
 </code></pre>
 <p>This automatically shows SDK Manager where you can specify Android SDK which you would like to download and use it.</p>
-
-<p>```</p>
 
 
           </div>

@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Rebase helper &mdash; Fedora Developer Portal</title>
+  <meta name="description" content="Fedora Developer Portal provides information for developers running  Fedora on their workstation or virtual machines.
+">
+
+  <link rel="canonical" href="http://developer.fedoraproject.org/deployment/maintain/rebase-helper.html">
+
+  <!-- Link to Sitemap -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+  <link href="/css/main.css" rel="stylesheet" media="screen, print">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+
+  <!-- Site search -->
+  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    $(function() {
+      $('#search-query').lunrSearch({
+        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
+        results : '#search-results',  // selector for containing search results element
+        entries : '.entries',         // selector for search entries containing element (contained within results above)
+        template: '#search-results-template'  // selector for Mustache.js template
+      });
+    });
+  </script>
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+    ga('create', 'UA-69605821-1', 'auto');
+    ga('send', 'pageview');
+  
+  </script>
+</head>
+
+  <body>
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
+
+    <!-- The top blue thing -->
+    <div id="splash" class="splash-size-small splash-section-deploy">
+      <div class="container">
+        <div class="row" id="top">
+  <div class="col-sm-2" id="logo-col">
+    <div class="text-center">
+      <h1>
+        <a href="/">
+          <img src="/static/logo_white.png" style="height: 46px; width: 152px;">
+          <span>Fedora Developer Portal</span>
+        </a>
+      </h1>
+    </div>
+  </div>
+  <div class="col-sm-7" id="menu-col">
+    <nav>
+  <ul class="nav navbar-nav">
+    <li class="">
+      <a href="/start.html">Start a project</a>
+    </li>
+    <li class="">
+      <a href="/tools.html">Get tools</a>
+    </li>
+    <li class="">
+      <a href="/tech.html">Languages &amp; databases</a>
+    </li>
+    <li class=" active ">
+      <a href="/deployment.html">Deploy and distribute</a>
+    </li>
+    <!--
+    <li class="">
+      <a href="/">Resources</a>
+    </li>
+    <li class="">
+      <a href="/">Blogs</a>
+    </li>
+    -->
+  </ul>
+</nav>
+
+  </div>
+  <div class="col-sm-3" id="search-col">
+    
+  <form class="input-group" id="search" action="/search.html" method="get">
+    <input type="text" id="search-query" class="form-control" name="q" placeholder="Search" autocomplete="off">
+    <span class="input-group-btn">
+      <button class="btn btn-default glyphicon glyphicon-search" type="submit" aria-hidden="true"></button>
+    </span>
+  </form>
+  <section id="search-results" style="display: none;">
+    <div class="entries">
+    </div>
+  </section>
+
+  
+  <script id="search-results-template" type="text/mustache">
+    {{#entries}}
+      <article>
+        <a href="{{url}}">{{title}}</a>
+      </article>
+    {{/entries}}
+  </script>
+  
+
+
+  </div>
+</div>
+
+        <div class="row" id="headlines">
+  <div class="col-sm-12">
+
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <img class="img-rounded" src="/static/logo/maintain.png">
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <h2>Maintain and Improve</h2>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <p>Maintain and improve your packages with set of tools.
+</p>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+<div class="row" id="attribution">
+  <div class="col-sm-12">
+    <a href="https://www.flickr.com/photos/gsfc/5890869490/">Minotaur Rocket Launch at NASA Wallops by NASA Goddard Space Flight Center on Flickr, CC-BY-2.0</a>
+  </div>
+</div>
+
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="list-group content-menu">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                <a href="/deployment/maintain/about.html" class="list-group-item ">Maintain and Improve</a>
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                <a href="/deployment/maintain/rebase-helper.html" class="list-group-item  active ">Rebase helper</a>
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                <a href="/deployment/maintain/static-analysis.html" class="list-group-item ">Static Analysis</a>
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
+              <div id="ask-fedora">
+  Have a question?
+  
+    <a href="//ask.fedoraproject.org/">Ask Fedora.</a>
+  
+</div>
+
+            </div>
+          </div>
+
+          <a href="https://github.com/developer-portal/content/blob/master//deployment/maintain/rebase-helper.md" class="btn btn-default">Edit this page</a>
+
+        </div>
+        <div class="col-sm-9">
+          <div class="panel panel-default content-content">
+            
+            <h1 id="rebase-helper">Rebase-helper</h1>
+<p>Rebase-helper is a tool which helps package maintainers with updating package to the latest upstream version.
+It automates a lot of manual tasks the package maintainer usually does, when a new upstream version of a package is released.</p>
+
+<h2 id="how-to-install-rebase-helper">How to install rebase-helper</h2>
+<p>Begin installation on Fedora using the <code>dnf</code> command:</p>
+
+<pre><code>sudo dnf install -y rebase-helper
+</code></pre>
+
+<p>It requires several other programs like <code>abipkgdiff</code>, <code>rpmdiff</code>, <code>mock</code>, <code>fedpkg</code>, <code>meld</code>, etc.
+These programs are installed automatically as dependencies of rebase-helper.</p>
+
+<p>Note: rebase-helper is also available as EPEL-7 package. Feel free to use it on CentOS and RHEL systems.</p>
+
+<h2 id="how-does-the-rebase-helper-work">How does the rebase-helper work?</h2>
+<p>Rebase-helper workflow can be summarized in following steps:</p>
+
+<ul>
+  <li>Downloads an archive with new sources.</li>
+  <li>Rebases downstream patches on top of the latest upstream version using git rebase command.</li>
+  <li>If patching was successful, it builds two sets of RPMs. One using the <code>old</code> sources and a second one using the <code>new</code> sources. Available build tools are <code>mock</code>, <code>rpmbuild</code>, <code>fedpkg</code>.
+    <ul>
+      <li>If <code>new</code> RPMs build fails, downloads logs like build.log and root.log</li>
+      <li>If the build is successful, downloads all available RPM packages.</li>
+    </ul>
+  </li>
+  <li>If all builds succeed, rebase-helper runs several checkers, like <code>pkgdiff</code>, <code>rpmdiff</code>, <code>abipkgdiff</code>. Rebase-helper compares old and new packages and reports results.</li>
+</ul>
+
+<h2 id="how-to-rebase-your-packages">How to rebase your packages?</h2>
+<p>Let’s say, we want to rebase a package foobar from <code>foobar-1.2.0</code> to <code>foobar-1.2.1</code>.</p>
+
+<p>To update to the latest upstream version execute command:</p>
+
+<pre><code>rebase-helper 1.2.1
+</code></pre>
+
+<p>If you do not want to be bothered, use option <code>--non-interactive</code>
+After rebase-helper finishes, check the output.</p>
+
+<h2 id="integration-rebase-helper-with-an-upstream-monitoring-service">Integration rebase-helper with an upstream monitoring service</h2>
+
+<p>This chapter demonstrates how to include rebase-helper in your upstream monitoring service. 
+If you would like to integrate rebase-helper into your upstream monitoring services, this chapter is for you.
+Rebase-helper provides an API which you can use either directly from Python, or directly from the command line.</p>
+
+<h3 id="patch-new-upstream-version-and-start-scratch-builds">Patch new upstream version and start scratch builds</h3>
+<p>Example of patching new sources and starting scratch builds with fedpkg.
+ This returns task_ids. The bash equivalents are included for comparison:</p>
+
+<ul>
+  <li><code>Python API</code></li>
+</ul>
+
+<pre><code>from rebasehelper.application import Application
+cli = CLI([‘--non-interactive, ‘--builds-nowait’, ‘-buildtool’, ‘fedpkg’, upstream_version])
+rh = Application(cli)
+rh.set_upstream_monitoring() # Switch rebase-helper to upstream release monitoring mode.
+rh.run()
+</code></pre>
+
+<ul>
+  <li><code>BASH</code></li>
+</ul>
+
+<pre><code>rebase-helper --non-interactive --builds-nowait --buildtool fedpkg upstream_version
+</code></pre>
+
+<h3 id="download-logs-and-rpms-and-compare-with-tools-like-abipkgdiff">Download logs and RPMs and compare with tools like abipkgdiff</h3>
+
+<ul>
+  <li><code>Python API</code></li>
+</ul>
+
+<pre><code>cli = CLI([‘--non-interactive, ‘--builds-nowait’, ‘--fedpkg-build-tasks old_id,new-id])
+rh.run() # Downloads RPMs, logs and runs checkers and provides logs.
+rh.get_rebasehelper_data() # Get all information about the results
+</code></pre>
+
+<ul>
+  <li><code>BASH</code></li>
+</ul>
+
+<pre><code>rebase-helper --non-interactive --builds-nowait --fedpkg-build-tasks old_id,new-id
+</code></pre>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Some other stuff -->
+    <div class=" banner-contribute">
+  <div class="container">
+    <h2> Share your knowledge </h2>
+    <p> Fedora Developer Portal is a community effort to share guides and information about open-source development. And we need your help! </p>
+    <a href="http://developer-portal.github.io/contributing/" class="btn btn-primary">Learn how to contribute</a>
+  </div>
+</div>
+
+    <footer class="footer">
+  <div class="container">
+    <div class="row footerlinks">
+      <div class="col-sm-3 col-xs-6 widget">
+        <h3 class="widget-title">About</h3>
+        <div class="widget-body">
+          <dl>
+            <dd><a href="/about.html">About Developer Portal</a></dd>
+            <dd><a href="//getfedora.org/en/sponsors">About Fedora</a></dd>
+            <dd><a href="//getfedora.org/en/sponsors">Sponsors</a></dd>
+            <dd><a href="http://fedoramagazine.org">Fedora Magazine</a></dd>
+            <dd><a href="//fedoraproject.org/wiki/Legal:Main#Legal">Legal</a></dd>
+          </dl>
+          <ul class="list-inline">
+            <li>
+              <a class="btn-social btn-outline" href="//www.facebook.com/TheFedoraProject"><i class="fa fa-fw fa-facebook"></i></a>
+            </li>
+            <li>
+              <a class="btn-social btn-outline" href="//plus.google.com/112917221531140868607"><i class="fa fa-fw fa-google-plus"></i></a>
+            </li>
+            <li>
+              <a class="btn-social btn-outline" href="//twitter.com/fedora"><i class="fa fa-fw fa-twitter"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6 widget">
+        <h3 class="widget-title uppercase">Download</h3>
+        <div class="widget-body">
+          <dl>
+            <dd><a href="//getfedora.org/en/workstation/download">Get Fedora Workstation</a></dd>
+            <dd><a href="//getfedora.org/en/server/download">Get Fedora Server</a></dd>
+            <dd><a href="//getfedora.org/en/cloud/download">Get Fedora Cloud</a></dd>
+            <dd><a href="//spins.fedoraproject.org">Fedora Spins</a></dd>
+            <dd><a href="//labs.fedoraproject.org">Fedora Labs</a></dd>
+            <dd><a href="//arm.fedoraproject.org">Fedora ARM<span class="sup">&reg;</span></a></dd>
+            <dd><a href="http://torrents.fedoraproject.org">Torrent Downloads</a></dd>
+          </dl>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6 widget">
+        <h3 class="widget-title">Support</h3>
+          <div class="widget-body">
+            <dl>
+              <dd><a href="//fedoraproject.org/wiki/Communicating_and_getting_help">Get Help</a></dd>
+              <dd><a href="//ask.fedoraproject.org/">Ask Fedora</a></dd>
+              <dd><a href="http://fedoraforum.org/">Forums</a></dd>
+              <dd><a href="//fedoraproject.org/wiki/Common_F22_bugs">Common Bugs</a></dd>
+              <dd><a href="//docs.fedoraproject.org/en-US/Fedora/22/html/Installation_Guide">Installation Guide</a></dd>
+            </dl>
+          </div>
+        </div>
+        <div class="col-sm-3 col-xs-6 widget">
+          <h3 class="widget-title">Join</h3>
+            <div class="widget-body">
+            <dl>
+              <dd><a href="//fedoraproject.org/wiki/Join">Join Fedora</a></dd>
+              <dd><a href="http://fedoraplanet.org">Planet Fedora</a></dd>
+              <dd><a href="//fedoraproject.org/wiki/SIGs">Fedora SIGs</a></dd>
+              <dd><a href="//admin.fedoraproject.org/accounts/">Fedora Account System</a></dd>
+              <dd><a href="http://fedoracommunity.org/">Fedora Community</a></dd>
+            </dl>
+          </div>
+        </div>
+      </div> <!-- /row of widgets -->
+      <div class="row">
+        <div class="col-md-2">
+          <div class="widget-body">
+            <a href="http://www.redhat.com/"><img alt="Red Hat Logo" src="/static/logo/redhat.png" class="rh-logo"></a>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="widget-body">
+            <p class="sponsor">Fedora is sponsored by Red Hat.</p>
+            <p class="sponsor"><a href="//www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
+            <p class="copy">&copy; 2015 Red Hat, Inc. and others.</p>
+          </div>
+        </div>
+        <!-- /row of widgets -->
+      </div>
+</footer>
+
+  </body>
+</html>
