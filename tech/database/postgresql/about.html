@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
@@ -117,6 +126,32 @@
         <div class="row" id="headlines">
   <div class="col-sm-12">
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -259,26 +294,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         
       
     
@@ -340,7 +355,37 @@
     
       
     
+      
+    
+      
+    
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -483,26 +528,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         
       
     
@@ -564,7 +589,37 @@
     
       
     
+      
+    
+      
+    
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -707,27 +762,11 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         
+      
+    
+      
+    
       
     
       
@@ -823,6 +862,30 @@
               
             
               
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
                 
                 <a href="/tech/database/postgresql/about.html" class="list-group-item  active ">PostgreSQL</a>
                 
@@ -883,30 +946,6 @@
               
             
               
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
                 
               
             
@@ -1028,6 +1067,40 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
             
               
             
@@ -1047,30 +1120,6 @@
             
               
                 
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
               
             
               
@@ -1251,6 +1300,16 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -1264,7 +1323,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//tech/database/postgresql/about.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tech/database/postgresql//about.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1291,36 +1350,37 @@ server, server-compatible plug-ins and database connectors.</p>
 
 <p>PostgreSQL installation on Fedora box and basic command-line usage:</p>
 
-<pre><code class="language-bash">$ sudo dnf install postgresql postgresql-server # install client/server
-$ sudo postgresql-setup initdb                  # initialize PG cluster
-$ sudo systemctl start postgresql               # start cluster
-$ sudo su - postgres                            # login as DB admin
-$ createdb quick-start                          # create testing database
-$ psql -d quick-start                           # connect to the new database
-psql (9.3.9)
-Type "help" for help.
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install postgresql postgresql-server <span class="c"># install client/server</span>
+<span class="gp">$ </span>sudo postgresql-setup initdb                  <span class="c"># initialize PG cluster</span>
+<span class="gp">$ </span>sudo systemctl start postgresql               <span class="c"># start cluster</span>
+<span class="gp">$ </span>sudo su - postgres                            <span class="c"># login as DB admin</span>
+<span class="gp">$ </span>createdb quick-start                          <span class="c"># create testing database</span>
+<span class="gp">$ </span>psql -d quick-start                           <span class="c"># connect to the new database</span>
+psql <span class="o">(</span>9.3.9<span class="o">)</span>
+Type <span class="s2">"help"</span> <span class="k">for </span>help.
 
-quick-start=# create table test (id int);       -- create testing table
+<span class="gp">quick-start=# </span>create table <span class="nb">test</span> <span class="o">(</span>id int<span class="o">)</span>;       -- create testing table
 CREATE TABLE
-quick-start=# insert into test values (1);      -- insert some data
+<span class="gp">quick-start=# </span>insert into <span class="nb">test </span>values <span class="o">(</span>1<span class="o">)</span>;      -- insert some data
 INSERT 0 1
-quick-start=# select * from test;               -- query data
+<span class="gp">quick-start=# </span><span class="k">select</span> <span class="k">*</span> from <span class="nb">test</span>;               -- query data
  id
 ----
   1
-(1 row)
+<span class="o">(</span>1 row<span class="o">)</span>
 
-quick-start=#
+quick-start<span class="o">=</span><span class="c">#</span>
 </code></pre>
+</div>
 
 <h1 id="controlling-access-to-pg-cluster-pghbaconf-users-passwords">Controlling access to PG cluster (pg_hba.conf, users, passwords)</h1>
 
 <p>Sometimes it is useful to create a new user (with password) for specific database
-applications.  There is set of utilities in the <code>postgresql</code> package (see
-<code>rpm -ql postgresql | grep /usr/bin</code>) that may simplify some of those tasks.  Lets try to
+applications.  There is set of utilities in the <code class="highlighter-rouge">postgresql</code> package (see
+<code class="highlighter-rouge">rpm -ql postgresql | grep /usr/bin</code>) that may simplify some of those tasks.  Lets try to
 create additional user, password and database:</p>
 
-<pre><code>$ sudo su - postgres
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo su - postgres
 $ createuser testuser -P
 Enter password for new role:
 Enter it again:
@@ -1340,28 +1400,31 @@ Type "help" for help.
 
 testdb=&gt;
 </code></pre>
+</div>
 
 <h2 id="documentation">Documentation</h2>
 
-<p>Packaging documentation is available as <a href="postgresql-in-rpms.html">README.rpm-dist</a> in the <code>postgresql</code> package (client package).  Anybody running PostgreSQL on Fedora should start here:</p>
+<p>Packaging documentation is available as <a href="postgresql-in-rpms.html">README.rpm-dist</a> in the <code class="highlighter-rouge">postgresql</code> package (client package).  Anybody running PostgreSQL on Fedora should start here:</p>
 
-<pre><code class="language-bash">$ rpm -qd postgresql | grep README.rpm-dist
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>rpm -qd postgresql | grep README.rpm-dist
 /usr/share/doc/postgresql/README.rpm-dist
-$ less /usr/share/doc/postgresql/README.rpm-dist
+<span class="gp">$ </span>less /usr/share/doc/postgresql/README.rpm-dist
 </code></pre>
+</div>
 
 <p>Install/use official documentation with:</p>
 
-<pre><code>$ sudo dnf install postgresql-docs
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install postgresql-docs
 $ firefox /usr/share/doc/postgresql-docs/html/index.html         # HTML version
 $ rpm -ql postgresql-docs | grep pdf
 /usr/share/doc/postgresql-docs/postgresql-9.3.9-US.pdf
 $ okular /usr/share/doc/postgresql-docs/postgresql-9.3.9-US.pdf  # PDF version
 </code></pre>
+</div>
 
 <p>This documentation is also available <a href="http://www.postgresql.org/docs/">online</a>,
 please choose the version installed on your box
-(<code>rpm -q postgresql --qf "%{VERSION}\n"</code>).</p>
+(<code class="highlighter-rouge">rpm -q postgresql --qf "%{VERSION}\n"</code>).</p>
 
 <p>Other documentation available on-line:</p>
 
@@ -1382,7 +1445,7 @@ please choose the version installed on your box
 
 <ul>
   <li>postgresql-contrib (bunch of extensions, see
-<code>rpm -ql postgresql-contrib | grep so$</code>), postgresql-plperl,
+<code class="highlighter-rouge">rpm -ql postgresql-contrib | grep so$</code>), postgresql-plperl,
 postgresql-plpython, postgresql-plpython3, postgresql-pltcl (language bindings
 extending SQL syntax)</li>
   <li><a href="https://admin.fedoraproject.org/pkgdb/packages/postgis">postgis</a></li>
@@ -1398,7 +1461,7 @@ EXTENSION</a>
 syntax (example with
 <a href="http://www.postgresql.org/docs/9.4/static/hstore.html">hstore</a> extension):</p>
 
-<pre><code>$ sudo dnf install postgresql-contrib           -- install extension (hstore)
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install postgresql-contrib           -- install extension (hstore)
 $ sudo su - postgres                            -- switch user to DB admin
 $ psql -d quick-start                           -- connect to an existing DB
 psql (9.3.9)
@@ -1412,6 +1475,7 @@ quick-start=# SELECT 'a=&gt;1,b=&gt;2'::hstore;       -- use the extension
    "a"=&gt;"1"
    (1 row)
 </code></pre>
+</div>
 
 <h2 id="language-connectorsadapters-packages">Language connectors/adapters (packages)</h2>
 

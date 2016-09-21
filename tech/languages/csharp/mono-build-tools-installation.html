@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
@@ -117,6 +126,12 @@
         <div class="row" id="headlines">
   <div class="col-sm-12">
 
+    
+      
+    
+      
+    
+      
     
       
     
@@ -342,7 +357,17 @@
     
       
     
+      
+    
+      
+    
 
+    
+      
+    
+      
+    
+      
     
       
     
@@ -568,7 +593,17 @@
     
       
     
+      
+    
+      
+    
 
+    
+      
+    
+      
+    
+      
     
       
     
@@ -712,6 +747,10 @@
     
       
         
+      
+    
+      
+    
       
     
       
@@ -971,7 +1010,17 @@
               
             
               
+            
+              
+            
+              
                 
+              
+            
+              
+            
+              
+            
               
             
               
@@ -1196,9 +1245,19 @@
               
             
               
+            
+              
+            
+              
                 
                 <a href="/tech/languages/csharp/mono-sig.html" class="list-group-item ">Mono SIG</a>
                 
+              
+            
+              
+            
+              
+            
               
             
               
@@ -1276,7 +1335,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/csharp/mono-build-tools-installation.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/csharp//mono-build-tools-installation.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1286,22 +1345,17 @@
 
 <p>The most popular build tool for Mono is <a href="http://nant.sourceforge.net/">NAnt</a>. To install it, simply type:</p>
 
-<pre><code>$ sudo dnf install nant
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install nant
 </code></pre>
+</div>
 
 <h1 id="nunit-installation">NUnit installation</h1>
 
-<p><a href="http://nunit.org/">NUnit</a> is very useful for test driven development.</p>
+<p><a href="http://nunit.org/">NUnit</a> is very useful for test driven development. To install it, simply type:</p>
 
-<p>To install it on Fedora 21 or Fedora 22, simply type:</p>
-
-<pre><code>$ sudo dnf install mono-nunit
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install nunit nunit-gui
 </code></pre>
-
-<p>To install it on Fedora 23 or higher, simply type:</p>
-
-<pre><code>$ sudo dnf install nunit
-</code></pre>
+</div>
 
           </div>
         </div>

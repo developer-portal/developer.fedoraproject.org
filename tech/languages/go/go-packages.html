@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
@@ -117,6 +126,10 @@
         <div class="row" id="headlines">
   <div class="col-sm-12">
 
+    
+      
+    
+      
     
       
     
@@ -340,7 +353,17 @@
     
       
     
+      
+    
+      
+    
+      
+    
 
+    
+      
+    
+      
     
       
     
@@ -564,7 +587,17 @@
     
       
     
+      
+    
+      
+    
+      
+    
 
+    
+      
+    
+      
     
       
     
@@ -672,6 +705,12 @@
     
       
         
+      
+    
+      
+    
+      
+    
       
     
       
@@ -1028,6 +1067,16 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
             
               
             
@@ -1251,6 +1300,16 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -1264,7 +1323,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/go/go-packages.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/go//go-packages.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1274,27 +1333,30 @@
 
 <h2 id="go-packages-from-upstream">Go packages from upstream</h2>
 
-<p>Upstream projects can be installed with <code>go get</code> command. Package names follows the import paths so to install <code>gorilla/context</code> from GitHub run:</p>
+<p>Upstream projects can be installed with <code class="highlighter-rouge">go get</code> command. Package names follows the import paths so to install <code class="highlighter-rouge">gorilla/context</code> from GitHub run:</p>
 
-<pre><code>$ go get github.com/gorilla/context
+<div class="highlighter-rouge"><pre class="highlight"><code>$ go get github.com/gorilla/context
 </code></pre>
+</div>
 
-<p>If the requested package comes with an executable binary, you should find it in <code>$GOPATH/bin</code> directory. To use it, you need to add this path to your <code>$PATH</code>:</p>
+<p>If the requested package comes with an executable binary, you should find it in <code class="highlighter-rouge">$GOPATH/bin</code> directory. To use it, you need to add this path to your <code class="highlighter-rouge">$PATH</code>:</p>
 
-<pre><code>$ echo 'export PATH=$GOPATH/bin:$PATH' &gt;&gt; $HOME/.bashrc
+<div class="highlighter-rouge"><pre class="highlight"><code>$ echo 'export PATH=$GOPATH/bin:$PATH' &gt;&gt; $HOME/.bashrc
 $ source $HOME/.bashrc
 </code></pre>
+</div>
 
 <h2 id="go-packages-from-fedora">Go packages from Fedora</h2>
 
 <p>Alternatively, various Go packages are packaged and available in Fedora.</p>
 
-<p>The package name idiom is that the import paths of libraries are fully qualified domain names. This way you have clarity to the precise upstream being used. By truncating domain names, using ‘-‘ instead of ‘/’ and appending <code>-devel</code> suffix you know how is the associated Fedora package called. For example, ‘github.com/gorilla/context’ would become <code>golang-github-gorilla-context-devel</code>. Similarly, the ‘code.google.com/p/go.net’ repository would become <code>golang-googlecode-net-devel</code>.</p>
+<p>The package name idiom is that the import paths of libraries are fully qualified domain names. This way you have clarity to the precise upstream being used. By truncating domain names, using ‘-‘ instead of ‘/’ and appending <code class="highlighter-rouge">-devel</code> suffix you know how is the associated Fedora package called. For example, ‘github.com/gorilla/context’ would become <code class="highlighter-rouge">golang-github-gorilla-context-devel</code>. Similarly, the ‘code.google.com/p/go.net’ repository would become <code class="highlighter-rouge">golang-googlecode-net-devel</code>.</p>
 
-<p>To install <code>golang-googlecode-net-devel</code> package, you use DNF as usual:</p>
+<p>To install <code class="highlighter-rouge">golang-googlecode-net-devel</code> package, you use DNF as usual:</p>
 
-<pre><code>$ sudo dnf install golang-googlecode-net-devel
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install golang-googlecode-net-devel
 </code></pre>
+</div>
 
           </div>
         </div>

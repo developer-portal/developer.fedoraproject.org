@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-deploy">
@@ -117,6 +126,10 @@
         <div class="row" id="headlines">
   <div class="col-sm-12">
 
+    
+      
+    
+      
     
       
     
@@ -293,33 +306,39 @@
       
     
       
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
     
       
         
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
       
     
       
@@ -343,6 +362,10 @@
       
     
 
+    
+      
+    
+      
     
       
     
@@ -519,33 +542,39 @@
       
     
       
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
     
       
         
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
       
     
       
@@ -569,6 +598,10 @@
       
     
 
+    
+      
+    
+      
     
       
     
@@ -746,33 +779,39 @@
       
     
       
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
     
       
         
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
       
     
       
@@ -812,6 +851,12 @@
         <div class="col-sm-3">
           <div class="list-group content-menu">
             
+            
+              
+            
+              
+            
+              
             
               
             
@@ -946,6 +991,34 @@
               
             
               
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
             
               
             
@@ -982,8 +1055,6 @@
               
             
               
-                
-              
             
               
             
@@ -1015,28 +1086,12 @@
             
               
             
-              
             
               
             
               
             
               
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
             
               
             
@@ -1062,12 +1117,6 @@
             
               
                 
-              
-            
-              
-            
-              
-            
               
             
               
@@ -1207,9 +1256,19 @@
               
             
               
+            
+              
+            
+              
                 
                 <a href="/deployment/maintain/static-analysis.html" class="list-group-item ">Static Analysis</a>
                 
+              
+            
+              
+            
+              
+            
               
             
               
@@ -1277,7 +1336,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//deployment/maintain/rebase-helper.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//deployment/maintain//rebase-helper.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1288,12 +1347,13 @@
 It automates a lot of manual tasks the package maintainer usually does, when a new upstream version of a package is released.</p>
 
 <h2 id="how-to-install-rebase-helper">How to install rebase-helper</h2>
-<p>Begin installation on Fedora using the <code>dnf</code> command:</p>
+<p>Begin installation on Fedora using the <code class="highlighter-rouge">dnf</code> command:</p>
 
-<pre><code>sudo dnf install -y rebase-helper
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo dnf install -y rebase-helper
 </code></pre>
+</div>
 
-<p>It requires several other programs like <code>abipkgdiff</code>, <code>rpmdiff</code>, <code>mock</code>, <code>fedpkg</code>, <code>meld</code>, etc.
+<p>It requires several other programs like <code class="highlighter-rouge">abipkgdiff</code>, <code class="highlighter-rouge">rpmdiff</code>, <code class="highlighter-rouge">mock</code>, <code class="highlighter-rouge">fedpkg</code>, <code class="highlighter-rouge">meld</code>, etc.
 These programs are installed automatically as dependencies of rebase-helper.</p>
 
 <p>Note: rebase-helper is also available as EPEL-7 package. Feel free to use it on CentOS and RHEL systems.</p>
@@ -1304,24 +1364,25 @@ These programs are installed automatically as dependencies of rebase-helper.</p>
 <ul>
   <li>Downloads an archive with new sources.</li>
   <li>Rebases downstream patches on top of the latest upstream version using git rebase command.</li>
-  <li>If patching was successful, it builds two sets of RPMs. One using the <code>old</code> sources and a second one using the <code>new</code> sources. Available build tools are <code>mock</code>, <code>rpmbuild</code>, <code>fedpkg</code>.
+  <li>If patching was successful, it builds two sets of RPMs. One using the <code class="highlighter-rouge">old</code> sources and a second one using the <code class="highlighter-rouge">new</code> sources. Available build tools are <code class="highlighter-rouge">mock</code>, <code class="highlighter-rouge">rpmbuild</code>, <code class="highlighter-rouge">fedpkg</code>.
     <ul>
-      <li>If <code>new</code> RPMs build fails, downloads logs like build.log and root.log</li>
+      <li>If <code class="highlighter-rouge">new</code> RPMs build fails, downloads logs like build.log and root.log</li>
       <li>If the build is successful, downloads all available RPM packages.</li>
     </ul>
   </li>
-  <li>If all builds succeed, rebase-helper runs several checkers, like <code>pkgdiff</code>, <code>rpmdiff</code>, <code>abipkgdiff</code>. Rebase-helper compares old and new packages and reports results.</li>
+  <li>If all builds succeed, rebase-helper runs several checkers, like <code class="highlighter-rouge">pkgdiff</code>, <code class="highlighter-rouge">rpmdiff</code>, <code class="highlighter-rouge">abipkgdiff</code>. Rebase-helper compares old and new packages and reports results.</li>
 </ul>
 
 <h2 id="how-to-rebase-your-packages">How to rebase your packages?</h2>
-<p>Let’s say, we want to rebase a package foobar from <code>foobar-1.2.0</code> to <code>foobar-1.2.1</code>.</p>
+<p>Let’s say, we want to rebase a package foobar from <code class="highlighter-rouge">foobar-1.2.0</code> to <code class="highlighter-rouge">foobar-1.2.1</code>.</p>
 
 <p>To update to the latest upstream version execute command:</p>
 
-<pre><code>rebase-helper 1.2.1
+<div class="highlighter-rouge"><pre class="highlight"><code>rebase-helper 1.2.1
 </code></pre>
+</div>
 
-<p>If you do not want to be bothered, use option <code>--non-interactive</code>
+<p>If you do not want to be bothered, use option <code class="highlighter-rouge">--non-interactive</code>
 After rebase-helper finishes, check the output.</p>
 
 <h2 id="integration-rebase-helper-with-an-upstream-monitoring-service">Integration rebase-helper with an upstream monitoring service</h2>
@@ -1335,40 +1396,44 @@ Rebase-helper provides an API which you can use either directly from Python, or 
  This returns task_ids. The bash equivalents are included for comparison:</p>
 
 <ul>
-  <li><code>Python API</code></li>
+  <li><code class="highlighter-rouge">Python API</code></li>
 </ul>
 
-<pre><code>from rebasehelper.application import Application
+<div class="highlighter-rouge"><pre class="highlight"><code>from rebasehelper.application import Application
 cli = CLI([‘--non-interactive, ‘--builds-nowait’, ‘-buildtool’, ‘fedpkg’, upstream_version])
 rh = Application(cli)
 rh.set_upstream_monitoring() # Switch rebase-helper to upstream release monitoring mode.
 rh.run()
 </code></pre>
+</div>
 
 <ul>
-  <li><code>BASH</code></li>
+  <li><code class="highlighter-rouge">BASH</code></li>
 </ul>
 
-<pre><code>rebase-helper --non-interactive --builds-nowait --buildtool fedpkg upstream_version
+<div class="highlighter-rouge"><pre class="highlight"><code>rebase-helper --non-interactive --builds-nowait --buildtool fedpkg upstream_version
 </code></pre>
+</div>
 
 <h3 id="download-logs-and-rpms-and-compare-with-tools-like-abipkgdiff">Download logs and RPMs and compare with tools like abipkgdiff</h3>
 
 <ul>
-  <li><code>Python API</code></li>
+  <li><code class="highlighter-rouge">Python API</code></li>
 </ul>
 
-<pre><code>cli = CLI([‘--non-interactive, ‘--builds-nowait’, ‘--fedpkg-build-tasks old_id,new-id])
+<div class="highlighter-rouge"><pre class="highlight"><code>cli = CLI([‘--non-interactive, ‘--builds-nowait’, ‘--fedpkg-build-tasks old_id,new-id])
 rh.run() # Downloads RPMs, logs and runs checkers and provides logs.
 rh.get_rebasehelper_data() # Get all information about the results
 </code></pre>
+</div>
 
 <ul>
-  <li><code>BASH</code></li>
+  <li><code class="highlighter-rouge">BASH</code></li>
 </ul>
 
-<pre><code>rebase-helper --non-interactive --builds-nowait --fedpkg-build-tasks old_id,new-id
+<div class="highlighter-rouge"><pre class="highlight"><code>rebase-helper --non-interactive --builds-nowait --fedpkg-build-tasks old_id,new-id
 </code></pre>
+</div>
 
           </div>
         </div>

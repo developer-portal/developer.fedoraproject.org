@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
@@ -124,6 +133,12 @@
     
       
         
+      
+    
+      
+    
+      
+    
       
     
       
@@ -344,6 +359,10 @@
     
       
     
+      
+    
+      
+    
 
     
       
@@ -352,6 +371,12 @@
     
       
         
+      
+    
+      
+    
+      
+    
       
     
       
@@ -572,6 +597,10 @@
     
       
     
+      
+    
+      
+    
 
     
       
@@ -705,6 +734,12 @@
       
     
       
+    
+      
+    
+      
+    
+      
         
       
     
@@ -720,8 +755,12 @@
     
       
         
-          <p>Server-side JavaScript environment based on V8 engine.</p>
+          <p></p>
         
+      
+    
+      
+    
       
     
       
@@ -963,59 +1002,69 @@
               
             
               
-                
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
             
               
                 
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
               
             
               
@@ -1190,9 +1239,17 @@
               
             
               
+            
+              
                 
                 <a href="/tech/languages/nodejs/SIG.html" class="list-group-item ">Node.js SIG</a>
                 
+              
+            
+              
+            
+              
+            
               
             
               
@@ -1275,6 +1332,8 @@
             
               
             
+              
+            
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -1288,7 +1347,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/nodejs/nodejs.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/nodejs//nodejs.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1296,14 +1355,33 @@
             
             <h1 id="nodejs">Node.js</h1>
 
-<h2 id="npm">npm</h2>
+<h2 id="nodejs-and-npm">Node.js and npm</h2>
 
-<p>To install npm, simply type:</p>
+<p>Starting from Fedora 24, npm is a part of Node.js package and does not need to be installed separately. Therefore, to install both npm and Node.js, you need to run:</p>
 
-<pre><code>$ sudo dnf install npm
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install nodejs
 </code></pre>
+</div>
 
-<p>This will install V8 Javascript Engine, Node.js runtime and npm package manager and their dependencies.</p>
+<p>In case you are running Fedora 23, you should run:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install npm
+</code></pre>
+</div>
+
+<p>This will install V8 Javascript Engine, Node.js runtime and npm package manager and their dependencies. Versions present in repositories are usually current or to-be (in Rawhide) Node.js LTS releases, including npm and V8 engine that come with them.</p>
+
+<p>If you wish to install Node.js v4:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install nodejs --releasever=24
+</code></pre>
+</div>
+
+<p>If you need Node.js v6:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install nodejs --releasever=25
+</code></pre>
+</div>
 
 <p>Installing Node.js modules is covered in <a href="/tech/languages/nodejs/modules.html">Node.js modules</a>.</p>
 

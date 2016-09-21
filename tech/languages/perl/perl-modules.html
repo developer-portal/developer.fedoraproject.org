@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
@@ -117,6 +126,12 @@
         <div class="row" id="headlines">
   <div class="col-sm-12">
 
+    
+      
+    
+      
+    
+      
     
       
     
@@ -342,7 +357,17 @@
     
       
     
+      
+    
+      
+    
 
+    
+      
+    
+      
+    
+      
     
       
     
@@ -568,7 +593,17 @@
     
       
     
+      
+    
+      
+    
 
+    
+      
+    
+      
+    
+      
     
       
     
@@ -726,6 +761,10 @@
     
       
         
+      
+    
+      
+    
       
     
       
@@ -975,7 +1014,17 @@
               
             
               
+            
+              
+            
+              
                 
+              
+            
+              
+            
+              
+            
               
             
               
@@ -1200,9 +1249,19 @@
               
             
               
+            
+              
+            
+              
                 
                 <a href="/tech/languages/perl/perl-devassistant.html" class="list-group-item ">Perl assistants for DevAssistant</a>
                 
+              
+            
+              
+            
+              
+            
               
             
               
@@ -1276,7 +1335,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/perl/perl-modules.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/perl//perl-modules.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1286,31 +1345,36 @@
 
 <p>Fedora currently ships with over three thousand of actively maintained Perl modules in its repositories; in most cases installing the module of your choice should be as simple as:</p>
 
-<pre><code>$ sudo dnf install 'perl(My::Module)'
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install 'perl(My::Module)'
 </code></pre>
+</div>
 
 <p>If available, this is the preferred method.</p>
 
-<p>If you require a module that is not already available, you may still install them with the common Perl utilities such as <code>cpan</code> from Perl core:</p>
+<p>If you require a module that is not already available, you may still install them with the common Perl utilities such as <code class="highlighter-rouge">cpan</code> from Perl core:</p>
 
-<pre><code>$ sudo cpan My::Module
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo cpan My::Module
 </code></pre>
+</div>
 
-<p>or the popular <code>cpanm</code>:</p>
+<p>or the popular <code class="highlighter-rouge">cpanm</code>:</p>
 
-<pre><code>$ sudo dnf install cpanminus
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install cpanminus
 $ sudo cpanm My::Module
 </code></pre>
+</div>
 
 <p>However, note that binary modules installed this way may seemingly inexplicably break after upgrading to a newer Fedora release.  The reason is Perl does not maintain binary compatibility between major versions.  If this happens, remember to reinstall the local modules with:</p>
 
-<pre><code>$ sudo cpan -f -i My::Module
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo cpan -f -i My::Module
 </code></pre>
+</div>
 
 <p>or:</p>
 
-<pre><code>$ sudo cpanm --reinstall My::Module
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo cpanm --reinstall My::Module
 </code></pre>
+</div>
 
           </div>
         </div>

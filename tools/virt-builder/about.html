@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tools">
@@ -117,6 +126,28 @@
         <div class="row" id="headlines">
   <div class="col-sm-12">
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -326,19 +357,29 @@
     
       
     
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -548,19 +589,29 @@
     
       
     
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -580,18 +631,6 @@
         
           <p>Tool to quickly build (and customize) virtual machine images</p>
         
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
       
     
       
@@ -809,6 +848,30 @@
               
             
               
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
                 
                 <a href="/tools/virt-builder/about.html" class="list-group-item  active ">Virt-builder</a>
                 
@@ -1006,7 +1069,6 @@
             
               
             
-              
             
               
             
@@ -1020,6 +1082,17 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
             
               
             
@@ -1031,20 +1104,6 @@
             
               
                 
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
               
             
               
@@ -1252,7 +1311,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//tools/virt-builder/about.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tools/virt-builder//about.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1271,27 +1330,29 @@ automation and scripting is simple.</p>
 cleanly prepared, digitally signed OS templates and customizes them.
 This approach is used because it is much faster, but if you need to do
 fresh installs you may want to look at
-<a href="https://github.com/virt-manager/virt-manager/blob/master/man/virt-install.pod"><code>virt-install(1)</code></a>
+<a href="https://github.com/virt-manager/virt-manager/blob/master/man/virt-install.pod"><code class="highlighter-rouge">virt-install(1)</code></a>
 and
-<a href="https://github.com/clalancette/oz/wiki/oz-install"><code>oz-install(1)</code></a>.</p>
+<a href="https://github.com/clalancette/oz/wiki/oz-install"><code class="highlighter-rouge">oz-install(1)</code></a>.</p>
 
 <p>Refer to the <a href="http://libguestfs.org/virt-builder.1.html">extensive
-documentation of <code>virt-builder</code></a>.</p>
+documentation of <code class="highlighter-rouge">virt-builder</code></a>.</p>
 
 <h2 id="installation">Installation</h2>
 
-<p>Virt-builder tool is provided as part of <code>libguestfs-tools-c</code> RPM
+<p>Virt-builder tool is provided as part of <code class="highlighter-rouge">libguestfs-tools-c</code> RPM
 package in Fedora:</p>
 
-<pre><code>$ sudo dnf install libguestfs-tools-c
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install libguestfs-tools-c
 </code></pre>
+</div>
 
 <h2 id="simple-usage">Simple usage</h2>
 
 <p>Build a minimal virtual machine:</p>
 
-<pre><code>$ virt-builder fedora-23 --root-password password:123456
+<div class="highlighter-rouge"><pre class="highlight"><code>$ virt-builder fedora-23 --root-password password:123456
 </code></pre>
+</div>
 
 <p>will build a Fedora 23 image (called ‘fedora-23.img’, in the current
 working directory, which will later be imported into libvirt for use)
@@ -1302,10 +1363,11 @@ root password, only the bare minimum installed software, etc.).</p>
 
 <p>Import the above disk image into libvirt:</p>
 
-<pre><code>$ virt-install --import \
+<div class="highlighter-rouge"><pre class="highlight"><code>$ virt-install --import \
    --name f23vm1 --ram 2048 \
    --disk path=fedora-23.img,format=raw --os-variant fedora23
 </code></pre>
+</div>
 
 <h2 id="examples-to-create-custom-virtual-machines">Examples to create custom virtual machines</h2>
 
@@ -1314,56 +1376,63 @@ root password, only the bare minimum installed software, etc.).</p>
 <p>Prepare a QCOW2 Fedora 23 VM, with 40GB disk size, and update to latest
 available packages:</p>
 
-<pre><code>$ virt-builder fedora-23 -o f23vm2.qcow2 --format qcow2 \
+<div class="highlighter-rouge"><pre class="highlight"><code>$ virt-builder fedora-23 -o f23vm2.qcow2 --format qcow2 \
     --update --selinux-relabel --size 40G
 </code></pre>
+</div>
 
 <p>Import the disk image into libvirt, and provide it 4GB of memory:</p>
 
-<pre><code>$ virt-install --name f23vm2 --ram 4096 \
+<div class="highlighter-rouge"><pre class="highlight"><code>$ virt-install --name f23vm2 --ram 4096 \
     --disk path=f23vm2.qcow2,format=qcow2,cache=writeback \
     --nographics --import --os-variant fedora23
 </code></pre>
+</div>
 
 <h3 id="create-a-rawhide-vm">Create a rawhide VM</h3>
 
 <p>This creates a rawhide VM:</p>
 
-<pre><code>$ virt-builder fedora-23 \
+<div class="highlighter-rouge"><pre class="highlight"><code>$ virt-builder fedora-23 \
     --install fedora-repos-rawhide \
     --edit '/etc/yum.repos.d/fedora-rawhide.repo: s/enabled=0/enabled=1/' \
     --update \
     --selinux-relabel --size 40G \
     --output rawhide-vm.img
 </code></pre>
+</div>
 
 <p>Import it into libvirt, with similar sytax as shown in previous examples.</p>
 
 <p>NOTE: The ‘fedora-repos-rawhide’ RPM can also be installed from
 inside the image too:</p>
 
-<pre><code>$ sudo dnf install fedora-repos-rawhide
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install fedora-repos-rawhide
 </code></pre>
+</div>
 
 <h2 id="manipulating-the-virtual-machines">Manipulating the virtual machines</h2>
 
-<p>Use the libvirt shell interface <code>virsh(1)</code> or <code>virt-manager(1)</code> to
+<p>Use the libvirt shell interface <code class="highlighter-rouge">virsh(1)</code> or <code class="highlighter-rouge">virt-manager(1)</code> to
 manipulate the VM.  A couple of examples:</p>
 
 <p>Enumerate all virtual machines:</p>
 
-<pre><code>$ sudo virsh list --all
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo virsh list --all
 </code></pre>
+</div>
 
 <p>Start a VM:</p>
 
-<pre><code>$ sudo virsh start f23vm1
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo virsh start f23vm1
 </code></pre>
+</div>
 
 <p>Take a snapshot of a running virtual machine:</p>
 
-<pre><code>$ sudo virsh snapshot-create-as f23vm1 snap1 "Clean F23 VM"
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo virsh snapshot-create-as f23vm1 snap1 "Clean F23 VM"
 </code></pre>
+</div>
 
 <p>NOTE: With this kind of snapshot, the original and its delta (the
 snapshot) are stored in a single disk image file (convenient for moving
@@ -1371,19 +1440,21 @@ them across machines).  The VM disk image should be of QCOW2 format.</p>
 
 <p>Revert to a specific snapshot:</p>
 
-<pre><code>$ sudo virsh snapshot-revert f23vm1 snap1
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo virsh snapshot-revert f23vm1 snap1
 </code></pre>
+</div>
 
 <p>Cleaning up VMs and their associated storage:</p>
 
 <p>To gracefully shutdown and delete a virtual machine (including all its
 associated disk images):</p>
 
-<pre><code>$ sudo virsh stop f23vm1
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo virsh stop f23vm1
 $ sudo virsh undefine f23vm1 --remove-all-storage
 </code></pre>
+</div>
 
-<p>NOTE: The flag <code>--remove-all-storage</code> will delete the VM’s disk image(s),
+<p>NOTE: The flag <code class="highlighter-rouge">--remove-all-storage</code> will delete the VM’s disk image(s),
 so ensure you took out relevant data from your VMs.</p>
 
           </div>

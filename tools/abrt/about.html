@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tools">
@@ -117,6 +126,38 @@
         <div class="row" id="headlines">
   <div class="col-sm-12">
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -316,29 +357,39 @@
     
       
     
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -538,29 +589,39 @@
     
       
     
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -574,28 +635,6 @@
         
           <p>Handle crashes of your applications automatically and debug with ease!</p>
         
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
       
     
       
@@ -867,6 +906,8 @@
               
             
               
+            
+              
                 
                 <a href="/tools/abrt/about.html" class="list-group-item  active ">ABRT</a>
                 
@@ -1020,6 +1061,16 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+            
+            
+              
             
               
             
@@ -1089,6 +1140,14 @@
             
               
                 
+              
+            
+              
+            
+              
+            
+              
+            
               
             
               
@@ -1252,7 +1311,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//tools/abrt/about.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tools/abrt//about.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1275,18 +1334,19 @@ over its complete life cycle.</p>
 
 <p>ABRT is installed by default on most Fedora spins. You can verify its
 functionality by forcefully crashing an application of your choice. We choose
-<code>sleep</code> as our victim for demonstration purposes. Following commands
-will run <code>sleep</code> in background and then kill it with 
+<code class="highlighter-rouge">sleep</code> as our victim for demonstration purposes. Following commands
+will run <code class="highlighter-rouge">sleep</code> in background and then kill it with 
 <abbr title="Segmentation Fault (see $ man 7 signal)">SIGSEGV</abbr> signal to produce
 a crash:</p>
 
-<pre><code>sleep 10m &amp;
+<div class="highlighter-rouge"><pre class="highlight"><code>sleep 10m &amp;
 kill -SIGSEGV $!
 </code></pre>
+</div>
 
 <p>When ABRT handles a crash you will get notified via desktop pop-up or console notification
-if <code>abrt-console-notification</code> package is installed. You can then investigate the
-crash via <code>gnome-abrt</code> GUI application or use <code>abrt-cli</code> when working from console.</p>
+if <code class="highlighter-rouge">abrt-console-notification</code> package is installed. You can then investigate the
+crash via <code class="highlighter-rouge">gnome-abrt</code> GUI application or use <code class="highlighter-rouge">abrt-cli</code> when working from console.</p>
 
 <p>It is always a good idea to test the ABRT functionality for applications
 you are developing or maintaining in Fedora. If you are building your own RPMs
@@ -1305,56 +1365,65 @@ that allows developers and maintainers to receive bug reports from users of thei
 <h2 id="new-abrt-cli">New ABRT CLI</h2>
 
 <p>Available since Fedora 23 is the new ABRT CLI tailored specifically for developers.
-It is part of a <code>abrt-cli-ng</code> package and can be installed with:</p>
+It is part of a <code class="highlighter-rouge">abrt-cli-ng</code> package and can be installed with:</p>
 
-<pre><code>$ sudo dnf install abrt-cli-ng
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install abrt-cli-ng
 </code></pre>
+</div>
 
-<p>CLI is then available as <code>abrt</code> executable, try running it on your system:</p>
+<p>CLI is then available as <code class="highlighter-rouge">abrt</code> executable, try running it on your system:</p>
 
-<pre><code>$ abrt
+<div class="highlighter-rouge"><pre class="highlight"><code>$ abrt
 </code></pre>
+</div>
 
 <p>By default it lists crashes that belong to currently logged-in user. To get detailed
-information about a last crash use <code>info</code> subcommand:</p>
+information about a last crash use <code class="highlighter-rouge">info</code> subcommand:</p>
 
-<pre><code>$ abrt info
+<div class="highlighter-rouge"><pre class="highlight"><code>$ abrt info
 </code></pre>
+</div>
 
-<p>If <code>bash-completion</code> is installed on your system, the CLI can use it to complete
+<p>If <code class="highlighter-rouge">bash-completion</code> is installed on your system, the CLI can use it to complete
 hashes of problems or package names for its subcommands:</p>
 
-<pre><code>$ abrt backtrace &lt;TAB&gt;
+<div class="highlighter-rouge"><pre class="highlight"><code>$ abrt backtrace &lt;TAB&gt;
 </code></pre>
+</div>
 
 <p>If the last parameter specifying problem to use is omitted subcommand will work
 with the last problem that occurred on the system.</p>
 
 <p>To run <a href="https://www.gnu.org/software/gdb/">GDB</a> against a last problem use:</p>
 
-<pre><code>$ abrt gdb
+<div class="highlighter-rouge"><pre class="highlight"><code>$ abrt gdb
 </code></pre>
+</div>
 
 <p>To install debuginfo packages for the affected package use</p>
 
-<pre><code>$ abrt debuginfo-install
+<div class="highlighter-rouge"><pre class="highlight"><code>$ abrt debuginfo-install
 </code></pre>
+</div>
 
 <p>These two can be combined to automatically install debuginfo packages prior
 running gdb with:</p>
 
-<pre><code>$ abrt gdb --debuginfo-install
+<div class="highlighter-rouge"><pre class="highlight"><code>$ abrt gdb --debuginfo-install
 </code></pre>
+</div>
 
 <p>To get the full list of commands and options use</p>
 
-<pre><code>$ abrt --help
+<div class="highlighter-rouge"><pre class="highlight"><code>$ abrt --help
 </code></pre>
+</div>
 
 <p>or</p>
 
-<pre><code>$ abrt &lt;subcommand&gt; --help
+<div class="highlighter-rouge"><pre class="highlight"><code>$ abrt &lt;subcommand&gt; --help
 </code></pre>
+</div>
 
 <h2 id="further-reading">Further reading</h2>
 

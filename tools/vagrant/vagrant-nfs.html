@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tools">
@@ -117,6 +126,36 @@
         <div class="row" id="headlines">
   <div class="col-sm-12">
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -307,26 +346,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         
       
     
@@ -349,6 +368,36 @@
       
     
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -539,26 +588,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         
       
     
@@ -595,29 +624,39 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
         
           <p>Create reproducible and portable development environments that can be easily shared in your team.</p>
         
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
       
     
       
@@ -899,6 +938,8 @@
               
             
               
+            
+              
                 
                 <a href="/tools/vagrant/about.html" class="list-group-item ">Vagrant</a>
                 
@@ -1003,20 +1044,6 @@
               
             
               
-                
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
             
               
                 
@@ -1051,6 +1078,12 @@
               
             
               
+            
+              
+            
+              
+            
+              
                 
               
             
@@ -1060,6 +1093,24 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+            
+              
             
               
             
@@ -1234,9 +1285,13 @@
               
             
               
+            
+              
                 
                 <a href="/tools/vagrant/vagrant-virtualbox.html" class="list-group-item ">Vagrant with VirtualBox provider</a>
                 
+              
+            
               
             
               
@@ -1272,9 +1327,13 @@
               
             
               
+            
+              
                 
                 <a href="/tools/vagrant/vagrant-plugins.html" class="list-group-item ">Vagrant plugins</a>
                 
+              
+            
               
             
               
@@ -1312,7 +1371,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//tools/vagrant/vagrant-nfs.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tools/vagrant//vagrant-nfs.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1323,55 +1382,61 @@
 <p>NFS is a faster way of sharing your project’s files between host and guests that
 sync the files instantly.</p>
 
-<p>To use NFS with Vagrant, <code>nfs-utils</code> package needs to be installed and nfs-server
+<p>To use NFS with Vagrant, <code class="highlighter-rouge">nfs-utils</code> package needs to be installed and nfs-server
 needs to be running. If it is not, run:</p>
 
-<pre><code>$ sudo dnf install nfs-utils &amp;&amp; sudo systemctl enable nfs-server
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install nfs-utils &amp;&amp; sudo systemctl enable nfs-server
 </code></pre>
+</div>
 
-<p>Afterwards enable <code>nfs</code>, <code>rpc-bind</code> and <code>mountd</code> services for <code>firewalld</code>:</p>
+<p>Afterwards enable <code class="highlighter-rouge">nfs</code>, <code class="highlighter-rouge">rpc-bind</code> and <code class="highlighter-rouge">mountd</code> services for <code class="highlighter-rouge">firewalld</code>:</p>
 
-<pre><code>$ sudo firewall-cmd --permanent --add-service=nfs &amp;&amp;
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo firewall-cmd --permanent --add-service=nfs &amp;&amp;
   sudo firewall-cmd --permanent --add-service=rpc-bind &amp;&amp;
   sudo firewall-cmd --permanent --add-service=mountd &amp;&amp;
   sudo firewall-cmd --reload
 </code></pre>
+</div>
 
 <p>You need these services added for the zone you will run your virtual bridge
 (should be FedoraWorkstation as default).</p>
 
-<p>Once done, <code>:nfs</code> can be used as an option for files sync in project’s
+<p>Once done, <code class="highlighter-rouge">:nfs</code> can be used as an option for files sync in project’s
 Vagrantfile as follows:</p>
 
-<pre><code>Vagrant.configure("2") do |config|
+<div class="highlighter-rouge"><pre class="highlight"><code>Vagrant.configure("2") do |config|
   # ...
 
   config.vm.synced_folder ".", "/vagrant", type: "nfs"
 end
 </code></pre>
+</div>
 
 <h2 id="using-nfs-shares-from-vagrant-without-password-prompts">Using NFS shares from Vagrant without password prompts</h2>
 
 <p>To not enter password many times a day when using NFS, put the following inside
-your <code>/etc/sudoers</code> file by running <code>sudo visudo</code> (do not try to edit the file
-directly, <code>visudo</code> will check that the content of the file is correct before
+your <code class="highlighter-rouge">/etc/sudoers</code> file by running <code class="highlighter-rouge">sudo visudo</code> (do not try to edit the file
+directly, <code class="highlighter-rouge">visudo</code> will check that the content of the file is correct before
 saving):</p>
 
-<pre><code># Allow Vagrant to manage /etc/exports
+<div class="highlighter-rouge"><pre class="highlight"><code># Allow Vagrant to manage /etc/exports
 Cmnd_Alias VAGRANT_EXPORTS_ADD = /usr/bin/tee -a /etc/exports
-Cmnd_Alias VAGRANT_NFSD_CHECK = /usr/bin/systemctl status nfs-server.service
+Cmnd_Alias VAGRANT_NFSD_CHECK = /usr/bin/systemctl status --no-pager nfs-server.service
 Cmnd_Alias VAGRANT_NFSD_START = /usr/bin/systemctl start nfs-server.service
 Cmnd_Alias VAGRANT_NFSD_APPLY = /usr/sbin/exportfs -ar
-Cmnd_Alias VAGRANT_EXPORTS_REMOVE = /bin/sed -r -e * d -ibak /etc/exports
-%vagrant ALL=(root) NOPASSWD: VAGRANT_EXPORTS_ADD, VAGRANT_NFSD_CHECK, VAGRANT_NFSD_START, VAGRANT_NFSD_APPLY, VAGRANT_EXPORTS_REMOVE
+Cmnd_Alias VAGRANT_EXPORTS_REMOVE = /bin/sed -r -e * d -ibak /*/exports
+Cmnd_Alias VAGRANT_EXPORTS_REMOVE_2 = /bin/cp /*/exports /etc/exports
+%vagrant ALL=(root) NOPASSWD: VAGRANT_EXPORTS_ADD, VAGRANT_NFSD_CHECK, VAGRANT_NFSD_START, VAGRANT_NFSD_APPLY, VAGRANT_EXPORTS_REMOVE, VAGRANT_EXPORTS_REMOVE_2
 </code></pre>
+</div>
 
-<p>Afterwards add yourself to the <code>vagrant</code> group if you are not there already by running:</p>
+<p>Afterwards add yourself to the <code class="highlighter-rouge">vagrant</code> group if you are not there already by running:</p>
 
-<pre><code>$ sudo getent group vagrant &gt;/dev/null || sudo groupadd -r vagrant
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo getent group vagrant &gt;/dev/null || sudo groupadd -r vagrant
 $ sudo gpasswd -a ${USER} vagrant
 $ newgrp vagrant
 </code></pre>
+</div>
 
           </div>
         </div>

@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-deploy">
@@ -117,6 +126,8 @@
         <div class="row" id="headlines">
   <div class="col-sm-12">
 
+    
+      
     
       
     
@@ -340,7 +351,17 @@
     
       
     
+      
+    
+      
+    
+      
+    
+      
+    
 
+    
+      
     
       
     
@@ -564,7 +585,17 @@
     
       
     
+      
+    
+      
+    
+      
+    
+      
+    
 
+    
+      
     
       
     
@@ -789,6 +820,14 @@
     
       
     
+      
+    
+      
+    
+      
+    
+      
+    
   </div>
 </div>
 <div class="row" id="attribution">
@@ -806,6 +845,10 @@
         <div class="col-sm-3">
           <div class="list-group content-menu">
             
+            
+              
+            
+              
             
               
             
@@ -854,10 +897,6 @@
               
             
               
-            
-              
-            
-              
                 
               
             
@@ -1029,6 +1068,20 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+              
+            
+              
             
               
             
@@ -1052,10 +1105,6 @@
             
               
                 
-              
-            
-              
-            
               
             
               
@@ -1252,6 +1301,16 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -1265,7 +1324,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//deployment/copr/copr-cli.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//deployment/copr//copr-cli.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1279,8 +1338,9 @@
 
 <p>Install the copr-cli package:</p>
 
-<pre><code>$ sudo dnf install copr-cli
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install copr-cli
 </code></pre>
+</div>
 
 <p>Log into the Copr web interface and get your API token at the <a href="https://copr.fedoraproject.org/api/">Copr API Page</a></p>
 
@@ -1288,15 +1348,17 @@
   <li>Save the token to your system:</li>
 </ol>
 
-<pre><code>$ vim ~/.config/copr
+<div class="highlighter-rouge"><pre class="highlight"><code>$ vim ~/.config/copr
 </code></pre>
+</div>
 
 <h2 id="creating-a-new-project">Creating a new project</h2>
 
-<p>To create a new project called <code>test-project</code>, which would provide packages for Fedora 22, type:</p>
+<p>To create a new project called <code class="highlighter-rouge">test-project</code>, which would provide packages for Fedora 22, type:</p>
 
-<pre><code>$ copr-cli create --chroot fedora-22-i386 --chroot fedora-22-x86_64 test-project
+<div class="highlighter-rouge"><pre class="highlight"><code>$ copr-cli create --chroot fedora-22-i386 --chroot fedora-22-x86_64 test-project
 </code></pre>
+</div>
 
 <h2 id="submitting-a-build">Submitting a build</h2>
 
@@ -1304,15 +1366,17 @@
 
 <p>A. Building from URL:</p>
 
-<pre><code>$ copr-cli build test-project-2 http://www.example.com/package-1.6-1.fc22.src.rpm
+<div class="highlighter-rouge"><pre class="highlight"><code>$ copr-cli build test-project-2 http://www.example.com/package-1.6-1.fc22.src.rpm
 </code></pre>
+</div>
 
 <p>B. Uploading them into Copr directly:</p>
 
-<pre><code>$ copr-cli build test-project-2 ~/packages/package-1.6-1.fc22.src.rpm
+<div class="highlighter-rouge"><pre class="highlight"><code>$ copr-cli build test-project-2 ~/packages/package-1.6-1.fc22.src.rpm
 </code></pre>
+</div>
 
-<p>The command line tool will now monitor your build and keeps you updated about any changes and results. You can safely interrupt it with <code>ctrl+c</code> at any time. The build will continue running.</p>
+<p>The command line tool will now monitor your build and keeps you updated about any changes and results. You can safely interrupt it with <code class="highlighter-rouge">ctrl+c</code> at any time. The build will continue running.</p>
 
 <h2 id="adding-a-repository-and-installing-the-package">Adding a repository and installing the package</h2>
 
@@ -1320,18 +1384,21 @@
 
 <p>First, make sure you have installed dnf core plugins:</p>
 
-<pre><code>$ sudo dnf install dnf-plugins-core
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install dnf-plugins-core
 </code></pre>
+</div>
 
 <p>Enable your repository:</p>
 
-<pre><code>$ sudo dnf copr enable your_name/test-project
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf copr enable your_name/test-project
 </code></pre>
+</div>
 
 <p>And install the package:</p>
 
-<pre><code>$ sudo dnf install package
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install package
 </code></pre>
+</div>
 
           </div>
         </div>

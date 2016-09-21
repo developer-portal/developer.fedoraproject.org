@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-start">
@@ -117,32 +126,6 @@
         <div class="row" id="headlines">
   <div class="col-sm-12">
 
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
     
       
     
@@ -338,33 +321,43 @@
     
       
     
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
 
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
     
       
     
@@ -560,33 +553,43 @@
     
       
     
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
 
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
     
       
     
@@ -602,6 +605,42 @@
         
           <p>Using Arduino with Fedora as a workstation.</p>
         
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
       
     
       
@@ -809,26 +848,6 @@
               
             
               
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
                 
                 <a href="/start/hw/arduino/about.html" class="list-group-item  active ">Work with Arduino</a>
                 
@@ -1020,7 +1039,6 @@
             
               
             
-            
               
             
               
@@ -1040,6 +1058,17 @@
               
             
               
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
             
               
             
@@ -1051,6 +1080,36 @@
             
               
                 
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
               
             
               
@@ -1252,7 +1311,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//start/hw/arduino/about.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//start/hw/arduino//about.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1269,17 +1328,20 @@
 <h2 id="arduino-ide">Arduino IDE</h2>
 
 <p>Arduino project has its own graphical IDE for developing projects based on Arduino boards.
-It allows you to:
- * develop your code with syntax highlighting
- * browse available libraries and importing new ones
- * compile the code for specific board
- * upload the binary firmware to the board using variety of programmers
- * connect to the board’s serial console and communicate with it</p>
+It allows you to:</p>
+<ul>
+  <li>develop your code with syntax highlighting</li>
+  <li>browse available libraries and importing new ones</li>
+  <li>compile the code for specific board</li>
+  <li>upload the binary firmware to the board using variety of programmers</li>
+  <li>connect to the board’s serial console and communicate with it</li>
+</ul>
 
 <p>To install Arduino IDE on Fedora, just run:</p>
 
-<pre><code>$ sudo dnf install arduino
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install arduino
 </code></pre>
+</div>
 
 <p>Now you are all set to start developing you project using Arduino IDE on Fedora. Just start it from your desktop environment applications menu or run the <code>arduino</code> command from the command line. For more information on how to use the Arduino IDE, please refer to the <a href="https://www.arduino.cc/en/Guide/Environment">documentation</a>.</p>
 
@@ -1289,8 +1351,9 @@ It allows you to:
 
 <p>To install Ino tool on Fedora, just run:</p>
 
-<pre><code>$ sudo dnf install ino
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install ino
 </code></pre>
+</div>
 
 <p>After the installation you will have the <code>ino</code> command available. Ino expect a specific directory structure for your project in order to work.</p>
 

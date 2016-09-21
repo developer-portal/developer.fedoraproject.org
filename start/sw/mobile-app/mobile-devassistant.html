@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-start">
@@ -117,6 +126,12 @@
         <div class="row" id="headlines">
   <div class="col-sm-12">
 
+    
+      
+    
+      
+    
+      
     
       
     
@@ -340,7 +355,17 @@
     
       
     
+      
+    
+      
+    
 
+    
+      
+    
+      
+    
+      
     
       
     
@@ -564,7 +589,17 @@
     
       
     
+      
+    
+      
+    
 
+    
+      
+    
+      
+    
+      
     
       
     
@@ -698,6 +733,10 @@
         
           <p>Creating mobile applications using Google Android Studio.</p>
         
+      
+    
+      
+    
       
     
       
@@ -1028,6 +1067,16 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
             
               
             
@@ -1251,6 +1300,16 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -1264,7 +1323,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//start/sw/mobile-app/mobile-devassistant.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//start/sw/mobile-app//mobile-devassistant.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1274,32 +1333,37 @@
 
 <p>First of all install <a href="https://devassistant.org">DevAssistant</a> project:</p>
 
-<pre><code>$ sudo dnf install devassistant
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install devassistant
 </code></pre>
+</div>
 
 <p>If you prefer GUI run:</p>
 
-<pre><code>$ sudo dnf install devassistant-gui
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install devassistant-gui
 </code></pre>
+</div>
 
 <p>Install DAP plugin <a href="https://github.com/phracek/dap-google-android-studio">Google Android studio</a> for DevAssistant:</p>
 
-<pre><code>$ da pkg install android-studio
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da pkg install android-studio
 </code></pre>
+</div>
 
 <p>If you want to install only packages which are needed by Google Android Studio, run:</p>
 
-<pre><code>$ da crt --deps-only android-studio --name &lt;your_project_name&gt;
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da crt --deps-only android-studio --name &lt;your_project_name&gt;
 </code></pre>
+</div>
 
 <p>For installation Google Android Studio run:</p>
 
-<pre><code>$ da crt android-studio --name &lt;name_of_your_project&gt;
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da crt android-studio --name &lt;name_of_your_project&gt;
 </code></pre>
+</div>
 
 <p>which downloads the latest versions Google Android Studio and SDKs.</p>
 
-<pre><code>$ da crt android-studio --name my_test
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da crt android-studio --name my_test
 INFO: Android studio was not found on system.
 Downloading android studio takes a time. Do you want to continue?
 Select [y/n]
@@ -1315,18 +1379,20 @@ INFO: For import project into Android Studio execute command:
 INFO: /home/$USER/android-studio/bin/studio.sh my_test/build.gradle
 
 </code></pre>
+</div>
 
-<p>For configuring AVD manager run:
-<code>
-$ da crt android-studio --name my_test --avd
-</code></p>
+<p>For configuring AVD manager run:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da crt android-studio --name my_test --avd
+</code></pre>
+</div>
 
 <p>This automatically shows AVD Manager where you can specify your mobile device.</p>
 
 <p>For downloading SDKs run:</p>
 
-<pre><code>$ da crt android-studio --name my_text --sdk
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da crt android-studio --name my_text --sdk
 </code></pre>
+</div>
 <p>This automatically shows SDK Manager where you can specify Android SDK which you would like to download and use it.</p>
 
 

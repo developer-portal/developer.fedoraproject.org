@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tools">
@@ -135,6 +144,24 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
         
           <img class="img-rounded" src="/static/logo/devassistant.png">
         
@@ -181,22 +208,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         
       
     
@@ -265,7 +276,15 @@
       
     
       
+    
+      
+    
+      
         
+      
+    
+      
+    
       
     
       
@@ -345,6 +364,24 @@
       
     
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -409,22 +446,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         
       
     
@@ -493,7 +514,15 @@
       
     
       
+    
+      
+    
+      
         
+      
+    
+      
+    
       
     
       
@@ -591,6 +620,24 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
         
           <p>Set up your development environment, publish your code, and do many of the chores that somehow keep you from the important stuff — writing your software.</p>
         
@@ -637,22 +684,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         
       
     
@@ -721,7 +752,15 @@
       
     
       
+    
+      
+    
+      
         
+      
+    
+      
+    
       
     
       
@@ -829,6 +868,26 @@
               
             
               
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
                 
                 <a href="/tools/devassistant/about.html" class="list-group-item ">DevAssistant</a>
                 
@@ -905,17 +964,7 @@
               
             
               
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
+                
               
             
               
@@ -928,12 +977,6 @@
                 
               
             
-              
-            
-              
-            
-              
-                
               
             
               
@@ -1044,6 +1087,32 @@
             
               
             
+              
+            
+              
+            
+              
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
             
               
             
@@ -1057,26 +1126,6 @@
             
               
                 
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
               
             
               
@@ -1160,9 +1209,13 @@
               
             
               
+            
+              
                 
                 <a href="/tools/devassistant/developers.html" class="list-group-item ">Creating assistants for DevAssistant</a>
                 
+              
+            
               
             
               
@@ -1275,6 +1328,12 @@
             
               
             
+              
+            
+              
+            
+              
+            
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -1288,7 +1347,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//tools/devassistant/tutorials.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tools/devassistant//tutorials.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1306,22 +1365,23 @@ the name of the project or your GitHub username are always the same.</p>
 
 <h2 id="the-basics">The basics</h2>
 
-<p>To launch DevAssistant, either run the <code>da</code> (or <code>da-gui</code> for the GUI) binaries,
+<p>To launch DevAssistant, either run the <code class="highlighter-rouge">da</code> (or <code class="highlighter-rouge">da-gui</code> for the GUI) binaries,
 or find DevAssistant in your Applications menu. In these tutorials, we will use
-the command-line <code>da</code> binary, but the usage of the GUI is very much the same.
+the command-line <code class="highlighter-rouge">da</code> binary, but the usage of the GUI is very much the same.
 Check out the <a href="notes.html">notes</a> for more information about the GUI.</p>
 
-<p>If you are unsure what assistant to run, you can use the <code>--help</code> or <code>-h</code> flag:</p>
+<p>If you are unsure what assistant to run, you can use the <code class="highlighter-rouge">--help</code> or <code class="highlighter-rouge">-h</code> flag:</p>
 
-<pre><code>$ da --help
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da --help
 </code></pre>
+</div>
 
 <p>On top of that, there is the bash completion, so you can autocomplete possible
-options by hitting the <code>TAB</code> key. You can add <code>--help</code> to any command to see
+options by hitting the <code class="highlighter-rouge">TAB</code> key. You can add <code class="highlighter-rouge">--help</code> to any command to see
 what assistants and options are available. You will then receive a help message
 similar to this one:</p>
 
-<pre><code>You can either run assistants with:
+<div class="highlighter-rouge"><pre class="highlight"><code>You can either run assistants with:
 da [--debug] {create,tweak,prepare,extras} [ASSISTANT [ARGUMENTS]] ...
 
 Where:
@@ -1340,10 +1400,11 @@ help     Print detailed help.
 pkg      Lets you interact with online DAPI service and your local DAP packages.
 version  Print version
 </code></pre>
+</div>
 
-<p>To find more about creating projects, you can run <code>da create --help</code>:</p>
+<p>To find more about creating projects, you can run <code class="highlighter-rouge">da create --help</code>:</p>
 
-<pre><code>usage:  create [-h] [--deps-only] {c,cpp,dap,java,nodejs,nulecule,perl,php,python,ruby} ...
+<div class="highlighter-rouge"><pre class="highlight"><code>usage:  create [-h] [--deps-only] {c,cpp,dap,java,nodejs,nulecule,perl,php,python,ruby} ...
 
 Kickstart new projects easily with DevAssistant.
 
@@ -1356,19 +1417,21 @@ subassistants:
 
   {c,cpp,dap,java,nodejs,nulecule,perl,php,python,ruby}
 </code></pre>
+</div>
 
 <p>The above help message lists available assistants used for creating projects,
 so you can choose one to try out. For this tutorial, we will go with one of Python
 assistants—Flask. However, the same approach works for any assistant you
 choose.</p>
 
-<pre><code>$ da create python --help
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da create python --help
 </code></pre>
+</div>
 
 <p>Running help at this point lists the available sub-assistants and arguments in
 a familiar help message:</p>
 
-<pre><code>usage: create python [-h] {django,flask,gtk3,lib} ...
+<div class="highlighter-rouge"><pre class="highlight"><code>usage: create python [-h] {django,flask,gtk3,lib} ...
 
 This is base Python assistant. You have to choose a specific project type.
 
@@ -1380,6 +1443,7 @@ subassistants:
 
 {django,flask,gtk3,lib}
 </code></pre>
+</div>
 
 <h2 id="getting-started-with-flask">Getting started with Flask</h2>
 
@@ -1389,12 +1453,12 @@ creating a simple, mostly static home pages. If you want something bigger, you
 can try Django—there is an assistant for that too.</p>
 
 <p>First, let us display the help message for Flask to find out how you can create
-and customize a Flask-based project:
-<code>
-$ da create python flask --help
-</code></p>
+and customize a Flask-based project:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da create python flask --help
+</code></pre>
+</div>
 
-<pre><code>usage: create python flask [-h] [--venv] [-e [ECLIPSE]] [-g [GITHUB]] -n NAME [-r] [-v]
+<div class="highlighter-rouge"><pre class="highlight"><code>usage: create python flask [-h] [--venv] [-e [ECLIPSE]] [-g [GITHUB]] -n NAME [-r] [-v]
 
 Flask assistant will help you create a basic Flask project and install its
 dependencies.
@@ -1414,24 +1478,27 @@ optional arguments:
                       for building RPM package.
 -v, --vim             Configure VIM editor for various programming languages
 </code></pre>
+</div>
 
-<p>Say that you want to name your Flask app <code>MyFancyWebserver</code> and want to publish
+<p>Say that you want to name your Flask app <code class="highlighter-rouge">MyFancyWebserver</code> and want to publish
 the source code on GitHub. As you can figure out from the help message above,
 you will have to run the following command:</p>
 
-<pre><code>$ da create python flask --name MyFancyWebserver --github UserName
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da create python flask --name MyFancyWebserver --github UserName
 </code></pre>
+</div>
 
 <p>That is a bit long, is it not? You can write it in a much shorter way,
 especially if your GitHub username is the same as that on your local machine:</p>
 
-<pre><code>$ da crt python flask -n MyFancyWebserver -g
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da crt python flask -n MyFancyWebserver -g
 </code></pre>
+</div>
 
 <p>When you run that, DevAssistant does all the magic for you—installs
 dependencies, creates files and directories, and more:</p>
 
-<pre><code>INFO: Resolving RPM dependencies with DNF...
+<div class="highlighter-rouge"><pre class="highlight"><code>INFO: Resolving RPM dependencies with DNF...
 Installing 2 RPM packages with DNF. Is this ok? [y(es)/n(o)/s(how)]: s
 python-flask-wtf-0.10.0-2.fc22.noarch
 python-wtforms-2.0-4.fc22.noarch
@@ -1447,15 +1514,16 @@ INFO: Flask project MyFancyWebserver in . has been created.
 INFO: To run the application use: ./manage.py runserver
 INFO: For more information about Flask project visit https://flask.pocoo.org/docs/tutorial/
 </code></pre>
+</div>
 
 <p>As you can see, DevAssistant allows you to verify which packages are about to
 be installed.  During the run of the assistant, you may be asked for the
 administrator (root) password several times, especially during dependencies
 installation. After the run is finished, you can see that the directory
-<code>MyFancyWebserver</code> now exists, and that it is populated with files
+<code class="highlighter-rouge">MyFancyWebserver</code> now exists, and that it is populated with files
 automatically:</p>
 
-<pre><code>$ tree MyFancyWebserver
+<div class="highlighter-rouge"><pre class="highlight"><code>$ tree MyFancyWebserver
 MyFancyWebserver/
 ├── application
 ├── httpd.MyFancyWebserver.conf
@@ -1470,8 +1538,9 @@ MyFancyWebserver/
 
 3 directories, 7 files
 </code></pre>
+</div>
 
-<p>You can then go to the directory and run <code>./manage.py runserver</code> as advised in
+<p>You can then go to the directory and run <code class="highlighter-rouge">./manage.py runserver</code> as advised in
 the DevAssistant log. You now have a fully functioning webserver after running
 a single command in DevAssistant, and can start editing it with your favourite
 editor.</p>
@@ -1480,15 +1549,16 @@ editor.</p>
 
 <p>If you are interested in DevAssistant, there is a good chance you are already
 working on some code on your own, but that code is not yet published anywhere.
-We have thought of that, and DevAssistant provides a <code>tweak</code> assistant that
+We have thought of that, and DevAssistant provides a <code class="highlighter-rouge">tweak</code> assistant that
 does just that. Run it in your project’s directory like this:</p>
 
-<pre><code>$ da tweak github create --push
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da tweak github create --push
 </code></pre>
+</div>
 
 <p>What this command does is create a repository for your GitHub username under
 the name of the current directory, and pushes the sources there. If you so
-wish, you can specify a different GitHub username or omit the <code>--push</code> flag to
+wish, you can specify a different GitHub username or omit the <code class="highlighter-rouge">--push</code> flag to
 only create the repository, but not push the code into it immediately.</p>
 
 <h2 id="checking-out-or-forking-a-github-repository">Checking out or forking a GitHub repository</h2>
@@ -1496,20 +1566,21 @@ only create the repository, but not push the code into it immediately.</p>
 <p>With DevAssistant, not only the creation of your own software is easy, but
 the modification of others’ code is too. To check out a GitHub repository, run:</p>
 
-<pre><code>$ da prepare custom --repo UserName/RepoName
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da prepare custom --repo UserName/RepoName
 </code></pre>
+</div>
 
 <p>The UserName and RepoName are GitHub identifiers of the repository, so to check
-out DevAssistant’s own code, you would run <code>da prepare custom --repo
+out DevAssistant’s own code, you would run <code class="highlighter-rouge">da prepare custom --repo
 devassistant/devassistant</code>. However, you could do it even more easily, because
-we provide our custom set of assistants, so <code>da prepare devassistant</code> is
+we provide our custom set of assistants, so <code class="highlighter-rouge">da prepare devassistant</code> is
 enough.</p>
 
-<p>An important part of the checkout process is looking for a <code>.devassistant</code>
+<p>An important part of the checkout process is looking for a <code class="highlighter-rouge">.devassistant</code>
 configuration file that the developer may have included in the repo, and
 installing dependencies or setting up your machine if you want that—It may be
 necessary to install some packages for testing etc. You are always asked if you
-want to execute the contents of the <code>.devassistant</code> file when checking out the
+want to execute the contents of the <code class="highlighter-rouge">.devassistant</code> file when checking out the
 repo for added security.</p>
 
           </div>

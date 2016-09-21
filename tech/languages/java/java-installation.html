@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
@@ -117,6 +126,10 @@
         <div class="row" id="headlines">
   <div class="col-sm-12">
 
+    
+      
+    
+      
     
       
     
@@ -344,7 +357,17 @@
     
       
     
+      
+    
+      
+    
+      
+    
 
+    
+      
+    
+      
     
       
     
@@ -572,7 +595,17 @@
     
       
     
+      
+    
+      
+    
+      
+    
 
+    
+      
+    
+      
     
       
     
@@ -700,6 +733,12 @@
     
       
         
+      
+    
+      
+    
+      
+    
       
     
       
@@ -973,28 +1012,6 @@
               
             
               
-                
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
             
               
             
@@ -1002,6 +1019,38 @@
             
               
                 
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
               
             
               
@@ -1200,11 +1249,15 @@
               
             
               
+            
+              
+            
+              
+            
+              
                 
                 <a href="/tech/languages/java/java-sig.html" class="list-group-item ">Java SIG</a>
                 
-              
-            
               
             
               
@@ -1275,6 +1328,12 @@
             
               
             
+              
+            
+              
+            
+              
+            
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -1288,7 +1347,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/java/java-installation.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/java//java-installation.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1298,29 +1357,33 @@
 
 <p>Fedora comes with <a href="http://openjdk.java.net/">OpenJDK</a> - a free and open source implementation of the Java Platform, Standard Edition. To install it, simply type:</p>
 
-<pre><code>$ sudo dnf install java-1.8.0-openjdk-devel
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install java-1.8.0-openjdk-devel
 </code></pre>
+</div>
 
 <p>This command will install Java Development Kit - runtime environment and associated development tools.</p>
 
 <p><a href="http://icedtea.classpath.org/wiki/IcedTea-Web">IcedTea-Web</a> may come handy if your plan is to develop Java applets or to experiment with Java Web Start. To install it, simply type:</p>
 
-<pre><code>$ sudo dnf install icedtea-web
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install icedtea-web
 </code></pre>
+</div>
 
 <p>This command will install Java web browser plugin and free implementation of Java Web Start.</p>
 
 <p>Later, when you will want to test your new application in a production-like environment, it’s possible to install just Java runtime environment (JRE) - without development tools. This can be achieved by several means:</p>
 
-<pre><code>$ sudo dnf install java-1.8.0-openjdk-headless
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install java-1.8.0-openjdk-headless
 </code></pre>
+</div>
 
 <p>The command above will install so-called “headless” JRE, i.e. JRE without support for graphic and audio. If your application is supposed to run on a server without any graphical user interface (GUI) installed, then this is likely what you want.</p>
 
 <p>However, if your application needs support for GUI or audio, you will likely want to install full JRE. You can do that simply by typing:</p>
 
-<pre><code>$ sudo dnf install java-1.8.0-openjdk
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install java-1.8.0-openjdk
 </code></pre>
+</div>
 
 <!-- TODO: add section about installing JDK from 3rd parties + how to switch between them -->
 

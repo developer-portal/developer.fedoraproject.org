@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tools">
@@ -117,6 +126,36 @@
         <div class="row" id="headlines">
   <div class="col-sm-12">
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -307,26 +346,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         
       
     
@@ -349,6 +368,36 @@
       
     
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -539,26 +588,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         
       
     
@@ -595,29 +624,39 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
         
           <p>Create reproducible and portable development environments that can be easily shared in your team.</p>
         
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
       
     
       
@@ -899,6 +938,8 @@
               
             
               
+            
+              
                 
                 <a href="/tools/vagrant/about.html" class="list-group-item ">Vagrant</a>
                 
@@ -1003,20 +1044,6 @@
               
             
               
-                
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
             
               
                 
@@ -1051,6 +1078,12 @@
               
             
               
+            
+              
+            
+              
+            
+              
                 
               
             
@@ -1060,6 +1093,24 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+            
+              
             
               
             
@@ -1234,9 +1285,13 @@
               
             
               
+            
+              
                 
                 <a href="/tools/vagrant/vagrant-virtualbox.html" class="list-group-item ">Vagrant with VirtualBox provider</a>
                 
+              
+            
               
             
               
@@ -1272,9 +1327,13 @@
               
             
               
+            
+              
                 
                 <a href="/tools/vagrant/vagrant-plugins.html" class="list-group-item ">Vagrant plugins</a>
                 
+              
+            
               
             
               
@@ -1312,7 +1371,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//tools/vagrant/vagrant-docker.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tools/vagrant//vagrant-docker.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1320,52 +1379,57 @@
             
             <h1 id="vagrant-with-docker-support-installation">Vagrant with Docker support installation</h1>
 
-<p>To use Vagrant with Docker, you need to install the <code>vagrant</code> and <code>docker</code> packages:</p>
+<p>To use Vagrant with Docker, you need to install the <code class="highlighter-rouge">vagrant</code> and <code class="highlighter-rouge">docker</code> packages:</p>
 
-<pre><code>$ sudo dnf install vagrant docker
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install vagrant docker
 </code></pre>
+</div>
 
-<p>And start <code>docker</code> service:</p>
+<p>And start <code class="highlighter-rouge">docker</code> service:</p>
 
-<pre><code>$ sudo systemctl start docker
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo systemctl start docker
 </code></pre>
+</div>
 
 <p>Vagrant itself comes with the support for Docker baked-in. By installing Docker alongside
 Vagrant you can start using Docker both as a provider and as a provisioner. Please refer to
 the <a href="https://docs.vagrantup.com/v2/">official documentation</a> for more.</p>
 
-<p>Note: All Vagrant commands have to be ran as root (e.g. with <code>sudo</code>). This is similar to running
+<p>Note: All Vagrant commands have to be ran as root (e.g. with <code class="highlighter-rouge">sudo</code>). This is similar to running
 Docker commands directly.</p>
 
 <h2 id="using-docker-as-a-default">Using Docker as a default</h2>
 
-<p>To use Docker provider with any Vagrant commands, one has to explicitly append <code>--provider=docker</code>.</p>
+<p>To use Docker provider with any Vagrant commands, one has to explicitly append <code class="highlighter-rouge">--provider=docker</code>.</p>
 
 <p>To avoid this, you can set the default provider for your project in the beginning of your
 Vagrantfile as:</p>
 
-<pre><code># Vagrantfile
+<div class="highlighter-rouge"><pre class="highlight"><code># Vagrantfile
 ENV['VAGRANT_DEFAULT_PROVIDER'] = 'docker'
 ...
 </code></pre>
+</div>
 
 <p>Or set it for your environment with:</p>
 
-<pre><code>export VAGRANT_DEFAULT_PROVIDER=docker
+<div class="highlighter-rouge"><pre class="highlight"><code>export VAGRANT_DEFAULT_PROVIDER=docker
 </code></pre>
+</div>
 
 <h2 id="using-docker-from-vagrant-without-password-prompts">Using Docker from Vagrant without password prompts</h2>
 
-<p>To use Vagrant with Docker without password prompts it is enough to add yourself to the <code>docker</code>
-group. This will make <code>docker</code> commands password-less as well.</p>
+<p>To use Vagrant with Docker without password prompts it is enough to add yourself to the <code class="highlighter-rouge">docker</code>
+group. This will make <code class="highlighter-rouge">docker</code> commands password-less as well.</p>
 
 <p>To do so, type:</p>
 
-<pre><code>$ sudo groupadd docker &amp;&amp; sudo gpasswd -a ${USER} docker &amp;&amp; sudo systemctl restart docker
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo groupadd docker &amp;&amp; sudo gpasswd -a ${USER} docker &amp;&amp; sudo systemctl restart docker
 $ newgrp docker
 </code></pre>
+</div>
 
-<p>Above commands will create the group <code>docker</code> and add current user to this group. This user
+<p>Above commands will create the group <code class="highlighter-rouge">docker</code> and add current user to this group. This user
 also need to have administrator privileges.</p>
 
 <p>Note: This has security implications, read about this in the <a href="https://docs.docker.com/articles/security/#docker-daemon-attack-surface">official docs</a>.</p>

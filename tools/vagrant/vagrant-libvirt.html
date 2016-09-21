@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tools">
@@ -117,6 +126,36 @@
         <div class="row" id="headlines">
   <div class="col-sm-12">
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -307,26 +346,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         
       
     
@@ -349,6 +368,36 @@
       
     
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -539,26 +588,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         
       
     
@@ -595,29 +624,39 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
         
           <p>Create reproducible and portable development environments that can be easily shared in your team.</p>
         
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
       
     
       
@@ -899,6 +938,8 @@
               
             
               
+            
+              
                 
                 <a href="/tools/vagrant/about.html" class="list-group-item ">Vagrant</a>
                 
@@ -1003,20 +1044,6 @@
               
             
               
-                
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
             
               
                 
@@ -1051,6 +1078,12 @@
               
             
               
+            
+              
+            
+              
+            
+              
                 
               
             
@@ -1060,6 +1093,24 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+            
+              
             
               
             
@@ -1234,9 +1285,13 @@
               
             
               
+            
+              
                 
                 <a href="/tools/vagrant/vagrant-virtualbox.html" class="list-group-item ">Vagrant with VirtualBox provider</a>
                 
+              
+            
               
             
               
@@ -1272,9 +1327,13 @@
               
             
               
+            
+              
                 
                 <a href="/tools/vagrant/vagrant-plugins.html" class="list-group-item ">Vagrant plugins</a>
                 
+              
+            
               
             
               
@@ -1312,7 +1371,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//tools/vagrant/vagrant-libvirt.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tools/vagrant//vagrant-libvirt.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1320,27 +1379,30 @@
             
             <h1 id="vagrant-with-libvirt-support-installation">Vagrant with libvirt support installation</h1>
 
-<p>To use Vagrant with libvirt, you need to install the <code>vagrant-libvirt</code> package:</p>
+<p>To use Vagrant with libvirt, you need to install the <code class="highlighter-rouge">vagrant-libvirt</code> package:</p>
 
-<pre><code>$ sudo dnf install vagrant-libvirt
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install vagrant-libvirt
 </code></pre>
+</div>
 
 <p>There is also <em>@vagrant</em> package collection created with libvirt provider in mind. With the following command you can install all necessary Vagrant packages as well:</p>
 
-<pre><code>$ sudo dnf install @vagrant
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install @vagrant
 </code></pre>
+</div>
 
-<p>Afterwards make sure that libvirt daemon is running and that you have <code>kvm</code> module loaded in the kernel:</p>
+<p>Afterwards make sure that libvirt daemon is running and that you have <code class="highlighter-rouge">kvm</code> module loaded in the kernel:</p>
 
-<pre><code>$ sudo systemctl enable libvirtd
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo systemctl enable libvirtd
 $ lsmod | grep kvm
 kvm_intel             167936  3
 kvm                   499712  1 kvm_intel
 </code></pre>
+</div>
 
-<p>If you do not have KVM capabilities, you will need to use <code>qemu</code> driver within your Vagrantfile as follows:</p>
+<p>If you do not have KVM capabilities, you will need to use <code class="highlighter-rouge">qemu</code> driver within your Vagrantfile as follows:</p>
 
-<pre><code>Vagrant.configure("2") do |config|
+<div class="highlighter-rouge"><pre class="highlight"><code>Vagrant.configure("2") do |config|
 ...
   config.vm.provider :libvirt do |libvirt|
     libvirt.driver = "qemu"
@@ -1348,17 +1410,19 @@ kvm                   499712  1 kvm_intel
 ...
 end
 </code></pre>
+</div>
 
-<p>Read more on the <code>vagrant-libvirt</code> configuration in the <a href="https://github.com/pradels/vagrant-libvirt">upstream documentation</a>.</p>
+<p>Read more on the <code class="highlighter-rouge">vagrant-libvirt</code> configuration in the <a href="https://github.com/pradels/vagrant-libvirt">upstream documentation</a>.</p>
 
 <h2 id="using-libvirt-from-vagrant-without-password-prompts">Using libvirt from Vagrant without password prompts</h2>
 
-<p>Using <code>libvirt</code> provider requires you to type your administrator password every time you create,
-start, halt or destroy your domains. Fortunately you can avoid this by adding yourself to the <code>libvirt</code> group:</p>
+<p>Using <code class="highlighter-rouge">libvirt</code> provider requires you to type your administrator password every time you create,
+start, halt or destroy your domains. Fortunately you can avoid this by adding yourself to the <code class="highlighter-rouge">libvirt</code> group:</p>
 
-<pre><code>$ sudo gpasswd -a ${USER} libvirt
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo gpasswd -a ${USER} libvirt
 $ newgrp libvirt
 </code></pre>
+</div>
 
           </div>
         </div>

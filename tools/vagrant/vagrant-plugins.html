@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tools">
@@ -117,6 +126,36 @@
         <div class="row" id="headlines">
   <div class="col-sm-12">
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -307,26 +346,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         
       
     
@@ -349,6 +368,36 @@
       
     
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -539,26 +588,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         
       
     
@@ -595,29 +624,39 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
         
           <p>Create reproducible and portable development environments that can be easily shared in your team.</p>
         
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
       
     
       
@@ -899,6 +938,8 @@
               
             
               
+            
+              
                 
                 <a href="/tools/vagrant/about.html" class="list-group-item ">Vagrant</a>
                 
@@ -1003,20 +1044,6 @@
               
             
               
-                
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
             
               
                 
@@ -1051,6 +1078,12 @@
               
             
               
+            
+              
+            
+              
+            
+              
                 
               
             
@@ -1060,6 +1093,24 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+            
+              
             
               
             
@@ -1234,9 +1285,13 @@
               
             
               
+            
+              
                 
                 <a href="/tools/vagrant/vagrant-virtualbox.html" class="list-group-item ">Vagrant with VirtualBox provider</a>
                 
+              
+            
               
             
               
@@ -1272,9 +1327,13 @@
               
             
               
+            
+              
                 
                 <a href="/tools/vagrant/vagrant-plugins.html" class="list-group-item  active ">Vagrant plugins</a>
                 
+              
+            
               
             
               
@@ -1312,7 +1371,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//tools/vagrant/vagrant-plugins.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tools/vagrant//vagrant-plugins.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1322,12 +1381,13 @@
 
 <h2 id="upstream-plugins">Upstream plugins</h2>
 
-<p>There are many more plugins for Vagrant apart from the providers mentioned here. They come in form of Ruby gems and usually have <code>vargant-</code> prefix in their name.</p>
+<p>There are many more plugins for Vagrant apart from the providers mentioned here. They come in form of Ruby gems and usually have <code class="highlighter-rouge">vargant-</code> prefix in their name.</p>
 
 <p>To install such a plugin from RubyGems.org type:</p>
 
-<pre><code>$ vagrant plugin install PLUGIN
+<div class="highlighter-rouge"><pre class="highlight"><code>$ vagrant plugin install PLUGIN
 </code></pre>
+</div>
 
 <p>If the installation fails it’s most likely similar to installation failures of other gems.</p>
 
@@ -1339,19 +1399,21 @@
 
 <p>To install the plugin from Fedora repositories type:</p>
 
-<pre><code>$ sudo dnf install PLUGIN
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install PLUGIN
 </code></pre>
+</div>
 
 <p>To list available packaged gems try:</p>
 
-<pre><code>$ dnf search vagrant-*
+<div class="highlighter-rouge"><pre class="highlight"><code>$ dnf search vagrant-*
 </code></pre>
+</div>
 
 <h3 id="vagrant-registration">vagrant-registration</h3>
 
-<p><code>vagrant-registration</code> plugin for Vagrant allows developers to easily register their guests for updates on systems with a subscription model (like Red Hat Enterprise Linux).</p>
+<p><code class="highlighter-rouge">vagrant-registration</code> plugin for Vagrant allows developers to easily register their guests for updates on systems with a subscription model (like Red Hat Enterprise Linux).</p>
 
-<p>This plugin would run register action on vagrant up before any provisioning and unregister on <code>vagrant halt</code> or <code>vagrant destroy</code>. The actions then call the registration capabilities that have to be provided for given OS.</p>
+<p>This plugin would run register action on vagrant up before any provisioning and unregister on <code class="highlighter-rouge">vagrant halt</code> or <code class="highlighter-rouge">vagrant destroy</code>. The actions then call the registration capabilities that have to be provided for given OS.</p>
 
 <p>More information <a href="https://github.com/projectatomic/adb-vagrant-registration">on the project page</a>.</p>
 

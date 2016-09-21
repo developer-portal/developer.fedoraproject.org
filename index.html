@@ -44,7 +44,16 @@
 </head>
 
   <body>
-    
+    <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-large splash-section-homepage">
@@ -183,44 +192,55 @@
 </div>
 
     <!-- BLOG_HEADLINES_START -->
+
+
 <div class="container" id="blog-headlines">
-  <div class="container">
-  <div class="row">
-	  <div class="col-sm-12">
-	  	  <h2><span>Fedora Planet</span></h2>
-	  </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-6 blog-headlines">
-	  <article>
-		<h3><a href="#">Dirty Tricks: Launching a helper process under memory and latency constraints (pthread_create and vfork)</a></h3>
-		<p>You need to launch a helper process, and while Linux’s fork is copy-on-write (COW), the page tables still need to be duplicated, and for a large virtual address space that...</p>
-		<p><a href="#">Read more ...</a></p>
-		<p class="byline">by <span class="author">Carlos O'Donnell</span> <span class="date">August 19, 2015</span></p>
-	  </article>
-	  <article>
-		<h3><a href="#">Repost: Developing process-enabled applications with BPA and BPM tools</a></h3>
-		<p>Developing business process-enabled applications can be messy—with numerous stakeholders using separate business process analysis (BPA) and business process...</p>
-		<p><a href="#">Read more ...</a></p>
-		<p class="byline">by <span class="author">Eric D. Schabell</span> <span class="date">August 5, 2015</span></p>
-	  </article>
+    <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+          <h2><span>Fedora Planet</span></h2>
+      </div>
     </div>
+    <div class="row">
+
     <div class="col-sm-6 blog-headlines">
-      <article>
-		<h3><a href="#">DZone guide to the Internet of Things</a></h3>
-		<p>Interested in IoT?  Dzone has done a great job assembling this guide, but I’m also pleased that they’ve included my section, IoT Gateways and Architectures...</p>
-		<p><a href="#">Read more ...</a></p>
-		<p class="byline">by <span class="author">Henryk Konsek</span> <span class="date">August 24, 2015</span></p>
-	  </article>
-	  <article>
-		<h3><a href="#">4 Steps to Maximize Your DevOps and Agile Results</a></h3>
-		<p>It still amazes me how, after all the time and effort spent trying to figure out how to manage and execute technology projects, that some fundamental issues still remain...</p>
-		<p><a href="#">Read more ...</a></p>
-		<p class="byline">by <span class="author">Matt Lyteson</span> <span class="date">August 20, 2015</span></p>
-	  </article>
+    
+        <article>
+        <h3><a href="https://www.balabit.com/blog/logging-to-elasticsearch-made-simple-with-syslog-ng/"> Logging to Elasticsearch made simple with syslog-ng</a></h3>
+        <p>Elasticsearch is gaining momentum as the ultimate destination for log messages. There are two major reasons for this: You can store arbitrary name-value pairs coming...</p>
+        <p><a href="https://www.balabit.com/blog/logging-to-elasticsearch-made-simple-with-syslog-ng/">Read more</a></p>
+        <p class="byline">by <span class="author">Peter Czanik</span> <span class="date">Thu, 22 Sep 2016</span></p>
+        </article>
+
+        <article>
+        <h3><a href="https://rwmj.wordpress.com/2016/09/22/a-new-amazon-seller-scam/"> A new Amazon seller scam</a></h3>
+        <p>Amazon, so convenient, yet so annoying when things go wrong. This useless seller looks like a new type of scam to me. It seems to...</p>
+        <p><a href="https://rwmj.wordpress.com/2016/09/22/a-new-amazon-seller-scam/">Read more</a></p>
+        <p class="byline">by <span class="author">Richard W.M. Jones</span> <span class="date">Thu, 22 Sep 2016</span></p>
+        </article>
+
     </div>
-  </div>
-  </div>
+
+    <div class="col-sm-6 blog-headlines">
+    
+        <article>
+        <h3><a href="https://blogs.gnome.org/hughsie/2016/09/22/comments-about-oars-and-csm-age-ratings/"> Comments about OARS and CSM age ratings</a></h3>
+        <p>I’ve had quite a few comments from people stating that using age rating classification values based on American culture is wrong. So far I’ve been...</p>
+        <p><a href="https://blogs.gnome.org/hughsie/2016/09/22/comments-about-oars-and-csm-age-ratings/">Read more</a></p>
+        <p class="byline">by <span class="author">Richard Hughes</span> <span class="date">Thu, 22 Sep 2016</span></p>
+        </article>
+
+        <article>
+        <h3><a href="http://status.fedoraproject.org/"> All systems go</a></h3>
+        <p>New status good: Everything seems to be working. for services: Fedora Wiki, Fedora People, Zodbot IRC bot, The Koji Buildsystem, Darkserver, Tagger, Package Database, Fedora...</p>
+        <p><a href="http://status.fedoraproject.org/">Read more</a></p>
+        <p class="byline">by <span class="author">Fedora Infrastructure Status</span> <span class="date">Wed, 21 Sep 2016</span></p>
+        </article>
+
+    </div>
+
+</div>
+</div>
 </div>
 <!-- BLOG_HEADLINES_END -->
 

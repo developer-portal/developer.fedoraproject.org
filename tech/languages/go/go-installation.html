@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
@@ -117,6 +126,10 @@
         <div class="row" id="headlines">
   <div class="col-sm-12">
 
+    
+      
+    
+      
     
       
     
@@ -340,7 +353,17 @@
     
       
     
+      
+    
+      
+    
+      
+    
 
+    
+      
+    
+      
     
       
     
@@ -564,7 +587,17 @@
     
       
     
+      
+    
+      
+    
+      
+    
 
+    
+      
+    
+      
     
       
     
@@ -672,6 +705,12 @@
     
       
         
+      
+    
+      
+    
+      
+    
       
     
       
@@ -1028,6 +1067,16 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
             
               
             
@@ -1251,6 +1300,16 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -1264,7 +1323,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/go/go-installation.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/go//go-installation.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1274,23 +1333,26 @@
 
 <p>To install Go compiler, type:</p>
 
-<pre><code>$ sudo dnf install go
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install go
 </code></pre>
+</div>
 
-<p><code>go</code> and <code>gofmt</code> binaries will become available on the system.</p>
+<p><code class="highlighter-rouge">go</code> and <code class="highlighter-rouge">gofmt</code> binaries will become available on the system.</p>
 
-<p>Go code lives in <a href="https://golang.org/doc/code.html#Workspaces">a workspace</a> which is defined by <code>GOPATH</code> environment variable. <a href="https://golang.org/doc/code.html#GOPATH">Upstream documentation</a> uses <code>$HOME/work</code> for your Go workspace:</p>
+<p>Go code lives in <a href="https://golang.org/doc/code.html#Workspaces">a workspace</a> which is defined by <code class="highlighter-rouge">GOPATH</code> environment variable. <a href="https://golang.org/doc/code.html#GOPATH">Upstream documentation</a> uses <code class="highlighter-rouge">$HOME/work</code> for your Go workspace:</p>
 
-<pre><code>$ mkdir -p $HOME/work
+<div class="highlighter-rouge"><pre class="highlight"><code>$ mkdir -p $HOME/work
 $ echo 'export GOPATH=$HOME/work' &gt;&gt; $HOME/.bashrc
 $ source $HOME/.bashrc
 </code></pre>
+</div>
 
-<p>Run <code>go env</code> to check that <code>$GOPATH</code> is set correctly:</p>
+<p>Run <code class="highlighter-rouge">go env</code> to check that <code class="highlighter-rouge">$GOPATH</code> is set correctly:</p>
 
-<pre><code>$ go env | grep GOPATH
+<div class="highlighter-rouge"><pre class="highlight"><code>$ go env | grep GOPATH
 GOPATH="/home/$USER/work"
 </code></pre>
+</div>
 
           </div>
         </div>

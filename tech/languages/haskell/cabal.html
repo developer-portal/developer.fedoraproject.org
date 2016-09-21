@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
@@ -179,7 +188,11 @@
       
     
       
+    
+      
         
+      
+    
       
     
       
@@ -247,6 +260,14 @@
       
     
       
+        
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -405,7 +426,11 @@
       
     
       
+    
+      
         
+      
+    
       
     
       
@@ -473,6 +498,14 @@
       
     
       
+        
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -631,7 +664,11 @@
       
     
       
+    
+      
         
+      
+    
       
     
       
@@ -693,6 +730,14 @@
     
       
     
+      
+    
+      
+    
+      
+    
+      
+        
       
     
       
@@ -922,146 +967,9 @@
               
             
               
-                
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
             
               
                 
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
               
             
               
@@ -1122,6 +1030,157 @@
             
               
                 
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
               
             
               
@@ -1205,6 +1264,8 @@
               
             
               
+            
+              
                 
                 <a href="/tech/languages/haskell/sig.html" class="list-group-item ">Haskell SIG</a>
                 
@@ -1220,6 +1281,16 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+                
+                <a href="/tech/languages/haskell/leksah.html" class="list-group-item ">Leksah</a>
+                
               
             
               
@@ -1277,7 +1348,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/haskell/cabal.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/haskell//cabal.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1286,27 +1357,30 @@
             <h1 id="cabal">Cabal</h1>
 
 <p>To install Haskell libraries and build Haskell projects, you will likely want to
-install <code>cabal</code> – a system which aids in the packaging, distribution, and
+install <code class="highlighter-rouge">cabal</code> – a system which aids in the packaging, distribution, and
 installation of Haskell libraries and applications.</p>
 
 <p>If you’ve chosen to install the Haskell Platform, then you already have Cabal
 installed. Otherwise, you can install it by:</p>
 
-<pre><code>$ sudo dnf install cabal-install
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install cabal-install
 </code></pre>
+</div>
 
 <p>You can then install packages from <a href="https://hackage.haskell.org/">Hackage</a> by
 using:</p>
 
-<pre><code>$ cabal install &lt;package name&gt;
+<div class="highlighter-rouge"><pre class="highlight"><code>$ cabal install &lt;package name&gt;
 </code></pre>
+</div>
 
 <p>Note that Fedora offers a large number of Hackage packages in its official
-repositories as RPMs. You can always try installing a Hackage package via <code>dnf</code>
+repositories as RPMs. You can always try installing a Hackage package via <code class="highlighter-rouge">dnf</code>
 first using:</p>
 
-<pre><code>$ sudo dnf install ghc-&lt;package name&gt;
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install ghc-&lt;package name&gt;
 </code></pre>
+</div>
 
           </div>
         </div>

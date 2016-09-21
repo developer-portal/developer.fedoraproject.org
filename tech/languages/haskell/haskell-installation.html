@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
@@ -179,7 +188,11 @@
       
     
       
+    
+      
         
+      
+    
       
     
       
@@ -247,6 +260,14 @@
       
     
       
+        
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -405,7 +426,11 @@
       
     
       
+    
+      
         
+      
+    
       
     
       
@@ -473,6 +498,14 @@
       
     
       
+        
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -631,7 +664,11 @@
       
     
       
+    
+      
         
+      
+    
       
     
       
@@ -693,6 +730,14 @@
     
       
     
+      
+    
+      
+    
+      
+    
+      
+        
       
     
       
@@ -922,146 +967,9 @@
               
             
               
-                
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
             
               
                 
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
               
             
               
@@ -1122,6 +1030,157 @@
             
               
                 
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
               
             
               
@@ -1205,6 +1264,8 @@
               
             
               
+            
+              
                 
                 <a href="/tech/languages/haskell/sig.html" class="list-group-item ">Haskell SIG</a>
                 
@@ -1220,6 +1281,16 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+                
+                <a href="/tech/languages/haskell/leksah.html" class="list-group-item ">Leksah</a>
+                
               
             
               
@@ -1277,7 +1348,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/haskell/haskell-installation.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/haskell//haskell-installation.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1290,10 +1361,11 @@ Haskell.</p>
 
 <p>To install GHC on Fedora, run:</p>
 
-<pre><code>$ sudo dnf install ghc
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install ghc
 </code></pre>
+</div>
 
-<p>This will install GHC including the <code>ghci</code> read-eval-print-loop, the <code>haddock</code>
+<p>This will install GHC including the <code class="highlighter-rouge">ghci</code> read-eval-print-loop, the <code class="highlighter-rouge">haddock</code>
 documentation generator, and several other utilities.</p>
 
 <p>Please refer to the official documentation at
@@ -1304,8 +1376,8 @@ in general.</p>
 <h1 id="the-haskell-platform">The Haskell Platform</h1>
 
 <p>Another option is to install the
-<a href="https://www.haskell.org/platform/">Haskell Platform</a>, which provides <code>ghc</code> and
-<code>ghci</code> as above, but also includes a plethora of useful Haskell libraries and
+<a href="https://www.haskell.org/platform/">Haskell Platform</a>, which provides <code class="highlighter-rouge">ghc</code> and
+<code class="highlighter-rouge">ghci</code> as above, but also includes a plethora of useful Haskell libraries and
 utilities to help kickstart your Haskell programming experience.</p>
 
 <p>The Haskell Platform also includes Cabal, which aids in the packaging,
@@ -1313,8 +1385,9 @@ distribution, and installation of Haskell libraries and applications.</p>
 
 <p>To install the Haskell Platform, run:</p>
 
-<pre><code>$ sudo dnf install haskell-platform
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install haskell-platform
 </code></pre>
+</div>
 
           </div>
         </div>

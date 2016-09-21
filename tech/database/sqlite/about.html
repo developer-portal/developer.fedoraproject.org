@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
@@ -117,6 +126,32 @@
         <div class="row" id="headlines">
   <div class="col-sm-12">
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -322,23 +357,33 @@
     
       
     
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -544,23 +589,33 @@
     
       
     
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -586,22 +641,6 @@
         
           <p>Software library that implements a self-contained server-less transactional SQL database engine.</p>
         
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
       
     
       
@@ -815,6 +854,30 @@
               
             
               
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
                 
                 <a href="/tech/database/sqlite/about.html" class="list-group-item  active ">SQLite</a>
                 
@@ -1006,7 +1069,6 @@
             
               
             
-              
             
               
             
@@ -1020,6 +1082,17 @@
             
               
             
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
             
               
             
@@ -1037,20 +1110,6 @@
             
               
                 
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
               
             
               
@@ -1252,7 +1311,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//tech/database/sqlite/about.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tech/database/sqlite//about.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1262,33 +1321,37 @@
 
 <p>To install basic SQLite (if it is not already), simply type:</p>
 
-<pre><code>$ sudo dnf install sqlite
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install sqlite
 </code></pre>
+</div>
 
-<p>This package provides the basic library and the command-line client <code>sqlite</code>. In
+<p>This package provides the basic library and the command-line client <code class="highlighter-rouge">sqlite</code>. In
 order to access SQLite databases from various programming languages (C, Tcl,
 Java), the language bindings need to be installed separately:</p>
 
-<pre><code>$ sudo dnf install sqlite-devel sqlite-tcl sqlite-jdbc
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install sqlite-devel sqlite-tcl sqlite-jdbc
 </code></pre>
+</div>
 
 <h2 id="graphical-clients">Graphical clients</h2>
 
-<p>The <code>sqlite</code> client shipped with the basic database engine is command line (CLI)
+<p>The <code class="highlighter-rouge">sqlite</code> client shipped with the basic database engine is command line (CLI)
 based. If you prefer an application with graphical user interface (GUI), install
-the <code>sqliteman</code> package:</p>
+the <code class="highlighter-rouge">sqliteman</code> package:</p>
 
-<pre><code>$ sudo dnf install sqliteman
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install sqliteman
 </code></pre>
+</div>
 
 <h2 id="working-with-sqlite">Working with SQLite</h2>
 
 <p>SQLite stores it’s data in single database file. To open such file (which will
-be created if necessary), pass it’s name as CLI argument to <code>sqlite3</code>
+be created if necessary), pass it’s name as CLI argument to <code class="highlighter-rouge">sqlite3</code>
 executable:</p>
 
-<pre><code>$ sqlite3 hello-world.db
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sqlite3 hello-world.db
 </code></pre>
+</div>
 
 <p>After executing this command, you will be greeted with a SQLite prompt and can
 now insert the SQL commands to execute.</p>
@@ -1301,17 +1364,19 @@ construct your SQL queries using visual tool.</p>
 
 <h2 id="getting-help-with-sqlite">Getting help with SQLite</h2>
 
-<p>As is the custom in Fedora, SQLite documentation is available in <code>-doc</code>
+<p>As is the custom in Fedora, SQLite documentation is available in <code class="highlighter-rouge">-doc</code>
 sub-package. Additionally, the JavaDoc documentation for JDBC bindings is also
 available:</p>
 
-<pre><code>$ sudo dnf install sqlite-doc sqlite-jdbc-javadoc
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install sqlite-doc sqlite-jdbc-javadoc
 </code></pre>
+</div>
 
-<p>After the packages are installed, the actual documentation is located within <code>/usr/share/doc/PACKAGE</code> directory and is formatted in HTML. For example, to view documentation for SQLite itself, you can open this URL in your browser:</p>
+<p>After the packages are installed, the actual documentation is located within <code class="highlighter-rouge">/usr/share/doc/PACKAGE</code> directory and is formatted in HTML. For example, to view documentation for SQLite itself, you can open this URL in your browser:</p>
 
-<pre><code>file:///usr/share/doc/sqlite-doc/index.html
+<div class="highlighter-rouge"><pre class="highlight"><code>file:///usr/share/doc/sqlite-doc/index.html
 </code></pre>
+</div>
 
 <p>If the documentation does not contain what you are looking for, you can visit
 the project <a href="https://sqlite.org/" title="SQLite home page">homepage</a>, or ask in the <a href="http://mailinglists.sqlite.org/cgi-bin/mailman/listinfo/sqlite-users" title="SQLite mailing list for users">mailing lists</a>.</p>

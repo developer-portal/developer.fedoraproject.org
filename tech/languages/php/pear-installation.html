@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
@@ -261,6 +270,12 @@
       
     
       
+    
+      
+    
+      
+    
+      
         
       
     
@@ -282,6 +297,10 @@
     
       
         
+      
+    
+      
+    
       
     
       
@@ -349,6 +368,12 @@
       
     
 
+    
+      
+    
+      
+    
+      
     
       
     
@@ -557,6 +582,10 @@
       
     
       
+    
+      
+    
+      
         
       
     
@@ -725,6 +754,12 @@
       
     
       
+    
+      
+    
+      
+    
+      
         
       
     
@@ -746,6 +781,10 @@
     
       
         
+      
+    
+      
+    
       
     
       
@@ -1001,22 +1040,6 @@
               
             
               
-                
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
             
               
             
@@ -1031,6 +1054,30 @@
               
             
               
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
                 
               
             
@@ -1042,6 +1089,8 @@
             
               
                 
+              
+            
               
             
               
@@ -1232,6 +1281,10 @@
               
             
               
+            
+              
+            
+              
                 
                 <a href="/tech/languages/php/symfony-installation.html" class="list-group-item ">Symfony</a>
                 
@@ -1254,9 +1307,13 @@
               
             
               
+            
+              
                 
                 <a href="/tech/languages/php/zend-installation.html" class="list-group-item ">Zend Framework 2</a>
                 
+              
+            
               
             
               
@@ -1299,6 +1356,8 @@
             
               
             
+              
+            
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -1312,7 +1371,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/php/pear-installation.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/php//pear-installation.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1323,26 +1382,29 @@
 <p>The PHP Extension and Application Repository is a repository of PHP software code.
 To install PEAR, type:</p>
 
-<pre><code>$ sudo dnf install php-pear
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install php-pear
 </code></pre>
+</div>
 
 <h2 id="upstream-pear-modules">Upstream PEAR modules</h2>
 
-<p>Use <code>pear</code> command to install PEAR extensions. To install <code>Mail_Mime</code> package (for example), type:</p>
+<p>Use <code class="highlighter-rouge">pear</code> command to install PEAR extensions. To install <code class="highlighter-rouge">Mail_Mime</code> package (for example), type:</p>
 
-<pre><code>$ sudo pear install Mail_Mime
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo pear install Mail_Mime
 </code></pre>
+</div>
 
 <p>You can find more PEAR modules <a href="http://pear.php.net/packages.php">at official PEAR site</a>.</p>
 
 <h2 id="pear-modules-from-official-fedora-repositories">PEAR modules from official Fedora repositories</h2>
 
-<p>Many PEAR modules are packaged and available in base Fedora to install. Not all these packages have <code>php-pear-</code>` prefix to upstream PEAR names, so you can browse <a href="http://rpms.remirepo.net/rpmphp/rpm.php?type=pear">list of them online</a>.</p>
+<p>Many PEAR modules are packaged and available in base Fedora to install. Not all these packages have <code class="highlighter-rouge">php-pear-</code>` prefix to upstream PEAR names, so you can browse <a href="http://rpms.remirepo.net/rpmphp/rpm.php?type=pear">list of them online</a>.</p>
 
-<p>To install <code>Mail_Mime</code> you therefore install <code>php-pear-Mail-Mime</code> package:</p>
+<p>To install <code class="highlighter-rouge">Mail_Mime</code> you therefore install <code class="highlighter-rouge">php-pear-Mail-Mime</code> package:</p>
 
-<pre><code>$ sudo dnf install php-pear-Mail-Mime
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install php-pear-Mail-Mime
 </code></pre>
+</div>
 
           </div>
         </div>

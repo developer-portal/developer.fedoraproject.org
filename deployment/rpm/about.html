@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-deploy">
@@ -117,14 +126,6 @@
         <div class="row" id="headlines">
   <div class="col-sm-12">
 
-    
-      
-    
-      
-    
-      
-    
-      
     
       
     
@@ -338,15 +339,25 @@
     
       
     
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
 
-    
-      
-    
-      
-    
-      
-    
-      
     
       
     
@@ -560,15 +571,25 @@
     
       
     
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
 
-    
-      
-    
-      
-    
-      
-    
-      
     
       
     
@@ -599,6 +620,24 @@
           <p>How to package your application and ship it to RPM based systems.
 </p>
         
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
       
     
       
@@ -824,10 +863,6 @@
               
             
               
-            
-              
-            
-              
                 
                 <a href="/deployment/rpm/about.html" class="list-group-item  active ">RPM Packaging</a>
                 
@@ -1021,10 +1056,20 @@
             
               
             
+              
+            
+              
             
               
             
               
+            
+              
+            
+              
+            
+              
+            
             
               
             
@@ -1050,6 +1095,20 @@
             
               
                 
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
               
             
               
@@ -1253,7 +1312,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//deployment/rpm/about.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//deployment/rpm//about.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1277,19 +1336,20 @@
 
 <p>Run:</p>
 
-<pre><code class="language-bash">$ sudo dnf install fedora-packager rpmdevtools
-$ rpmdev-setuptree
-$ cd ~/rpmbuild/SOURCES
-$ wget http://ftp.gnu.org/gnu/hello/hello-2.8.tar.gz
-$ cd ~/rpmbuild/SPECS
-$ rpmdev-newspec --macros hello.spec
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install fedora-packager rpmdevtools
+<span class="gp">$ </span>rpmdev-setuptree
+<span class="gp">$ </span><span class="nb">cd</span> ~/rpmbuild/SOURCES
+<span class="gp">$ </span>wget http://ftp.gnu.org/gnu/hello/hello-2.8.tar.gz
+<span class="gp">$ </span><span class="nb">cd</span> ~/rpmbuild/SPECS
+<span class="gp">$ </span>rpmdev-newspec --macros hello.spec
 </code></pre>
+</div>
 
 <h2 id="quick-start-guide">Quick Start Guide</h2>
 
 <p>Now you can open hello.spec file and alter it. Put there this content:</p>
 
-<pre><code>Name:     hello
+<div class="highlighter-rouge"><pre class="highlight"><code>Name:     hello
 Version:  2.8
 Release:  1%{?dist}
 Summary:  The "Hello World" program from GNU
@@ -1338,19 +1398,21 @@ fi
 * Tue Sep 06 2011 The Coon of Ty &lt;Ty@coon.org&gt; - 2.8-1
 - Initial version of the package
 </code></pre>
+</div>
 
 <p>Once you are done, you can run:</p>
 
-<pre><code class="language-bash">$ rpmbuild -ba hello.spec
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>rpmbuild -ba hello.spec
 </code></pre>
+</div>
 
-<p>Your package should be ready at <code>~/rpmbuild/RPMS/x86_64/hello-2.8-1.x86_64.rpm</code>.</p>
+<p>Your package should be ready at <code class="highlighter-rouge">~/rpmbuild/RPMS/x86_64/hello-2.8-1.x86_64.rpm</code>.</p>
 
 <p>This example is taken from <a href="https://fedoraproject.org/wiki/How_to_create_a_GNU_Hello_RPM_package">How to create a GNU Hello RPM package</a>. You can follow it there.</p>
 
 <h3 id="resources">Resources</h3>
 
-<p>You can learn more about all sections and tags of SPEC file at <a href="https://fedoraproject.org/wiki/How_to_create_an_RPM_package">Fedora documentation “How to create and RPM package”</a>.</p>
+<p>You can learn more about all sections and tags of SPEC file at <a href="https://fedoraproject.org/wiki/How_to_create_an_RPM_package">Fedora documentation “How to create an RPM package”</a>.</p>
 
 <p>If you prefer video over wiki, you can check recording of <a href="http://youtu.be/H4vxkuoimzc">Packaging Workshop</a> at YouTube. Red Hat subscribers can check <a href="https://access.redhat.com/videos/214983">Getting Started with RPMs</a> video.</p>
 
@@ -1362,29 +1424,33 @@ fi
 
 <p>Run:</p>
 
-<pre><code class="language-bash">$ sudo dnf install mock mock-scm
-$ sudo usermod -a -G mock YourUserName
-$ newgrp mock
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install mock mock-scm
+<span class="gp">$ </span>sudo usermod -a -G mock YourUserName
+<span class="gp">$ </span>newgrp mock
 </code></pre>
+</div>
 
 <h3 id="building-package-using-mock">Building package using Mock</h3>
 
 <p>Before you start using Mock, you have to have SRC.RPM (also called SRPM). You can create it using rpmbuild:</p>
 
-<pre><code class="language-bash">$ rpmbuild -bs hello.spec
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>rpmbuild -bs hello.spec
 </code></pre>
+</div>
 
 <p>Then you can run:</p>
 
-<pre><code class="language-bash">$ mock -r epel-7-i386.cfg hello.src.rpm
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mock -r epel-7-i386.cfg hello.src.rpm
 </code></pre>
+</div>
 
-<p>This creates CentOS/RHEL package for i386 architecture even when your workstation architecture is x86_64 and your workstation is e.g. Fedora. List of available configurations can be found at <code>/etc/mock/</code> directory.</p>
+<p>This creates CentOS/RHEL package for i386 architecture even when your workstation architecture is x86_64 and your workstation is e.g. Fedora. List of available configurations can be found at <code class="highlighter-rouge">/etc/mock/</code> directory.</p>
 
 <p>You can create RPM directly from git (or any other SCM) using mock-scm plugin. Just try:</p>
 
-<pre><code class="language-bash">$ mock -r fedora-22-x86_64 --scm-enable --scm-option method=git --scm-option package=PKG --scm-option git_get=set --scm-option spec=YOUR.SPEC --scm-option branch=master --scm-option write_tar=True --scm-option git_get='git clone git@git_ip_address:SCM_PKG.git SCM_PKG'
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mock -r fedora-22-x86_64 --scm-enable --scm-option <span class="nv">method</span><span class="o">=</span>git --scm-option <span class="nv">package</span><span class="o">=</span>PKG --scm-option <span class="nv">git_get</span><span class="o">=</span><span class="nb">set</span> --scm-option <span class="nv">spec</span><span class="o">=</span>YOUR.SPEC --scm-option <span class="nv">branch</span><span class="o">=</span>master --scm-option <span class="nv">write_tar</span><span class="o">=</span>True --scm-option <span class="nv">git_get</span><span class="o">=</span><span class="s1">'git clone git@git_ip_address:SCM_PKG.git SCM_PKG'</span>
 </code></pre>
+</div>
 
 <p>You can find more details in <a href="https://fedoraproject.org/wiki/Projects/Mock/Plugin/Scm">mock-scm documentation</a>.</p>
 
@@ -1394,20 +1460,22 @@ $ newgrp mock
 
 <p>Once you have your RPM packages ready, you can put them in a directory (one directory per distribution-architecture) and run there:</p>
 
-<pre><code class="language-bash">$ sudo dnf install createrepo_c
-$ cd where_are_your_packages/
-$ createrepo_c --deltas --retain-old-md 1 ./
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install createrepo_c
+<span class="gp">$ </span><span class="nb">cd </span>where_are_your_packages/
+<span class="gp">$ </span>createrepo_c --deltas --retain-old-md 1 ./
 </code></pre>
+</div>
 
 <p>This will create Yum/Dnf repository. When you expose it to web and provide a link to it to users, they can use it as baseurl in a repo file (stored in /etc/yum.repos.d/), like:</p>
 
-<pre><code>[myproject]
+<div class="highlighter-rouge"><pre class="highlight"><code>[myproject]
 name=Your application
 baseurl=http://yourdomain.com/repository/
 enabled=1
 </code></pre>
+</div>
 
-<p>Note: If you are building an open-source software package, you can use <a href="/deployment/copr/about.html">Copr service</a>, which automates <code>mock</code> and <code>createrepo_c</code> part while it provides nice WebUI.</p>
+<p>Note: If you are building an open-source software package, you can use <a href="/deployment/copr/about.html">Copr service</a>, which automates <code class="highlighter-rouge">mock</code> and <code class="highlighter-rouge">createrepo_c</code> part while it provides nice WebUI.</p>
 
           </div>
         </div>

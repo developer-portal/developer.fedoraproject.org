@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-deploy">
@@ -117,6 +126,10 @@
         <div class="row" id="headlines">
   <div class="col-sm-12">
 
+    
+      
+    
+      
     
       
     
@@ -293,33 +306,39 @@
       
     
       
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
     
       
         
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
       
     
       
@@ -343,6 +362,10 @@
       
     
 
+    
+      
+    
+      
     
       
     
@@ -519,33 +542,39 @@
       
     
       
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
     
       
         
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
       
     
       
@@ -569,6 +598,10 @@
       
     
 
+    
+      
+    
+      
     
       
     
@@ -746,33 +779,39 @@
       
     
       
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
     
       
         
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
       
     
       
@@ -812,6 +851,12 @@
         <div class="col-sm-3">
           <div class="list-group content-menu">
             
+            
+              
+            
+              
+            
+              
             
               
             
@@ -946,6 +991,34 @@
               
             
               
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
             
               
             
@@ -982,8 +1055,6 @@
               
             
               
-                
-              
             
               
             
@@ -1015,28 +1086,12 @@
             
               
             
-              
             
               
             
               
             
               
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
             
               
             
@@ -1062,12 +1117,6 @@
             
               
                 
-              
-            
-              
-            
-              
-            
               
             
               
@@ -1207,9 +1256,19 @@
               
             
               
+            
+              
+            
+              
                 
                 <a href="/deployment/maintain/static-analysis.html" class="list-group-item  active ">Static Analysis</a>
                 
+              
+            
+              
+            
+              
+            
               
             
               
@@ -1277,7 +1336,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//deployment/maintain/static-analysis.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//deployment/maintain//static-analysis.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1292,7 +1351,7 @@ statically typed languages (like C/C++), static analyzers can significantly
 help us to catch various classes of bugs in our code before it ever runs.</p>
 
 <p>There are various optional diagnostics in GCC that could be enabled by
-<code>-W...</code> compilation flags.  Besides the built-in GCC diagnostic, we can use
+<code class="highlighter-rouge">-W...</code> compilation flags.  Besides the built-in GCC diagnostic, we can use
 standalone static analyzers for C/C++, such as
 <a href="http://cppcheck.sourceforge.net/">Cppcheck</a>,
 <a href="http://clang-analyzer.llvm.org/">Clang</a>, or
@@ -1304,18 +1363,20 @@ written in Python.</p>
 
 <h2 id="using-csbuild-to-analyze-cc-programs">Using csbuild to analyze C/C++ programs</h2>
 <p>In order to make it easier to use static analyzers by C/C++ developers, there
-is a utility named <code>csbuild</code> that runs static analyzers in background fully
+is a utility named <code class="highlighter-rouge">csbuild</code> that runs static analyzers in background fully
 transparently.  You can install csbuild by dnf, which will also pull the needed
 static analyzers as dependencies:</p>
 
-<pre><code>sudo dnf install csbuild
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo dnf install csbuild
 </code></pre>
+</div>
 
 <p>Its usage is as easy as:</p>
 
-<pre><code>csbuild -c 'make ...'
+<div class="highlighter-rouge"><pre class="highlight"><code>csbuild -c 'make ...'
 </code></pre>
-<p>… where you replace <code>make ...</code> by the actual command you use to compile
+</div>
+<p>… where you replace <code class="highlighter-rouge">make ...</code> by the actual command you use to compile
 your project.  By running the above command, you will get extended diagnostic
 produced by GCC and the output of Cppcheck and Clang analyzers for the modules
 that were (re)compiled during the build.</p>
@@ -1327,16 +1388,18 @@ revisions.  For example, before you push your commits in the master branch of
 your project to a public git repository, you can first check that you are not
 introducing any new bugs in those commits:</p>
 
-<pre><code>csbuild -g origin/master..master -c "make ..."
+<div class="highlighter-rouge"><pre class="highlight"><code>csbuild -g origin/master..master -c "make ..."
 </code></pre>
+</div>
 
 <p>In this mode, only bugs introduced between the specified pair of revisions are
-reported.  You can use the <code>--print-fixed</code> option to print also bugs that
+reported.  You can use the <code class="highlighter-rouge">--print-fixed</code> option to print also bugs that
 were fixed between the pair of revisions.  You can also use the
-<code>---git-bisect</code> option to find the exact commit that introduced a new bug:</p>
+<code class="highlighter-rouge">---git-bisect</code> option to find the exact commit that introduced a new bug:</p>
 
-<pre><code>csbuild -g origin/master..master -c "make clean &amp;&amp; make ..." --git-bisect
+<div class="highlighter-rouge"><pre class="highlight"><code>csbuild -g origin/master..master -c "make clean &amp;&amp; make ..." --git-bisect
 </code></pre>
+</div>
 
 <p>The complexity of the search algorithm is logarithmic, which means that for a
 search in 1024 commits, only 10 builds are needed.  For these options to work,
@@ -1353,25 +1416,27 @@ sources and that its test-suite still passes (if you have one).</p>
 <p>csbuild allows you to run static analyzers automatically whenever you push new
 commits to your repository so that, if new bugs are detected by static
 analysis, you are notified by an e-mail from Travis CI.  You can achieve this
-by using the <code>--gen-travis-yml</code> option of csbuild to generate a
+by using the <code class="highlighter-rouge">--gen-travis-yml</code> option of csbuild to generate a
 configuration file for Travis CI.  In this mode, you also need to use the
-<code>--install</code> option to specify dependencies required for build of your
+<code class="highlighter-rouge">--install</code> option to specify dependencies required for build of your
 project.  It expects a space-separated list of packages that can be installed on
 Ubuntu LTS.  The command in the following example generates a Travis CI
 configuration file to enable static analysis for <a href="http://curl.haxx.se/">curl</a>:</p>
 
-<pre><code>csbuild -c "./buildconf &amp;&amp; ./configure &amp;&amp; make -j5" \
+<div class="highlighter-rouge"><pre class="highlight"><code>csbuild -c "./buildconf &amp;&amp; ./configure &amp;&amp; make -j5" \
         --install libtool --git-bisect \
         --gen-travis-yml &gt; .travis.yml
 </code></pre>
+</div>
 
-<p>Then you commit the generated file <code>.travis.yml</code> to your repository and
+<p>Then you commit the generated file <code class="highlighter-rouge">.travis.yml</code> to your repository and
 push:</p>
 
-<pre><code>git add .travis.yml
+<div class="highlighter-rouge"><pre class="highlight"><code>git add .travis.yml
 git commit -m "notify me about newly introduced bugs"
 git push
 </code></pre>
+</div>
 
 <p>Finally, you enable Travis CI for your GitHub repository at
 <a href="https://travis-ci.org/profile">https://travis-ci.org/profile</a> and you are done!</p>

@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
@@ -261,6 +270,12 @@
       
     
       
+    
+      
+    
+      
+    
+      
         
       
     
@@ -282,6 +297,10 @@
     
       
         
+      
+    
+      
+    
       
     
       
@@ -349,6 +368,12 @@
       
     
 
+    
+      
+    
+      
+    
+      
     
       
     
@@ -557,6 +582,10 @@
       
     
       
+    
+      
+    
+      
         
       
     
@@ -725,6 +754,12 @@
       
     
       
+    
+      
+    
+      
+    
+      
         
       
     
@@ -746,6 +781,10 @@
     
       
         
+      
+    
+      
+    
       
     
       
@@ -1001,22 +1040,6 @@
               
             
               
-                
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
             
               
             
@@ -1031,6 +1054,30 @@
               
             
               
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
                 
               
             
@@ -1042,6 +1089,8 @@
             
               
                 
+              
+            
               
             
               
@@ -1232,6 +1281,10 @@
               
             
               
+            
+              
+            
+              
                 
                 <a href="/tech/languages/php/symfony-installation.html" class="list-group-item ">Symfony</a>
                 
@@ -1254,9 +1307,13 @@
               
             
               
+            
+              
                 
                 <a href="/tech/languages/php/zend-installation.html" class="list-group-item ">Zend Framework 2</a>
                 
+              
+            
               
             
               
@@ -1299,6 +1356,8 @@
             
               
             
+              
+            
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -1312,7 +1371,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/php/php-installation.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/php//php-installation.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1324,22 +1383,25 @@
 
 <p>To install PHP, simply type:</p>
 
-<pre><code>$ sudo dnf install php-cli
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install php-cli
 </code></pre>
+</div>
 
-<p>Above command will install latest stable PHP packages, which includes the command-line interface executing PHP scripts, <code>/usr/bin/php</code> executable, and the CGI interface.</p>
+<p>Above command will install latest stable PHP packages, which includes the command-line interface executing PHP scripts, <code class="highlighter-rouge">/usr/bin/php</code> executable, and the CGI interface.</p>
 
 <p>You might want to install some other packages, e.g. PHPUnit for unit tests or Composer to manage dependencies of PHP projects. You can install them with:</p>
 
-<pre><code>$ sudo dnf install phpunit composer
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install phpunit composer
 </code></pre>
+</div>
 
 <h2 id="php-modules">PHP modules</h2>
 
-<p>PHP provides only a few set of extensions, other should be installed separately. Packages of PHP modules are prefixed with <code>php-</code>, so if you need e.g. <code>mysqli</code> extension, use:</p>
+<p>PHP provides only a few set of extensions, other should be installed separately. Packages of PHP modules are prefixed with <code class="highlighter-rouge">php-</code>, so if you need e.g. <code class="highlighter-rouge">mysqli</code> extension, use:</p>
 
-<pre><code>$ sudo dnf install php-mysqli
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install php-mysqli
 </code></pre>
+</div>
 
 <h2 id="php-development-server">PHP Development Server</h2>
 
@@ -1347,9 +1409,10 @@
 
 <p>You can start PHP development server by typing this in your project’s root:</p>
 
-<pre><code>$ sudo php --server localhost:8080 --docroot  .
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo php --server localhost:8080 --docroot  .
 </code></pre>
-<p>Server will be accessible on <code>http://localhost:8080/</code>.</p>
+</div>
+<p>Server will be accessible on <code class="highlighter-rouge">http://localhost:8080/</code>.</p>
 
           </div>
         </div>

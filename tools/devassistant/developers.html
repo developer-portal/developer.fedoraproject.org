@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tools">
@@ -135,6 +144,24 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
         
           <img class="img-rounded" src="/static/logo/devassistant.png">
         
@@ -181,22 +208,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         
       
     
@@ -265,7 +276,15 @@
       
     
       
+    
+      
+    
+      
         
+      
+    
+      
+    
       
     
       
@@ -345,6 +364,24 @@
       
     
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -409,22 +446,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         
       
     
@@ -493,7 +514,15 @@
       
     
       
+    
+      
+    
+      
         
+      
+    
+      
+    
       
     
       
@@ -591,6 +620,24 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
         
           <p>Set up your development environment, publish your code, and do many of the chores that somehow keep you from the important stuff — writing your software.</p>
         
@@ -637,22 +684,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         
       
     
@@ -721,7 +752,15 @@
       
     
       
+    
+      
+    
+      
         
+      
+    
+      
+    
       
     
       
@@ -829,6 +868,26 @@
               
             
               
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
                 
                 <a href="/tools/devassistant/about.html" class="list-group-item ">DevAssistant</a>
                 
@@ -905,17 +964,7 @@
               
             
               
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
+                
               
             
               
@@ -928,12 +977,6 @@
                 
               
             
-              
-            
-              
-            
-              
-                
               
             
               
@@ -1044,6 +1087,32 @@
             
               
             
+              
+            
+              
+            
+              
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
             
               
             
@@ -1057,26 +1126,6 @@
             
               
                 
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
               
             
               
@@ -1160,9 +1209,13 @@
               
             
               
+            
+              
                 
                 <a href="/tools/devassistant/developers.html" class="list-group-item  active ">Creating assistants for DevAssistant</a>
                 
+              
+            
               
             
               
@@ -1275,6 +1328,12 @@
             
               
             
+              
+            
+              
+            
+              
+            
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -1288,7 +1347,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//tools/devassistant/developers.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tools/devassistant//developers.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1317,44 +1376,48 @@ on that
 we strongly suggest you start creating the whole package (DAP—DevAssistant
 Package), and this tutorial takes that into consideration.</p>
 
-<h2 id="installing-the-dap-assistant">Installing the <code>dap</code> assistant</h2>
+<h2 id="installing-the-dap-assistant">Installing the <code class="highlighter-rouge">dap</code> assistant</h2>
 
 <p>If you have DevAssistant installed (to check that, see the <a href="about.html#installing-devassistant-on-fedora">installation
 guide</a>), see if you also have the
 DAP package for creating other DAPs. This command should return a line with
-information about an installed package named <code>dap</code>:</p>
+information about an installed package named <code class="highlighter-rouge">dap</code>:</p>
 
-<pre><code>$ da pkg list --installed | grep dap
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da pkg list --installed | grep dap
 </code></pre>
+</div>
 
 <p>If the command returned nothing, either install the package through Fedora’s
 DNF:</p>
 
-<pre><code>$ sudo dnf install devassistant-dap-dap
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install devassistant-dap-dap
 </code></pre>
+</div>
 
 <p>or install the DAP locally for your account only:</p>
 
-<pre><code>$ da pkg install dap
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da pkg install dap
 </code></pre>
+</div>
 
 <h2 id="creating-the-package">Creating the package</h2>
 
 <p>With all the necessary bits and pieces in place, you can start with creating
 the package. Go to your working directory and create a new DAP with the desired
-<a href="about.html#assistants">assistants roles</a> prepared (any of<code>create</code>, <code>tweak</code>,
-<code>prepare</code>, <code>extras</code>):</p>
+<a href="about.html#assistants">assistants roles</a> prepared (any of<code class="highlighter-rouge">create</code>, <code class="highlighter-rouge">tweak</code>,
+<code class="highlighter-rouge">prepare</code>, <code class="highlighter-rouge">extras</code>):</p>
 
-<pre><code>$ da create dap --name foo --crt --prep
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da create dap --name foo --crt --prep
 </code></pre>
+</div>
 
-<p>The above command creates a directory named <code>dap-foo</code> (<code>dap-</code> is added due to
+<p>The above command creates a directory named <code class="highlighter-rouge">dap-foo</code> (<code class="highlighter-rouge">dap-</code> is added due to
 naming conventions), and in it a structure with assistants, in this case for
 the creation and preparation of projects. There are also directories for
 documentation, auxiliary files, and icons (useful for making your assistant
 accessible to GUI users).</p>
 
-<pre><code>dap-foo/
+<div class="highlighter-rouge"><pre class="highlight"><code>dap-foo/
 ├── assistants/
 │   ├── crt/
 │   │   └── foo.yaml
@@ -1369,8 +1432,9 @@ accessible to GUI users).</p>
 │   └── foo/
 └── meta.yaml
 </code></pre>
+</div>
 
-<p>The file <code>meta.yaml</code> contains metadata about the whole package, the author, and
+<p>The file <code class="highlighter-rouge">meta.yaml</code> contains metadata about the whole package, the author, and
 dependencies. It is important you fill it in
 <a href="http://doc.devassistant.org/en/latest/developer_documentation/create_assistant/packaging_and_distributing.html#meta-yaml-explained">properly</a>
 because otherwise you will not be able to package it or publish it on the
@@ -1394,84 +1458,89 @@ for most parts of the assistant (so far only Python support is implemented).</p>
 <p>The header information contains data displayed to users when looking for the
 right assistant for their use case.</p>
 
-<pre><code>fullname: Assistant for Foo Bar Baz
+<div class="highlighter-rouge"><pre class="highlight"><code>fullname: Assistant for Foo Bar Baz
 description: More verbose description of what it does
 </code></pre>
+</div>
 
 <h3 id="dependencies">Dependencies</h3>
 
 <p>The dependencies section describes what packages should be installed by which
 package manager. There are many package managers supported, to name a few: Yum,
-DNF, gem, pip, pacman, and more. To indicate that e. g. RPM packages <code>baz</code> and
-<code>qux</code>, and a Python (pip) package <code>foobar</code> should be installed, form the
+DNF, gem, pip, pacman, and more. To indicate that e. g. RPM packages <code class="highlighter-rouge">baz</code> and
+<code class="highlighter-rouge">qux</code>, and a Python (pip) package <code class="highlighter-rouge">foobar</code> should be installed, form the
 dependencies section the following way:</p>
 
-<pre><code>dependencies:
+<div class="highlighter-rouge"><pre class="highlight"><code>dependencies:
   - rpm: ['baz', 'qux']
   - pip: ['foobar']
 </code></pre>
+</div>
 
 <h3 id="arguments">Arguments</h3>
 
 <p>To allow the user to provide input, arguments are needed. Either you specify
 the argument properties yourself (in this case, a mandatory argument named
-<code>name</code> specified by flags <code>-n</code> and <code>--name</code>):</p>
+<code class="highlighter-rouge">name</code> specified by flags <code class="highlighter-rouge">-n</code> and <code class="highlighter-rouge">--name</code>):</p>
 
-<pre><code>args:
+<div class="highlighter-rouge"><pre class="highlight"><code>args:
   name:
     flags: [-n, --name]
     required: True
     help: A short description of the argument
 </code></pre>
+</div>
 
 <p>or you can use a definition from a so-called
 <a href="http://doc.devassistant.org/en/latest/developer_documentation/create_assistant/yaml/snippets.html">snippet</a>
 (think of it a header file or a library), in this case a snippet named
-<code>common_args</code>:</p>
+<code class="highlighter-rouge">common_args</code>:</p>
 
-<pre><code>args:
+<div class="highlighter-rouge"><pre class="highlight"><code>args:
   name:
     use: common_args
 </code></pre>
+</div>
 
 <p>If you use a defintion from a snippet, you must declare a dependency on it in
-the <code>meta.yaml</code> file in your package (by adding a <code>dependencies:
+the <code class="highlighter-rouge">meta.yaml</code> file in your package (by adding a <code class="highlighter-rouge">dependencies:
 ['common_args']</code> to the file.</p>
 
 <p>Arguments’ values are automatically stored in a variable of the same name, in
-this case, <code>$name</code>.</p>
+this case, <code class="highlighter-rouge">$name</code>.</p>
 
 <h3 id="files">Files</h3>
 
 <p>You assistant may include other files than just the assistants, for example
 those that will be placed in the project’s directory on creation. To include a
-file named <code>foo.txt</code>, copy it into the <code>files</code> subdirectory in the DAP’s
-structure, and add a reference to it to the <code>files</code> section in the assistant
-under an appropriate handle, in this case e. g. <code>foo</code>:</p>
+file named <code class="highlighter-rouge">foo.txt</code>, copy it into the <code class="highlighter-rouge">files</code> subdirectory in the DAP’s
+structure, and add a reference to it to the <code class="highlighter-rouge">files</code> section in the assistant
+under an appropriate handle, in this case e. g. <code class="highlighter-rouge">foo</code>:</p>
 
-<pre><code>files:
+<div class="highlighter-rouge"><pre class="highlight"><code>files:
   foo: &amp;foo
     source: foo.txt
 </code></pre>
+</div>
 
 <p>Elsewhere in the assistant, the file will be only referred to by its handle
-<code>foo</code>. Repeating the handle name with <code>&amp;</code> is necessary due to technical
+<code class="highlighter-rouge">foo</code>. Repeating the handle name with <code class="highlighter-rouge">&amp;</code> is necessary due to technical
 limitations of the current implementation.</p>
 
 <h3 id="run-section">Run section</h3>
 
 <p>The run section is a procedural section where you put the commands that should
 be executed during the assistant’s run. Typically, you create a directory to
-put the project into, copy the files from the <code>files</code> section, start services,
+put the project into, copy the files from the <code class="highlighter-rouge">files</code> section, start services,
 emit messages to be logged, or push the code to GitHub. For the full list of
 possible commands, have a look at <a href="http://doc.devassistant.org/en/latest/developer_documentation/create_assistant/yaml/run_sections_reference.html">run section
 reference</a>.</p>
 
 <p>The run section consists of a list of commands (each item of the list starting
-with <code>-</code>), their arguments, and other logic. To illustrate this better, let us
+with <code class="highlighter-rouge">-</code>), their arguments, and other logic. To illustrate this better, let us
 have a look at this sample run section:</p>
 
-<pre><code>run:
+<div class="highlighter-rouge"><pre class="highlight"><code>run:
 - setup_project_dir:
     from: name
     on_existing: fail
@@ -1484,34 +1553,35 @@ have a look at this sample run section:</p>
 - else:
     - log_e: Error copying Foo.txt
 </code></pre>
+</div>
 
-<p>As fairly obvious, the command <code>setup_project_dir</code> creates the project dir from
-the variable <code>name</code>, as specified, and will fail if the directory already
+<p>As fairly obvious, the command <code class="highlighter-rouge">setup_project_dir</code> creates the project dir from
+the variable <code class="highlighter-rouge">name</code>, as specified, and will fail if the directory already
 exists. What is not obvious is that in addition to that, it sets the variables
-<code>$contdir</code> (the directory one level above the project directory) and <code>$topdir</code>
+<code class="highlighter-rouge">$contdir</code> (the directory one level above the project directory) and <code class="highlighter-rouge">$topdir</code>
 (the project directory), which will be used shortly.</p>
 
-<p>The next command, <code>cl: cd $contdir/$topdir</code>, executes a shell command that
+<p>The next command, <code class="highlighter-rouge">cl: cd $contdir/$topdir</code>, executes a shell command that
 changes the current working directory to the project’s directory. If you want
-to simply execute calls in the shell, call the <code>cl</code> (<em>command line</em>) command.
+to simply execute calls in the shell, call the <code class="highlighter-rouge">cl</code> (<em>command line</em>) command.
 If you want to assign the result of the call to a variable or check the result
-in an <code>if</code> clause, use the <code>$(...)</code> syntax like in shell instead, as shown on
-the next line. The line in question, <code>$date~: $(date)</code>, is a variable
+in an <code class="highlighter-rouge">if</code> clause, use the <code class="highlighter-rouge">$(...)</code> syntax like in shell instead, as shown on
+the next line. The line in question, <code class="highlighter-rouge">$date~: $(date)</code>, is a variable
 assignment. In this case, it assigns the result of calling the shell command
-<code>date</code> into a variable named <code>$date</code>. The tilde (<code>~</code>) is there so that
-<code>$(date)</code> is interpreted. If it was not there, the assigned value would be the
-string <code>$(date)</code> itself. Generally speaking, all commands can be appended with
+<code class="highlighter-rouge">date</code> into a variable named <code class="highlighter-rouge">$date</code>. The tilde (<code class="highlighter-rouge">~</code>) is there so that
+<code class="highlighter-rouge">$(date)</code> is interpreted. If it was not there, the assigned value would be the
+string <code class="highlighter-rouge">$(date)</code> itself. Generally speaking, all commands can be appended with
 the tilde to force interpreting the value on the right side of the colon.</p>
 
-<p>The commands <code>log_i</code>, <code>log_w</code>, and <code>log_e</code> are all used for logging on
-different levels (<code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>). Unlike the first two, <code>log_e</code>
+<p>The commands <code class="highlighter-rouge">log_i</code>, <code class="highlighter-rouge">log_w</code>, and <code class="highlighter-rouge">log_e</code> are all used for logging on
+different levels (<code class="highlighter-rouge">INFO</code>, <code class="highlighter-rouge">WARNING</code>, <code class="highlighter-rouge">ERROR</code>). Unlike the first two, <code class="highlighter-rouge">log_e</code>
 also stops the execution of the assistant as it means fatal error that
 DevAssistant can not recover from.</p>
 
-<p>The last thing not yet covered in this little example is the <code>if..else</code>
+<p>The last thing not yet covered in this little example is the <code class="highlighter-rouge">if..else</code>
 construct. It works just how you expect it to, except not only can you query
-shell command results (<code>test -f foo.txt</code>) in the example, but also the values
-of variables (<code>if defined $variable</code>, for example) and
+shell command results (<code class="highlighter-rouge">test -f foo.txt</code>) in the example, but also the values
+of variables (<code class="highlighter-rouge">if defined $variable</code>, for example) and
 <a href="http://doc.devassistant.org/en/latest/developer_documentation/command_reference.html">more</a>.</p>
 
 <h3 id="the-whole-assistant">The whole assistant</h3>
@@ -1519,7 +1589,7 @@ of variables (<code>if defined $variable</code>, for example) and
 <p>The sections that were described above add up to a simple little assistant that
 looks like this:</p>
 
-<pre><code>fullname: Assistant for Foo Bar Baz
+<div class="highlighter-rouge"><pre class="highlight"><code>fullname: Assistant for Foo Bar Baz
 description: More verbose description of what it does
 
 dependencies:
@@ -1547,6 +1617,7 @@ run:
 - else:
     - log_e: Error copying Foo.txt
 </code></pre>
+</div>
 
 <p>Please, bear in mind that this is a small and non-exhaustive example of what
 can be done with DevAssistant. To see the whole set of options and a more
@@ -1559,28 +1630,32 @@ section of the DevAssistant Documentation.</p>
 <p>When the assistants are created, you can prepare the whole package for
 distribution, which is done by executing:</p>
 
-<pre><code>$ da tweak dap pack
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da tweak dap pack
 </code></pre>
+</div>
 
 <p>in the source directory. This command creates a properly formatted DAP from the
-files present, and saves it under the name <code>dap-NAME-VERSION.dap</code>. To ensure
+files present, and saves it under the name <code class="highlighter-rouge">dap-NAME-VERSION.dap</code>. To ensure
 the DAP meets all the requirements for distribution, run:</p>
 
-<pre><code>$ da pkg lint ./dap-NAME-VERSION.dap
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da pkg lint ./dap-NAME-VERSION.dap
 </code></pre>
+</div>
 
 <p>The command outputs a list of problems that prevent the DAP from being used in
 distribution. After the problems are sorted out, you can install the DAP by
 running:</p>
 
-<pre><code>$ da pkg install ./dap-NAME-VERSION.dap
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da pkg install ./dap-NAME-VERSION.dap
 </code></pre>
+</div>
 
 <p>or upload it to the <a href="https://dapi.devassistant.org">DAPI</a> for others to
 consume. Use the command:</p>
 
-<pre><code>$ da extra dap upload -d ./dap-NAME-VERSION.dap
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da extra dap upload -d ./dap-NAME-VERSION.dap
 </code></pre>
+</div>
 
           </div>
         </div>

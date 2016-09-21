@@ -44,7 +44,16 @@
 </head>
 
   <body>
-  
+  <div style="background-color: #333">
+<div class="container">
+<div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
+<span class="pficon pficon-warning-triangle-o"></span>
+  <strong> This is a development server. </strong>
+  See the <a href="https://fedoraproject.org/wiki/Websites/Developer"> project wiki </a> for more information or visit the <b><a href="https://developer.fedoraproject.org"> Fedora Developer Portal</a></b> itself.
+</div>
+</div>
+</div>
+
 
     <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tools">
@@ -135,6 +144,24 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
         
           <img class="img-rounded" src="/static/logo/devassistant.png">
         
@@ -181,22 +208,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         
       
     
@@ -265,7 +276,15 @@
       
     
       
+    
+      
+    
+      
         
+      
+    
+      
+    
       
     
       
@@ -345,6 +364,24 @@
       
     
 
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -409,22 +446,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         
       
     
@@ -493,7 +514,15 @@
       
     
       
+    
+      
+    
+      
         
+      
+    
+      
+    
       
     
       
@@ -591,6 +620,24 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
         
           <p>Set up your development environment, publish your code, and do many of the chores that somehow keep you from the important stuff — writing your software.</p>
         
@@ -637,22 +684,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         
       
     
@@ -721,7 +752,15 @@
       
     
       
+    
+      
+    
+      
         
+      
+    
+      
+    
       
     
       
@@ -829,6 +868,26 @@
               
             
               
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
                 
                 <a href="/tools/devassistant/about.html" class="list-group-item  active ">DevAssistant</a>
                 
@@ -905,17 +964,7 @@
               
             
               
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
+                
               
             
               
@@ -928,12 +977,6 @@
                 
               
             
-              
-            
-              
-            
-              
-                
               
             
               
@@ -1044,6 +1087,32 @@
             
               
             
+              
+            
+              
+            
+              
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
             
               
             
@@ -1057,26 +1126,6 @@
             
               
                 
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
               
             
               
@@ -1160,9 +1209,13 @@
               
             
               
+            
+              
                 
                 <a href="/tools/devassistant/developers.html" class="list-group-item ">Creating assistants for DevAssistant</a>
                 
+              
+            
               
             
               
@@ -1275,6 +1328,12 @@
             
               
             
+              
+            
+              
+            
+              
+            
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -1288,7 +1347,7 @@
             </div>
           </div>
 
-          <a href="https://github.com/developer-portal/content/blob/master//tools/devassistant/about.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tools/devassistant//about.md" class="btn btn-default">Edit this page</a>
 
         </div>
         <div class="col-sm-9">
@@ -1304,8 +1363,9 @@ software tool. Now only one DevAssistant command (or a few clicks in the GUI)
 and you are done.  Imagine that running the following command in the command
 line:</p>
 
-<pre><code>$ da create java maven --name MyJavaApp --github
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da create java maven --name MyJavaApp --github
 </code></pre>
+</div>
 
 <p>gets you a fully functioning Maven-based Java application with dependencies,
 metadata, and a fresh GitHub repository with the code already uploaded. The
@@ -1321,10 +1381,10 @@ for reasons described in the <a href="notes.html">notes</a>.</p>
 
 <p>If you are running Fedora Workstation, there is a good chance that you already
 have DevAssistant and the common assistants installed. To check that, try
-looking for DevAssistant in your Applications menu, or type <code>da</code> into the
+looking for DevAssistant in your Applications menu, or type <code class="highlighter-rouge">da</code> into the
 command line. If you get something like this, you already have DevAssistant:</p>
 
-<pre><code>Couldn't parse input, displaying help ...
+<div class="highlighter-rouge"><pre class="highlight"><code>Couldn't parse input, displaying help ...
 
 You can either run assistants with:
 da [--debug] {create,tweak,prepare,extras} [ASSISTANT [ARGUMENTS]] ...
@@ -1346,19 +1406,22 @@ pkg      Lets you interact with online DAPI service and your local DAP
 packages.
 version  Print version
 </code></pre>
+</div>
 
 <p>If you do not see such a message, you can get DevAssistant from GNOME Software,
 or install it through DNF:</p>
 
-<pre><code>$ sudo dnf install devassistant
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install devassistant
 </code></pre>
+</div>
 
 <p>If that is not possible for whatever reason, you may install DevAssistant from
-<a href="https://pypi.python.org">PyPI</a> using the command <code>pip3</code> from the package
-<code>python3-pip</code>:</p>
+<a href="https://pypi.python.org">PyPI</a> using the command <code class="highlighter-rouge">pip3</code> from the package
+<code class="highlighter-rouge">python3-pip</code>:</p>
 
-<pre><code>$ pip3 install devassistant --user
+<div class="highlighter-rouge"><pre class="highlight"><code>$ pip3 install devassistant --user
 </code></pre>
+</div>
 
 <p>If you do this, however, you will not have any assistants available, and will
 have to <a href="about.html#installing-new-assistants">install them yourself</a>.</p>
@@ -1371,7 +1434,7 @@ to programming languages (e. g. C, Java, Ruby, Python), or generic tasks like
 publishing your code to GitHub. There are a few assistants that are maintained
 by the DevAssistant upstream developers, and there are more that were created
 by the community. In Fedora’s repositories, you will find mostly the first
-kind, packaged under the names <code>devassistant-dap-NAME</code>). Do not worry though,
+kind, packaged under the names <code class="highlighter-rouge">devassistant-dap-NAME</code>). Do not worry though,
 you can easily install third party assistants too.</p>
 
 <h2 id="assistants">Assistants</h2>
@@ -1382,13 +1445,13 @@ your environment. They are written in
 the assistants fall into:</p>
 
 <ul>
-  <li><strong>Create</strong> empty projects – You run a <code>create</code> assistant when you want to
+  <li><strong>Create</strong> empty projects – You run a <code class="highlighter-rouge">create</code> assistant when you want to
 start writing a completely new project, one that isn’t existing yet.</li>
   <li><strong>Tweak</strong> current project – This sort of assistants are run on the code you
 are currently working, be it one that you created with DevAssistant, or
 someone else’s. In <a href="tutorials.html">Tutorials</a>, there is a tutorial on
-how to publish your code to GitHub with a <code>tweak</code> assistant</li>
-  <li><strong>Prepare</strong> someone’s code – As opposed to <code>create</code> assistants, <code>prepare</code>
+how to publish your code to GitHub with a <code class="highlighter-rouge">tweak</code> assistant</li>
+  <li><strong>Prepare</strong> someone’s code – As opposed to <code class="highlighter-rouge">create</code> assistants, <code class="highlighter-rouge">prepare</code>
 assistants set up code of an existing project for you to contribute to.
 Except for cloning the code from the internet, they install dependencies you
 need for testing the project or create a fork of the original project on
@@ -1398,22 +1461,24 @@ actions you may want to perform on your code, like creating distribution
 packages, validation and verification, and anything else.</li>
 </ul>
 
-<p>All roles have their shortened version (<code>crt</code>, <code>twk</code>, <code>prep</code>, <code>extra</code>) that can
+<p>All roles have their shortened version (<code class="highlighter-rouge">crt</code>, <code class="highlighter-rouge">twk</code>, <code class="highlighter-rouge">prep</code>, <code class="highlighter-rouge">extra</code>) that can
 be used when invoking DevAssistant command-line interface.</p>
 
 <p>For a quick illustration, If you want to create a brand new application based
 on Django (a Python web framework) which supports Docker containers, you need
-to run a command that looks like this (<code>da</code> is short for DevAssistant):</p>
+to run a command that looks like this (<code class="highlighter-rouge">da</code> is short for DevAssistant):</p>
 
-<pre><code>da create python django --name MyAppName --docker
+<div class="highlighter-rouge"><pre class="highlight"><code>da create python django --name MyAppName --docker
 </code></pre>
+</div>
 
 <p>If you want to see how test the application locally, you run the following
 command in the project’s directory to start the container that was created
 along with the app:</p>
 
-<pre><code>da tweak docker develop
+<div class="highlighter-rouge"><pre class="highlight"><code>da tweak docker develop
 </code></pre>
+</div>
 
 <p>All you need is to point your browser to the address the assistant provided you
 with. If you want to go through a more detailed description of how to develop
@@ -1428,32 +1493,36 @@ see the <a href="developers.html">page for developers</a>.</p>
 
 <p>Getting DevAssistant the way described on the top of this page gets you also a
 common set of assistants for major languages. These assistants are packaged in
-Fedora under the names <code>devassistant-dap-NAME</code>, and they get updates when the
+Fedora under the names <code class="highlighter-rouge">devassistant-dap-NAME</code>, and they get updates when the
 rest of the system is updated etc. You can, however, install third party
 assistants from the <a href="https://dapi.devassistant.org">DevAssistant Package Index
 (DAPI)</a> if they are not available through Fedora
 channels. To get the third party assistants, run:</p>
 
-<pre><code>$ da pkg install PackageName
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da pkg install PackageName
 </code></pre>
+</div>
 
-<p>Where <code>PackageName</code> is the name of package you got on the web version of the
+<p>Where <code class="highlighter-rouge">PackageName</code> is the name of package you got on the web version of the
 DAPI, or found by searching in the command line:</p>
 
-<pre><code>$ da pkg search KeyWord
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da pkg search KeyWord
 </code></pre>
+</div>
 
 <p>Alternatively, you may list all the available packages and choose from that:</p>
 
-<pre><code>$ da pkg list --available
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da pkg list --available
 </code></pre>
+</div>
 
-<p>Installing through <code>da pkg install</code> saves the assistants in a hidden folder
-(<code>.devassistant</code>) inside your home directory, so they are not available to
+<p>Installing through <code class="highlighter-rouge">da pkg install</code> saves the assistants in a hidden folder
+(<code class="highlighter-rouge">.devassistant</code>) inside your home directory, so they are not available to
 other users. Update the assistants by running:</p>
 
-<pre><code>$ da pkg update
+<div class="highlighter-rouge"><pre class="highlight"><code>$ da pkg update
 </code></pre>
+</div>
 
           </div>
         </div>
