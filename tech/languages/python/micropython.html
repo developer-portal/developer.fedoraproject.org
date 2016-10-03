@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Flask &mdash; Fedora Developer Portal</title>
+  <title>MicroPython &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running  Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/python/flask-installation.html">
+  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/python/micropython.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -113,8 +113,8 @@
           <div class="list-group content-menu">
                 <a href="/tech/languages/python/pypi-installation.html" class="list-group-item ">PyPI</a>
                 <a href="/tech/languages/python/django-installation.html" class="list-group-item ">Django</a>
-                <a href="/tech/languages/python/flask-installation.html" class="list-group-item  active ">Flask</a>
-                <a href="/tech/languages/python/micropython.html" class="list-group-item ">MicroPython</a>
+                <a href="/tech/languages/python/flask-installation.html" class="list-group-item ">Flask</a>
+                <a href="/tech/languages/python/micropython.html" class="list-group-item  active ">MicroPython</a>
                 <a href="/tech/languages/python/python-sig.html" class="list-group-item ">Python SIG</a>
                 <a href="/tech/languages/python/pygobject.html" class="list-group-item ">PyGObject</a>
                 <a href="/tech/languages/python/sphinx.html" class="list-group-item ">Sphinx</a>
@@ -128,40 +128,158 @@
 </div>
             </div>
           </div>
-          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/python//flask-installation.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/python//micropython.md" class="btn btn-default">Edit this page</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h1 id="flask">Flask</h1>
-<p><a href="http://flask.pocoo.org/">Flask</a> is a micro web framework for Python, based on the Werkzeug toolkit and Jinja2 template engine.</p>
-<h2 id="installation">Installation</h2>
-<p>Let’s install Flask. At first open the <em>Terminal</em> (press <code class="highlighter-rouge">Alt</code> + <code class="highlighter-rouge">F1</code>, type <em>Terminal</em> and click on the black squere icon or just press <code class="highlighter-rouge">Enter</code>). Second, type this command:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install python3-flask
-</code></pre>
-</div>
-<p>That is all, you have sucessfully installed Flask!</p>
-<h2 id="first-application">First application</h2>
-<p>This is an example of how a minimal Flask application can look like.</p>
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
-<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
-<span class="nd">@app.route</span><span class="p">(</span><span class="s">"/"</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
-    <span class="k">return</span> <span class="s">"Hello World!"</span>
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</code></pre>
-</div>
-<h3 id="running">Running</h3>
-<p>Assuming that you have some Flask application called <code class="highlighter-rouge">foo.py</code>, you can run it like this.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python3 foo.py
- <span class="k">*</span> Running on http://127.0.0.1:5000/
-</code></pre>
-</div>
-<p>You should see that it is running on some address, in this case 127.0.0.1. Default port for Flask applications is 5000. Open it in web browser to see your application.</p>
-<h3 id="what-next">What next?</h3>
+            <h1 id="micropython---python-for-microcontrollers">MicroPython - Python for microcontrollers</h1>
+<p><a href="https://micropython.org/">MicroPython</a> is a special light
+implementation of Python 3 that includes a small subset of the Python
+standard library and is optimized to run on microcontrollers.</p>
+<p>You can use MicroPython on various boards such as:</p>
 <ul>
-  <li><a href="http://flask.pocoo.org/docs/">Flask Documentation</a></li>
+  <li>BBC micro:bit (<a href="https://www.microbit.co.uk/">webpage</a>)</li>
+  <li>Boards with the ESP8266 chip (<a href="http://www.esp8266.com/wiki/doku.php?id=esp8266-module-family">various boards wiki</a>)</li>
+  <li>MicroPython pyboard (<a href="https://micropython.org/store/#/store">store</a>)</li>
+  <li>WiPy (<a href="https://www.pycom.io/solutions/py-boards/wipy/">webpage</a>)</li>
 </ul>
+<p>Each device mentioned above has its own way of controlling and uploading
+content. Some of them will be described in the following chapters.</p>
+<h2 id="micropython-in-fedora">MicroPython in Fedora</h2>
+<p>If you want to try MicroPython and learn about the differences between MicroPython and
+Python, install MicroPython with a command</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install micropython
+</code></pre>
+</div>
+<p>and then start an interactive MicroPython session.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ micropython
+MicroPython v1.7 on 2016-04-20; linux version
+Use Ctrl-D to exit, Ctrl-E for paste mode
+&gt;&gt;&gt;
+</code></pre>
+</div>
+<p>Using MicroPython on your computer makes sense only for some basic testing
+purposes, but the main goal is to control embedded devices.</p>
+<h2 id="mu---simple-ide-for-bbc-microbit">Mu - simple IDE for BBC micro:bit</h2>
+<p>Micro:bit tries to be as simple to use as possible, so its developers decided
+to make their own IDE named <em>Mu</em>. <em>Mu</em> is designated for kids to
+learn the basics of programming. Your device is mounted automatically in Fedora,
+so you only need one click to flash your micro:bit with your new app or to
+start REPL.</p>
+<p><em>Mu</em> is a part of Fedora, so its installation command is</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install mu
+</code></pre>
+</div>
+<p>and then you can run your new IDE from a terminal or from the apps menu.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ mu
+</code></pre>
+</div>
+<p><em>Mu</em> looks like this:</p>
+<p><img src="/content/tech/languages/python/micropython-mu.png" width="97%" /></p>
+<h2 id="uflash---cli-for-flashing-the-microbit">uFlash - CLI for flashing the micro:bit</h2>
+<p>If you prefer to use your own text editor instead of <em>Mu</em>, <em>uFlash</em> is
+the right utility for you. <em>uFlash</em> is a command line tool (written
+in Python) for flashing your Python scripts to Micro:bit.</p>
+<p>To install it, type</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install uflash
+</code></pre>
+</div>
+<p>The next step is to flash your script to Micro:bit. Just use the path to the script as
+the first parameter for <code class="highlighter-rouge">uflash</code>.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ uflash ./hello_world.py
+</code></pre>
+</div>
+<h2 id="esptool---cli-for-flashing-boards-with-the-esp8266-chip">Esptool - CLI for flashing boards with the ESP8266 chip</h2>
+<p>If you want to control your ESP8266 device using MicroPython, write MicroPython firmware into the flash memory of your device.</p>
+<p>You can download MicroPython firmware from <a href="http://micropython.org/download/">the download section of its web page</a>.
+Choose the latest one suitable for your device.</p>
+<p><code class="highlighter-rouge">esptool</code> is a handy CLI application that helps you flash your device. To install it, type</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install esptool
+</code></pre>
+</div>
+<p>With the firmware downloaded and <code class="highlighter-rouge">esptool</code> installed, you need to know the last
+thing to connect and flash your device - the device’s name. You can find it in
+the result of the <code class="highlighter-rouge">dmesg</code> command. Use <code class="highlighter-rouge">dmesg</code> with <code class="highlighter-rouge">tail</code> to obtain the last
+ten lines of the <code class="highlighter-rouge">dmesg</code> output.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ dmesg | tail
+[703169.886296] ch341 1-1.1:1.0: device disconnected
+[703176.972781] usb 1-1.1: new full-speed USB device number 45 using ehci-pci
+[703177.059448] usb 1-1.1: New USB device found, idVendor=1a86, idProduct=7523
+[703177.059454] usb 1-1.1: New USB device strings: Mfr=0, Product=2, SerialNumber=0
+[703177.059457] usb 1-1.1: Product: USB2.0-Serial
+[703177.060474] ch341 1-1.1:1.0: ch341-uart converter detected
+[703177.062781] usb 1-1.1: ch341-uart converter now attached to **ttyUSB0**
+</code></pre>
+</div>
+<p>The name of your device starts with <em>tty</em>.</p>
+<p>You also need the rights to access your device.
+You can use <code class="highlighter-rouge">sudo</code> before any <code class="highlighter-rouge">esptool</code> and <code class="highlighter-rouge">picocom</code> commands
+mentioned below, but the preferred and more secure way is to add your regular
+user account to a special system group <em>dialout</em>. To do it, type</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo usermod -a -G dialout &lt;username&gt;
+</code></pre>
+</div>
+<p>It is necessary to logout and login for this change to take effect.</p>
+<p>Use <code class="highlighter-rouge">esptool</code> to flash your device. It is suggested to erase the flash
+memory before writing new firmware. To do it, type the following and do not forget to replace <code class="highlighter-rouge">ttyUSB0</code> with the name of your device.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ esptool --port /dev/ttyUSB0 erase_flash
+esptool.py v1.1
+Connecting...
+Erasing flash (this may take a while)...
+</code></pre>
+</div>
+<p>And now you can write MicroPython firmware to empty the flash memory. Again, do not forget to replace <code class="highlighter-rouge">ttyUSB0</code> with the name of your device.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ esptool --port /dev/ttyUSB0 --baud 115200 write_flash --flash_size=8m 0 esp8266-20160909-v1.8.4.bin 
+esptool.py v1.1
+Connecting...
+Running Cesanta flasher stub...
+Flash params set to 0x0020
+Writing 565248 @ 0x0... 565248 (100 %)
+Wrote 565248 bytes at 0x0 in 49.0 seconds (92.3 kbit/s)...
+Leaving...
+</code></pre>
+</div>
+<p>You might need to change the name of your device and the name of the binary file with
+firmware, but other parameters such as a baud-rate (connection speed) should be OK
+in most cases.</p>
+<h2 id="picocom---minimal-terminal-emulation-program">Picocom - minimal terminal emulation program</h2>
+<p>A lot of microcontrollers (like those with the ESP8266 chip) provide a serial
+console for communication with the outer world. Fedora provides a
+minimalistic and handy tool for connecting to it - <code class="highlighter-rouge">picocom</code>.</p>
+<p>To install it, type</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install picocom
+</code></pre>
+</div>
+<p>To use it, type the following (and do not forget to replace <code class="highlighter-rouge">ttyUSB0</code> with the name of your device).</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ picocom -b 115200 /dev/ttyUSB0
+picocom v1.7
+port is        : /dev/ttyUSB0
+flowcontrol    : none
+baudrate is    : 115200
+parity is      : none
+databits are   : 8
+escape is      : C-a
+local echo is  : no
+noinit is      : no
+noreset is     : no
+nolock is      : no
+send_cmd is    : sz -vv
+receive_cmd is : rz -vv
+imap is        : 
+omap is        : 
+emap is        : crcrlf,delbs,
+Terminal ready
+&gt;&gt;&gt;
+</code></pre>
+</div>
+<p><code class="highlighter-rouge">-b</code> parameter sets the baud-rate to 115200 bps which is the connection speed.</p>
+<p>The last line of the output (the one with <code class="highlighter-rouge">&gt;&gt;&gt;</code>) means that MicroPython on your device
+is ready to be used. If you do not see the last line, press <em>Enter</em> on your keyboard. If you still do not see the prompt, press RESET on your device.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; print('Let the connecting to IoT begins!')
+Let the connecting to IoT begins!
+&gt;&gt;&gt;
+</code></pre>
+</div>
           </div>
         </div>
       </div>
