@@ -153,11 +153,15 @@
      <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
 <span class="p">{</span>
   <span class="n">GtkWidget</span> <span class="o">*</span><span class="n">window</span><span class="p">;</span>
+    
   <span class="n">gtk_init</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">argv</span><span class="p">);</span>
+    
   <span class="n">window</span> <span class="o">=</span> <span class="n">gtk_window_new</span> <span class="p">(</span><span class="n">GTK_WINDOW_TOPLEVEL</span><span class="p">);</span>
   <span class="n">gtk_window_set_title</span> <span class="p">(</span><span class="n">GTK_WINDOW</span> <span class="p">(</span><span class="n">window</span><span class="p">),</span> <span class="s">"Hello World"</span><span class="p">);</span>
   <span class="n">gtk_widget_show</span>  <span class="p">(</span><span class="n">window</span><span class="p">);</span>
+    
   <span class="n">gtk_main</span> <span class="p">();</span>
+    
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre>

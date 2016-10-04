@@ -154,6 +154,7 @@ needs to be running. If it is not, run:</p>
 Vagrantfile as follows:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>Vagrant.configure("2") do |config|
   # ...
+
   config.vm.synced_folder ".", "/vagrant", type: "nfs"
 end
 </code></pre>

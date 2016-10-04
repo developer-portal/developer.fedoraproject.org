@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PyPI &mdash; Fedora Developer Portal</title>
+  <title>Python &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running  Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/python/pypi-installation.html">
+  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/python/python-installation.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -114,8 +114,8 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="list-group content-menu">
-                <a href="/tech/languages/python/python-installation.html" class="list-group-item ">Python</a>
-                <a href="/tech/languages/python/pypi-installation.html" class="list-group-item  active ">PyPI</a>
+                <a href="/tech/languages/python/python-installation.html" class="list-group-item  active ">Python</a>
+                <a href="/tech/languages/python/pypi-installation.html" class="list-group-item ">PyPI</a>
                 <a href="/tech/languages/python/django-installation.html" class="list-group-item ">Django</a>
                 <a href="/tech/languages/python/flask-installation.html" class="list-group-item ">Flask</a>
                 <a href="/tech/languages/python/micropython.html" class="list-group-item ">MicroPython</a>
@@ -132,21 +132,52 @@
 </div>
             </div>
           </div>
-          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/python//pypi-installation.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/python//python-installation.md" class="btn btn-default">Edit this page</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h1 id="using-pip">Using pip</h1>
-<p>If a Python module you need is not packaged for Fedora, you can use pip to install it from <a href="https://pypi.python.org/">PyPI</a>, but you must be a little careful. Installing modules with pip to system directories can lead to unstable system, so make sure you only use pip with the <code class="highlighter-rouge">--user</code> switch, which makes pip install modules to your home directory.</p>
-<p>Pip gets installed alongside with Python 2 and 3, so if, for example, you want to install bokeh (interactive plots in HTML for Python) from PyPI simply type:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ pip install --user bokeh
+            <h1 id="python-in-fedora">Python in Fedora</h1>
+<p><a href="https://www.python.org/">Python</a> is is a widely used interpreted, object-oriented, high-level programming language with dynamic semantics. It is simple and easy to learn.
+Python 3 is already preinstalled on Fedora. Let’s use it!</p>
+<h2 id="running-python">Running Python</h2>
+<ol>
+  <li>Open the <em>Terminal</em> (press <code class="highlighter-rouge">Alt</code> + <code class="highlighter-rouge">F1</code>, type <em>Terminal</em> and click on the black squere icon or just press <code class="highlighter-rouge">Enter</code>).</li>
+  <li>To run Python 3 type <code class="highlighter-rouge">python3</code>. You should see something like this:</li>
+</ol>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">Python</span> <span class="mf">3.5</span><span class="o">.</span><span class="mi">1</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Aug</span>  <span class="mi">9</span> <span class="mi">2016</span><span class="p">,</span> <span class="mi">15</span><span class="p">:</span><span class="mi">35</span><span class="p">:</span><span class="mi">51</span><span class="p">)</span> 
+<span class="p">[</span><span class="n">GCC</span> <span class="mf">6.1</span><span class="o">.</span><span class="mi">1</span> <span class="mi">20160621</span> <span class="p">(</span><span class="n">Red</span> <span class="n">Hat</span> <span class="mf">6.1</span><span class="o">.</span><span class="mi">1</span><span class="o">-</span><span class="mi">3</span><span class="p">)]</span> <span class="n">on</span> <span class="n">linux</span>
+<span class="n">Type</span> <span class="s">"help"</span><span class="p">,</span> <span class="s">"copyright"</span><span class="p">,</span> <span class="s">"credits"</span> <span class="ow">or</span> <span class="s">"license"</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> 
 </code></pre>
 </div>
-<p>And there you go! Note that this will make bokeh available from Python 2 only. If you want to use it from Python 3, use <code class="highlighter-rouge">pip3</code>, as such:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ pip3 install --user bokeh
+<p>Now you can start to write in Python! Let’s print <em>Hallo World</em>!</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'Hallo World!'</span><span class="p">)</span>
 </code></pre>
 </div>
-<p>As of right now Fedora’s PyPy does not come with pip, please consult <a href="http://doc.pypy.org/en/latest/install.html?highlight=pip#installing-pypy">upstream documentation</a> on how to get pip for PyPy.</p>
+<p>If you want to <strong>exit</strong> Python, press <code class="highlighter-rouge">Ctrl</code> + <code class="highlighter-rouge">D</code>.</p>
+<p>To run a program written in Python type <code class="highlighter-rouge">python3</code>, the path and the name of the program. Like this:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python3 example.py
+</code></pre>
+</div>
+<h2 id="bpython-interpreter">bpython interpreter</h2>
+<p>bpython is a fancy interface to the Python interpreter available in Fedora. It highliths the syntax and autocompletes your code.</p>
+<h3 id="installation">Installation</h3>
+<p>Open the <em>Terminal</em> (see above) and isntall <em>bpython</em> for Python 3:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install python3-bpython
+</code></pre>
+</div>
+<p>Now you can run <em>bpython</em>. For Python 3 version type <code class="highlighter-rouge">python3-bpython</code>. You should see something similar:</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">bpython</span> <span class="n">version</span> <span class="mf">0.15</span> <span class="n">on</span> <span class="n">top</span> <span class="n">of</span> <span class="n">Python</span> <span class="mf">3.5</span><span class="o">.</span><span class="mi">1</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python3</span>
+<span class="o">&gt;&gt;&gt;</span> 
+</code></pre>
+</div>
+<p>Now you can start coding!</p>
+<h3 id="what-next">What next?</h3>
+<ul>
+  <li><a href="https://www.python.org/">Python homepage</a></li>
+  <li><a href="https://docs.python.org/3/">Python 3 Documentation</a></li>
+  <li><a href="http://www.bpython-interpreter.org/">bpython website</a></li>
+</ul>
           </div>
         </div>
       </div>

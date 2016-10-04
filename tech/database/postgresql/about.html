@@ -152,6 +152,7 @@ server, server-compatible plug-ins and database connectors.</p>
 <span class="gp">$ </span>psql -d quick-start                           <span class="c"># connect to the new database</span>
 psql <span class="o">(</span>9.3.9<span class="o">)</span>
 Type <span class="s2">"help"</span> <span class="k">for </span>help.
+
 <span class="gp">quick-start=# </span>create table <span class="nb">test</span> <span class="o">(</span>id int<span class="o">)</span>;       -- create testing table
 CREATE TABLE
 <span class="gp">quick-start=# </span>insert into <span class="nb">test </span>values <span class="o">(</span>1<span class="o">)</span>;      -- insert some data
@@ -161,6 +162,7 @@ INSERT 0 1
 ----
   1
 <span class="o">(</span>1 row<span class="o">)</span>
+
 quick-start<span class="o">=</span><span class="c">#</span>
 </code></pre>
 </div>
@@ -186,6 +188,7 @@ $ psql -d testdb -U testuser
 Password for user testuser:
 psql (9.3.9)
 Type "help" for help.
+
 testdb=&gt;
 </code></pre>
 </div>
@@ -239,6 +242,7 @@ $ sudo su - postgres                            -- switch user to DB admin
 $ psql -d quick-start                           -- connect to an existing DB
 psql (9.3.9)
 Type "help" for help.
+
 quick-start=# CREATE EXTENSION hstore;          -- install extension to actual db
 CREATE EXTENSION
 quick-start=# SELECT 'a=&gt;1,b=&gt;2'::hstore;       -- use the extension

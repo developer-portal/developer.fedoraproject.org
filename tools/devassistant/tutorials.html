@@ -154,14 +154,17 @@ what assistants and options are available. You will then receive a help message
 similar to this one:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>You can either run assistants with:
 da [--debug] {create,tweak,prepare,extras} [ASSISTANT [ARGUMENTS]] ...
+
 Where:
 create   used for creating new projects
 tweak    used for working with existing projects
 prepare  used for preparing environment for upstream projects
 extras   used for performing custom tasks not related to a specific project
 You can shorten "create" to "crt", "tweak" to "twk" and "extras" to "extra".
+
 Or you can run a custom action:
 da [--debug] [ACTION] [ARGUMENTS]
+
 Available actions:
 doc      Display documentation for a DAP package.
 help     Print detailed help.
@@ -171,12 +174,16 @@ version  Print version
 </div>
 <p>To find more about creating projects, you can run <code class="highlighter-rouge">da create --help</code>:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>usage:  create [-h] [--deps-only] {c,cpp,dap,java,nodejs,nulecule,perl,php,python,ruby} ...
+
 Kickstart new projects easily with DevAssistant.
+
 optional arguments:
 -h, --help            show this help message and exit
 --deps-only           Only install dependencies
+
 subassistants:
   Following subassistants will help you with setting up your project.
+
   {c,cpp,dap,java,nodejs,nulecule,perl,php,python,ruby}
 </code></pre>
 </div>
@@ -190,11 +197,15 @@ choose.</p>
 <p>Running help at this point lists the available sub-assistants and arguments in
 a familiar help message:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>usage: create python [-h] {django,flask,gtk3,lib} ...
+
 This is base Python assistant. You have to choose a specific project type.
+
 optional arguments:
 -h, --help            show this help message and exit
+
 subassistants:
   Following subassistants will help you with setting up your project.
+
 {django,flask,gtk3,lib}
 </code></pre>
 </div>
@@ -209,8 +220,10 @@ and customize a Flask-based project:</p>
 </code></pre>
 </div>
 <div class="highlighter-rouge"><pre class="highlight"><code>usage: create python flask [-h] [--venv] [-e [ECLIPSE]] [-g [GITHUB]] -n NAME [-r] [-v]
+
 Flask assistant will help you create a basic Flask project and install its
 dependencies.
+
 optional arguments:
 -h, --help            show this help message and exit
 --venv                Use virtualenv to set up project and install
@@ -275,6 +288,7 @@ MyFancyWebserver/
     │   └── style.css
     └── templates
         └── index.html
+
 3 directories, 7 files
 </code></pre>
 </div>

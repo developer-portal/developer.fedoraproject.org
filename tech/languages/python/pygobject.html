@@ -97,6 +97,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
+          <img class="img-rounded" src="/static/logo/python.png">
+          <h2>Python</h2>
+          <p>General-purpose, high-level programming language supporting multiple programming paradigms.</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -111,6 +114,7 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="list-group content-menu">
+                <a href="/tech/languages/python/python-installation.html" class="list-group-item ">Python</a>
                 <a href="/tech/languages/python/pypi-installation.html" class="list-group-item ">PyPI</a>
                 <a href="/tech/languages/python/django-installation.html" class="list-group-item ">Django</a>
                 <a href="/tech/languages/python/flask-installation.html" class="list-group-item ">Flask</a>
@@ -175,11 +179,14 @@ from gi.repository import Gtk
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">gi</span>
 <span class="n">gi</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s">'Gtk'</span><span class="p">,</span> <span class="s">'3.0'</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">gi.repository</span> <span class="kn">import</span> <span class="n">Gtk</span>
+
 <span class="n">win</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="p">()</span>
 <span class="n">win</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"delete-event"</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">)</span>
 <span class="n">win</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">)</span>
 <span class="n">win</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+
 <span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+
 </code></pre>
 </div>
 <h2 id="what-next">What next?</h2>

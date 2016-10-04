@@ -322,15 +322,19 @@ of variables (<code class="highlighter-rouge">if defined $variable</code>, for e
 looks like this:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>fullname: Assistant for Foo Bar Baz
 description: More verbose description of what it does
+
 dependencies:
   - rpm: ['baz', 'qux']
   - pip: ['foobar']
+
 args:
   name:
     use: common_args
+
 files:
   foo: &amp;foo
     source: foo.txt
+
 run:
 - setup_project_dir:
     from: name

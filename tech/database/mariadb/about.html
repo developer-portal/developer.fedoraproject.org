@@ -188,10 +188,13 @@ $ sudo mysql_secure_installation
 ...My Account sudo mysql -u root -p
 MariaDB [(none)]&gt; create database db1;
 Query OK, 1 row affected (0.00 sec)
+
 MariaDB [(none)]&gt; CREATE USER 'valeria'@'localhost' IDENTIFIED BY 'secretpass';
 Query OK, 0 rows affected (0.00 sec)
+
 MariaDB [(none)]&gt; GRANT ALL ON db1.* TO 'valeria'@'localhost';
 Query OK, 0 rows affected (0.00 sec)
+
 MariaDB [(none)]&gt; exit
 Bye
 </code></pre>
@@ -224,15 +227,20 @@ Bye
 <p>The following example shows content of the file <code class="highlighter-rouge">/etc/my.cnf.d/myconfig.cnf</code> which contains several commonly changed options (use any variables that matches your needs).</p>
 <div class="highlighter-rouge"><pre class="highlight"><code># The maximum permitted number of simultaneous client connections:
 max_connections = 20
+
 # The minimum length of the word to be included in a FULLTEXT index:
 ft_min_word_len = 3
+
 # The maximum length of the word to be included in a FULLTEXT index:
 ft_max_word_len = My Account
+
 # In case the native AIO is broken, it can be disabled by:
 innodb_use_native_aio = 0
+
 # Log slow queries:
 slow_query_log = 1
 slow_query_log_file = "/var/log/mariadb/slowquery.log"
+
 # Log all queries (e.g. for debugging):
 general_log = 1
 general_log_file = "/var/log/mariadb/query.log"
