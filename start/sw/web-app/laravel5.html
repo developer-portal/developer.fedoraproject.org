@@ -137,63 +137,58 @@
 <blockquote>
   <p>The PHP Framework For Web Artisans</p>
 </blockquote>
-<p>Laravel is a high-level PHP Web framework</p>
-<p>First we need to install PHP5+, Composer and the laravel installer.
-<a href="https://laravel.com/">Laravel</a>
-<a href="https://getcomposer.org/">Composer</a></p>
-<h4 id="install-mariadb">Install MariaDB</h4>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install mariadb-server
-<span class="c"># Then to boot the server </span>
-<span class="gp">$ </span>sudo systemctl start mariadb.service
+<p>Laravel is a high-level PHP Web framework. To install Laravel the following needs to be satisfied:</p>
+<ol>
+  <li>PHP &gt;= 5.5.9</li>
+  <li>OpenSSL PHP Extension</li>
+  <li>PDO PHP Extension</li>
+  <li>Mbstring PHP Extension</li>
+  <li>Tokenizer PHP Extension</li>
+</ol>
+<h4 id="install-apache-web-server">Install Apache Web Server</h4>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install httpd
+<span class="c"># Setup Apache to automatically start upon system boot</span>
+<span class="gp">$ </span>sudo systemctl <span class="nb">enable </span>httpd.service
+<span class="c"># Then to boot the server</span>
+<span class="gp">$ </span>sudo systemctl start httpd
 <span class="c"># And stop with</span>
-<span class="gp">$ </span>sudo systemctl stop mariadb.service
+<span class="gp">$ </span>sudo systemctl stop httpd
 </code></pre>
 </div>
+<h4 id="install-mariadb-relational-database-server">Install MariaDB Relational Database Server</h4>
+<p>Follow the MariaDB installation instructions <a href="/tech/database/mariadb/about.html">here</a>.</p>
 <h4 id="install-php">Install PHP</h4>
-<p>And extras</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># Install php cli and needed extras</span>
-<span class="gp">$ </span>sudo dnf install php-cli php-mcrypt-5.6.20 php-mysqlnd
+<p>Follow the PHP installation instructions <a href="/tech/languages/php/php-installation.html">here</a>.</p>
+<h4 id="install-php-extensions">Install PHP Extensions</h4>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># Laravel required PHP extensions.</span>
+<span class="gp">$ </span>sudo dnf install php php-common php-cli php-pdo php-mbstring php-zip php-xml
+<span class="c"># Restart Apache</span>
+<span class="gp">$ </span>sudo systemctl restart httpd
 </code></pre>
 </div>
-<p>Now we will need composer to install laravel and it’s dependancies</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># Use PHP to read the file and create an executable for composer</span>
-php -r <span class="s2">"readfile('https://getcomposer.org/installer');"</span> &gt; composer-setup.php
-php composer-setup.php
-php -r <span class="s2">"unlink('composer-setup.php');"</span>
-<span class="c"># now move the composer executable to make composer globally accessable </span>
+<h4 id="install-composer">Install Composer</h4>
+<p>We will need composer to install laravel and it’s dependencies</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -sS https://getcomposer.org/installer | php
 <span class="gp">$ </span>sudo mv composer.phar /usr/local/bin/composer
-<span class="c"># You can now test it is working with </span>
-composer -V
+<span class="gp">$ </span>chmod +x /usr/local/bin/composer
+<span class="gp">$ </span>composer -V
 </code></pre>
 </div>
-<hr />
-<h4 id="create-laravel-project">Create Laravel Project</h4>
-<p>There are to ways to create a laravel project, 
-Use Composer to install the laravel installer 
-or 
-Use Composer create-Project</p>
-<h6 id="install-laravel-installer">Install laravel installer</h6>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>composer global require <span class="s2">"laravel/installer"</span>
-</code></pre>
-</div>
-<p>And the following line to ~/.bash_profile before “export Path”</p>
-<div class="language-php highlighter-rouge"><pre class="highlight"><code>PATH=$PATH:$HOME/.composer/vendor/bin
+<h4 id="install-laravel-installer">Install laravel installer</h4>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>composer global require <span class="s2">"laravel/installer"</span>
+<span class="c"># Place the ~/.config/composer/vendor/bin directory in your PATH so the laravel </span>
+<span class="c"># executable can be located by your system.</span>
+<span class="gp">$ </span><span class="nb">echo</span> <span class="s1">'export PATH="$PATH:$HOME/.config/composer/vendor/bin"'</span> &gt;&gt; ~/.bash_profile
 </code></pre>
 </div>
 <p>Now you can create a laravel project with the commands</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>laravel new ProjectName
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>laravel new ProjectName
 </code></pre>
 </div>
-<h6 id="create-project-with-composer">Create Project with composer</h6>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>composer create-project --prefer-dist laravel/laravel ProjectName
-</code></pre>
-</div>
-<hr />
-<h4 id="now-setup-and-serve-your-laravel-project">Now setup and serve your laravel project</h4>
-<h6 id="setup">Setup</h6>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">cd </span>ProjectName
-cp .env.example .env
-gedit .env
+<h4 id="setup">Setup</h4>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>ProjectName
+<span class="gp">$ </span>cp .env.example .env
+<span class="gp">$ </span>nano .env
 </code></pre>
 </div>
 <p>Edit the .env file with DB_* lines with the correct info</p>
@@ -203,10 +198,9 @@ gedit .env
 <span class="nx">DB_PASSWORD</span><span class="o">=</span><span class="nx">Chur1</span>
 </code></pre>
 </div>
-<h6 id="serve">Serve</h6>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl start mariadb.service
-php artisan serve
-<span class="c"># Laravel development server started on http://localhost:8000/</span>
+<h4 id="serve">Serve</h4>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>php artisan serve
+<span class="c"># Laravel development server started on http://localhost:PORT/</span>
 </code></pre>
 </div>
           </div>

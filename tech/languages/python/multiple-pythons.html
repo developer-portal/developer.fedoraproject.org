@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sphinx &mdash; Fedora Developer Portal</title>
+  <title>Multiple Pythons &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running  Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/python/sphinx.html">
+  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/python/multiple-pythons.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -121,9 +121,9 @@
                 <a href="/tech/languages/python/micropython.html" class="list-group-item ">MicroPython</a>
                 <a href="/tech/languages/python/python-sig.html" class="list-group-item ">Python SIG</a>
                 <a href="/tech/languages/python/pygobject.html" class="list-group-item ">PyGObject</a>
-                <a href="/tech/languages/python/sphinx.html" class="list-group-item  active ">Sphinx</a>
+                <a href="/tech/languages/python/sphinx.html" class="list-group-item ">Sphinx</a>
                 <a href="/tech/languages/python/python-devassistant.html" class="list-group-item ">Python assistants for DevAssistant</a>
-                <a href="/tech/languages/python/multiple-pythons.html" class="list-group-item ">Multiple Pythons</a>
+                <a href="/tech/languages/python/multiple-pythons.html" class="list-group-item  active ">Multiple Pythons</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -133,59 +133,171 @@
 </div>
             </div>
           </div>
-          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/python//sphinx.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/python//multiple-pythons.md" class="btn btn-default">Edit this page</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h1 id="sphinx">Sphinx</h1>
-<p><a href="http://sphinx-doc.org/">Sphinx</a> is a tool for creating beautiful documentation for python projects. It uses <a href="http://docutils.sf.net/rst.html">reStructuredText</a> as its markup language which it can build into various kinds of outputs. You can build HTML, PDF, manual pages and many others from one source! Sphinx can also link the documentation with your code and print syntax highlighted classes and functions. As extra, you can extend its functionality with many <a href="http://sphinx-doc.org/develop.html#extensions">plugins</a> and style it with many prepared themes.</p>
-<h2 id="installation">Installation</h2>
-<p>To install Sphinx on Fedora:</p>
-<p>For Python 2:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install python2-sphinx
-</code></pre>
-</div>
-<p>For Python 3:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install python3-sphinx
-</code></pre>
-</div>
-<h2 id="getting-started">Getting started</h2>
-<p>Navigate your terminal into project directory and run:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>sphinx-quickstart
-</code></pre>
-</div>
-<p>to initialize your documentation. You will be asked to choose the documentation directory, set the project name and provide some other basic information about it. Next, you will be asked which extensions you want to enable. Be sure to answer “yes” on creating Makefile for your documentation.</p>
-<p>It may happen that will miss-type some answer or you just change your mind about it. You can of course alter them whenever you want, just by editing <code class="highlighter-rouge">conf.py</code> file.</p>
-<h2 id="writing-your-first-text">Writing your first text</h2>
-<p>As it was mentioned before, content for Sphinx is written in <a href="http://docutils.sf.net/rst.html">reStructuredText</a>, so in order to create new page in the documentation, you have to create a <code class="highlighter-rouge">.rst</code> file. For example <code class="highlighter-rouge">introduction.rst</code>:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>Introduction
-============
-
-Here goes some introduction to your project and it is all written in rst format.
-</code></pre>
-</div>
-<p>Now you have to open your master document, which is by default called <code class="highlighter-rouge">index.rst</code>. It’s function is to serve welcome page and provide a table of contents for the documentation. Therefore you should add link to <code class="highlighter-rouge">introduction.rst</code> here:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>.. toctree::
-   introduction
-</code></pre>
-</div>
-<h2 id="see-the-results">See the results</h2>
-<p>Sphinx can process your content to the various output formats. Run <code class="highlighter-rouge">make help</code> to see all the possibilities. It should look like this:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>Please use `make &lt;target&gt;' where &lt;target&gt; is one of
-  html       to make standalone HTML files
-  dirhtml    to make HTML files named index.html in directories
-  singlehtml to make a single large HTML file
-  pickle     to make pickle files
-  json       to make JSON files
-  ...
-</code></pre>
-</div>
-<p>You will probably want to use <code class="highlighter-rouge">html</code> for local testing purposes and <code class="highlighter-rouge">dirhtml</code> for deploying. You are able to test it by hitting <code class="highlighter-rouge">make html</code> to the command line. If Sphinx tells you that “Build finished. The HTML pages are in _build/html”, you have done it right and there is one last thing to do. Open the web browser in the current working directory (if you are not sure which one it is, just run <code class="highlighter-rouge">pwd</code> to make sure), navigate to the build directory that Sphinx told you (i.e. <code class="highlighter-rouge">_build/html</code>) and open <code class="highlighter-rouge">index.html</code>. I would like to introduce you to your new documentation.</p>
-<h2 id="what-next">What next</h2>
+            <h1 id="multiple-python-interpreters">Multiple Python interpreters</h1>
+<p>If you are working on a piece of Python software, you probably want to test it
+on multiple Python interpreters. On Fedora, that’s easy: all you have to do is
+use <code class="highlighter-rouge">dnf</code> to install what you need. Currently Fedora has the following Pythons
+ready for you in the repositories:</p>
 <ul>
-  <li>See working examples to get an inspiration <a href="http://sphinx-doc.org/examples.html">Sphinx examples</a></li>
-  <li>See the full Sphinx possibilities and features <a href="http://sphinx-doc.org/contents.html">Sphinx contents</a></li>
+  <li>CPython 3.5</li>
+  <li>CPython 3.4</li>
+  <li>CPython 3.3</li>
+  <li>CPython 2.7</li>
+  <li>CPython 2.6</li>
+  <li>PyPy</li>
+  <li>PyPy 3</li>
+  <li>Jython</li>
+  <li>MicroPython</li>
 </ul>
+<p>Quite a nest, isn’t it?
+You can install them like this:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo dnf install python33  <span class="c"># to get CPython 3.3</span>
+sudo dnf install python34  <span class="c"># to get CPython 3.4</span>
+sudo dnf install python26  <span class="c"># to get CPython 2.6</span>
+sudo dnf install pypy pypy3 jython python35  <span class="c"># to get more at once</span>
+</code></pre>
+</div>
+<p>After that, you can run an interactive console or your script with, let’s say,
+CPython 3.4:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ python3.4
+Python 3.4.3 (default, Jul 11 2016, 11:30:44) 
+[GCC 5.3.1 20160406 (Red Hat 5.3.1-6)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt; 
+</code></pre>
+</div>
+<p>Note that most of the CPython versions, other than those provided by the
+<code class="highlighter-rouge">python2</code> and <code class="highlighter-rouge">python3</code> packages, are only provided for developer’s convenience
+so you can run your test suites. Critical security bugs might not be always
+fixed and those interprets are not intended for production.</p>
+<h2 id="getting-it-and-running-it-all-with-tox">Getting it and running it all with tox</h2>
+<p><a href="https://tox.readthedocs.io/">Tox</a> is tool that helps you test your Python code
+on multiple Pythons. If you install it on Fedora via the dnf package manager,
+you’ll automatically get all the CPythons and PyPys:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo dnf install tox
+</code></pre>
+</div>
+<p>Note: This will only install the Python interpreters on Fedora 25 or newer,
+on older Fedoras, you need to install the packages specifically.</p>
+<p>If you are not yet familiar with tox, don’t worry. This short example will show
+you how to start.</p>
+<p>Let’s create a directory and a simple Python file in it that will say something nice:</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># say.py</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Fedora is the best OS for Python developers'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">'</span><span class="se">\n\n</span><span class="s">'</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Now we’ll test if it works with all the Pythons, with tox.
+We’ll create a simple configuration file for tox, <code class="highlighter-rouge">tox.ini</code>, in the same
+directory:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>[tox]
+envlist = py27,py34,py35,pypy,pypy3
+skipsdist = True
+[testenv]
+commands=python say.py
+</code></pre>
+</div>
+<p>The <code class="highlighter-rouge">envlist</code> directive defines the list of Pythons to test on.
+Normally, tox assumes you are testing a project with its own <code class="highlighter-rouge">setup.py</code>. For
+the simlicity of this demo, we are not using it, and we need to tell this to
+tox via the <code class="highlighter-rouge">skipsdist</code> option.
+Finally the <code class="highlighter-rouge">commands</code> in <code class="highlighter-rouge">[testenv]</code> section tells tox what commands to run
+for the test, normally that would be <code class="highlighter-rouge">python setup.py test</code>, <code class="highlighter-rouge">py.test</code> or
+similar.</p>
+<p>With <code class="highlighter-rouge">tox.ini</code>, just run tox in the same directory:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ tox
+[...]
+ERROR:   py27: commands failed
+  py34: commands succeeded
+  py35: commands succeeded
+ERROR:   pypy: commands failed
+  pypy3: commands succeeded
+</code></pre>
+</div>
+<p>As you can see, there’s something wrong with the script: it only works on
+Python 3. The full tox output (omitted here) contains the exact error.
+If you want to support old Python 2 as well, you’ll have to fix it:</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># say.py</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Fedora is the best OS for Python developers'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">'</span><span class="se">\n\n</span><span class="s">'</span><span class="p">)</span>
+</code></pre>
+</div>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ tox
+[...]
+  py27: commands succeeded
+  py34: commands succeeded
+  py35: commands succeeded
+  pypy: commands succeeded
+  pypy3: commands succeeded
+  congratulations :)
+</code></pre>
+</div>
+<p>If you want to use tox for your projects, you can learn more at
+<a href="https://tox.readthedocs.io/">the documentation</a>.</p>
+<h2 id="creating-virtualenvs-and-installing-packages">Creating virtualenvs and installing packages</h2>
+<p>Fedora only packages Python modules for current versions of <code class="highlighter-rouge">python2</code>
+and <code class="highlighter-rouge">python3</code>. For all other interpreters, you will need to install packages
+from <a href="https://pypi.python.org/pypi">PyPI</a>, the Python Package Index.</p>
+<p>The best way is to use Python virtual environments (virtualenvs, or venvs).
+The invocation to create them differs for different Python versions.
+Packages installed in a virtualenv are only available once the virtualenv
+is activated. Here you can see two demos that create virtualenv in a folder
+named <code class="highlighter-rouge">env</code> and install some package into it.</p>
+<h3 id="python-34-only">Python 3.4+ only</h3>
+<p>Recent versions of Python include the <code class="highlighter-rouge">venv</code> module, which can create virtual
+environments.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ python3.5 -m venv env  # create the virtualenv
+$ . env/bin/activate  # activate it
+(env)$ python -m pip install requests  # install a package with pip
+...
+(env)$ python  # run python from that virtualenv
+Python 3.5.2 (default, Aug 16 2016, 21:50:46) 
+[GCC 5.3.1 20160406 (Red Hat 5.3.1-6)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt; import requests
+&gt;&gt;&gt; ...
+(env)$ deactivate  # go back to "normal"
+</code></pre>
+</div>
+<h3 id="python-2x-3x-pypys">Python 2.x, 3.x, PyPys</h3>
+<p>For other Python versions, a tool called <code class="highlighter-rouge">virtualenv</code> can create virtual
+environments:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ dnf install python-virtualenv  # install the necessary tool
+$ virtualenv --python /usr/bin/python2.7 env  # create the virtualenv
+Running virtualenv with interpreter /usr/bin/python2.7
+New python executable in env/bin/python2.7
+Also creating executable in env/bin/python
+Installing setuptools, pip...done.
+$ . env/bin/activate  # activate it
+(env)$ python -m pip install requests  # install a package with pip
+...
+(env)$ python  # run python from that virtualenv
+Python 2.7.11 (default, Jul  8 2016, 19:45:00) 
+[GCC 5.3.1 20160406 (Red Hat 5.3.1-6)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt; import requests
+&gt;&gt;&gt; ...
+(env)$ deactivate  # go back to "normal"
+</code></pre>
+</div>
+<p>If you don’t wish to use Python 2 at all, you might install <code class="highlighter-rouge">python3-virtualenv</code>
+in the first step and than use <code class="highlighter-rouge">virtualenv-3.X</code> command instead (where X
+changes depending on your Fedora version).</p>
+<p>To learn more about virtualenvs, visit
+<a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/">The Hitchhiker’s Guide to Python</a>.</p>
+<h3 id="others">Others</h3>
+<p>For Jython, the virtualenv and tox invocation is currently unfortunately broken;
+we are planning to fix it.</p>
+<p>MicroPython does not support virtual environments.
+It does have a rudimentary pip replacement called
+<a href="https://pypi.python.org/pypi/micropython-upip/">upip</a>, which you can use to
+install packages that support MicroPython. Run it to find out more:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>micropython -m upip
+</code></pre>
+</div>
           </div>
         </div>
       </div>
