@@ -149,11 +149,12 @@ $ gem install rails
 </code></pre>
 </div>
 <p>This will install the framework itself, but if you wish to install all default gems suggested by Rails for new applications, run:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install rubygem-{rails,sqlite3,coffee-rails,sass-rails,uglifier,jquery-rails,turbolinks,jbuilder,sdoc,spring,byebug,web-console} nodejs
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf group install 'Ruby on Rails'
 </code></pre>
 </div>
 <p>To take advantage of packaged gems, you need to run <code class="highlighter-rouge">rails</code> command with <code class="highlighter-rouge">--skip-bundle</code> option and then run <code class="highlighter-rouge">bundle --local</code> to lock your dependencies using system gems:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ rails new app --skip-bundle &amp;&amp; cd app
+<div class="highlighter-rouge"><pre class="highlight"><code>$ rails new app --skip-bundle
+$ cd app
 $ bundle --local
 </code></pre>
 </div>

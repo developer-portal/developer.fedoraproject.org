@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scientific Python Stack &mdash; Fedora Developer Portal</title>
+  <meta name="description" content="Fedora Developer Portal provides information for developers running  Fedora on their workstation or virtual machines.
+">
+  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/python/scipy.html">
+  <!-- Link to Sitemap -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <link href="/css/main.css" rel="stylesheet" media="screen, print">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <!-- Site search -->
+  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    $(function() {
+      $('#search-query').lunrSearch({
+        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
+        results : '#search-results',  // selector for containing search results element
+        entries : '.entries',         // selector for search entries containing element (contained within results above)
+        template: '#search-results-template'  // selector for Mustache.js template
+      });
+    });
+  </script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-69605821-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+  <body>
+    <!-- The top blue thing -->
+    <div id="splash" class="splash-size-small splash-section-tech">
+      <div class="container">
+        <div class="row" id="top">
+  <div class="col-sm-2" id="logo-col">
+    <div class="text-center">
+      <h1>
+        <a href="/">
+          <img src="/static/logo_white.png" style="height: 46px; width: 152px;">
+          <span>Fedora Developer Portal</span>
+        </a>
+      </h1>
+    </div>
+  </div>
+  <div class="col-sm-7" id="menu-col">
+    <nav>
+  <ul class="nav navbar-nav">
+    <li class="">
+      <a href="/start.html">Start a project</a>
+    </li>
+    <li class="">
+      <a href="/tools.html">Get tools</a>
+    </li>
+    <li class=" active ">
+      <a href="/tech.html">Languages &amp; databases</a>
+    </li>
+    <li class="">
+      <a href="/deployment.html">Deploy and distribute</a>
+    </li>
+    <!--
+    <li class="">
+      <a href="/">Resources</a>
+    </li>
+    <li class="">
+      <a href="/">Blogs</a>
+    </li>
+    -->
+  </ul>
+</nav>
+  </div>
+  <div class="col-sm-3" id="search-col">
+  <form class="input-group" id="search" action="/search.html" method="get">
+    <input type="text" id="search-query" class="form-control" name="q" placeholder="Search" autocomplete="off">
+    <span class="input-group-btn">
+      <button class="btn btn-default glyphicon glyphicon-search" type="submit" aria-hidden="true"></button>
+    </span>
+  </form>
+  <section id="search-results" style="display: none;">
+    <div class="entries">
+    </div>
+  </section>
+  <script id="search-results-template" type="text/mustache">
+    {{#entries}}
+      <article>
+        <a href="{{url}}">{{title}}</a>
+      </article>
+    {{/entries}}
+  </script>
+  </div>
+</div>
+        <div class="row" id="headlines">
+  <div class="col-sm-12">
+          <img class="img-rounded" src="/static/logo/python.png">
+          <h2>Python</h2>
+          <p>General-purpose, high-level programming language supporting multiple programming paradigms.</p>
+  </div>
+</div>
+<div class="row" id="attribution">
+  <div class="col-sm-12">
+    <a href=""></a>
+  </div>
+</div>
+      </div>
+    </div>
+    <!-- Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="list-group content-menu">
+                <a href="/tech/languages/python/python-installation.html" class="list-group-item ">Python</a>
+                <a href="/tech/languages/python/pypi-installation.html" class="list-group-item ">PyPI</a>
+                <a href="/tech/languages/python/django-installation.html" class="list-group-item ">Django</a>
+                <a href="/tech/languages/python/flask-installation.html" class="list-group-item ">Flask</a>
+                <a href="/tech/languages/python/micropython.html" class="list-group-item ">MicroPython</a>
+                <a href="/tech/languages/python/python-sig.html" class="list-group-item ">Python SIG</a>
+                <a href="/tech/languages/python/pygobject.html" class="list-group-item ">PyGObject</a>
+                <a href="/tech/languages/python/sphinx.html" class="list-group-item ">Sphinx</a>
+                <a href="/tech/languages/python/python-devassistant.html" class="list-group-item ">Python assistants for DevAssistant</a>
+                <a href="/tech/languages/python/multiple-pythons.html" class="list-group-item ">Multiple Pythons</a>
+                <a href="/tech/languages/python/scipy.html" class="list-group-item  active ">Scientific Python Stack</a>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
+              <div id="ask-fedora">
+  Have a question?
+    <a href="//ask.fedoraproject.org/">Ask Fedora.</a>
+</div>
+            </div>
+          </div>
+          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/python//scipy.md" class="btn btn-default">Edit this page</a>
+        </div>
+        <div class="col-sm-9">
+          <div class="panel panel-default content-content">
+            <h1 id="scientific-python-stack">Scientific Python Stack</h1>
+<p>There are a lot of libraries for scientific computation and visualization
+available in Fedora. A well-known and widely used one is
+<a href="v">SciPy Stack</a>, which consists of:</p>
+<ul>
+  <li><a href="https://docs.python.org/3/">Python</a>, a general purpose object-oriented
+programming language</li>
+  <li><a href="https://docs.scipy.org/doc/numpy/">NumPy</a>, a Python library providing
+fast multidimensional arrays with vector operations</li>
+  <li><a href="https://docs.scipy.org/doc/scipy/reference/">SciPy</a>, a Python library
+providing computational routines, for example numerical integration, various
+equation solvers and optimization</li>
+  <li><a href="http://matplotlib.org/">matplotlib</a>, a powerful Python library providing
+scientific visualization of publication quality</li>
+  <li><a href="https://ipython.org/">IPython</a>, an enhanced interactive Python interpreter</li>
+  <li><a href="http://pandas.pydata.org/">pandas</a>, a Python library providing data type
+for data series manipulation</li>
+  <li><a href="http://www.sympy.org/en/index.html">SymPy</a>, a Python library for computer algebra
+support (i.e. symbolical computation)</li>
+  <li><a href="http://nose.readthedocs.io/en/latest/">nose</a>, a testing framework for Python.</li>
+</ul>
+<h2 id="numpy">Numpy</h2>
+<p><a href="http://www.numpy.org/">NumPy</a> is a high performance Python library providing
+fast multidimensional arrays featuring vector operations.</p>
+<p>NumPy can be installed in Fedora by typing:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install python3-numpy
+</code></pre>
+</div>
+<p>What are vector operations? The ones which are applied on multiple values at once:</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">A</span>
+<span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">A</span><span class="o">+</span><span class="mi">1</span>
+<span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">A</span>
+<span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">A</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">4</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span><span class="o">=</span><span class="mi">0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">A</span>
+<span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+</code></pre>
+</div>
+<p>NumPy also provides additional mathematical functions like <code class="highlighter-rouge">sin</code>, <code class="highlighter-rouge">cos</code>,
+<code class="highlighter-rouge">arcsin</code>, <code class="highlighter-rouge">exp</code>, <code class="highlighter-rouge">log</code>, <code class="highlighter-rouge">min</code>, <code class="highlighter-rouge">max</code>, <code class="highlighter-rouge">sum</code> and others.</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">array</span><span class="p">([</span> <span class="mf">0.</span> <span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">1.</span> <span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">array</span><span class="p">([</span> <span class="mf">0.</span>        <span class="p">,</span>  <span class="mf">3.14159265</span><span class="p">])</span>
+</code></pre>
+</div>
+<p>NumPy includes some handy shortcuts:</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">1.</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">]])</span>
+</code></pre>
+</div>
+<h2 id="scipy">SciPy</h2>
+<p><a href="http://scipy.org/">SciPy</a> is a Python library providing routines for basic
+and special mathematical functions, numerical integration, optimization,
+interpolation, Fourier transform, signal processing, routines for linear algebra,
+statistics and others. See a <a href="https://docs.scipy.org/doc/scipy/reference/">full SciPy reference</a>.</p>
+<p>To install it, type:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install python3-scipy
+</code></pre>
+</div>
+<p>To compute, for example, the definite integral of <em>2x</em> from 0 to 1 (which equals 1), type:</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">scipy.integrate</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.1102230246251565e-14</span><span class="p">)</span>
+</code></pre>
+</div>
+<h2 id="matplotlib">matplotlib</h2>
+<p><a href="http://matplotlib.org/">matplotlib</a> is a graph plotting library producing publication-quality plots.</p>
+<p>To install it, type:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install python3-matplotlib
+</code></pre>
+</div>
+<p>Test it by typing:</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="s">'ro--'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">"Hello, matplotlib!"</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>You should see the plot already.</p>
+<p>See lots of other examples at a <a href="http://matplotlib.org/gallery.html">showcases gallery</a>:</p>
+<p><img src="http://matplotlib.org/mpl_examples/pylab_examples/scatter_hist.png" alt="histogram subplot example" /></p>
+<p><img src="http://matplotlib.org/mpl_examples/mplot3d/contour3d_demo3.png" alt="3dplot example" /></p>
+<h2 id="ipython">IPython</h2>
+<p><a href="https://ipython.org/">IPython</a> is a rich Python interpreter aiming at high-quality user experience
+for interactive computing and data visualization. Its main features are
+a tab completion, integration of commands for filesystem access, object
+introspection and others. IPython provides the kernel
+for the <a href="http://jupyter.org/">Jupyter project</a>.</p>
+<p>To install and run IPython, type:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install python3-ipython
+</code></pre>
+</div>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ ipython3
+Python 3.5.1 (default, Mar  4 2016, 15:21:15)
+Type "copyright", "credits" or "license" for more information.
+
+IPython 3.2.1 -- An enhanced Interactive Python.
+?         -&gt; Introduction and overview of IPython's features.
+%quickref -&gt; Quick reference.
+help      -&gt; Python's own help system.
+object?   -&gt; Details about 'object', use 'object??' for extra details.
+
+In [1]: print("Hello, world!")
+Hello, world!
+</code></pre>
+</div>
+<h2 id="pandas">pandas</h2>
+<p><a href="http://pandas.pydata.org/">Pandas</a> is a Python library implementing
+data series, data type and relevant routines:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install python3-pandas
+</code></pre>
+</div>
+<p>Let us load famous <a href="http://archive.ics.uci.edu/ml/datasets/Iris">Iris dataset</a>,
+which is used a lot as an example in pattern recognition and machine learning
+literature.</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+
+<span class="n">iris_data_set_url</span> <span class="o">=</span> <span class="p">(</span><span class="s">"http://archive.ics.uci.edu/ml/"</span>
+                     <span class="s">"machine-learning-databases/iris/iris.data"</span><span class="p">)</span>
+
+<span class="c"># pandas likes CSV files, it can read them from file or provided URL</span>
+<span class="n">my_first_pandas_DataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">iris_data_set_url</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+
+<span class="c"># See!</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Pandas DataFrame:"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">my_first_pandas_DataFrame</span><span class="p">)</span>
+
+<span class="c"># Let us find a record with maximal value in the first column</span>
+<span class="k">print</span><span class="p">(</span><span class="n">my_first_pandas_DataFrame</span><span class="o">.</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</code></pre>
+</div>
+<p>See more on its usage in a <a href="http://pandas.pydata.org/pandas-docs/stable/tutorials.html">pandas tutorial</a>.</p>
+<h2 id="sympy">SymPy</h2>
+<p><a href="http://www.sympy.org/en/index.html">SymPy</a> extends SciPy with symbolic computation
+capabilities, i.e. manipulation with algebraic variables, symbols and precise values.</p>
+<p>First, install SymPy by running:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install python3-sympy
+</code></pre>
+</div>
+<p>and then your journey to the realm of CAS (Computer Algebra System) can begin:</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">sympy</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="mi">2</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">integrate</span><span class="p">,</span> <span class="n">oo</span><span class="p">,</span> <span class="n">diff</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">'x'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">integrate</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">+</span><span class="n">oo</span><span class="p">))</span>
+<span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">integrate</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="n">oo</span><span class="p">,</span> <span class="o">+</span><span class="n">oo</span><span class="p">))</span>
+<span class="n">oo</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">diff</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
+<span class="o">-</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
+</code></pre>
+</div>
+<h2 id="what-next">What next?</h2>
+<ul>
+  <li><a href="http://www.numpy.org/">Numpy homepage</a></li>
+  <li><a href="https://docs.scipy.org/doc/numpy-dev/user/quickstart.html">Numpy tutorial</a></li>
+  <li><a href="http://scipy.org/docs.html">SciPy stack documentation</a></li>
+  <li><a href="http://matplotlib.org/gallery.html">matplotlib examples gallery</a></li>
+</ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Some other stuff -->
+    <div class=" banner-contribute">
+  <div class="container">
+    <h2> Share your knowledge </h2>
+    <p> Fedora Developer Portal is a community effort to share guides and information about open-source development. And we need your help! </p>
+    <a href="http://developer-portal.github.io/contributing/" class="btn btn-primary">Learn how to contribute</a>
+  </div>
+</div>
+    <footer class="footer">
+  <div class="container">
+    <div class="row footerlinks">
+      <div class="col-sm-3 col-xs-6 widget">
+        <h3 class="widget-title">About</h3>
+        <div class="widget-body">
+          <dl>
+            <dd><a href="/about.html">About Developer Portal</a></dd>
+            <dd><a href="//getfedora.org/en/sponsors">About Fedora</a></dd>
+            <dd><a href="//getfedora.org/en/sponsors">Sponsors</a></dd>
+            <dd><a href="http://fedoramagazine.org">Fedora Magazine</a></dd>
+            <dd><a href="//fedoraproject.org/wiki/Legal:Main#Legal">Legal</a></dd>
+          </dl>
+          <ul class="list-inline">
+            <li>
+              <a class="btn-social btn-outline" href="//www.facebook.com/TheFedoraProject"><i class="fa fa-fw fa-facebook"></i></a>
+            </li>
+            <li>
+              <a class="btn-social btn-outline" href="//plus.google.com/112917221531140868607"><i class="fa fa-fw fa-google-plus"></i></a>
+            </li>
+            <li>
+              <a class="btn-social btn-outline" href="//twitter.com/fedora"><i class="fa fa-fw fa-twitter"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6 widget">
+        <h3 class="widget-title uppercase">Download</h3>
+        <div class="widget-body">
+          <dl>
+            <dd><a href="//getfedora.org/en/workstation/download">Get Fedora Workstation</a></dd>
+            <dd><a href="//getfedora.org/en/server/download">Get Fedora Server</a></dd>
+            <dd><a href="//getfedora.org/en/cloud/download">Get Fedora Cloud</a></dd>
+            <dd><a href="//spins.fedoraproject.org">Fedora Spins</a></dd>
+            <dd><a href="//labs.fedoraproject.org">Fedora Labs</a></dd>
+            <dd><a href="//arm.fedoraproject.org">Fedora ARM<span class="sup">&reg;</span></a></dd>
+            <dd><a href="http://torrents.fedoraproject.org">Torrent Downloads</a></dd>
+          </dl>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6 widget">
+        <h3 class="widget-title">Support</h3>
+          <div class="widget-body">
+            <dl>
+              <dd><a href="//fedoraproject.org/wiki/Communicating_and_getting_help">Get Help</a></dd>
+              <dd><a href="//ask.fedoraproject.org/">Ask Fedora</a></dd>
+              <dd><a href="http://fedoraforum.org/">Forums</a></dd>
+              <dd><a href="//fedoraproject.org/wiki/Common_F22_bugs">Common Bugs</a></dd>
+              <dd><a href="//docs.fedoraproject.org/en-US/Fedora/22/html/Installation_Guide">Installation Guide</a></dd>
+            </dl>
+          </div>
+        </div>
+        <div class="col-sm-3 col-xs-6 widget">
+          <h3 class="widget-title">Join</h3>
+            <div class="widget-body">
+            <dl>
+              <dd><a href="//fedoraproject.org/wiki/Join">Join Fedora</a></dd>
+              <dd><a href="http://fedoraplanet.org">Planet Fedora</a></dd>
+              <dd><a href="//fedoraproject.org/wiki/SIGs">Fedora SIGs</a></dd>
+              <dd><a href="//admin.fedoraproject.org/accounts/">Fedora Account System</a></dd>
+              <dd><a href="http://fedoracommunity.org/">Fedora Community</a></dd>
+            </dl>
+          </div>
+        </div>
+      </div> <!-- /row of widgets -->
+      <div class="row">
+        <div class="col-md-2">
+          <div class="widget-body">
+            <a href="http://www.redhat.com/"><img alt="Red Hat Logo" src="/static/logo/redhat.png" class="rh-logo"></a>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="widget-body">
+            <p class="sponsor">Fedora is sponsored by Red Hat.</p>
+            <p class="sponsor"><a href="//www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
+            <p class="copy">&copy; 2016 Red Hat, Inc. and others.</p>
+          </div>
+        </div>
+        <!-- /row of widgets -->
+      </div>
+</footer>
+  </body>
+</html>
