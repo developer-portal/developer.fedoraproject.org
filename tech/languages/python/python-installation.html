@@ -161,24 +161,30 @@ Python 3 is already preinstalled on Fedora. Let’s use it!</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python3 example.py
 </code></pre>
 </div>
-<h2 id="bpython-interpreter">bpython interpreter</h2>
-<p>bpython is a fancy interface to the Python interpreter available in Fedora. It highliths the syntax and autocompletes your code.</p>
-<h3 id="installation">Installation</h3>
-<p>Open the <em>Terminal</em> (see above) and isntall <em>bpython</em> for Python 3:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install python3-bpython
+<h2 id="using-virtualenv">Using virtualenv</h2>
+<p>When you work at some project it is good to keep it inside a virtual environment. It will keep the dependencies you need at one place and you no dot have to worry about different projects which needs different version of the same module.</p>
+<p>Let’s create a virtual environment called <code class="highlighter-rouge">project_venv</code> which will contain Python and pip which you can use to install project’s dependencies.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pyvenv project_venv
 </code></pre>
 </div>
-<p>Now you can run <em>bpython</em>. For Python 3 version type <code class="highlighter-rouge">python3-bpython</code>. You should see something similar:</p>
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">bpython</span> <span class="n">version</span> <span class="mf">0.15</span> <span class="n">on</span> <span class="n">top</span> <span class="n">of</span> <span class="n">Python</span> <span class="mf">3.5</span><span class="o">.</span><span class="mi">1</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python3</span>
-<span class="o">&gt;&gt;&gt;</span> 
+<p>If you want to work in the virtual environment, you have to activate it.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">source </span>project_venv/bin/activate
 </code></pre>
 </div>
-<p>Now you can start coding!</p>
+<p>When the virtual environment is activated (you can see it’s name in brackets at the beginning of your prompt), you can install modules via <code class="highlighter-rouge">pip install</code>.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>pip install name_of_module
+</code></pre>
+</div>
+<p>That is all, you have sucessfully created your own virtual environment. Now you can run Python (see above) and start working on your project.</p>
+<p>When you finish your work, just deactivate the virtual environment.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>deactivate
+</code></pre>
+</div>
 <h3 id="what-next">What next?</h3>
 <ul>
   <li><a href="https://www.python.org/">Python homepage</a></li>
   <li><a href="https://docs.python.org/3/">Python 3 Documentation</a></li>
-  <li><a href="http://www.bpython-interpreter.org/">bpython website</a></li>
+  <li><a href="https://docs.python.org/3/library/venv.html#module-venv">Python Documentation: venv</a></li>
 </ul>
           </div>
         </div>
@@ -239,8 +245,8 @@ Python 3 is already preinstalled on Fedora. Let’s use it!</p>
               <dd><a href="//fedoraproject.org/wiki/Communicating_and_getting_help">Get Help</a></dd>
               <dd><a href="//ask.fedoraproject.org/">Ask Fedora</a></dd>
               <dd><a href="http://fedoraforum.org/">Forums</a></dd>
-              <dd><a href="//fedoraproject.org/wiki/Common_F22_bugs">Common Bugs</a></dd>
-              <dd><a href="//docs.fedoraproject.org/en-US/Fedora/22/html/Installation_Guide">Installation Guide</a></dd>
+              <dd><a href="//fedoraproject.org/wiki/Common_F25_bugs">Common Bugs</a></dd>
+              <dd><a href="//docs.fedoraproject.org/en-US/Fedora/25/html/Installation_Guide">Installation Guide</a></dd>
             </dl>
           </div>
         </div>
