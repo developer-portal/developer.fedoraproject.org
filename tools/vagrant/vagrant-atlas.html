@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mono &mdash; Fedora Developer Portal</title>
+  <title>Downloading Vagrant from Atlas using Vagrant &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running  Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/csharp/mono-installation.html">
+  <link rel="canonical" href="http://developer.fedoraproject.org/tools/vagrant/vagrant-atlas.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -36,7 +36,7 @@
 </head>
   <body>
     <!-- The top blue thing -->
-    <div id="splash" class="splash-size-small splash-section-tech">
+    <div id="splash" class="splash-size-small splash-section-tools">
       <div class="container">
         <div class="row" id="top">
   <div class="col-sm-2" id="logo-col">
@@ -55,10 +55,10 @@
     <li class="">
       <a href="/start.html">Start a project</a>
     </li>
-    <li class="">
+    <li class=" active ">
       <a href="/tools.html">Get tools</a>
     </li>
-    <li class=" active ">
+    <li class="">
       <a href="/tech.html">Languages &amp; databases</a>
     </li>
     <li class="">
@@ -97,9 +97,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/csharp.png">
-          <h2>Mono</h2>
-          <p>C# provided by Mono: a cross-platform, open source, .NET development framework</p>
+          <img class="img-rounded" src="/static/logo/vagrant.png">
+          <h2>Vagrant</h2>
+          <p>Create reproducible and portable development environments that can be easily shared in your team.</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -114,9 +114,14 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="list-group content-menu">
-                <a href="/tech/languages/csharp/mono-installation.html" class="list-group-item  active ">Mono</a>
-                <a href="/tech/languages/csharp/mono-build-tools-installation.html" class="list-group-item ">Mono build and development tools</a>
-                <a href="/tech/languages/csharp/mono-sig.html" class="list-group-item ">Mono SIG</a>
+                <a href="/tools/vagrant/about.html" class="list-group-item ">Vagrant</a>
+                <a href="/tools/vagrant/vagrant-libvirt.html" class="list-group-item ">Vagrant with libvirt provider</a>
+                <a href="/tools/vagrant/vagrant-virtualbox.html" class="list-group-item ">Vagrant with VirtualBox provider</a>
+                <a href="/tools/vagrant/vagrant-docker.html" class="list-group-item ">Vagrant with Docker provider</a>
+                <a href="/tools/vagrant/vagrant-plugins.html" class="list-group-item ">Vagrant plugins</a>
+                <a href="/tools/vagrant/vagrant-atlas.html" class="list-group-item  active ">Downloading Vagrant from Atlas using Vagrant</a>
+                <a href="/tools/vagrant/vagrant-nfs.html" class="list-group-item ">Synced folders with NFS</a>
+                <a href="/tools/vagrant/vagrant-sshfs.html" class="list-group-item ">Synced folders with SSHFS</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -126,18 +131,35 @@
 </div>
             </div>
           </div>
-          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/csharp//mono-installation.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tools/vagrant//vagrant-atlas.md" class="btn btn-default">Edit this page</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h1 id="mono-installation">Mono installation</h1>
-<p>Fedora comes with <a href="http://www.mono-project.com/">Mono</a> – a free and open source implementation of the .Net framework. To install it, simply type:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install mono-devel
+            <h1 id="downloading-vagrant-images-from-atlas">Downloading Vagrant images from Atlas</h1>
+<p>HashiCorp hosts an <a href="https://atlas.hashicorp.com/boxes/search">index</a>
+of images that you can use with Vagrant. To download an image using 
+Vagrant you need to know the organization name as well as the individual
+image name. In the case of Fedora we have the <a href="https://atlas.hashicorp.com/fedora/">Fedora</a>
+organization and under that we have different boxes that can be used.
+An example of one of those is the <code class="highlighter-rouge">fedora/25-cloud-base</code> Vagrant box.
+You can download this box with the following command:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ vagrant box add fedora/25-cloud-base
 </code></pre>
 </div>
-<p>This command will install Mono – the runtime environment and associated development tools.</p>
-<p><a href="http://www.monodevelop.com/">MonoDevelop</a> is the official IDE for development with C# on Mono. To install it, simply type:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install monodevelop
+<p>This will ask you which provider you want to download the Vagrant box
+for. You can choose <code class="highlighter-rouge">libvirt</code> or <code class="highlighter-rouge">virtualbox</code> based on which one of
+those virtual machine technologies you are using.</p>
+<p>After downloading this image you can then start up a machine with:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ vagrant init fedora/25-cloud-base &amp;&amp; vagrant up
+</code></pre>
+</div>
+<p><em>NOTE</em> you can skip the <code class="highlighter-rouge">vagrant box add</code> command if you want to. The
+<code class="highlighter-rouge">vagrant up</code> command will automatically consult Atlas for that named
+box and download it if it exists.</p>
+<h1 id="upgrading-vagrant-images-from-atlas">Upgrading Vagrant images from Atlas</h1>
+<p>If you want to update the Vagrant box image at a later time you can do
+so by issuing the following command:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>vagrant box update --box fedora/25-cloud-base
 </code></pre>
 </div>
           </div>

@@ -130,54 +130,86 @@
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
             <h1 id="how-to-install-google-android-studio-on-fedora">How to install Google Android Studio on Fedora</h1>
+<h2 id="from-android-website">From android website</h2>
+<p>You can install it from <a href="https://developer.android.com/studio/index.html">Android Studio on developer.android.com</a> and follow their instructions.</p>
+<h2 id="from-devassistanthttpsdevassistantorg-command-line">From <a href="https://devassistant.org">DevAssistant</a> command line</h2>
 <p>First of all install <a href="https://devassistant.org">DevAssistant</a> project:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install devassistant
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install devassistant
 </code></pre>
 </div>
 <p>If you prefer GUI run:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install devassistant-gui
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install devassistant-gui
 </code></pre>
 </div>
 <p>Install DAP plugin <a href="https://github.com/phracek/dap-google-android-studio">Google Android studio</a> for DevAssistant:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ da pkg install android-studio
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>da pkg install android-studio
 </code></pre>
 </div>
 <p>If you want to install only packages which are needed by Google Android Studio, run:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ da crt --deps-only android-studio --name &lt;your_project_name&gt;
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>da crt --deps-only android-studio --name &lt;your_project_name&gt;
 </code></pre>
 </div>
-<p>For installation Google Android Studio run:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ da crt android-studio --name &lt;name_of_your_project&gt;
+<p>To install Google Android Studio run:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>da crt android-studio --name &lt;name_of_your_project&gt;
 </code></pre>
 </div>
-<p>which downloads the latest versions Google Android Studio and SDKs.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ da crt android-studio --name my_test
+<p>It will download the latest versions of Google Android Studio and SDKs and will create an empty project, but you can delete the project after installation if you want. Example usage:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>da crt android-studio --name my_test
 INFO: Android studio was not found on system.
-Downloading android studio takes a time. Do you want to continue?
-Select [y/n]
+Downloading android studio takes a time. Do you want to <span class="k">continue</span>?
+Select <span class="o">[</span>y/n]
 y
 INFO: Downloading android studio from https://dl.google.com/dl/android/studio/ide-zips/1.3.0.10/android-studio-ide-141.2117773-linux.zip
-INFO: Downloading done
-INFO: Downloading android SDK from http://dl.google.com/android/android-sdk_r24.3.3-linux.tgz
-INFO: Downloading done
-INFO: Copy android template project to project destination
+INFO: Downloading <span class="k">done
+</span>INFO: Downloading android SDK from http://dl.google.com/android/android-sdk_r24.3.3-linux.tgz
+INFO: Downloading <span class="k">done
+</span>INFO: Copy android template project to project destination
 INFO: .
-[devassistant]$ cp -r /home/$USER/.devassistant/files/crt/android-studio/. "my_test"
-INFO: For import project into Android Studio execute command:
-INFO: /home/$USER/android-studio/bin/studio.sh my_test/build.gradle
+<span class="gp">[devassistant]$ </span>cp -r /home/<span class="nv">$USER</span>/.devassistant/files/crt/android-studio/. <span class="s2">"my_test"</span>
+INFO: For import project into Android Studio execute <span class="nb">command</span>:
+INFO: /home/<span class="nv">$USER</span>/android-studio/bin/studio.sh my_test/build.gradle
 
 </code></pre>
 </div>
-<p>For configuring AVD manager run:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ da crt android-studio --name my_test --avd
+<p>To configure AVD manager run:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>da crt android-studio --name my_test --avd
 </code></pre>
 </div>
-<p>This automatically shows AVD Manager where you can specify your mobile device.</p>
-<p>For downloading SDKs run:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ da crt android-studio --name my_text --sdk
+<p>It will show AVD Manager where you can specify your mobile device.</p>
+<p>To download SDKs run:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>da crt android-studio --name my_test --sdk
 </code></pre>
 </div>
-<p>This automatically shows SDK Manager where you can specify Android SDK which you would like to download and use it.</p>
+<p>This will show SDK Manager where you can specify Android SDKs to download and install.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>When starting Android Studio, you may get the following error:</p>
+<blockquote>
+  <p>‘tools.jar’ seems to be not in Studio classpath. Please ensure JAVA_HOME points to JDK rather than JRE.</p>
+</blockquote>
+<p>Make sure you have Oracle JDK Installed, <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">grab it from here</a>.</p>
+<p>Install:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>rpm -ivh jdk-&lt;version&gt;-linux-x64.rpm
+</code></pre>
+</div>
+<p>Upgrade:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>rpm -Uvh jdk-&lt;version&gt;-linux-x64.rpm
+</code></pre>
+</div>
+<p>Enable it using the <code class="highlighter-rouge">alternatives</code></p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>alternatives --config java
+</code></pre>
+</div>
+<p>Confirm you’re using the right java command:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>alternatives --list | grep /usr/java
+java    manual  /usr/java/jdk1.8.0_121/jre/bin/java
+</code></pre>
+</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>java -version
+java version <span class="s2">"1.8.0_121"</span>
+Java<span class="o">(</span>TM<span class="o">)</span> SE Runtime Environment <span class="o">(</span>build 1.8.0_121-b13<span class="o">)</span>
+Java HotSpot<span class="o">(</span>TM<span class="o">)</span> 64-Bit Server VM <span class="o">(</span>build 25.121-b13, mixed mode<span class="o">)</span>
+</code></pre>
+</div>
           </div>
         </div>
       </div>
@@ -265,7 +297,7 @@ INFO: /home/$USER/android-studio/bin/studio.sh my_test/build.gradle
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="//www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2016 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2017 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

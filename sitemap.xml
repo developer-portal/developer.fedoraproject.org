@@ -331,6 +331,9 @@
 <loc>http://developer.fedoraproject.org/tools/devassistant/tutorials.html</loc>
 </url>
 <url>
+<loc>http://developer.fedoraproject.org/tools/vagrant/vagrant-atlas.html</loc>
+</url>
+<url>
 <loc>http://developer.fedoraproject.org/tools/vagrant/vagrant-docker.html</loc>
 </url>
 <url>
@@ -341,6 +344,9 @@
 </url>
 <url>
 <loc>http://developer.fedoraproject.org/tools/vagrant/vagrant-plugins.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tools/vagrant/vagrant-sshfs.html</loc>
 </url>
 <url>
 <loc>http://developer.fedoraproject.org/tools/vagrant/vagrant-virtualbox.html</loc>

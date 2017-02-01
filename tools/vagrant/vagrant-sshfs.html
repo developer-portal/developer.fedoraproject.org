@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mono &mdash; Fedora Developer Portal</title>
+  <title>Synced folders with SSHFS &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running  Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/csharp/mono-installation.html">
+  <link rel="canonical" href="http://developer.fedoraproject.org/tools/vagrant/vagrant-sshfs.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -36,7 +36,7 @@
 </head>
   <body>
     <!-- The top blue thing -->
-    <div id="splash" class="splash-size-small splash-section-tech">
+    <div id="splash" class="splash-size-small splash-section-tools">
       <div class="container">
         <div class="row" id="top">
   <div class="col-sm-2" id="logo-col">
@@ -55,10 +55,10 @@
     <li class="">
       <a href="/start.html">Start a project</a>
     </li>
-    <li class="">
+    <li class=" active ">
       <a href="/tools.html">Get tools</a>
     </li>
-    <li class=" active ">
+    <li class="">
       <a href="/tech.html">Languages &amp; databases</a>
     </li>
     <li class="">
@@ -97,9 +97,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/csharp.png">
-          <h2>Mono</h2>
-          <p>C# provided by Mono: a cross-platform, open source, .NET development framework</p>
+          <img class="img-rounded" src="/static/logo/vagrant.png">
+          <h2>Vagrant</h2>
+          <p>Create reproducible and portable development environments that can be easily shared in your team.</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -114,9 +114,14 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="list-group content-menu">
-                <a href="/tech/languages/csharp/mono-installation.html" class="list-group-item  active ">Mono</a>
-                <a href="/tech/languages/csharp/mono-build-tools-installation.html" class="list-group-item ">Mono build and development tools</a>
-                <a href="/tech/languages/csharp/mono-sig.html" class="list-group-item ">Mono SIG</a>
+                <a href="/tools/vagrant/about.html" class="list-group-item ">Vagrant</a>
+                <a href="/tools/vagrant/vagrant-libvirt.html" class="list-group-item ">Vagrant with libvirt provider</a>
+                <a href="/tools/vagrant/vagrant-virtualbox.html" class="list-group-item ">Vagrant with VirtualBox provider</a>
+                <a href="/tools/vagrant/vagrant-docker.html" class="list-group-item ">Vagrant with Docker provider</a>
+                <a href="/tools/vagrant/vagrant-plugins.html" class="list-group-item ">Vagrant plugins</a>
+                <a href="/tools/vagrant/vagrant-atlas.html" class="list-group-item ">Downloading Vagrant from Atlas using Vagrant</a>
+                <a href="/tools/vagrant/vagrant-nfs.html" class="list-group-item ">Synced folders with NFS</a>
+                <a href="/tools/vagrant/vagrant-sshfs.html" class="list-group-item  active ">Synced folders with SSHFS</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -126,20 +131,30 @@
 </div>
             </div>
           </div>
-          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/csharp//mono-installation.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tools/vagrant//vagrant-sshfs.md" class="btn btn-default">Edit this page</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h1 id="mono-installation">Mono installation</h1>
-<p>Fedora comes with <a href="http://www.mono-project.com/">Mono</a> – a free and open source implementation of the .Net framework. To install it, simply type:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install mono-devel
+            <h1 id="synced-folders-with-sshfs">Synced folders with SSHFS</h1>
+<p>SSHFS is an easy, cross platform, way to share your project’s files
+between the hosts and the guests and achieve two way synchronization.
+You can read more about this folder sharing option 
+<a href="https://github.com/dustymabe/vagrant-sshfs">here</a>.</p>
+<p>This code is currently delivered as a
+<a href="/tools/vagrant/vagrant-plugins.html">vagrant plugin</a>, and can be
+installed as RPM <code class="highlighter-rouge">dnf install vagrant-sshfs</code> or via
+<code class="highlighter-rouge">vagrant plugin install vagrant-sshfs</code> on other platforms that don’t
+support RPM.</p>
+<p>Once the plugin is installed <code class="highlighter-rouge">sshfs</code> can be set as the <code class="highlighter-rouge">type</code> on the
+synced folder configuration line in the project’s <code class="highlighter-rouge">Vagrantfile</code>:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>Vagrant.configure("2") do |config|
+  # ...
+
+  config.vm.synced_folder ".", "/sharedolder", type: "sshfs"
+end
 </code></pre>
 </div>
-<p>This command will install Mono – the runtime environment and associated development tools.</p>
-<p><a href="http://www.monodevelop.com/">MonoDevelop</a> is the official IDE for development with C# on Mono. To install it, simply type:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install monodevelop
-</code></pre>
-</div>
+<p>You should not need to provide any authentication to get this to work.</p>
           </div>
         </div>
       </div>
