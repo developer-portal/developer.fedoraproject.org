@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Getting started with Docker on Fedora &mdash; Fedora Developer Portal</title>
+  <title>Writing Go programs &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running  Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tools/docker/docker-installation.html">
+  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/go/go-programs.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -36,7 +36,7 @@
 </head>
   <body>
     <!-- The top blue thing -->
-    <div id="splash" class="splash-size-small splash-section-tools">
+    <div id="splash" class="splash-size-small splash-section-tech">
       <div class="container">
         <div class="row" id="top">
   <div class="col-sm-2" id="logo-col">
@@ -55,10 +55,10 @@
     <li class="">
       <a href="/start.html">Start a project</a>
     </li>
-    <li class=" active ">
+    <li class="">
       <a href="/tools.html">Get tools</a>
     </li>
-    <li class="">
+    <li class=" active ">
       <a href="/tech.html">Languages &amp; databases</a>
     </li>
     <li class="">
@@ -97,9 +97,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/docker.png">
-          <h2>Docker in Fedora</h2>
-          <p>Platform for distributed applications.</p>
+          <img class="img-rounded" src="/static/logo/go.png">
+          <h2>Go</h2>
+          <p>An open source programming language built to craft simple, reliable, and efficient software.</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -114,13 +114,9 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="list-group content-menu">
-                <a href="/tools/docker/about.html" class="list-group-item ">Docker in Fedora</a>
-                <a href="/tools/docker/docker-interactive-management.html" class="list-group-item ">sen — interactive management</a>
-                <a href="/tools/docker/docker-installation.html" class="list-group-item  active ">Getting started with Docker on Fedora</a>
-                <a href="/tools/docker/docker-usage.html" class="list-group-item ">Docker basics</a>
-                <a href="/tools/docker/docker-configuration.html" class="list-group-item ">Configuring Docker</a>
-                <a href="/tools/docker/docker-images.html" class="list-group-item ">Docker images</a>
-                <a href="/tools/docker/compose.html" class="list-group-item ">Docker Compose</a>
+                <a href="/tech/languages/go/go-installation.html" class="list-group-item ">Go</a>
+                <a href="/tech/languages/go/go-programs.html" class="list-group-item  active ">Writing Go programs</a>
+                <a href="/tech/languages/go/go-packages.html" class="list-group-item ">Go packages</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -130,41 +126,61 @@
 </div>
             </div>
           </div>
-          <a href="https://github.com/developer-portal/content/blob/master//tools/docker//docker-installation.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/go//go-programs.md" class="btn btn-default">Edit this page</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h1 id="getting-started-with-docker">Getting started with Docker</h1>
-<h2 id="installation">Installation</h2>
-<p>On Fedora 22 and above install the <code class="highlighter-rouge">docker</code> package:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install docker
+            <h1 id="writing-go-programs">Writing Go programs</h1>
+<p>This assumes you have already <a href="/tech/languages/go/go-installation.html#go-installation">installed Go</a>.</p>
+<p>To write programs in Go, we write files with the <code class="highlighter-rouge">.go</code> extension in a subdirectory of <code class="highlighter-rouge">$GOPATH/src</code>. These are the steps:</p>
+<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">mkdir</span><span class="kv"> -p $HOME/go/src/hello
+</span><span class="w">$ </span><span class="nc">cd</span><span class="kv"> $HOME/go/src/hello
+</span><span class="w">$ </span><span class="nc">touch</span><span class="kv"> hello.go
+</span></code></pre>
+</div>
+<p>Now, edit the file <code class="highlighter-rouge">hello.go</code> with your favorite editor and type the following:</p>
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="s">"fmt"</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+	</span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Hello, Fedora!"</span><span class="p">)</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+</div>
+<p>Save your changes and, still on the same directory (<code class="highlighter-rouge">$HOME/go/hello</code>), run:</p>
+<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">go</span><span class="kv"> run hello.go
+</span>Hello, Fedora!
 </code></pre>
 </div>
-<p>To start the Docker service use:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo systemctl start docker
+<p>The command <code class="highlighter-rouge">go run</code> builds and runs a Go program, and is useful for quick experiments.
+To build the program and generate a compiled binary, use <code class="highlighter-rouge">go build</code>:</p>
+<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">go</span><span class="kv"> build
+</span><span class="w">$ </span><span class="nc">ls</span><span class="kv">
+</span>hello  hello.go
 </code></pre>
 </div>
-<p>Now you can verify that Docker was correctly installed and is running by running the Docker hello-world image.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo docker run hello-world
+<p>Without arguments, <code class="highlighter-rouge">go build</code> builds the package in the current directory, and in case of a main package it places a binary in the same directory. Let’s try it:</p>
+<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">./hello</span><span class="kv">
+</span>Hello, Fedora!
 </code></pre>
 </div>
-<h2 id="start-the-docker-daemon-at-boot">Start the Docker daemon at boot</h2>
-<p>To make Docker start when you boot your system, use the command:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo systemctl enable docker
+<p>Yet another option is to use <code class="highlighter-rouge">go install</code>:</p>
+<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">go</span><span class="kv"> install
+</span><span class="w">$ </span><span class="nc">ls</span><span class="kv">
+</span>hello.go
+<span class="w">$ </span><span class="nc">ls</span><span class="kv"> $GOPATH/bin
+</span>hello
 </code></pre>
 </div>
-<p>For additional systemd configuration options for Docker, like adding an HTTP Proxy, refer to the Docker documentation <a href="https://docs.docker.com/articles/systemd/">Systemd article</a>.</p>
-<h2 id="why-cant-i-use-docker-command-as-a-non-root-user-by-default">Why can’t I use docker command as a non <code class="highlighter-rouge">root</code> user, by default?</h2>
-<p>The Docker daemon binds to a Unix socket instead of a TCP port. By default that Unix socket is owned by the user <code class="highlighter-rouge">root</code> and other users can access it with <code class="highlighter-rouge">sudo</code>. For this reason, Docker daemon always runs as the <code class="highlighter-rouge">root</code> user.</p>
-<p>You can either <a href="http://www.projectatomic.io/blog/2015/08/why-we-dont-let-non-root-users-run-docker-in-centos-fedora-or-rhel">set up sudo</a> to give docker access to non-root users.</p>
-<p>Or you can create a Unix group called <code class="highlighter-rouge">docker</code> and add users to it. When the Docker daemon starts, it makes the ownership of the Unix socket read/writable by the <code class="highlighter-rouge">docker</code> group.</p>
-<p><strong>Warning:</strong> The <code class="highlighter-rouge">docker</code> group is equivalent to the <code class="highlighter-rouge">root</code> user; For details on how this impacts security in your system, see <a href="https://docs.Docker.com/articles/security/#Docker-daemon-attack-surface">Docker Daemon Attack Surface</a> for details.</p>
-<p>To create the <code class="highlighter-rouge">docker</code> group and add your user:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo groupadd docker &amp;&amp; sudo gpasswd -a ${USER} docker &amp;&amp; sudo systemctl restart docker
-$ newgrp docker
+<p>After building the current package, <code class="highlighter-rouge">go install</code> places the binary in <code class="highlighter-rouge">$GOPATH/bin</code>, instead of the current directory. It also builds and caches all dependencies in <code class="highlighter-rouge">$GOPATH/pkg</code>, making this command specially useful for bigger programs, such that <code class="highlighter-rouge">go install</code> can be faster than <code class="highlighter-rouge">go build</code> because of the cache.</p>
+<p>Because programs are installed in <code class="highlighter-rouge">$GOPATH/bin</code>, it is common to add that to the <code class="highlighter-rouge">PATH</code> environment variable, so that you can run your Go programs without specifying their full path:</p>
+<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">echo</span><span class="kv"> 'export PATH=$PATH:$GOPATH/bin' &gt;&gt; $HOME/.bashrc
+</span><span class="w">$ </span><span class="nc">source</span><span class="kv"> $HOME/.bashrc
+</span><span class="w">$ </span><span class="nc">hello</span><span class="kv">
+</span>Hello, Fedora!
 </code></pre>
 </div>
-<p>You have to log out and log back in (or restart Docker daemon and use <code class="highlighter-rouge">newgrp</code> command as mentioned here) for these changes to take effect. Then you can verify if your changes were successful by running Docker without <code class="highlighter-rouge">sudo</code>.</p>
           </div>
         </div>
       </div>

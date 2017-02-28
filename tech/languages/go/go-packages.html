@@ -115,6 +115,7 @@
         <div class="col-sm-3">
           <div class="list-group content-menu">
                 <a href="/tech/languages/go/go-installation.html" class="list-group-item ">Go</a>
+                <a href="/tech/languages/go/go-programs.html" class="list-group-item ">Writing Go programs</a>
                 <a href="/tech/languages/go/go-packages.html" class="list-group-item  active ">Go packages</a>
           </div>
           <div class="panel panel-default">
@@ -131,12 +132,12 @@
           <div class="panel panel-default content-content">
             <h1 id="go-packages-installation">Go packages installation</h1>
 <h2 id="go-packages-from-upstream">Go packages from upstream</h2>
-<p>Upstream projects can be installed with <code class="highlighter-rouge">go get</code> command. Package names follows the import paths so to install <code class="highlighter-rouge">gorilla/context</code> from GitHub run:</p>
+<p>Upstream projects can be installed with <code class="highlighter-rouge">go get</code> command. Package names follows the import paths so to install <code class="highlighter-rouge">github.com/gorilla/context</code> from GitHub run:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>$ go get github.com/gorilla/context
 </code></pre>
 </div>
-<p>If the requested package comes with an executable binary, you should find it in <code class="highlighter-rouge">$GOPATH/bin</code> directory. To use it, you need to add this path to your <code class="highlighter-rouge">$PATH</code>:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ echo 'export PATH=$GOPATH/bin:$PATH' &gt;&gt; $HOME/.bashrc
+<p>If the requested package comes with an executable binary, you will find it in <code class="highlighter-rouge">$GOPATH/bin</code>. If you have not added that to your <code class="highlighter-rouge">PATH</code> environment variable yet, you can do so with these commands:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ echo 'export PATH=$PATH:$GOPATH/bin' &gt;&gt; $HOME/.bashrc
 $ source $HOME/.bashrc
 </code></pre>
 </div>

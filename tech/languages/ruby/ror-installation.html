@@ -136,9 +136,9 @@
           <div class="panel panel-default content-content">
             <h1 id="ruby-on-rails-installation">Ruby on Rails installation</h1>
 <h2 id="installing-rails-from-rubygemsorg">Installing Rails from RubyGems.org</h2>
-<p>To install Ruby on Rails on Fedora as a gem, install Ruby first together with <code class="highlighter-rouge">ruby-devel</code>, <code class="highlighter-rouge">gcc</code>, <code class="highlighter-rouge">libxml2-devel</code> packages, and then install Rails using the <code class="highlighter-rouge">gem</code> command:</p>
+<p>To install Ruby on Rails on Fedora as a gem, install Ruby first together with <code class="highlighter-rouge">ruby-devel</code>, <code class="highlighter-rouge">gcc</code>, <code class="highlighter-rouge">zlib-devel</code> packages, and then install Rails using the <code class="highlighter-rouge">gem</code> command:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf group install "C Development Tools and Libraries"
-$ sudo dnf install ruby-devel libxml2-devel
+$ sudo dnf install ruby-devel zlib-devel
 $ gem install rails
 </code></pre>
 </div>

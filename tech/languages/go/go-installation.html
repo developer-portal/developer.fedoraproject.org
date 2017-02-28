@@ -115,6 +115,7 @@
         <div class="col-sm-3">
           <div class="list-group content-menu">
                 <a href="/tech/languages/go/go-installation.html" class="list-group-item  active ">Go</a>
+                <a href="/tech/languages/go/go-programs.html" class="list-group-item ">Writing Go programs</a>
                 <a href="/tech/languages/go/go-packages.html" class="list-group-item ">Go packages</a>
           </div>
           <div class="panel panel-default">
@@ -129,23 +130,37 @@
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h1 id="go-installation">Go installation</h1>
-<p>To install Go compiler, type:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install go
+            <h1 id="go-on-fedora">Go on Fedora</h1>
+<p>Quoting the upstream documentation:</p>
+<blockquote>
+  <p>The Go programming language is an open source project to make programmers more productive.</p>
+</blockquote>
+<blockquote>
+  <p>Go is expressive, concise, clean, and efficient. Its concurrency mechanisms make it easy to write programs that get the most out of multicore and networked machines, while its novel type system enables flexible and modular program construction. Go compiles quickly to machine code yet has the convenience of garbage collection and the power of run-time reflection. It’s a fast, statically typed, compiled language that feels like a dynamically typed, interpreted language.</p>
+</blockquote>
+<h2 id="go-installation">Go installation</h2>
+<p>To install the Go tools, type on a terminal:</p>
+<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">sudo</span><span class="kv"> dnf install golang
+</span></code></pre>
+</div>
+<p>The <code class="highlighter-rouge">go</code> and <code class="highlighter-rouge">gofmt</code> binaries will become available on the system.</p>
+<p>Go code lives in <a href="https://golang.org/doc/code.html#Workspaces">a workspace</a> which is defined by the <code class="highlighter-rouge">GOPATH</code> environment variable. A common choice among developers, and the <a href="https://tip.golang.org/doc/code.html#GOPATH">default value of <code class="highlighter-rouge">GOPATH</code> starting from the Go 1.8 release</a>, is to use <code class="highlighter-rouge">$HOME/go</code>:</p>
+<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">mkdir</span><span class="kv"> -p $HOME/go
+</span><span class="w">$ </span><span class="nc">echo</span><span class="kv"> 'export GOPATH=$HOME/go' &gt;&gt; $HOME/.bashrc
+</span><span class="w">$ </span><span class="nc">source</span><span class="kv"> $HOME/.bashrc
+</span></code></pre>
+</div>
+<p>Check that <code class="highlighter-rouge">GOPATH</code> is set correctly with this command:</p>
+<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">go</span><span class="kv"> env GOPATH
+</span>/home/user/go
 </code></pre>
 </div>
-<p><code class="highlighter-rouge">go</code> and <code class="highlighter-rouge">gofmt</code> binaries will become available on the system.</p>
-<p>Go code lives in <a href="https://golang.org/doc/code.html#Workspaces">a workspace</a> which is defined by <code class="highlighter-rouge">GOPATH</code> environment variable. <a href="https://golang.org/doc/code.html#GOPATH">Upstream documentation</a> uses <code class="highlighter-rouge">$HOME/work</code> for your Go workspace:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ mkdir -p $HOME/work
-$ echo 'export GOPATH=$HOME/work' &gt;&gt; $HOME/.bashrc
-$ source $HOME/.bashrc
-</code></pre>
-</div>
-<p>Run <code class="highlighter-rouge">go env</code> to check that <code class="highlighter-rouge">$GOPATH</code> is set correctly:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ go env | grep GOPATH
-GOPATH="/home/$USER/work"
-</code></pre>
-</div>
+<p>Where ‘user’ will be your user name.</p>
+<p>Writing Go programs is covered in <a href="/tech/languages/go/go-programs.html">Go programs</a>.</p>
+<h2 id="references">References</h2>
+<ul>
+  <li><a href="https://golang.org/doc/">Go Documentation</a></li>
+</ul>
           </div>
         </div>
       </div>

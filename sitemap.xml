@@ -70,6 +70,9 @@
 <loc>http://developer.fedoraproject.org/tools/docker/about.html</loc>
 </url>
 <url>
+<loc>http://developer.fedoraproject.org/tech/database/mongodb/about.html</loc>
+</url>
+<url>
 <loc>http://developer.fedoraproject.org/tech/database/sqlite/about.html</loc>
 </url>
 <url>
@@ -158,6 +161,9 @@
 </url>
 <url>
 <loc>http://developer.fedoraproject.org/tech/languages/go/go-packages.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/go/go-programs.html</loc>
 </url>
 <url>
 <loc>http://developer.fedoraproject.org/tech/languages/groovy/groovy-installation.html</loc>
