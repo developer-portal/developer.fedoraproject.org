@@ -147,6 +147,17 @@
 <div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install maven
 </code></pre>
 </div>
+<p>You can get started with Maven by using <a href="/tools/devassistant/about.html">DevAssistant</a> to create a simple project, simply type (after you have DevAssistant setup and installed):</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>da --debug crt java maven -n Dev_Sample
+</code></pre>
+</div>
+<p>The project that is created (Example: Dev_Sample), roughly follows the <a href="http://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html">Maven Project Structure</a> but does not contain all of the directories or files. Initially you should see 2 directories (<code class="highlighter-rouge">src</code> and <code class="highlighter-rouge">target</code>) when you explore the project directory. You will also notice that your project directory has a file, the <a href="https://maven.apache.org/pom.html">pom.xml</a> in it, this is your Maven project file that defines your build, and how you will transition through the Maven build <a href="https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html">lifecycles</a>.</p>
+<p>The <code class="highlighter-rouge">target</code> directory is created as part of your initial project build, triggered by DevAssistant command above. This directory is where your compiled artifacts, or generated outputs (from builds) are stored. Its best to think of this directory as a temp space, used to store the outputs from a build.</p>
+<ul>
+  <li>Note: if you run <code class="highlighter-rouge">git status</code> in the created <code class="highlighter-rouge">Dev_Sample</code> directory, you will see that the <code class="highlighter-rouge">target</code> directory is not part of your git repository. Its a best practice to not include this in your version control system, so its recommended that you create a <a href="https://git-scm.com/docs/gitignore">gitignore</a> file, add this directory and anything under it as ignored files.</li>
+</ul>
+<p>The <code class="highlighter-rouge">src</code> directory, is the start of your source directory structure, and under this directory you will see typically see any number of <a href="http://docs.oracle.com/javase/tutorial/java/package/managingfiles.html">package directories</a>(Example: main), and the template testing framework (using junit).</p>
+<p>The sample application created, as part of the DevAssisttant project creation, creates a single application (jar) from the <code class="highlighter-rouge">main.java.org.devassistant.maven.Main</code> class. It also creates a single test (test if a boolean is true), that is run when a build happens.</p>
 <h2 id="gradle-installation">Gradle installation</h2>
 <p><a href="https://gradle.org/">Gradle</a> is another popular tool used not only for building Java projects. To install it, simply type:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install gradle
