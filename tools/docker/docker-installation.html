@@ -162,12 +162,12 @@
 <div class="highlighter-rouge"><pre class="highlight"><code>$ sudo systemctl enable docker
 </code></pre>
 </div>
-<p>For additional systemd configuration options for Docker, like adding an HTTP Proxy, refer to the Docker documentation <a href="https://docs.docker.com/articles/systemd/">Systemd article</a>.</p>
+<p>For additional systemd configuration options for Docker, like adding an HTTP Proxy, refer to the Docker documentation <a href="https://docs.docker.com/engine/admin/systemd/">Systemd article</a>.</p>
 <h2 id="why-cant-i-use-docker-command-as-a-non-root-user-by-default">Why can’t I use docker command as a non <code class="highlighter-rouge">root</code> user, by default?</h2>
 <p>The Docker daemon binds to a Unix socket instead of a TCP port. By default that Unix socket is owned by the user <code class="highlighter-rouge">root</code> and other users can access it with <code class="highlighter-rouge">sudo</code>. For this reason, Docker daemon always runs as the <code class="highlighter-rouge">root</code> user.</p>
 <p>You can either <a href="http://www.projectatomic.io/blog/2015/08/why-we-dont-let-non-root-users-run-docker-in-centos-fedora-or-rhel">set up sudo</a> to give docker access to non-root users.</p>
 <p>Or you can create a Unix group called <code class="highlighter-rouge">docker</code> and add users to it. When the Docker daemon starts, it makes the ownership of the Unix socket read/writable by the <code class="highlighter-rouge">docker</code> group.</p>
-<p><strong>Warning:</strong> The <code class="highlighter-rouge">docker</code> group is equivalent to the <code class="highlighter-rouge">root</code> user; For details on how this impacts security in your system, see <a href="https://docs.Docker.com/articles/security/#Docker-daemon-attack-surface">Docker Daemon Attack Surface</a> for details.</p>
+<p><strong>Warning:</strong> The <code class="highlighter-rouge">docker</code> group is equivalent to the <code class="highlighter-rouge">root</code> user; For details on how this impacts security in your system, see <a href="https://docs.docker.com/engine/security/security/#docker-daemon-attack-surface">Docker Daemon Attack Surface</a> for details.</p>
 <p>To create the <code class="highlighter-rouge">docker</code> group and add your user:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>$ sudo groupadd docker &amp;&amp; sudo gpasswd -a ${USER} docker &amp;&amp; sudo systemctl restart docker
 $ newgrp docker
