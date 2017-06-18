@@ -167,7 +167,7 @@
 <div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install unixODBC mysql-connector-java
 </code></pre>
 </div>
-<h2 id="a-namebasic-tutorial-for-mariadb-in-fedoraabasic-tutorial-for-mariadb-in-fedora"><a name="basic-tutorial-for-mariadb-in-fedora"></a>Basic tutorial for MariaDB in Fedora</h2>
+<h2 id="basic-tutorial-for-mariadb-in-fedora"><a name="basic-tutorial-for-mariadb-in-fedora"></a>Basic tutorial for MariaDB in Fedora</h2>
 <p>MariaDB runs on port 3306 by default and creates a local unix socket at <code class="highlighter-rouge">/var/lib/mysql/mysql.sock</code>. By default, data is stored in the <code class="highlighter-rouge">/var/lib/mysql</code> directory and logs are located under <code class="highlighter-rouge">/var/log/mariadb/</code>. In order to change these directories, pay attention to use correct SELinux context and owner.</p>
 <p>Right after installing, the data directory is empty. It is initialized during the first start.</p>
 <p>To start MariaDB server, run:</p>
@@ -256,7 +256,7 @@ general_log_file = "/var/log/mariadb/query.log"
 </code></pre>
 </div>
 <p>After changing the configuration, restart the daemon using <code class="highlighter-rouge">$ sudo systemctl restart mariadb</code>.</p>
-<h2 id="a-namehow-to-install-mariadb-galera-on-fedoraahow-to-install-mariadb-galera-on-fedora"><a name="how-to-install-mariadb-galera-on-fedora"></a>How to install MariaDB Galera on Fedora</h2>
+<h2 id="how-to-install-mariadb-galera-on-fedora"><a name="how-to-install-mariadb-galera-on-fedora"></a>How to install MariaDB Galera on Fedora</h2>
 <p>MariaDB Galera Cluster is a synchronous multi-master cluster for MariaDB.</p>
 <p>In order to install MariaDB Galera server package, run:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install mariadb-galera-server galera

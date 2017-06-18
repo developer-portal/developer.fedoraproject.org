@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PHP Laravel 5 &mdash; Fedora Developer Portal</title>
+  <title>NGINX HTTP Server &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running  Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/start/sw/web-app/laravel5.html">
+  <link rel="canonical" href="http://developer.fedoraproject.org/start/sw/web-app/nginx.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -126,10 +126,10 @@
                 <a href="/start/sw/web-app/about.html" class="list-group-item ">Web Application</a>
                 <a href="/start/sw/web-app/apache.html" class="list-group-item ">Apache HTTP Server</a>
                 <a href="/start/sw/web-app/django.html" class="list-group-item ">Python Django</a>
-                <a href="/start/sw/web-app/laravel5.html" class="list-group-item  active ">PHP Laravel 5</a>
+                <a href="/start/sw/web-app/laravel5.html" class="list-group-item ">PHP Laravel 5</a>
                 <a href="/start/sw/web-app/jekyll.html" class="list-group-item ">Jekyll</a>
                 <a href="/start/sw/web-app/rails.html" class="list-group-item ">Ruby on Rails</a>
-                <a href="/start/sw/web-app/nginx.html" class="list-group-item ">NGINX HTTP Server</a>
+                <a href="/start/sw/web-app/nginx.html" class="list-group-item  active ">NGINX HTTP Server</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -139,65 +139,24 @@
 </div>
             </div>
           </div>
-          <a href="https://github.com/developer-portal/content/blob/master//start/sw/web-app//laravel5.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//start/sw/web-app//nginx.md" class="btn btn-default">Edit this page</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h2 id="laravel-5">Laravel 5</h2>
-<blockquote>
-  <p>The PHP Framework For Web Artisans</p>
-</blockquote>
-<p>Laravel is a high-level PHP Web framework.</p>
-<h4 id="install-apache-web-server">Install Apache Web Server</h4>
-<p>Follow the Apache installation instructions <a href="/start/sw/web-app/apache.html">here</a>.</p>
-<h4 id="install-mariadb-relational-database-server">Install MariaDB Relational Database Server</h4>
-<p>Follow the MariaDB installation instructions <a href="/tech/database/mariadb/about.html">here</a>.</p>
-<h4 id="install-php">Install PHP</h4>
-<p>Follow the PHP installation instructions <a href="/tech/languages/php/php-installation.html">here</a>.</p>
-<h4 id="install-php-extensions">Install PHP Extensions</h4>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># Laravel required PHP extensions.</span>
-<span class="gp">$ </span>sudo dnf install php php-common php-cli php-pdo php-mbstring php-zip php-xml
-<span class="c"># Restart Apache</span>
-<span class="gp">$ </span>sudo systemctl restart httpd
+            <h1 id="what-is-nginx">What is NGINX</h1>
+<p>NGINX is a high-performance HTTP server and reverse proxy, as well as an IMAP/POP3 proxy server. NGINX is known for its high performance, stability, rich feature set, simple configuration, and low resource consumption. Website: <a href="https://nginx.org/">nginx.org</a>, <a href="https://www.nginx.com/">nginx.com</a>.</p>
+<h2 id="install-nginx-web-server">Install NGINX Web Server</h2>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install nginx
+<span class="c"># Start NGINX when system boots</span>
+<span class="gp">$ </span>sudo systemctl <span class="nb">enable </span>nginx
+<span class="c"># Start NGINX</span>
+<span class="gp">$ </span>sudo systemctl start nginx
+<span class="c"># Check NGINX Status</span>
+<span class="gp">$ </span>sudo systemctl status nginx
 </code></pre>
 </div>
-<h4 id="install-composer">Install Composer</h4>
-<p>We will need composer to install laravel and it’s dependencies</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -sS https://getcomposer.org/installer | php
-<span class="gp">$ </span>sudo mv composer.phar /usr/local/bin/composer
-<span class="gp">$ </span>chmod +x /usr/local/bin/composer
-<span class="gp">$ </span>composer -V
-</code></pre>
-</div>
-<h4 id="install-laravel-installer">Install laravel installer</h4>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>composer global require <span class="s2">"laravel/installer"</span>
-<span class="c"># Place the ~/.config/composer/vendor/bin directory in your PATH so the laravel </span>
-<span class="c"># executable can be located by your system.</span>
-<span class="gp">$ </span><span class="nb">echo</span> <span class="s1">'export PATH="$PATH:$HOME/.config/composer/vendor/bin"'</span> &gt;&gt; ~/.bashrc
-</code></pre>
-</div>
-<p>Restart Terminal. Now you can create a laravel project with the commands</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>laravel new ProjectName
-</code></pre>
-</div>
-<h4 id="setup">Setup</h4>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>ProjectName
-<span class="gp">$ </span>cp .env.example .env
-<span class="gp">$ </span>nano .env
-</code></pre>
-</div>
-<p>Edit the .env file with DB_* lines with the correct info</p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">DB_HOST</span><span class="o">=</span><span class="nx">localhost</span>
-<span class="nx">DB_DATABASE</span><span class="o">=</span><span class="nx">laravel_equals_winning</span>
-<span class="nx">DB_USERNAME</span><span class="o">=</span><span class="nx">Chur</span>
-<span class="nx">DB_PASSWORD</span><span class="o">=</span><span class="nx">Chur1</span>
-</code></pre>
-</div>
-<h4 id="serve">Serve</h4>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>php artisan serve
-<span class="c"># Laravel development server started on http://localhost:PORT/</span>
-</code></pre>
-</div>
+<p>Now visit <a href="http://localhost/">http://localhost/</a>. You should see NGINX Test Page:</p>
+<p><img src="/start/sw/web-app/images/NGINX_Test_Page_on_Fedora.png" alt="NGINX Test Page on Fedora" /></p>
           </div>
         </div>
       </div>
