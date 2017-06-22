@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>More on DevAssistant &mdash; Fedora Developer Portal</title>
+  <title>NGINX HTTP Server &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running  Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tools/devassistant/notes.html">
+  <link rel="canonical" href="http://developer.fedoraproject.org/start/sw/web-app/nginx.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -36,7 +36,7 @@
 </head>
   <body>
     <!-- The top blue thing -->
-    <div id="splash" class="splash-size-small splash-section-tools">
+    <div id="splash" class="splash-size-small splash-section-start">
       <div class="container">
         <div class="row" id="top">
   <div class="col-sm-2" id="logo-col">
@@ -52,10 +52,10 @@
   <div class="col-sm-7" id="menu-col">
     <nav>
   <ul class="nav navbar-nav">
-    <li class="">
+    <li class=" active ">
       <a href="/start.html">Start a project</a>
     </li>
-    <li class=" active ">
+    <li class="">
       <a href="/tools.html">Get tools</a>
     </li>
     <li class="">
@@ -97,9 +97,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/devassistant.png">
-          <h2>DevAssistant</h2>
-          <p>Set up your development environment, publish your code, and do many of the chores that somehow keep you from the important stuff — writing your software.</p>
+          <img class="img-rounded" src="/static/logo/web-app.png">
+          <h2>Web Application</h2>
+          <p></p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -114,10 +114,13 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="list-group content-menu">
-                <a href="/tools/devassistant/about.html" class="list-group-item ">DevAssistant</a>
-                <a href="/tools/devassistant/tutorials.html" class="list-group-item ">Getting started with DevAssistant</a>
-                <a href="/tools/devassistant/developers.html" class="list-group-item ">Creating assistants for DevAssistant</a>
-                <a href="/tools/devassistant/notes.html" class="list-group-item  active ">More on DevAssistant</a>
+                <a href="/start/sw/web-app/about.html" class="list-group-item ">Web Application</a>
+                <a href="/start/sw/web-app/apache.html" class="list-group-item ">Apache HTTP Server</a>
+                <a href="/start/sw/web-app/django.html" class="list-group-item ">Python Django</a>
+                <a href="/start/sw/web-app/laravel5.html" class="list-group-item ">PHP Laravel 5</a>
+                <a href="/start/sw/web-app/jekyll.html" class="list-group-item ">Jekyll</a>
+                <a href="/start/sw/web-app/rails.html" class="list-group-item ">Ruby on Rails</a>
+                <a href="/start/sw/web-app/nginx.html" class="list-group-item  active ">NGINX HTTP Server</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -127,27 +130,24 @@
 </div>
             </div>
           </div>
-          <a href="https://github.com/developer-portal/content/blob/master//tools/devassistant//notes.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//start/sw/web-app//nginx.md" class="btn btn-default">Edit this page</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h1 id="more-on-devassistant">More on DevAssistant</h1>
-<h2 id="using-the-command-line-interface-vs-the-gui">Using the command line interface vs. the GUI</h2>
-<p>DevAssistant is currently undergoing a major overhaul of its internal
-architecture, and one of the results is the current GUI being dropped in favour
-of a web-based one. The DevAssistant developers have trouble finding the time
-and people to maintain the GUI, so for the time being, plase consider using the
-command-line interface since for the optimal results.</p>
-<h2 id="further-reading">Further reading</h2>
-<p>The tutorials and information found here are targeted mostly at beginners, so
-if you are interested in more in-depth reading, feel free to check out the
-following sites.</p>
-<ul>
-  <li><a href="https://www.devassistant.org">DevAssistant Homepage</a></li>
-  <li><a href="http://doc.devassistant.org/en/latest/user_documentation.html">DevAssistant User Documentation</a></li>
-  <li><a href="https://blog.devassistant.org">DevAssistant Blog</a></li>
-  <li><a href="http://doc.devassistant.org/en/latest/developer_documentation.html">DevAssistant Developer Documentation</a></li>
-</ul>
+            <h1 id="what-is-nginx">What is NGINX</h1>
+<p>NGINX is a high-performance HTTP server and reverse proxy, as well as an IMAP/POP3 proxy server. NGINX is known for its high performance, stability, rich feature set, simple configuration, and low resource consumption. Website: <a href="https://nginx.org/">nginx.org</a>, <a href="https://www.nginx.com/">nginx.com</a>.</p>
+<h2 id="install-nginx-web-server">Install NGINX Web Server</h2>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install nginx
+<span class="c"># Start NGINX when system boots</span>
+<span class="gp">$ </span>sudo systemctl <span class="nb">enable </span>nginx
+<span class="c"># Start NGINX</span>
+<span class="gp">$ </span>sudo systemctl start nginx
+<span class="c"># Check NGINX Status</span>
+<span class="gp">$ </span>sudo systemctl status nginx
+</code></pre>
+</div>
+<p>Now visit <a href="http://localhost/">http://localhost/</a>. You should see NGINX Test Page:</p>
+<p><img src="/start/sw/web-app/images/NGINX_Test_Page_on_Fedora.png" alt="NGINX Test Page on Fedora" /></p>
           </div>
         </div>
       </div>

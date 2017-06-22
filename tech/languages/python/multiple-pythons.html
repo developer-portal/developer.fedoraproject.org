@@ -122,7 +122,6 @@
                 <a href="/tech/languages/python/python-sig.html" class="list-group-item ">Python SIG</a>
                 <a href="/tech/languages/python/pygobject.html" class="list-group-item ">PyGObject</a>
                 <a href="/tech/languages/python/sphinx.html" class="list-group-item ">Sphinx</a>
-                <a href="/tech/languages/python/python-devassistant.html" class="list-group-item ">Python assistants for DevAssistant</a>
                 <a href="/tech/languages/python/multiple-pythons.html" class="list-group-item  active ">Multiple Pythons</a>
                 <a href="/tech/languages/python/scipy.html" class="list-group-item ">Scientific Python Stack</a>
           </div>
@@ -266,7 +265,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 (env)$ deactivate  # go back to "normal"
 </code></pre>
 </div>
-<h3 id="python-2x-3x-pypys">Python 2.x, 3.x, PyPys</h3>
+<h3 id="python-2x-3x-pypys-jython">Python 2.x, 3.x, PyPys, Jython</h3>
 <p>For other Python versions, a tool called <code class="highlighter-rouge">virtualenv</code> can create virtual
 environments:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>$ dnf install python-virtualenv  # install the necessary tool
@@ -293,8 +292,6 @@ changes depending on your Fedora version).</p>
 <p>To learn more about virtualenvs, visit
 <a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/">The Hitchhiker’s Guide to Python</a>.</p>
 <h3 id="others">Others</h3>
-<p>For Jython, the virtualenv and tox invocation is currently unfortunately broken;
-we are planning to fix it.</p>
 <p>MicroPython does not support virtual environments.
 It does have a rudimentary pip replacement called
 <a href="https://pypi.python.org/pypi/micropython-upip/">upip</a>, which you can use to
