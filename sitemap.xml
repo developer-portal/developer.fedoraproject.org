@@ -112,6 +112,9 @@
 <loc>http://developer.fedoraproject.org/tech/languages/c/cpp_installation.html</loc>
 </url>
 <url>
+<loc>http://developer.fedoraproject.org/tech/languages/csharp/csharp.html</loc>
+</url>
+<url>
 <loc>http://developer.fedoraproject.org/deployment.html</loc>
 </url>
 <url>
@@ -134,6 +137,12 @@
 </url>
 <url>
 <loc>http://developer.fedoraproject.org/tools/docker/docker-usage.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/csharp/dotnet-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/csharp/dotnet-sig.html</loc>
 </url>
 <url>
 <loc>http://developer.fedoraproject.org/tech/languages/elixir/elixir-installation.html</loc>
@@ -197,9 +206,6 @@
 </url>
 <url>
 <loc>http://developer.fedoraproject.org/tech/languages/nodejs/modules.html</loc>
-</url>
-<url>
-<loc>http://developer.fedoraproject.org/tech/languages/csharp/mono-build-tools-installation.html</loc>
 </url>
 <url>
 <loc>http://developer.fedoraproject.org/tech/languages/csharp/mono-installation.html</loc>

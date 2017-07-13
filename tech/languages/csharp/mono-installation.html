@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mono &mdash; Fedora Developer Portal</title>
+  <title>C# - Mono &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running  Fedora on their workstation or virtual machines.
 ">
   <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/csharp/mono-installation.html">
@@ -107,8 +107,14 @@
         <div class="row" id="headlines">
   <div class="col-sm-12">
           <img class="img-rounded" src="/static/logo/csharp.png">
-          <h2>Mono</h2>
-          <p>C# provided by Mono: a cross-platform, open source, .NET development framework</p>
+          <img class="img-rounded" src="/static/logo/csharp.png">
+          <img class="img-rounded" src="/static/logo/csharp.png">
+          <h2>C# - IDEs</h2>
+          <h2>C# - .NET Core</h2>
+          <h2>C# - Mono</h2>
+          <p>C# programming language, .NET Core and Mono open source frameworks.</p>
+          <p>C# programming language, .NET Core and Mono open source frameworks.</p>
+          <p>C# programming language, .NET Core and Mono open source frameworks.</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -123,8 +129,10 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="list-group content-menu">
-                <a href="/tech/languages/csharp/mono-installation.html" class="list-group-item  active ">Mono</a>
-                <a href="/tech/languages/csharp/mono-build-tools-installation.html" class="list-group-item ">Mono build and development tools</a>
+                <a href="/tech/languages/csharp/csharp.html" class="list-group-item ">C# - IDEs</a>
+                <a href="/tech/languages/csharp/dotnet-installation.html" class="list-group-item ">C# - .NET Core</a>
+                <a href="/tech/languages/csharp/mono-installation.html" class="list-group-item  active ">C# - Mono</a>
+                <a href="/tech/languages/csharp/dotnet-sig.html" class="list-group-item ">DotNet SIG</a>
                 <a href="/tech/languages/csharp/mono-sig.html" class="list-group-item ">Mono SIG</a>
           </div>
           <div class="panel panel-default">
@@ -140,15 +148,25 @@
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
             <h1 id="mono-installation">Mono installation</h1>
-<p>Fedora comes with <a href="http://www.mono-project.com/">Mono</a> – a free and open source implementation of the .Net framework. To install it, simply type:</p>
+<p>Fedora comes with <a href="http://www.mono-project.com/">Mono</a> – a free and open source implementation of the .NET Framework. To install it, simply type:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install mono-devel
 </code></pre>
 </div>
 <p>This command will install Mono – the runtime environment and associated development tools.</p>
-<p><a href="http://www.monodevelop.com/">MonoDevelop</a> is the official IDE for development with C# on Mono. To install it, simply type:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install monodevelop
+<h1 id="nant-installation">NAnt installation</h1>
+<p>The most popular build tool for Mono is <a href="http://nant.sourceforge.net/">NAnt</a>. To install it, simply type:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install nant
 </code></pre>
 </div>
+<h1 id="nunit-installation">NUnit installation</h1>
+<p><a href="http://nunit.org/">NUnit</a> is very useful for test driven development. To install it, simply type:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install nunit nunit-gui
+</code></pre>
+</div>
+<h1 id="mono-documentation">Mono Documentation</h1>
+<p>The information about installing mono and related details can be found at <a href="http://www.mono-project.com/docs">mono-project.com/docs</a></p>
+<h1 id="net-framework-api-reference">.NET Framework API Reference</h1>
+<p>You can find .NET Framewrok API documentation for versions 4.5 and higher at <a href="https://docs.microsoft.com/en-us/dotnet/api/index?view=netframework-4.5">docs.microsoft.com</a>, and for the older versions at <a href="https://msdn.microsoft.com/en-us/library/w0x726c2%28v=vs.90%29.aspx">msdn.microsoft.com</a></p>
           </div>
         </div>
       </div>
