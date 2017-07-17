@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mono SIG &mdash; Fedora Developer Portal</title>
+  <title>C# - .NET Core &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running  Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/csharp/mono-sig.html">
+  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/csharp/dotnet-installation.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -116,10 +116,10 @@
           <div class="list-group content-menu">
                 <a href="/tech/languages/csharp/csharp.html" class="list-group-item ">C#</a>
                 <a href="/tech/languages/csharp/csharp-ide.html" class="list-group-item ">C# - IDEs</a>
-                <a href="/tech/languages/csharp/dotnet-installation.html" class="list-group-item ">C# - .NET Core</a>
+                <a href="/tech/languages/csharp/dotnet-installation.html" class="list-group-item  active ">C# - .NET Core</a>
                 <a href="/tech/languages/csharp/mono-installation.html" class="list-group-item ">C# - Mono</a>
                 <a href="/tech/languages/csharp/dotnet-sig.html" class="list-group-item ">DotNet SIG</a>
-                <a href="/tech/languages/csharp/mono-sig.html" class="list-group-item  active ">Mono SIG</a>
+                <a href="/tech/languages/csharp/mono-sig.html" class="list-group-item ">Mono SIG</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -129,12 +129,21 @@
 </div>
             </div>
           </div>
-          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/csharp//mono-sig.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/csharp//dotnet-installation.md" class="btn btn-default">Edit this page</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h1 id="mono-sig">Mono SIG</h1>
-<p>The <a href="https://fedoraproject.org/wiki/SIGs/Mono">Mono SIG</a> is a group of Fedora contributors that maintain Mono (and related) packages in Fedora. The goal of the Mono SIG is to provide high-quality and usable Mono software packages to Fedora users and developers and to support others in creating and maintaining Mono packages.</p>
+            <h1 id="net-sdk-installation">.NET SDK installation</h1>
+<p>.NET Core is still work in progress, and below download locations contain packages that are not entirely <em>free.</em> Please be patient, we should have reasonable packages within a few months.</p>
+<p>Choose based on your Fedora and SDK version:</p>
+<ul>
+  <li><a href="https://www.microsoft.com/net/core/preview#linuxfedora">Microsoft’s 2.0 preview2</a> (F25 <code class="highlighter-rouge">.csproj</code>)</li>
+  <li><a href="https://copr.fedorainfracloud.org/coprs/nmilosev/dotnet-sig">Fedora .NET SIG packages</a> (F25+ 1.1 <code class="highlighter-rouge">.json</code>)</li>
+</ul>
+<p><strong>For Fedora 26 and later versions</strong> you will also need to install one more dependency, which is not documented on Microsoft’s website.</p>
+<p><code class="highlighter-rouge"># dnf install compat-openssl10</code></p>
+<h1 id="api-reference">API Reference</h1>
+<p>You can find .NET Core API documentation at <a href="https://docs.microsoft.com/en-us/dotnet/api/index?view=netcore-2.0">docs.microsoft.com</a></p>
           </div>
         </div>
       </div>
