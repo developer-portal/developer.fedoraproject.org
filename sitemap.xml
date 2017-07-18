@@ -70,6 +70,9 @@
 <loc>http://developer.fedoraproject.org/tools/docker/about.html</loc>
 </url>
 <url>
+<loc>http://developer.fedoraproject.org/tech/languages/csharp/about.html</loc>
+</url>
+<url>
 <loc>http://developer.fedoraproject.org/tech/database/mongodb/about.html</loc>
 </url>
 <url>
@@ -113,9 +116,6 @@
 </url>
 <url>
 <loc>http://developer.fedoraproject.org/tech/languages/csharp/csharp-ide.html</loc>
-</url>
-<url>
-<loc>http://developer.fedoraproject.org/tech/languages/csharp/csharp.html</loc>
 </url>
 <url>
 <loc>http://developer.fedoraproject.org/deployment.html</loc>
