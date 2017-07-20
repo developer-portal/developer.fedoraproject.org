@@ -170,6 +170,11 @@ Vagrantfile as follows:</p>
 end
 </code></pre>
 </div>
+<p>One of the common errors when using NFS this way might be that your NFS version does not support UDP protocol which gets added by Vagrant as a default.</p>
+<p>In that case the error message is <code class="highlighter-rouge">mount.nfs: requested NFS version or transport protocol is not supported</code>. You can work around this by disabling UDP with <code class="highlighter-rouge">nfs_udp</code> option:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>config.vm.synced_folder ".", "/vagrant", type: "nfs", nfs_udp: false
+</code></pre>
+</div>
 <h2 id="using-nfs-shares-from-vagrant-without-password-prompts">Using NFS shares from Vagrant without password prompts</h2>
 <p>To not enter password many times a day when using NFS, put the following inside
 your <code class="highlighter-rouge">/etc/sudoers</code> file by running <code class="highlighter-rouge">sudo visudo</code> (do not try to edit the file
