@@ -142,15 +142,18 @@
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h1 id="net-sdk-installation">.NET SDK installation</h1>
-<p>.NET Core is still work in progress, and below download locations contain packages that are not entirely <em>free.</em> Please be patient, we should have reasonable packages within a few months.</p>
-<p>Choose based on your Fedora and SDK version:</p>
-<ul>
-  <li><a href="https://www.microsoft.com/net/core/preview#linuxfedora">Microsoft’s 2.0 preview2</a> (F25 <code class="highlighter-rouge">.csproj</code>)</li>
-  <li><a href="https://copr.fedorainfracloud.org/coprs/nmilosev/dotnet-sig">Fedora .NET SIG packages</a> (F25+ 1.1 <code class="highlighter-rouge">.json</code>)</li>
-</ul>
-<p><strong>For Fedora 26 and later versions</strong> you will also need to install one more dependency, which is not documented on Microsoft’s website.</p>
-<p><code class="highlighter-rouge">$ sudo dnf install compat-openssl10</code></p>
+            <h1 id="net-core">.NET Core</h1>
+<h2 id="fedora-net-sig-repository">Fedora .NET SIG repository</h2>
+<p>.NET Core is still work in progress. The download location below contains packages that do not meet the official Fedora requirements yet (such as containing prebuilt binaries or bundled dependencies.) Please be patient, we should have reasonable packages within a few months.</p>
+<p><a href="https://copr.fedorainfracloud.org/coprs/g/dotnet-sig/dotnet">Fedora .NET SIG copr</a></p>
+<p>To enable the .NET SIG’s copr repository:</p>
+<p><code class="highlighter-rouge">$ sudo dnf copr enable @dotnet-sig/dotnet</code></p>
+<h2 id="net-core-sdk">.NET Core SDK</h2>
+<p>.NET Core SDK will enable building and publishing C# source code.</p>
+<p><code class="highlighter-rouge">$ sudo dnf install dotnet-sdk-2.0</code></p>
+<h2 id="net-core-runtime-only">.NET Core Runtime only</h2>
+<p>You can install runtime only, if you are just deploying already prebuilt application.</p>
+<p><code class="highlighter-rouge">$ sudo dnf install dotnet-runtime-2.0</code></p>
 <h2 id="api-reference">API Reference</h2>
 <p>You can find .NET Core API documentation at <a href="https://docs.microsoft.com/en-us/dotnet/api/index?view=netcore-2.0">docs.microsoft.com</a></p>
           </div>
