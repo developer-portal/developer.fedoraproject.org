@@ -129,7 +129,25 @@
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
             <h1 id="mobile-application">Mobile application</h1>
-<p>Today wide range of smart mobile devices make it possible to create clever applications. See <a href="/start/sw/mobile-app/mobile-devassistant.html">Google Android Studio</a> for a step-by-step instructions to install Android Studio and create your own <code class="highlighter-rouge">hello world</code> mobile application.</p>
+<p>Today wide range of smart mobile devices make it possible to create clever applications.</p>
+<h2 id="get-started">Get started</h2>
+<h3 id="install-required-libraries">Install required libraries</h3>
+<p><code class="highlighter-rouge">$ sudo dnf install glibc.i686 glibc-devel.i686 libstdc++.i686 zlib-devel.i686 ncurses-devel.i686</code></p>
+<h3 id="install-android-studio">Install Android Studio</h3>
+<ol>
+  <li>
+    <p>Download <a href="https://developer.android.com/studio/index.html">Android Studio</a>.</p>
+  </li>
+  <li>
+    <p>Unpack the .zip and install to the opt directory.</p>
+  </li>
+</ol>
+<p><code class="highlighter-rouge">$ unzip android-studio*.zip</code></p>
+<p><code class="highlighter-rouge">$ sudo mv android-studio /opt/android-studio</code></p>
+<ol>
+  <li>Navigate to directory where Android Studio was installed and run start script. This will start Android Studio with a wizard to complete the installation.</li>
+</ol>
+<p><code class="highlighter-rouge">$ ./bin/studio.sh</code></p>
           </div>
         </div>
       </div>
