@@ -134,14 +134,21 @@
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
             <h1 id="c-ides-in-fedora">C# IDEs in Fedora</h1>
-<h2 id="visual-studio-code">Visual Studio Code</h2>
-<p><em>.NET Core Only</em></p>
-<p>VS Code is plugin-based IDE that by itself won’t just run C#. You have to install the C# plugin, and NuGet Package Manager.</p>
-<p><a href="https://code.visualstudio.com">code.visualstudio.com</a></p>
 <h2 id="jetbrains-rider">JetBrains Rider</h2>
 <p><em>.NET Core and Mono</em></p>
 <p>JetBrains Rider is full featured IDE for all things C#, and even F# on .NET Core. If you are familiar with other JetBrains products, such as the IntelliJ or Resharper, you might like this one as well.</p>
 <p><a href="http://jetbrains.com/rider">jetbrains.com/rider</a></p>
+<h2 id="visual-studio-code">Visual Studio Code</h2>
+<p><em>.NET Core Only</em></p>
+<p>Visual Studio Code (aka VS Code) is plugin-based IDE that by itself won’t just run C#. You have to install the C# plugin, and NuGet Package Manager.</p>
+<p>Download the Visual Studio Code at <a href="https://code.visualstudio.com">code.visualstudio.com</a> and the C# Extension at <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp">marketplace.visualstudio.com</a></p>
+<h2 id="eclipse">Eclipse</h2>
+<p><em>.NET Core and Mono</em></p>
+<p>You can use the <a href="https://marketplace.eclipse.org/content/acute-c-edition-eclipse-ide-experimental">aCute plugin</a> on top of the established and popular <a href="/tools/eclipse/about.html">Eclipse IDE</a>. This C# extension for Eclipse IDE relies on <a href="http://www.omnisharp.net">OmniSharp</a> and <a href="https://github.com/Microsoft/language-server-protocol">Language Server Protocol</a>. It comes with complete edition features for C# in the Eclipse IDE, relying on the Eclipse IDE provides all typical features of a good IDE (Polyglot development, SCM, deployment…) and give access to a rich ecosystem of extensions for about all existing technologies.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install eclipse eclipse-mpc
+</code></pre>
+</div>
+<p>then install the aCute extension from <a href="https://marketplace.eclipse.org/content/acute-c-edition-eclipse-ide-experimental">Eclipse Marketplace</a></p>
 <h2 id="monodevelop">MonoDevelop</h2>
 <p><em>Mono only</em></p>
 <p>MonoDevelop provides the best C# experience on Mono, the open-source multiplatform implementation of the .NET Framework.</p>
@@ -149,15 +156,8 @@
 <div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install monodevelop
 </code></pre>
 </div>
-<h2 id="eclipse-ide-with-plugin">Eclipse IDE (with plugin)</h2>
-<p><em>Mono only, with upcoming support for .NET Core as well</em></p>
-<p>You can get <a href="/tools/eclipse/about.html">Eclipse IDE</a> with <a href="https://github.com/mickaelistria/aCute">aCute plugin</a>, which relies on <a href="http://www.omnisharp.net">OmniSharp</a> and <a href="https://github.com/Microsoft/language-server-protocol">Language Server Protocol</a>. Although it’s still experimental, this already provides nice edition features for C# in the Eclipse IDE.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install eclipse eclipse-mpc
-</code></pre>
-</div>
-<p>then install the aCute extension from <a href="https://marketplace.eclipse.org/content/acute-c-edition-eclipse-ide-experimental">Eclipse Marketplace</a></p>
 <h2 id="summary">Summary</h2>
-<p>What would we recommend? JetBrains Rider is the best C# IDE, however it is not open source. VS Code is great for .NET Core and MonoDevelop for Mono. C# in Eclipse IDE is work in progress, and supports only Mono for now; it can already be useful if you’re already an user of Eclipse IDE with any other programming language.</p>
+<p>What would we recommend? JetBrains Rider is the best C# IDE, however it is not open source. VS Code is great for .NET Core and MonoDevelop for Mono. C# in Eclipse IDE is still young and not very friendly to former Windows developer, but it can be useful if you’re already an Eclipse IDE user.</p>
           </div>
         </div>
       </div>

@@ -156,13 +156,13 @@ Python 3 is already pre-installed on Fedora. Let’s use it!</p>
 </code></pre>
 </div>
 <p>If you want to <strong>exit</strong> Python, press <code class="highlighter-rouge">Ctrl</code> + <code class="highlighter-rouge">D</code>.</p>
-<p>To run a program written in Python type <code class="highlighter-rouge">python3</code>, the path and the name of the program. Like this:</p>
+<p>To run a program written in Python, type <code class="highlighter-rouge">python3</code> followed by the path and name of the program. Like this:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python3 example.py
 </code></pre>
 </div>
 <h2 id="using-virtualenv">Using virtualenv</h2>
-<p>When you work at some project it is good to keep it inside a virtual environment. It will keep the dependencies you need at one place and you no dot have to worry about different projects which needs different version of the same module.</p>
-<p>Let’s create a virtual environment called <code class="highlighter-rouge">project_venv</code> which will contain Python and pip which you can use to install project’s dependencies.</p>
+<p>When you work on a project, it is good to keep it inside a virtual environment. It will keep the dependencies you need in one place and you do not have to worry about different projects which need different versions of the same module.</p>
+<p>Let’s create a virtual environment called <code class="highlighter-rouge">project_venv</code> which will contain Python and pip. You can use pip to install a project’s dependencies.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python3 -m venv project_venv
 </code></pre>
 </div>
@@ -170,7 +170,7 @@ Python 3 is already pre-installed on Fedora. Let’s use it!</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">source </span>project_venv/bin/activate
 </code></pre>
 </div>
-<p>When the virtual environment is activated (you can see it’s name in brackets at the beginning of your prompt), you can install modules via <code class="highlighter-rouge">pip install</code>.</p>
+<p>When the virtual environment is activated (you can see its name in brackets at the beginning of your prompt), you can install modules via <code class="highlighter-rouge">pip install</code>.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>pip install name_of_module
 </code></pre>
 </div>
