@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ABRT &mdash; Fedora Developer Portal</title>
+  <title>PHP Symfony &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running  Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tools/abrt/about.html">
+  <link rel="canonical" href="http://developer.fedoraproject.org/start/sw/web-app/php-symfony.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -36,7 +36,7 @@
 </head>
   <body>
     <!-- The top blue thing -->
-    <div id="splash" class="splash-size-small splash-section-tools">
+    <div id="splash" class="splash-size-small splash-section-start">
       <div class="container">
         <div class="row" id="top">
   <div class="col-sm-2" id="logo-col">
@@ -52,10 +52,10 @@
   <div class="col-sm-7" id="menu-col">
     <nav>
   <ul class="nav navbar-nav">
-    <li class="">
+    <li class=" active ">
       <a href="/start.html">Start a project</a>
     </li>
-    <li class=" active ">
+    <li class="">
       <a href="/tools.html">Get tools</a>
     </li>
     <li class="">
@@ -97,9 +97,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/abrt.png">
-          <h2>ABRT</h2>
-          <p>Handle crashes of your applications automatically and debug with ease!</p>
+          <img class="img-rounded" src="/static/logo/web-app.png">
+          <h2>Web Application</h2>
+          <p></p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -114,7 +114,15 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="list-group content-menu">
-                <a href="/tools/abrt/about.html" class="list-group-item  active ">ABRT</a>
+                <a href="/start/sw/web-app/about.html" class="list-group-item ">Web Application</a>
+                <a href="/start/sw/web-app/apache.html" class="list-group-item ">Apache HTTP Server</a>
+                <a href="/start/sw/web-app/django.html" class="list-group-item ">Python Django</a>
+                <a href="/start/sw/web-app/laravel5.html" class="list-group-item ">PHP Laravel 5</a>
+                <a href="/start/sw/web-app/jekyll.html" class="list-group-item ">Jekyll</a>
+                <a href="/start/sw/web-app/rails.html" class="list-group-item ">Ruby on Rails</a>
+                <a href="/start/sw/web-app/nginx.html" class="list-group-item ">NGINX HTTP Server</a>
+                <a href="/start/sw/web-app/php-symfony.html" class="list-group-item  active ">PHP Symfony</a>
+                <a href="/start/sw/web-app/php-zend.html" class="list-group-item ">PHP Zend Framework 2</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -124,90 +132,15 @@
 </div>
             </div>
           </div>
-          <a href="https://github.com/developer-portal/content/blob/master//tools/abrt//about.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//start/sw/web-app//php-symfony.md" class="btn btn-default">Edit this page</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h1 id="what-is-abrt">What is ABRT</h1>
-<p><a href="https://abrt.readthedocs.org/en/latest/index.html">ABRT</a> (Automatic Bug Reporting Tool)
-is a set of tools to help users detect and report application crashes.
-It’s main purpose is to ease the process of reporting an issue and finding a solution.</p>
-<p>ABRT can also be a valuable tool in developer’s toolbox, helping with collecting
-and debugging crashes in various programming languages.</p>
-<p>Coupled with <a href="https://github.com/abrt/faf/#about-faf">FAF</a> (Fedora Analysis Framework)
-it provides extensive statistics about crashes of your application
-over its complete life cycle.</p>
-<h2 id="using-abrt">Using ABRT</h2>
-<p>ABRT is installed by default on most Fedora spins. You can verify its
-functionality by forcefully crashing an application of your choice. We choose
-<code class="highlighter-rouge">sleep</code> as our victim for demonstration purposes. Following commands
-will run <code class="highlighter-rouge">sleep</code> in background and then kill it with 
-<abbr title="Segmentation Fault (see $ man 7 signal)">SIGSEGV</abbr> signal to produce
-a crash:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>sleep 10m &amp;
-kill -SIGSEGV $!
+            <h1 id="symfony-installation">Symfony installation</h1>
+<p>To install the latest upstream version of Symfony, type:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install php-symfony
 </code></pre>
 </div>
-<p>When ABRT handles a crash you will get notified via desktop pop-up or console notification
-if <code class="highlighter-rouge">abrt-desktop</code> or <code class="highlighter-rouge">abrt-console-notification</code> package is installed. You can then investigate the
-crash via <code class="highlighter-rouge">gnome-abrt</code> GUI application or use <code class="highlighter-rouge">abrt-cli</code> when working from console.</p>
-<p>It is always a good idea to test the ABRT functionality for applications
-you are developing or maintaining in Fedora. If you are building your own RPMs
-you might have to enable handling of non-GPG signed software. In case
-ABRT failed to handle crash of your application consult troubleshooting
-section of ABRT project documentation.</p>
-<h2 id="reporting">Reporting</h2>
-<p>If the crashing application is part of Fedora you can leverage reporting to Fedora hosted
-<a href="https://retrace.fedoraproject.org/faf/summary/">FAF instance</a> and
-<a href="https://bugzilla.redhat.com">Red Hat Bugzilla</a>.
-This is one of the advantages of having a package included in official Fedora repositories
-that allows developers and maintainers to receive bug reports from users of their application.</p>
-<h2 id="new-abrt-cli">New ABRT CLI</h2>
-<p>Available since Fedora 23 is the new ABRT CLI tailored specifically for developers.
-It is part of a <code class="highlighter-rouge">abrt-cli-ng</code> package and can be installed with:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install abrt-cli-ng
-</code></pre>
-</div>
-<p>CLI is then available as <code class="highlighter-rouge">abrt</code> executable, try running it on your system:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ abrt
-</code></pre>
-</div>
-<p>By default it lists crashes that belong to currently logged-in user. To get detailed
-information about a last crash use <code class="highlighter-rouge">info</code> subcommand:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ abrt info
-</code></pre>
-</div>
-<p>If <code class="highlighter-rouge">bash-completion</code> is installed on your system, the CLI can use it to complete
-hashes of problems or package names for its subcommands:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ abrt backtrace &lt;TAB&gt;
-</code></pre>
-</div>
-<p>If the last parameter specifying problem to use is omitted subcommand will work
-with the last problem that occurred on the system.</p>
-<p>To run <a href="https://www.gnu.org/software/gdb/">GDB</a> against a last problem use:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ abrt gdb
-</code></pre>
-</div>
-<p>To install debuginfo packages for the affected package use</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ abrt debuginfo-install
-</code></pre>
-</div>
-<p>These two can be combined to automatically install debuginfo packages prior
-running gdb with:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ abrt gdb --debuginfo-install
-</code></pre>
-</div>
-<p>To get the full list of commands and options use</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ abrt --help
-</code></pre>
-</div>
-<p>or</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ abrt &lt;subcommand&gt; --help
-</code></pre>
-</div>
-<h2 id="further-reading">Further reading</h2>
-<p>Refer to <a href="https://abrt.readthedocs.org/">ABRT project documentation</a>
-for more information and configuration examples.</p>
           </div>
         </div>
       </div>

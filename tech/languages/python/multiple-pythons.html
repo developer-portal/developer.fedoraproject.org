@@ -143,6 +143,7 @@ on multiple Python interpreters. On Fedora, that’s easy: all you have to do is
 use <code class="highlighter-rouge">dnf</code> to install what you need. Currently Fedora has the following Pythons
 ready for you in the repositories:</p>
 <ul>
+  <li>CPython 3.7 (development version)</li>
   <li>CPython 3.6</li>
   <li>CPython 3.5</li>
   <li>CPython 3.4</li>
@@ -156,36 +157,33 @@ ready for you in the repositories:</p>
 </ul>
 <p>Quite a nest, isn’t it?
 You can install them like this:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo dnf install python33  <span class="c"># to get CPython 3.3</span>
-sudo dnf install python34  <span class="c"># to get CPython 3.4</span>
-sudo dnf install python35  <span class="c"># to get CPython 3.5</span>
-sudo dnf install python36  <span class="c"># to get CPython 3.6</span>
-sudo dnf install python26  <span class="c"># to get CPython 2.6</span>
-sudo dnf install pypy pypy3 jython python35  <span class="c"># to get more at once</span>
-</code></pre>
+<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">sudo</span><span class="kv"> dnf install python37  # to get CPython 3.7
+</span><span class="w">$ </span><span class="nc">sudo</span><span class="kv"> dnf install python34  # to get CPython 3.4
+</span><span class="w">$ </span><span class="nc">sudo</span><span class="kv"> dnf install python26  # to get CPython 2.6
+</span><span class="w">$ </span><span class="nc">sudo</span><span class="kv"> dnf install pypy pypy3 jython python35  # to get more at once
+</span></code></pre>
 </div>
 <p>After that, you can run an interactive console or your script with, let’s say,
 CPython 3.4:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ python3.4
-Python 3.4.3 (default, Jul 11 2016, 11:30:44) 
+<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">python3.4</span><span class="kv">
+</span>Python 3.4.3 (default, Jul 11 2016, 11:30:44) 
 [GCC 5.3.1 20160406 (Red Hat 5.3.1-6)] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 &gt;&gt;&gt; 
 </code></pre>
 </div>
-<p>Note that most of the CPython versions, other than those provided by the
-<code class="highlighter-rouge">python2</code> and <code class="highlighter-rouge">python3</code> packages, are only provided for developer’s convenience
-so you can run your test suites. Critical security bugs might not be always
-fixed and those interprets are not intended for production.</p>
+<p><strong>Warning:</strong> For production purposes you should use <code class="highlighter-rouge">python3</code> or <code class="highlighter-rouge">python2</code>
+packages only. Other CPython versions might be <strong>unstable</strong> or even <strong>dangerous</strong>
+(either because they are extremely old or quite the contrary alpha/beta quality)
+and are intended solely for development.</p>
 <h2 id="getting-it-and-running-it-all-with-tox">Getting it and running it all with tox</h2>
 <p><a href="https://tox.readthedocs.io/">Tox</a> is tool that helps you test your Python code
 on multiple Pythons. If you install it on Fedora via the dnf package manager,
-you’ll automatically get all the CPythons and PyPys:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo dnf install tox
-</code></pre>
+you’ll automatically get all the CPythons (except the development version)
+and PyPys:</p>
+<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">sudo</span><span class="kv"> dnf install tox
+</span></code></pre>
 </div>
-<p>Note: This will only install the Python interpreters on Fedora 25 or newer,
-on older Fedoras, you need to install the packages specifically.</p>
 <p>If you are not yet familiar with tox, don’t worry. This short example will show
 you how to start.</p>
 <p>Let’s create a directory and a simple Python file in it that will say something nice:</p>
@@ -211,8 +209,8 @@ Finally the <code class="highlighter-rouge">commands</code> in <code class="high
 for the test, normally that would be <code class="highlighter-rouge">python setup.py test</code>, <code class="highlighter-rouge">py.test</code> or
 similar.</p>
 <p>With <code class="highlighter-rouge">tox.ini</code>, just run tox in the same directory:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ tox
-[...]
+<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">tox</span><span class="kv">
+</span>[...]
 ERROR:   py27: commands failed
   py35: commands succeeded
   py36: commands succeeded
@@ -228,8 +226,8 @@ If you want to support old Python 2 as well, you’ll have to fix it:</p>
 <span class="k">print</span><span class="p">(</span><span class="s">'Fedora is the best OS for Python developers'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">'</span><span class="se">\n\n</span><span class="s">'</span><span class="p">)</span>
 </code></pre>
 </div>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ tox
-[...]
+<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">tox</span><span class="kv">
+</span>[...]
   py27: commands succeeded
   py35: commands succeeded
   py36: commands succeeded
@@ -252,43 +250,42 @@ named <code class="highlighter-rouge">env</code> and install some package into i
 <h3 id="python-34-only">Python 3.4+ only</h3>
 <p>Recent versions of Python include the <code class="highlighter-rouge">venv</code> module, which can create virtual
 environments.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ python3.5 -m venv env  # create the virtualenv
-$ . env/bin/activate  # activate it
-(env)$ python -m pip install requests  # install a package with pip
-...
-(env)$ python  # run python from that virtualenv
-Python 3.5.2 (default, Aug 16 2016, 21:50:46) 
+<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">python3.5</span><span class="kv"> -m venv env  # create the virtualenv
+</span><span class="w">$ </span><span class="nc">.</span><span class="kv"> env/bin/activate  # activate it
+</span><span class="w">(env)$ </span><span class="nc">python</span><span class="kv"> -m pip install requests  # install a package with pip
+</span>...
+<span class="w">(env)$ </span><span class="nc">python</span><span class="kv">  # run python from that virtualenv
+</span>Python 3.5.2 (default, Aug 16 2016, 21:50:46) 
 [GCC 5.3.1 20160406 (Red Hat 5.3.1-6)] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 &gt;&gt;&gt; import requests
 &gt;&gt;&gt; ...
-(env)$ deactivate  # go back to "normal"
-</code></pre>
+<span class="w">(env)$ </span><span class="nc">deactivate</span><span class="kv">  # go back to "normal"
+</span></code></pre>
 </div>
 <h3 id="python-2x-3x-pypys-jython">Python 2.x, 3.x, PyPys, Jython</h3>
 <p>For other Python versions, a tool called <code class="highlighter-rouge">virtualenv</code> can create virtual
 environments:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ dnf install python-virtualenv  # install the necessary tool
-$ virtualenv --python /usr/bin/python2.7 env  # create the virtualenv
-Running virtualenv with interpreter /usr/bin/python2.7
+<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">dnf</span><span class="kv"> install python-virtualenv  # install the necessary tool
+</span><span class="w">$ </span><span class="nc">virtualenv</span><span class="kv"> --python /usr/bin/python2.7 env  # create the virtualenv
+</span>Running virtualenv with interpreter /usr/bin/python2.7
 New python executable in env/bin/python2.7
 Also creating executable in env/bin/python
 Installing setuptools, pip...done.
-$ . env/bin/activate  # activate it
-(env)$ python -m pip install requests  # install a package with pip
-...
-(env)$ python  # run python from that virtualenv
-Python 2.7.11 (default, Jul  8 2016, 19:45:00) 
+<span class="w">$ </span><span class="nc">.</span><span class="kv"> env/bin/activate  # activate it
+</span><span class="w">(env)$ </span><span class="nc">python</span><span class="kv"> -m pip install requests  # install a package with pip
+</span>...
+<span class="w">(env)$ </span><span class="nc">python</span><span class="kv">  # run python from that virtualenv
+</span>Python 2.7.11 (default, Jul  8 2016, 19:45:00) 
 [GCC 5.3.1 20160406 (Red Hat 5.3.1-6)] on linux2
 Type "help", "copyright", "credits" or "license" for more information.
 &gt;&gt;&gt; import requests
 &gt;&gt;&gt; ...
-(env)$ deactivate  # go back to "normal"
-</code></pre>
+<span class="w">(env)$ </span><span class="nc">deactivate</span><span class="kv">  # go back to "normal"
+</span></code></pre>
 </div>
 <p>If you don’t wish to use Python 2 at all, you might install <code class="highlighter-rouge">python3-virtualenv</code>
-in the first step and than use <code class="highlighter-rouge">virtualenv-3.X</code> command instead (where X
-changes depending on your Fedora version).</p>
+in the first step and than use <code class="highlighter-rouge">virtualenv-3</code> command instead  of <code class="highlighter-rouge">virtualenv</code>.</p>
 <p>To learn more about virtualenvs, visit
 <a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/">The Hitchhiker’s Guide to Python</a>.</p>
 <h3 id="others">Others</h3>
@@ -296,8 +293,8 @@ changes depending on your Fedora version).</p>
 It does have a rudimentary pip replacement called
 <a href="https://pypi.python.org/pypi/micropython-upip/">upip</a>, which you can use to
 install packages that support MicroPython. Run it to find out more:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>micropython -m upip
-</code></pre>
+<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">micropython</span><span class="kv"> -m upip
+</span></code></pre>
 </div>
           </div>
         </div>
@@ -386,7 +383,7 @@ install packages that support MicroPython. Run it to find out more:</p>
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="//www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2017 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2018 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->
