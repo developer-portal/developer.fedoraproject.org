@@ -142,21 +142,18 @@
             <h1 id="go-packages-installation">Go packages installation</h1>
 <h2 id="go-packages-from-upstream">Go packages from upstream</h2>
 <p>Upstream projects can be installed with <code class="highlighter-rouge">go get</code> command. Package names follows the import paths so to install <code class="highlighter-rouge">github.com/gorilla/context</code> from GitHub run:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ go get github.com/gorilla/context
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ go get github.com/gorilla/context
+</code></pre></div></div>
 <p>If the requested package comes with an executable binary, you will find it in <code class="highlighter-rouge">$GOPATH/bin</code>. If you have not added that to your <code class="highlighter-rouge">PATH</code> environment variable yet, you can do so with these commands:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ echo 'export PATH=$PATH:$GOPATH/bin' &gt;&gt; $HOME/.bashrc
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ echo 'export PATH=$PATH:$GOPATH/bin' &gt;&gt; $HOME/.bashrc
 $ source $HOME/.bashrc
-</code></pre>
-</div>
+</code></pre></div></div>
 <h2 id="go-packages-from-fedora">Go packages from Fedora</h2>
 <p>Alternatively, various Go packages are packaged and available in Fedora.</p>
 <p>The package name idiom is that the import paths of libraries are fully qualified domain names. This way you have clarity to the precise upstream being used. By truncating domain names, using ‘-‘ instead of ‘/’ and appending <code class="highlighter-rouge">-devel</code> suffix you know how is the associated Fedora package called. For example, ‘github.com/gorilla/context’ would become <code class="highlighter-rouge">golang-github-gorilla-context-devel</code>. Similarly, the ‘code.google.com/p/go.net’ repository would become <code class="highlighter-rouge">golang-googlecode-net-devel</code>.</p>
 <p>To install <code class="highlighter-rouge">golang-googlecode-net-devel</code> package, you use DNF as usual:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install golang-googlecode-net-devel
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install golang-googlecode-net-devel
+</code></pre></div></div>
           </div>
         </div>
       </div>

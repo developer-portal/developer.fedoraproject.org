@@ -152,40 +152,34 @@ This is why the <code class="highlighter-rouge">configure</code> script was intr
 requirements. The script probes the system for important information about the compilation and build processes and creates Makefiles for your project.</p>
 <h2 id="autotools-installation">Autotools installation</h2>
 <p>To install <a href="https://en.wikipedia.org/wiki/GNU_build_system">GNU build system</a>, also known as Autotools, you need to install autoconf and automake packages:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install autoconf automake
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install autoconf automake
+</code></pre></div></div>
 <h2 id="autotools-usage">Autotools usage</h2>
 <p>To create your own <code class="highlighter-rouge">configure</code> script, you need to create a few input files that will be used by <code class="highlighter-rouge">autoreconf</code> command which
 creates the configure script. These files are <code class="highlighter-rouge">configure.ac</code> and <code class="highlighter-rouge">Makefile.am</code>. <code class="highlighter-rouge">Configure.ac</code> contains instructions to create <code class="highlighter-rouge">configure</code> script.
 <code class="highlighter-rouge">Makefile.am</code> contains instructions for each directory, so there is one <code class="highlighter-rouge">Makefile.am</code> in each directory that your project contains.
 You can find instructions about how to create these files in info page of <code class="highlighter-rouge">autoconf</code>. How to access the info page is described at the end.
 When these files are ready, one simple command creates everything you need to distribute your project:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ autoreconf --install
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ autoreconf --install
+</code></pre></div></div>
 <p>This command will produce several files: <code class="highlighter-rouge">configure</code> script, <code class="highlighter-rouge">config.h.in</code> and <code class="highlighter-rouge">Makefile.in</code> in every directory. The two latter are then used
 by configure script to produce actual Makefiles. Now your project is ready to be distributed. Simply add these generated files to your
 package. Now when someone wants to use your package she only needs to type:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ ./configure
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./configure
+</code></pre></div></div>
 <p>This command will produce <code class="highlighter-rouge">Makefile</code> in every directory and <code class="highlighter-rouge">config.h</code> in the main directory. Now simply type:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ make
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+</code></pre></div></div>
 <p>Now all important parts of project are compiled and linked and the program is ready to be used.
 Note that this tutorial is very short and describes only absolute basics of GNU build system.
 If you want to use <code class="highlighter-rouge">automake</code> in your project try reading the manual page:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ man automake
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ man automake
+</code></pre></div></div>
 <p>If you need more detailed explanation of GNU build system and some simple examples of usage,
 try this <a href="http://www.freesoftwaremagazine.com/books/autotools_a_guide_to_autoconf_automake_libtool">guide to Autotools</a>
 or info page:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ info automake
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ info automake
+</code></pre></div></div>
           </div>
         </div>
       </div>

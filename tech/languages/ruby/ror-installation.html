@@ -145,27 +145,23 @@
             <h1 id="ruby-on-rails-installation">Ruby on Rails installation</h1>
 <h2 id="installing-rails-from-rubygemsorg">Installing Rails from RubyGems.org</h2>
 <p>To install Ruby on Rails on Fedora as a gem, install Ruby first together with <code class="highlighter-rouge">ruby-devel</code>, <code class="highlighter-rouge">gcc</code>, <code class="highlighter-rouge">zlib-devel</code> packages, and then install Rails using the <code class="highlighter-rouge">gem</code> command:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf group install "C Development Tools and Libraries"
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf group install "C Development Tools and Libraries"
 $ sudo dnf install ruby-devel zlib-devel
 $ gem install rails
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>You might need to install other header files depending on the gems used in your application like installing <code class="highlighter-rouge">sqlite-devel</code> package for <code class="highlighter-rouge">sqlite3</code> gem. Note that you can always install the gems from the official repositories as RPM packages to avoid this.</p>
 <h2 id="installing-rails-from-fedora-official-repositories">Installing Rails from Fedora official repositories</h2>
 <p>To install RPM-packaged Ruby on Rails run:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install rubygem-rails
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install rubygem-rails
+</code></pre></div></div>
 <p>This will install the framework itself, but if you wish to install all default gems suggested by Rails for new applications, run:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf group install 'Ruby on Rails'
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf group install 'Ruby on Rails'
+</code></pre></div></div>
 <p>To take advantage of packaged gems, you need to run <code class="highlighter-rouge">rails</code> command with <code class="highlighter-rouge">--skip-bundle</code> option and then run <code class="highlighter-rouge">bundle --local</code> to lock your dependencies using system gems:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ rails new app --skip-bundle
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails new app --skip-bundle
 $ cd app
 $ bundle --local
-</code></pre>
-</div>
+</code></pre></div></div>
           </div>
         </div>
       </div>

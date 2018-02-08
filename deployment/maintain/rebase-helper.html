@@ -145,9 +145,8 @@
 It automates a lot of manual tasks the package maintainer usually does, when a new upstream version of a package is released.</p>
 <h2 id="how-to-install-rebase-helper">How to install rebase-helper</h2>
 <p>Begin installation on Fedora using the <code class="highlighter-rouge">dnf</code> command:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo dnf install -y rebase-helper
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install -y rebase-helper
+</code></pre></div></div>
 <p>It requires several other programs like <code class="highlighter-rouge">abipkgdiff</code>, <code class="highlighter-rouge">rpmdiff</code>, <code class="highlighter-rouge">mock</code>, <code class="highlighter-rouge">fedpkg</code>, <code class="highlighter-rouge">meld</code>, etc.
 These programs are installed automatically as dependencies of rebase-helper.</p>
 <p>Note: rebase-helper is also available as EPEL-7 package. Feel free to use it on CentOS and RHEL systems.</p>
@@ -167,9 +166,8 @@ These programs are installed automatically as dependencies of rebase-helper.</p>
 <h2 id="how-to-rebase-your-packages">How to rebase your packages?</h2>
 <p>Let’s say, we want to rebase a package foobar from <code class="highlighter-rouge">foobar-1.2.0</code> to <code class="highlighter-rouge">foobar-1.2.1</code>.</p>
 <p>To update to the latest upstream version execute command:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>rebase-helper 1.2.1
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rebase-helper 1.2.1
+</code></pre></div></div>
 <p>If you do not want to be bothered, use option <code class="highlighter-rouge">--non-interactive</code>
 After rebase-helper finishes, check the output.</p>
 <h2 id="integration-rebase-helper-with-an-upstream-monitoring-service">Integration rebase-helper with an upstream monitoring service</h2>
@@ -182,34 +180,30 @@ Rebase-helper provides an API which you can use either directly from Python, or 
 <ul>
   <li><code class="highlighter-rouge">Python API</code></li>
 </ul>
-<div class="highlighter-rouge"><pre class="highlight"><code>from rebasehelper.application import Application
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from rebasehelper.application import Application
 cli = CLI([‘--non-interactive, ‘--builds-nowait’, ‘-buildtool’, ‘fedpkg’, upstream_version])
 rh = Application(cli)
 rh.set_upstream_monitoring() # Switch rebase-helper to upstream release monitoring mode.
 rh.run()
-</code></pre>
-</div>
+</code></pre></div></div>
 <ul>
   <li><code class="highlighter-rouge">BASH</code></li>
 </ul>
-<div class="highlighter-rouge"><pre class="highlight"><code>rebase-helper --non-interactive --builds-nowait --buildtool fedpkg upstream_version
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rebase-helper --non-interactive --builds-nowait --buildtool fedpkg upstream_version
+</code></pre></div></div>
 <h3 id="download-logs-and-rpms-and-compare-with-tools-like-abipkgdiff">Download logs and RPMs and compare with tools like abipkgdiff</h3>
 <ul>
   <li><code class="highlighter-rouge">Python API</code></li>
 </ul>
-<div class="highlighter-rouge"><pre class="highlight"><code>cli = CLI([‘--non-interactive, ‘--builds-nowait’, ‘--fedpkg-build-tasks old_id,new-id])
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cli = CLI([‘--non-interactive, ‘--builds-nowait’, ‘--fedpkg-build-tasks old_id,new-id])
 rh.run() # Downloads RPMs, logs and runs checkers and provides logs.
 rh.get_rebasehelper_data() # Get all information about the results
-</code></pre>
-</div>
+</code></pre></div></div>
 <ul>
   <li><code class="highlighter-rouge">BASH</code></li>
 </ul>
-<div class="highlighter-rouge"><pre class="highlight"><code>rebase-helper --non-interactive --builds-nowait --fedpkg-build-tasks old_id,new-id
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rebase-helper --non-interactive --builds-nowait --fedpkg-build-tasks old_id,new-id
+</code></pre></div></div>
           </div>
         </div>
       </div>

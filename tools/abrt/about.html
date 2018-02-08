@@ -153,10 +153,9 @@ functionality by forcefully crashing an application of your choice. We choose
 will run <code class="highlighter-rouge">sleep</code> in background and then kill it with 
 <abbr title="Segmentation Fault (see $ man 7 signal)">SIGSEGV</abbr> signal to produce
 a crash:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>sleep 10m &amp;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sleep 10m &amp;
 kill -SIGSEGV $!
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>When ABRT handles a crash you will get notified via desktop pop-up or console notification
 if <code class="highlighter-rouge">abrt-desktop</code> or <code class="highlighter-rouge">abrt-console-notification</code> package is installed. You can then investigate the
 crash via <code class="highlighter-rouge">gnome-abrt</code> GUI application or use <code class="highlighter-rouge">abrt-cli</code> when working from console.</p>
@@ -174,46 +173,37 @@ that allows developers and maintainers to receive bug reports from users of thei
 <h2 id="new-abrt-cli">New ABRT CLI</h2>
 <p>Available since Fedora 23 is the new ABRT CLI tailored specifically for developers.
 It is part of a <code class="highlighter-rouge">abrt-cli-ng</code> package and can be installed with:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install abrt-cli-ng
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install abrt-cli-ng
+</code></pre></div></div>
 <p>CLI is then available as <code class="highlighter-rouge">abrt</code> executable, try running it on your system:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ abrt
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ abrt
+</code></pre></div></div>
 <p>By default it lists crashes that belong to currently logged-in user. To get detailed
 information about a last crash use <code class="highlighter-rouge">info</code> subcommand:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ abrt info
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ abrt info
+</code></pre></div></div>
 <p>If <code class="highlighter-rouge">bash-completion</code> is installed on your system, the CLI can use it to complete
 hashes of problems or package names for its subcommands:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ abrt backtrace &lt;TAB&gt;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ abrt backtrace &lt;TAB&gt;
+</code></pre></div></div>
 <p>If the last parameter specifying problem to use is omitted subcommand will work
 with the last problem that occurred on the system.</p>
 <p>To run <a href="https://www.gnu.org/software/gdb/">GDB</a> against a last problem use:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ abrt gdb
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ abrt gdb
+</code></pre></div></div>
 <p>To install debuginfo packages for the affected package use</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ abrt debuginfo-install
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ abrt debuginfo-install
+</code></pre></div></div>
 <p>These two can be combined to automatically install debuginfo packages prior
 running gdb with:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ abrt gdb --debuginfo-install
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ abrt gdb --debuginfo-install
+</code></pre></div></div>
 <p>To get the full list of commands and options use</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ abrt --help
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ abrt --help
+</code></pre></div></div>
 <p>or</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ abrt &lt;subcommand&gt; --help
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ abrt &lt;subcommand&gt; --help
+</code></pre></div></div>
 <h2 id="further-reading">Further reading</h2>
 <p>Refer to <a href="https://abrt.readthedocs.org/">ABRT project documentation</a>
 for more information and configuration examples.</p>

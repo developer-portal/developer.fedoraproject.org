@@ -147,9 +147,8 @@ from lengthy tutorials online before developing any web app, library, or a
 software tool. Now only one DevAssistant command (or a few clicks in the GUI)
 and you are done.  Imagine that running the following command in the command
 line:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ da create java maven --name MyJavaApp --github
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ da create java maven --name MyJavaApp --github
+</code></pre></div></div>
 <p>gets you a fully functioning Maven-based Java application with dependencies,
 metadata, and a fresh GitHub repository with the code already uploaded. The
 same can be said about mostly every major language, because there is an
@@ -162,7 +161,7 @@ for reasons described in the <a href="notes.html">notes</a>.</p>
 have DevAssistant and the common assistants installed. To check that, try
 looking for DevAssistant in your Applications menu, or type <code class="highlighter-rouge">da</code> into the
 command line. If you get something like this, you already have DevAssistant:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>Couldn't parse input, displaying help ...
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Couldn't parse input, displaying help ...
 
 You can either run assistants with:
 da [--debug] {create,tweak,prepare,extras} [ASSISTANT [ARGUMENTS]] ...
@@ -183,14 +182,12 @@ help     Print detailed help.
 pkg      Lets you interact with online DAPI service and your local DAP
 packages.
 version  Print version
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>If you do not see such a message, you may install DevAssistant from
 <a href="https://pypi.python.org">PyPI</a> using the command <code class="highlighter-rouge">pip3</code> from the package
 <code class="highlighter-rouge">python3-pip</code>:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ pip3 install devassistant --user
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip3 install devassistant --user
+</code></pre></div></div>
 <p>If you do this, however, you will not have any assistants available, and will
 have to <a href="about.html#installing-new-assistants">install them yourself</a>.</p>
 <h2 id="under-the-hood">Under the hood</h2>
@@ -228,15 +225,13 @@ be used when invoking DevAssistant command-line interface.</p>
 <p>For a quick illustration, If you want to create a brand new application based
 on Django (a Python web framework) which supports Docker containers, you need
 to run a command that looks like this (<code class="highlighter-rouge">da</code> is short for DevAssistant):</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>da create python django --name MyAppName --docker
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>da create python django --name MyAppName --docker
+</code></pre></div></div>
 <p>If you want to see how test the application locally, you run the following
 command in the project’s directory to start the container that was created
 along with the app:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>da tweak docker develop
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>da tweak docker develop
+</code></pre></div></div>
 <p>All you need is to point your browser to the address the assistant provided you
 with.</p>
 <p>If you can not find an assistant on the <a href="https://dapi.devassistant.org">DevAssistant Package
@@ -251,24 +246,20 @@ rest of the system is updated etc. You can, however, install third party
 assistants from the <a href="https://dapi.devassistant.org">DevAssistant Package Index
 (DAPI)</a> if they are not available through Fedora
 channels. To get the third party assistants, run:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ da pkg install PackageName
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ da pkg install PackageName
+</code></pre></div></div>
 <p>Where <code class="highlighter-rouge">PackageName</code> is the name of package you got on the web version of the
 DAPI, or found by searching in the command line:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ da pkg search KeyWord
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ da pkg search KeyWord
+</code></pre></div></div>
 <p>Alternatively, you may list all the available packages and choose from that:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ da pkg list --available
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ da pkg list --available
+</code></pre></div></div>
 <p>Installing through <code class="highlighter-rouge">da pkg install</code> saves the assistants in a hidden folder
 (<code class="highlighter-rouge">.devassistant</code>) inside your home directory, so they are not available to
 other users. Update the assistants by running:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ da pkg update
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ da pkg update
+</code></pre></div></div>
           </div>
         </div>
       </div>

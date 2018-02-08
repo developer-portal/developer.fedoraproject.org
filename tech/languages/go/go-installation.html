@@ -149,21 +149,18 @@
 </blockquote>
 <h2 id="go-installation">Go installation</h2>
 <p>To install the Go tools, type on a terminal:</p>
-<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">sudo</span><span class="kv"> dnf install golang
-</span></code></pre>
-</div>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">sudo </span>dnf <span class="nb">install </span>golang
+</code></pre></div></div>
 <p>The <code class="highlighter-rouge">go</code> and <code class="highlighter-rouge">gofmt</code> binaries will become available on the system.</p>
 <p>Go code lives in <a href="https://golang.org/doc/code.html#Workspaces">a workspace</a> which is defined by the <code class="highlighter-rouge">GOPATH</code> environment variable. A common choice among developers, and the <a href="https://tip.golang.org/doc/code.html#GOPATH">default value of <code class="highlighter-rouge">GOPATH</code> starting from the Go 1.8 release</a>, is to use <code class="highlighter-rouge">$HOME/go</code>:</p>
-<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">mkdir</span><span class="kv"> -p $HOME/go
-</span><span class="w">$ </span><span class="nc">echo</span><span class="kv"> 'export GOPATH=$HOME/go' &gt;&gt; $HOME/.bashrc
-</span><span class="w">$ </span><span class="nc">source</span><span class="kv"> $HOME/.bashrc
-</span></code></pre>
-</div>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">mkdir</span> <span class="nt">-p</span> <span class="nv">$HOME</span>/go
+<span class="gp">$</span> <span class="nb">echo</span> <span class="s1">'export GOPATH=$HOME/go'</span> <span class="o">&gt;&gt;</span> <span class="nv">$HOME</span>/.bashrc
+<span class="gp">$</span> <span class="nb">source</span> <span class="nv">$HOME</span>/.bashrc
+</code></pre></div></div>
 <p>Check that <code class="highlighter-rouge">GOPATH</code> is set correctly with this command:</p>
-<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">go</span><span class="kv"> env GOPATH
-</span>/home/user/go
-</code></pre>
-</div>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> go <span class="nb">env </span>GOPATH
+<span class="go">/home/user/go
+</span></code></pre></div></div>
 <p>Where ‘user’ will be your user name.</p>
 <p>Writing Go programs is covered in <a href="/tech/languages/go/go-programs.html">Go programs</a>.</p>
 <h2 id="references">References</h2>

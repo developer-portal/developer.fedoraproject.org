@@ -146,13 +146,11 @@
           <div class="panel panel-default content-content">
             <h1 id="vagrant-with-docker-support-installation">Vagrant with Docker support installation</h1>
 <p>To use Vagrant with Docker, you need to install the <code class="highlighter-rouge">vagrant</code> and <code class="highlighter-rouge">docker</code> packages:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install vagrant docker
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install vagrant docker
+</code></pre></div></div>
 <p>And start <code class="highlighter-rouge">docker</code> service:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo systemctl start docker
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl start docker
+</code></pre></div></div>
 <p>Vagrant itself comes with the support for Docker baked-in. By installing Docker alongside
 Vagrant you can start using Docker both as a provider and as a provisioner. Please refer to
 the <a href="https://docs.vagrantup.com/v2/">official documentation</a> for more.</p>
@@ -162,23 +160,20 @@ Docker commands directly.</p>
 <p>To use Docker provider with any Vagrant commands, one has to explicitly append <code class="highlighter-rouge">--provider=docker</code>.</p>
 <p>To avoid this, you can set the default provider for your project in the beginning of your
 Vagrantfile as:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code># Vagrantfile
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Vagrantfile
 ENV['VAGRANT_DEFAULT_PROVIDER'] = 'docker'
 ...
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Or set it for your environment with:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>export VAGRANT_DEFAULT_PROVIDER=docker
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export VAGRANT_DEFAULT_PROVIDER=docker
+</code></pre></div></div>
 <h2 id="using-docker-from-vagrant-without-password-prompts">Using Docker from Vagrant without password prompts</h2>
 <p>To use Vagrant with Docker without password prompts it is enough to add yourself to the <code class="highlighter-rouge">docker</code>
 group. This will make <code class="highlighter-rouge">docker</code> commands password-less as well.</p>
 <p>To do so, type:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo groupadd docker &amp;&amp; sudo gpasswd -a ${USER} docker &amp;&amp; sudo systemctl restart docker
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo groupadd docker &amp;&amp; sudo gpasswd -a ${USER} docker &amp;&amp; sudo systemctl restart docker
 $ newgrp docker
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Above commands will create the group <code class="highlighter-rouge">docker</code> and add current user to this group. This user
 also need to have administrator privileges.</p>
 <p>Note: This has security implications, read about this in the <a href="https://docs.docker.com/articles/security/#docker-daemon-attack-surface">official docs</a>.</p>

@@ -150,17 +150,14 @@
 The Apache HTTP Server was launched in 1995 and it has been the most popular web server on the Internet since April 1996. It celebrated its 20th birthday as a project in February 2015. The Apache HTTP Server is a project of <a href="http://www.apache.org/">The Apache Software Foundation</a>.</p>
 <h1 id="installation">Installation</h1>
 <p>The Apache HTTP server is known as a <code class="highlighter-rouge">httpd</code> package in Fedora. You will probably have this package already installed on your Fedora system but in case you do not have it, install it with this command:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo dnf install httpd
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install httpd
+</code></pre></div></div>
 <p>To start the Apache server at each boot, type:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo systemctl enable httpd.service
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl enable httpd.service
+</code></pre></div></div>
 <p>To run the Apache server immediately, type:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo systemctl start httpd.service
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl start httpd.service
+</code></pre></div></div>
 <p>To try if your Apache server is running, visit your localhost page at <a href="http://localhost">http://localhost</a>.</p>
 <p>If everything goes as expected, you will see the Fedora Test Page:</p>
 <p><img src="./images/screenshot.png?raw=true" alt="" /></p>
@@ -169,7 +166,7 @@ The Apache HTTP Server was launched in 1995 and it has been the most popular web
 <p><strong>WARNING: The owner of this directory is the root user!</strong></p>
 <p>To disable rendering the Fedora Test Page, comment out all the lines in <code class="highlighter-rouge">/etc/httpd/conf.d/welcome.conf</code>.
 After that, create an <code class="highlighter-rouge">index.html</code> file with your customized content in the <code class="highlighter-rouge">/var/www/html/</code> directory, for example:</p>
-<div class="language-html highlighter-rouge"><pre class="highlight"><code>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="nt">&lt;html&gt;</span>
     <span class="nt">&lt;head&gt;</span>
         <span class="nt">&lt;title&gt;</span>Hello world<span class="nt">&lt;/title&gt;</span>
@@ -179,16 +176,14 @@ After that, create an <code class="highlighter-rouge">index.html</code> file wit
     <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Now, when you visit <a href="http://localhost">http://localhost</a>, you will see your new index page.</p>
 <h1 id="server-configuration">Server configuration</h1>
 <p>The main server configuration file is situated at <code class="highlighter-rouge">/etc/httpd/conf/httpd.conf</code>. Here you can change the server root directory, server admin contact, supported file extension for the index file (e.g., .htm, .php, .aspx and so on; you have to install the packages which support your selected file extension) and many other things. For everything that you can set in this file, visit the official Apache <a href="https://httpd.apache.org/docs/current/getting-started.html">getting started</a> or <a href="https://httpd.apache.org/docs/current/">documentation</a> page.</p>
 <p>To apply the new server settings, reload apache and restart httpd.service:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo apachectl reload
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apachectl reload
 sudo systemctl restart httpd.service
-</code></pre>
-</div>
+</code></pre></div></div>
 <h1 id="more-information">More information</h1>
 <p>For more information about the Apache HTTP Server in Fedora you can visit <a href="https://fedoraproject.org/wiki/Apache_HTTP_Server">Fedora Wiki page</a>. 
 For general information about the Apache HTTP Server you can visit <a href="https://httpd.apache.org/docs/current/">Apache HTTP Server documentation page</a>.</p>

@@ -151,26 +151,22 @@
 <h2 id="installation-of-flask-in-the-virtualenv">Installation of Flask in the virtualenv</h2>
 <p>It’s recommended to keep your project inside virtual environment. Let’s install and create a new virtual environment for your project.</p>
 <p>At first open the <em>Terminal</em> (press <code class="highlighter-rouge">Alt</code> + <code class="highlighter-rouge">F1</code>, type <em>Terminal</em> and click on the black squere icon or just press <code class="highlighter-rouge">Enter</code>). Second, create a new folder <code class="highlighter-rouge">my_project</code> open it.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mkdir my_project
-<span class="gp">$ </span><span class="nb">cd </span>my_project
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir </span>my_project
+<span class="nv">$ </span><span class="nb">cd </span>my_project
+</code></pre></div></div>
 <p>Let’s create a virtual environment called <code class="highlighter-rouge">project_venv</code> which will contain Python and pip which you can use to install Flask.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python3 -m venv project_venv
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python3 <span class="nt">-m</span> venv project_venv
+</code></pre></div></div>
 <p>If you want to work in the virtual environment, you have to activate it.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">source </span>project_venv/bin/activate
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">source </span>project_venv/bin/activate
+</code></pre></div></div>
 <p>Running the virtual environment, you can install Flask.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>pip install flask
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>pip <span class="nb">install </span>flask
+</code></pre></div></div>
 <p>That is all, you have sucessfully installed Flask in the virtual environment! Now you can start working on your project.</p>
 <h2 id="first-application">First application</h2>
 <p>This is an example of how a minimal Flask application can look like.</p>
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
 
 <span class="nd">@app.route</span><span class="p">(</span><span class="s">"/"</span><span class="p">)</span>
@@ -179,19 +175,16 @@
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
     <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <h3 id="running">Running</h3>
 <p>Assuming that you have some Flask application called <code class="highlighter-rouge">foo.py</code>, you can run it in your activated virtual environment (see above) like this.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>python3 foo.py
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>python3 foo.py
  <span class="k">*</span> Running on http://127.0.0.1:5000/
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>You should see that it is running on some address, in this case 127.0.0.1. Default port for Flask applications is 5000. Open it in web browser to see your application.</p>
 <p>When you finish your work, just deactivate the virtual environment.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>deactivate
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>deactivate
+</code></pre></div></div>
 <h3 id="what-next">What next?</h3>
 <ul>
   <li><a href="http://flask.pocoo.org/docs/">Flask Documentation</a></li>

@@ -146,9 +146,8 @@
           <div class="panel panel-default content-content">
             <h1 id="vagrant-with-virtualbox-support-installation">Vagrant with VirtualBox support installation</h1>
 <p>To use Vagrant with VirtualBox, you just need to install the <code class="highlighter-rouge">vagrant</code> package:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install vagrant
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install vagrant
+</code></pre></div></div>
 <p>Vagrant itself comes with the support for VirtualBox baked-in. Unfortunately, VirtualBox is
 not part of Fedora and needs to be installed separately from the <a href="https://www.virtualbox.org/">official project page</a>.</p>
 <p>How to use Vagrant together with VirtualBox can be found in <a href="https://docs.vagrantup.com/v2/">Vagrant official documentation</a>.</p>
@@ -158,15 +157,13 @@ provider has been changed from VirtualBox to libvirt. To use VirtualBox provider
 commands, one has to explicitly append <code class="highlighter-rouge">--provider=virtualbox</code>.</p>
 <p>To avoid this, you can set the default provider for your project in the beginning of your
 Vagrantfile as:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code># Vagrantfile
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Vagrantfile
 ENV['VAGRANT_DEFAULT_PROVIDER'] = 'virtualbox'
 ...
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Or set it for your environment with:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>export VAGRANT_DEFAULT_PROVIDER=virtualbox
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export VAGRANT_DEFAULT_PROVIDER=virtualbox
+</code></pre></div></div>
           </div>
         </div>
       </div>

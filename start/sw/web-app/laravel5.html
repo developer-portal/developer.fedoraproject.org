@@ -157,49 +157,42 @@
 <h4 id="install-php">Install PHP</h4>
 <p>Follow the PHP installation instructions <a href="/tech/languages/php/php-installation.html">here</a>.</p>
 <h4 id="install-php-extensions">Install PHP Extensions</h4>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># Laravel required PHP extensions.</span>
-<span class="gp">$ </span>sudo dnf install php php-common php-cli php-pdo php-mbstring php-zip php-xml
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Laravel required PHP extensions.</span>
+<span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>php php-common php-cli php-pdo php-mbstring php-zip php-xml
 <span class="c"># Restart Apache</span>
-<span class="gp">$ </span>sudo systemctl restart httpd
-</code></pre>
-</div>
+<span class="nv">$ </span><span class="nb">sudo </span>systemctl restart httpd
+</code></pre></div></div>
 <h4 id="install-composer">Install Composer</h4>
 <p>We will need composer to install laravel and it’s dependencies</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -sS https://getcomposer.org/installer | php
-<span class="gp">$ </span>sudo mv composer.phar /usr/local/bin/composer
-<span class="gp">$ </span>chmod +x /usr/local/bin/composer
-<span class="gp">$ </span>composer -V
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl <span class="nt">-sS</span> https://getcomposer.org/installer | php
+<span class="nv">$ </span><span class="nb">sudo mv </span>composer.phar /usr/local/bin/composer
+<span class="nv">$ </span><span class="nb">chmod</span> +x /usr/local/bin/composer
+<span class="nv">$ </span>composer <span class="nt">-V</span>
+</code></pre></div></div>
 <h4 id="install-laravel-installer">Install laravel installer</h4>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>composer global require <span class="s2">"laravel/installer"</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>composer global require <span class="s2">"laravel/installer"</span>
 <span class="c"># Place the ~/.config/composer/vendor/bin directory in your PATH so the laravel </span>
 <span class="c"># executable can be located by your system.</span>
-<span class="gp">$ </span><span class="nb">echo</span> <span class="s1">'export PATH="$PATH:$HOME/.config/composer/vendor/bin"'</span> &gt;&gt; ~/.bashrc
-</code></pre>
-</div>
+<span class="nv">$ </span><span class="nb">echo</span> <span class="s1">'export PATH="$PATH:$HOME/.config/composer/vendor/bin"'</span> <span class="o">&gt;&gt;</span> ~/.bashrc
+</code></pre></div></div>
 <p>Restart Terminal. Now you can create a laravel project with the commands</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>laravel new ProjectName
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>laravel new ProjectName
+</code></pre></div></div>
 <h4 id="setup">Setup</h4>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>ProjectName
-<span class="gp">$ </span>cp .env.example .env
-<span class="gp">$ </span>nano .env
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>ProjectName
+<span class="nv">$ </span><span class="nb">cp</span> .env.example .env
+<span class="nv">$ </span>nano .env
+</code></pre></div></div>
 <p>Edit the .env file with DB_* lines with the correct info</p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">DB_HOST</span><span class="o">=</span><span class="nx">localhost</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DB_HOST</span><span class="o">=</span><span class="nx">localhost</span>
 <span class="nx">DB_DATABASE</span><span class="o">=</span><span class="nx">laravel_equals_winning</span>
 <span class="nx">DB_USERNAME</span><span class="o">=</span><span class="nx">Chur</span>
 <span class="nx">DB_PASSWORD</span><span class="o">=</span><span class="nx">Chur1</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <h4 id="serve">Serve</h4>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>php artisan serve
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>php artisan serve
 <span class="c"># Laravel development server started on http://localhost:PORT/</span>
-</code></pre>
-</div>
+</code></pre></div></div>
           </div>
         </div>
       </div>

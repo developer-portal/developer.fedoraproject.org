@@ -150,43 +150,35 @@
 <p>PyGObject, also known as PyGI, is a Python extension module that gives clean and consistent access to the entire GNOME software platform through the use of GObject Introspection.</p>
 <p>PyGObject provides full support of GObject Introspection and all of its features (callbacks, GVariant support, closures, sub-classing, etc.).</p>
 <p>To install PyGObject on Fedora, run:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install pygobject3 python3-gobject
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install pygobject3 python3-gobject
+</code></pre></div></div>
 <h2 id="getting-started">Getting started</h2>
 <h3 id="writing-your-first-gtk-application">Writing your first Gtk+ application</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>import gi
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>In the beginning, we have to import the Gtk module to be able to access GTK+’s classes and functions. Since a user’s system can have multiple versions of GTK+ installed at the same, we want to make sure that we when we import Gtk that it referrs to GTK+ 3 and not any other version of the library, which is the purpose of statement gi.require_version(‘Gtk’, ‘3.0’).</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>win = Gtk.Window()
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>win = Gtk.Window()
+</code></pre></div></div>
 <p>The line above creates an empty window.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>win.connect("delete-event", Gtk.main_quit)
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>win.connect("delete-event", Gtk.main_quit)
+</code></pre></div></div>
 <p>After creating the window, we connect its delete event to ensure that the application is terminated if we click on the x button to close the window.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>win.set_title("Hello World")
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>win.set_title("Hello World")
+</code></pre></div></div>
 <p>In the line above we set the window title to be a string of our choice, in this case: “Hello World”.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>win.show_all()
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>win.show_all()
+</code></pre></div></div>
 <p>The show_all method called above displays the window and the widgets contained on it.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>Gtk.main()
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Gtk.main()
+</code></pre></div></div>
 <p>Finally, we start the GTK+ processing loop which we quit when the window is closed.</p>
 <p>To run the program, open a terminal, change to the directory of the file, and enter:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ python hello.py
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python hello.py
+</code></pre></div></div>
 <p>The complete program can be seen below:</p>
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">gi</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">gi</span>
 <span class="n">gi</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s">'Gtk'</span><span class="p">,</span> <span class="s">'3.0'</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">gi.repository</span> <span class="kn">import</span> <span class="n">Gtk</span>
 
@@ -197,8 +189,7 @@ from gi.repository import Gtk
 
 <span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 <h2 id="what-next">What next?</h2>
 <ul>
   <li><a href="http://lazka.github.io/pgi-docs/">Python GObject Introspection API Reference</a></li>

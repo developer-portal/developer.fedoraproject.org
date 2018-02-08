@@ -147,9 +147,8 @@
 <p><a href="https://docs.docker.com/compose/">Docker Compose</a> is a tool to orchestrate Docker containers using a simple YAML file which describes your whole setup.</p>
 <h2 id="installation">Installation</h2>
 <p>The package is named <code class="highlighter-rouge">docker-compose</code>, you can install it easily with:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install docker-compose
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install docker-compose
+</code></pre></div></div>
 <h2 id="example-usage">Example usage</h2>
 <p>In this example we will go through a simple <a href="https://www.djangoproject.com/">Django</a> &amp; <a href="http://www.postgresql.org/">PostgreSQL</a> development environment setup managed by <code class="highlighter-rouge">docker-compose</code>. We will mount the application sources inside a Docker container, which will allow us to interpret code as we change it. The application container will be linked with the database container so our Django application will be able to communicate with our PostgreSQL database.</p>
 <h3 id="prerequisites">Prerequisites</h3>
@@ -157,32 +156,27 @@
 <p>This guide expects that you have Docker engine installed, configured and running (for more information see <a href="/tools/docker/docker-installation.html">the Fedora installation guide</a>).</p>
 <h4 id="images">Images</h4>
 <p>We will use Fedora-based images from <a href="https://github.com/fedora-cloud/Fedora-Dockerfiles">fedora-dockerfiles</a>.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ git clone https://github.com/fedora-cloud/Fedora-Dockerfiles.git
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/fedora-cloud/Fedora-Dockerfiles.git
+</code></pre></div></div>
 <p>Let’s start with Django.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo docker build --tag=fedora-django Fedora-Dockerfiles/Django
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo docker build --tag=fedora-django Fedora-Dockerfiles/Django
+</code></pre></div></div>
 <p>And now PostgreSQL (stock one is just fine):</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo docker build --tag=fedora-postgresql Fedora-Dockerfiles/postgresql
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo docker build --tag=fedora-postgresql Fedora-Dockerfiles/postgresql
+</code></pre></div></div>
 <h3 id="guide">Guide</h3>
 <p>We will name our project <code class="highlighter-rouge">awesome_web</code>. So let’s start by creating a directory for the project (in a directory where you store your projects):</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ cd ${MY_PROJECTS}
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd ${MY_PROJECTS}
 $ mkdir awesome_web
 $ cd awesome_web
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Whole database will live in subdirectory <code class="highlighter-rouge">db</code> (<code class="highlighter-rouge">postgres</code> user has to own it — docker still lacks user namespaces; <code class="highlighter-rouge">26</code> is UID of <code class="highlighter-rouge">postgres</code> user, see <code class="highlighter-rouge">/usr/share/doc/setup/uidgid</code>):</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ mkdir db
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir db
 $ sudo chown 26:26 db
-</code></pre>
-</div>
+</code></pre></div></div>
 <h4 id="docker-compose-configuration"><code class="highlighter-rouge">docker-compose</code> configuration</h4>
 <p>First thing to do will be to create a YAML configuration file named <code class="highlighter-rouge">docker-compose.yml</code>. The file should live in the root of our project.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>web:
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>web:
   image: fedora-django
   ports:
    - "8000:8000"
@@ -198,22 +192,19 @@ db:
    - POSTGRESQL_DATABASE=awesome_web
    - POSTGRESQL_USER=awesome_web_user
    - POSTGRESQL_PASSWORD=secret_password
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Explanation:</p>
 <p>Take <code class="highlighter-rouge">fedora-django</code> image and use it for <code class="highlighter-rouge">web</code> container, map port <code class="highlighter-rouge">8000</code> from container to <code class="highlighter-rouge">8000</code> on host, mount directory <code class="highlighter-rouge">awesome_web</code> (that’s where sources will be) to <code class="highlighter-rouge">/code</code> within container and link the <code class="highlighter-rouge">web</code> container to <code class="highlighter-rouge">db</code> container.</p>
 <p><code class="highlighter-rouge">db</code> container is even more simple. Mount <code class="highlighter-rouge">db</code> directory inside container so PostgreSQL can populate it. We also need to set some environment variables to create database with username/password access (do not forget to change those!).</p>
 <h4 id="create-django-project">Create Django project</h4>
 <p>Let’s start new project with command <code class="highlighter-rouge">django-admin</code>:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo docker-compose run web django-admin startproject awesome_web .
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo docker-compose run web django-admin startproject awesome_web .
+</code></pre></div></div>
 <p>Since the container runs as root by default, even our project will be created as root, let’s fix it:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo chown -R $UID:$UID awesome_web
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo chown -R $UID:$UID awesome_web
+</code></pre></div></div>
 <p>Since we use PostgreSQL, we need to change <code class="highlighter-rouge">DATABASES</code> variable in <code class="highlighter-rouge">settings.py</code>:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ $EDITOR awesome_web/awesome_web/settings.py
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ $EDITOR awesome_web/awesome_web/settings.py
 ...
 DATABASES = {
     'default': {
@@ -226,11 +217,10 @@ DATABASES = {
     }
 }
 ...
-</code></pre>
-</div>
+</code></pre></div></div>
 <h4 id="time-to-populate-database">Time to populate database</h4>
 <p>Nowadays this is done by <code class="highlighter-rouge">manage.py migrate</code>. We need to run the database container first, then populate the database:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo docker-compose up -d db
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo docker-compose up -d db
 $ sudo docker-compose run web python manage.py migrate
 Operations to perform:
   Synchronize unmigrated apps: staticfiles, messages
@@ -251,10 +241,9 @@ Running migrations:
   Applying auth.0005_alter_user_last_login_null... OK
   Applying auth.0006_require_contenttypes_0002... OK
   Applying sessions.0001_initial... OK
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Is the database really populated?</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo docker exec -ti awesomeweb_db_1 bash
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo docker exec -ti awesomeweb_db_1 bash
 bash-4.3$ psql
 psql (9.4.4)
 Type "help" for help.
@@ -272,160 +261,4 @@ postgres=# \l
              |                  |          |            |            | postgres=CTc/postgres
 (4 rows)
 
-postgres=# \connect awesome_web
-You are now connected to database "awesome_web" as user "postgres".
-awesome_web=# \dt
-                       List of relations
- Schema |            Name            | Type  |      Owner
---------+----------------------------+-------+------------------
- public | auth_group                 | table | awesome_web_user
- public | auth_group_permissions     | table | awesome_web_user
- public | auth_permission            | table | awesome_web_user
- public | auth_user                  | table | awesome_web_user
- public | auth_user_groups           | table | awesome_web_user
- public | auth_user_user_permissions | table | awesome_web_user
- public | django_admin_log           | table | awesome_web_user
- public | django_content_type        | table | awesome_web_user
- public | django_migrations          | table | awesome_web_user
- public | django_session             | table | awesome_web_user
-(10 rows)
-</code></pre>
-</div>
-<p>This is how your directory layout should look:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>├── awesome_web
-│   ├── awesome_web
-│   │   ├── __init__.py
-│   │   ├── settings.py
-│   │   ├── urls.py
-│   │   ├── wsgi.py
-│   └── manage.py
-├── db
-│   ├── base
-│   ├── global
-│   ├── pg_clog
-│   ├── pg_dynshmem
-│   ├── pg_hba.conf
-│   ├── pg_ident.conf
-│   ├── pg_log
-│   ├── &lt;...and more&gt;
-└── docker-compose.yml
-</code></pre>
-</div>
-<h3 id="troubleshooting">Troubleshooting</h3>
-<p>It may happen to you that something does not work and you will end up with error message like this:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>Starting awesomeweb_db_1...
-Cannot start container bg1f8cb2d227a6efa5e82d9669235430f63dadc76a5ddd4907248f1edc11490a:
-    Cannot link to a non running container: /awesomeweb_db_1 AS /awesomeweb_web_run_2/awesomeweb_db_1
-</code></pre>
-</div>
-<p>Best way to figure out what went wrong is to check logs:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo docker-compose logs
-</code></pre>
-</div>
-<p>In thiscase , the <code class="highlighter-rouge">db</code> service was not running, so we can check logs of it exclusively:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo docker-compose logs db
-</code></pre>
-</div>
-<h3 id="time-to-spin-the-whole-environment">Time to spin the whole environment!</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo docker-compose up
-</code></pre>
-</div>
-<p>That’s it! You have your development environment running in docker containers! You can check easily:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ elinks -dump http://$(docker inspect -f '' awesomeweb_web_1):8000
-</code></pre>
-</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Some other stuff -->
-    <div class=" banner-contribute">
-  <div class="container">
-    <h2> Share your knowledge </h2>
-    <p> Fedora Developer Portal is a community effort to share guides and information about open-source development. And we need your help! </p>
-    <a href="http://developer-portal.github.io/contributing/" class="btn btn-primary">Learn how to contribute</a>
-  </div>
-</div>
-    <footer class="footer">
-  <div class="container">
-    <div class="row footerlinks">
-      <div class="col-sm-3 col-xs-6 widget">
-        <h3 class="widget-title">About</h3>
-        <div class="widget-body">
-          <dl>
-            <dd><a href="/about.html">About Developer Portal</a></dd>
-            <dd><a href="//getfedora.org/en/sponsors">About Fedora</a></dd>
-            <dd><a href="//getfedora.org/en/sponsors">Sponsors</a></dd>
-            <dd><a href="http://fedoramagazine.org">Fedora Magazine</a></dd>
-            <dd><a href="//fedoraproject.org/wiki/Legal:Main#Legal">Legal</a></dd>
-          </dl>
-          <ul class="list-inline">
-            <li>
-              <a class="btn-social btn-outline" href="//www.facebook.com/TheFedoraProject"><i class="fa fa-fw fa-facebook"></i></a>
-            </li>
-            <li>
-              <a class="btn-social btn-outline" href="//plus.google.com/112917221531140868607"><i class="fa fa-fw fa-google-plus"></i></a>
-            </li>
-            <li>
-              <a class="btn-social btn-outline" href="//twitter.com/fedora"><i class="fa fa-fw fa-twitter"></i></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-sm-3 col-xs-6 widget">
-        <h3 class="widget-title uppercase">Download</h3>
-        <div class="widget-body">
-          <dl>
-            <dd><a href="//getfedora.org/en/workstation/download">Get Fedora Workstation</a></dd>
-            <dd><a href="//getfedora.org/en/server/download">Get Fedora Server</a></dd>
-            <dd><a href="//getfedora.org/en/cloud/download">Get Fedora Cloud</a></dd>
-            <dd><a href="//spins.fedoraproject.org">Fedora Spins</a></dd>
-            <dd><a href="//labs.fedoraproject.org">Fedora Labs</a></dd>
-            <dd><a href="//arm.fedoraproject.org">Fedora ARM<span class="sup">&reg;</span></a></dd>
-            <dd><a href="http://torrents.fedoraproject.org">Torrent Downloads</a></dd>
-          </dl>
-        </div>
-      </div>
-      <div class="col-sm-3 col-xs-6 widget">
-        <h3 class="widget-title">Support</h3>
-          <div class="widget-body">
-            <dl>
-              <dd><a href="//fedoraproject.org/wiki/Communicating_and_getting_help">Get Help</a></dd>
-              <dd><a href="//ask.fedoraproject.org/">Ask Fedora</a></dd>
-              <dd><a href="http://fedoraforum.org/">Forums</a></dd>
-              <dd><a href="//fedoraproject.org/wiki/Common_F25_bugs">Common Bugs</a></dd>
-              <dd><a href="//docs.fedoraproject.org/en-US/Fedora/25/html/Installation_Guide">Installation Guide</a></dd>
-            </dl>
-          </div>
-        </div>
-        <div class="col-sm-3 col-xs-6 widget">
-          <h3 class="widget-title">Join</h3>
-            <div class="widget-body">
-            <dl>
-              <dd><a href="//fedoraproject.org/wiki/Join">Join Fedora</a></dd>
-              <dd><a href="http://fedoraplanet.org">Planet Fedora</a></dd>
-              <dd><a href="//fedoraproject.org/wiki/SIGs">Fedora SIGs</a></dd>
-              <dd><a href="//admin.fedoraproject.org/accounts/">Fedora Account System</a></dd>
-              <dd><a href="http://fedoracommunity.org/">Fedora Community</a></dd>
-            </dl>
-          </div>
-        </div>
-      </div> <!-- /row of widgets -->
-      <div class="row">
-        <div class="col-md-2">
-          <div class="widget-body">
-            <a href="http://www.redhat.com/"><img alt="Red Hat Logo" src="/static/logo/redhat.png" class="rh-logo"></a>
-          </div>
-        </div>
-        <div class="col-md-7">
-          <div class="widget-body">
-            <p class="sponsor">Fedora is sponsored by Red Hat.</p>
-            <p class="sponsor"><a href="//www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2018 Red Hat, Inc. and others.</p>
-          </div>
-        </div>
-        <!-- /row of widgets -->
-      </div>
-</footer>
-  </body>
-</html>
+postgres=# 

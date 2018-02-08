@@ -156,13 +156,12 @@ installed as RPM <code class="highlighter-rouge">dnf install vagrant-sshfs</code
 support RPM.</p>
 <p>Once the plugin is installed <code class="highlighter-rouge">sshfs</code> can be set as the <code class="highlighter-rouge">type</code> on the
 synced folder configuration line in the project’s <code class="highlighter-rouge">Vagrantfile</code>:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>Vagrant.configure("2") do |config|
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Vagrant.configure("2") do |config|
   # ...
 
   config.vm.synced_folder ".", "/sharedolder", type: "sshfs"
 end
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>You should not need to provide any authentication to get this to work.</p>
           </div>
         </div>

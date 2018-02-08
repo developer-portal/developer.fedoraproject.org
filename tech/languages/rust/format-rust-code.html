@@ -141,25 +141,21 @@
           <div class="panel panel-default content-content">
             <h1 id="format-rust-code">Format Rust code</h1>
 <p><code class="highlighter-rouge">rustfmt</code> is a tool for formatting Rust source code. You can install it using Cargo:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ cargo install rustfmt
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cargo install rustfmt
+</code></pre></div></div>
 <p>This will install an executable into <code class="highlighter-rouge">~/.cargo/bin/</code>. In order to use it, add it into your <code class="highlighter-rouge">$PATH</code> variable. In case you are using Bash, follow these steps:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ echo 'export PATH=$PATH:$HOME/.cargo/bin' &gt;&gt; $HOME/.bashrc
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ echo 'export PATH=$PATH:$HOME/.cargo/bin' &gt;&gt; $HOME/.bashrc
 $ source $HOME/.bashrc
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Now you can use <code class="highlighter-rouge">rustfmt</code> to format either a single file or the whole project:</p>
 <ul>
   <li>Single file:
-    <div class="highlighter-rouge"><pre class="highlight"><code>$ rustfmt src/main.rs
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rustfmt src/main.rs
+</code></pre></div>    </div>
   </li>
   <li>Project:
-    <div class="highlighter-rouge"><pre class="highlight"><code>$ cargo fmt
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cargo fmt
+</code></pre></div>    </div>
   </li>
 </ul>
           </div>

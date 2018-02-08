@@ -143,25 +143,21 @@
             <h1 id="php">PHP</h1>
 <h2 id="php-installation">PHP Installation</h2>
 <p>To install PHP, simply type:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install php-cli
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install php-cli
+</code></pre></div></div>
 <p>Above command will install latest stable PHP packages, which includes the command-line interface executing PHP scripts, <code class="highlighter-rouge">/usr/bin/php</code> executable, and the CGI interface.</p>
 <p>You might want to install some other packages, e.g. PHPUnit for unit tests or Composer to manage dependencies of PHP projects. You can install them with:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install phpunit composer
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install phpunit composer
+</code></pre></div></div>
 <h2 id="php-modules">PHP modules</h2>
 <p>PHP provides only a few set of extensions, other should be installed separately. Packages of PHP modules are prefixed with <code class="highlighter-rouge">php-</code>, so if you need e.g. <code class="highlighter-rouge">mysqli</code> extension, use:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install php-mysqli
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install php-mysqli
+</code></pre></div></div>
 <h2 id="php-development-server">PHP Development Server</h2>
 <p>PHP contains simple web server which can be used instead of full-featured web server. It is intended to be used only for development, not for a production environment.</p>
 <p>You can start PHP development server by typing this in your project’s root:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo php --server localhost:8080 --docroot  .
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo php --server localhost:8080 --docroot  .
+</code></pre></div></div>
 <p>Server will be accessible on <code class="highlighter-rouge">http://localhost:8080/</code>.</p>
           </div>
         </div>

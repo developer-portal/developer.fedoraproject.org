@@ -154,40 +154,33 @@ Python 3 is already pre-installed on Fedora. Let’s use it!</p>
   <li>Open the <em>Terminal</em> (press <code class="highlighter-rouge">Alt</code> + <code class="highlighter-rouge">F1</code>, type <em>Terminal</em> and click on the black square icon or just press <code class="highlighter-rouge">Enter</code>).</li>
   <li>To run Python 3 type <code class="highlighter-rouge">python3</code>. You should see something like this:</li>
 </ol>
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">Python</span> <span class="mf">3.5</span><span class="o">.</span><span class="mi">2</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Sep</span> <span class="mi">14</span> <span class="mi">2016</span><span class="p">,</span> <span class="mi">11</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">32</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Python</span> <span class="mf">3.5</span><span class="o">.</span><span class="mi">2</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Sep</span> <span class="mi">14</span> <span class="mi">2016</span><span class="p">,</span> <span class="mi">11</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">32</span><span class="p">)</span>
 <span class="p">[</span><span class="n">GCC</span> <span class="mf">6.2</span><span class="o">.</span><span class="mi">1</span> <span class="mi">20160901</span> <span class="p">(</span><span class="n">Red</span> <span class="n">Hat</span> <span class="mf">6.2</span><span class="o">.</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span> <span class="n">on</span> <span class="n">linux</span>
 <span class="n">Type</span> <span class="s">"help"</span><span class="p">,</span> <span class="s">"copyright"</span><span class="p">,</span> <span class="s">"credits"</span> <span class="ow">or</span> <span class="s">"license"</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
 <span class="o">&gt;&gt;&gt;</span> 
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Now you can start to write in Python! Let’s print <em>Hello World</em>!</p>
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'Hello World!'</span><span class="p">)</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'Hello World!'</span><span class="p">)</span>
+</code></pre></div></div>
 <p>If you want to <strong>exit</strong> Python, press <code class="highlighter-rouge">Ctrl</code> + <code class="highlighter-rouge">D</code>.</p>
 <p>To run a program written in Python, type <code class="highlighter-rouge">python3</code> followed by the path and name of the program. Like this:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python3 example.py
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python3 example.py
+</code></pre></div></div>
 <h2 id="using-virtualenv">Using virtualenv</h2>
 <p>When you work on a project, it is good to keep it inside a virtual environment. It will keep the dependencies you need in one place and you do not have to worry about different projects which need different versions of the same module.</p>
 <p>Let’s create a virtual environment called <code class="highlighter-rouge">project_venv</code> which will contain Python and pip. You can use pip to install a project’s dependencies.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python3 -m venv project_venv
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python3 <span class="nt">-m</span> venv project_venv
+</code></pre></div></div>
 <p>If you want to work in the virtual environment, you have to activate it.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">source </span>project_venv/bin/activate
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">source </span>project_venv/bin/activate
+</code></pre></div></div>
 <p>When the virtual environment is activated (you can see its name in brackets at the beginning of your prompt), you can install modules via <code class="highlighter-rouge">pip install</code>.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>pip install name_of_module
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>pip <span class="nb">install </span>name_of_module
+</code></pre></div></div>
 <p>That is all, you have successfully created your own virtual environment. Now you can run Python (see above) and start working on your project.</p>
 <p>When you finish your work, just deactivate the virtual environment.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>deactivate
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>deactivate
+</code></pre></div></div>
 <h3 id="what-next">What next?</h3>
 <ul>
   <li><a href="https://www.python.org/">Python homepage</a></li>

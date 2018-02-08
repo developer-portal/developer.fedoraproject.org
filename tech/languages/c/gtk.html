@@ -145,16 +145,14 @@
             <h1 id="gtk">Gtk+</h1>
 <p>Gtk+ is a cross-plataform GUI toolkit created for the development of the GIMP project. Offering a complete set of widgets, Gtk+ is suitable for projects ranging from small one-off tools to complete applications suites.</p>
 <p>For C programming with Gtk+ you need to install the development version of the important GNOME libraries. Those contain the header files and additional linker information:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo dnf install gtk3-devel gstreamer-devel clutter-devel webkitgtk3-devel libgda-devel gobject-introspection-devel
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install gtk3-devel gstreamer-devel clutter-devel webkitgtk3-devel libgda-devel gobject-introspection-devel
+</code></pre></div></div>
 <p>In addition, you will want to install the documentation packages of this libraries so you can view them in the API browser (devhelp):</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo dnf install devhelp gtk3-devel-docs gstreamer-devel-docs clutter-doc
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install devhelp gtk3-devel-docs gstreamer-devel-docs clutter-doc
+</code></pre></div></div>
 <h2 id="getting-started">Getting started</h2>
 <p>To begin our introduction to Gtk+, we will start with the simplest program possible. This program will simply create a gtk+ window with the title “Hello World”.</p>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;gtk/gtk.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;gtk/gtk.h&gt;
 </span>
 <span class="kt">int</span> 
 <span class="nf">main</span><span class="p">(</span><span class="kt">int</span>   <span class="n">argc</span><span class="p">,</span>
@@ -172,36 +170,28 @@
     
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>You can compile the above program with gcc using:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>gcc hello.c -o hello `pkg-config --cflags --libs gtk+-3.0`
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcc hello.c -o hello `pkg-config --cflags --libs gtk+-3.0`
+</code></pre></div></div>
 <p>In the program above we initially included gtk/gtk.h, which declares all the gtk+ objects used in the rest of the program:</p>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;gtk/gtk.h&gt;
-</span></code></pre>
-</div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;gtk/gtk.h&gt;
+</span></code></pre></div></div>
 <p>After the declaration of the window object variable, we call the gtk_init method which initializes the library and its internal procedures.</p>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">gtk_init</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">argv</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gtk_init</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">argv</span><span class="p">);</span>
+</code></pre></div></div>
 <p>The next line creates a GtkWindow object with the GTK_WINDOW_TOPLEVEL type. Nearly always, that’s the type of the GtkWindow, but it could differ if you are implementing something else.</p>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">window</span> <span class="o">=</span> <span class="n">gtk_window_new</span> <span class="p">(</span><span class="n">GTK_WINDOW_TOPLEVEL</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">window</span> <span class="o">=</span> <span class="n">gtk_window_new</span> <span class="p">(</span><span class="n">GTK_WINDOW_TOPLEVEL</span><span class="p">);</span>
+</code></pre></div></div>
 <p>Below that, we set the title of the GtkWindow to a string of our choice:</p>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">gtk_window_set_title</span> <span class="p">(</span><span class="n">GTK_WINDOW</span> <span class="p">(</span><span class="n">window</span><span class="p">),</span> <span class="s">"Hello World"</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gtk_window_set_title</span> <span class="p">(</span><span class="n">GTK_WINDOW</span> <span class="p">(</span><span class="n">window</span><span class="p">),</span> <span class="s">"Hello World"</span><span class="p">);</span>
+</code></pre></div></div>
 <p>After that, the gtk_widget_show() function lets Gtk+ know that we are done setting the attributes of this widget, and that it can display it.</p>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">gtk_window_show</span> <span class="p">(</span><span class="n">window</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gtk_window_show</span> <span class="p">(</span><span class="n">window</span><span class="p">);</span>
+</code></pre></div></div>
 <p>Finally, the last line enters the Gtk+ main processing loop.</p>
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">gtk_main</span> <span class="p">();</span>
-</code></pre>
-</div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gtk_main</span> <span class="p">();</span>
+</code></pre></div></div>
 <h2 id="learn-more">Learn more</h2>
 <ul>
   <li><a href="https://developer.gnome.org/gnome-devel-demos/stable/c.html.en">GNOME Plataform Demos</a></li>

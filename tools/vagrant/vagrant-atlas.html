@@ -152,25 +152,22 @@ image name. In the case of Fedora we have the <a href="https://atlas.hashicorp.c
 organization and under that we have different boxes that can be used.
 An example of one of those is the <code class="highlighter-rouge">fedora/25-cloud-base</code> Vagrant box.
 You can download this box with the following command:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ vagrant box add fedora/25-cloud-base
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vagrant box add fedora/25-cloud-base
+</code></pre></div></div>
 <p>This will ask you which provider you want to download the Vagrant box
 for. You can choose <code class="highlighter-rouge">libvirt</code> or <code class="highlighter-rouge">virtualbox</code> based on which one of
 those virtual machine technologies you are using.</p>
 <p>After downloading this image you can then start up a machine with:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ vagrant init fedora/25-cloud-base &amp;&amp; vagrant up
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vagrant init fedora/25-cloud-base &amp;&amp; vagrant up
+</code></pre></div></div>
 <p><em>NOTE</em> you can skip the <code class="highlighter-rouge">vagrant box add</code> command if you want to. The
 <code class="highlighter-rouge">vagrant up</code> command will automatically consult Atlas for that named
 box and download it if it exists.</p>
 <h1 id="upgrading-vagrant-images-from-atlas">Upgrading Vagrant images from Atlas</h1>
 <p>If you want to update the Vagrant box image at a later time you can do
 so by issuing the following command:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>vagrant box update --box fedora/25-cloud-base
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vagrant box update --box fedora/25-cloud-base
+</code></pre></div></div>
           </div>
         </div>
       </div>
