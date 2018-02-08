@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>IDEs &mdash; Fedora Developer Portal</title>
+  <title>Hugo &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running  Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/csharp/csharp-ide.html">
+  <link rel="canonical" href="http://developer.fedoraproject.org/start/sw/web-app/hugo.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -45,7 +45,7 @@
 </div>
 </div>
     <!-- The top blue thing -->
-    <div id="splash" class="splash-size-small splash-section-tech">
+    <div id="splash" class="splash-size-small splash-section-start">
       <div class="container">
         <div class="row" id="top">
   <div class="col-sm-2" id="logo-col">
@@ -61,13 +61,13 @@
   <div class="col-sm-7" id="menu-col">
     <nav>
   <ul class="nav navbar-nav">
-    <li class="">
+    <li class=" active ">
       <a href="/start.html">Start a project</a>
     </li>
     <li class="">
       <a href="/tools.html">Get tools</a>
     </li>
-    <li class=" active ">
+    <li class="">
       <a href="/tech.html">Languages &amp; databases</a>
     </li>
     <li class="">
@@ -106,9 +106,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/csharp.png">
-          <h2>C#</h2>
-          <p>.NET Core and Mono open source frameworks, and available IDEs.</p>
+          <img class="img-rounded" src="/static/logo/web-app.png">
+          <h2>Web Application</h2>
+          <p></p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -123,12 +123,16 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="list-group content-menu">
-                <a href="/tech/languages/csharp/about.html" class="list-group-item ">C#</a>
-                <a href="/tech/languages/csharp/csharp-ide.html" class="list-group-item  active ">IDEs</a>
-                <a href="/tech/languages/csharp/dotnet-installation.html" class="list-group-item ">.NET Core</a>
-                <a href="/tech/languages/csharp/mono-installation.html" class="list-group-item ">Mono</a>
-                <a href="/tech/languages/csharp/dotnet-sig.html" class="list-group-item ">DotNet SIG</a>
-                <a href="/tech/languages/csharp/mono-sig.html" class="list-group-item ">Mono SIG</a>
+                <a href="/start/sw/web-app/about.html" class="list-group-item ">Web Application</a>
+                <a href="/start/sw/web-app/apache.html" class="list-group-item ">Apache HTTP Server</a>
+                <a href="/start/sw/web-app/django.html" class="list-group-item ">Python Django</a>
+                <a href="/start/sw/web-app/laravel5.html" class="list-group-item ">PHP Laravel 5</a>
+                <a href="/start/sw/web-app/jekyll.html" class="list-group-item ">Jekyll</a>
+                <a href="/start/sw/web-app/rails.html" class="list-group-item ">Ruby on Rails</a>
+                <a href="/start/sw/web-app/nginx.html" class="list-group-item ">NGINX HTTP Server</a>
+                <a href="/start/sw/web-app/hugo.html" class="list-group-item  active ">Hugo</a>
+                <a href="/start/sw/web-app/php-symfony.html" class="list-group-item ">PHP Symfony</a>
+                <a href="/start/sw/web-app/php-zend.html" class="list-group-item ">PHP Zend Framework 2</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -138,82 +142,32 @@
 </div>
             </div>
           </div>
-          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/csharp//csharp-ide.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//start/sw/web-app//hugo.md" class="btn btn-default">Edit this page</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h1 id="c-ides-in-fedora">C# IDEs in Fedora</h1>
-<table class="centered striped highlight">
-  <thead>
-    <tr>
-      <th>IDE</th>
-      <th>License</th>
-      <th>.NET Core</th>
-      <th>Mono</th>
-      <th>Debugger</th>
-      <th>Packaged in Fedora</th>
-      <th>Alternative download</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="/tools/eclipse/about.html">Eclipse</a> with <a href="https://marketplace.eclipse.org/content/acute-c-edition-eclipse-ide-experimental">aCute plugin</a></td>
-      <td><a href="http://www.eclipse.org/legal/epl-2.0/">EPL</a></td>
-      <td>✔</td>
-      <td>✔</td>
-      <td> </td>
-      <td>✔</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><a href="http://www.monodevelop.com/">Monodevelop</a></td>
-      <td><a href="http://www.gnu.org/licenses/lgpl-2.1.html">LGPLv2</a></td>
-      <td> </td>
-      <td>✔</td>
-      <td>✔</td>
-      <td>✔</td>
-      <td><a href="https://download.mono-project.com/repo/monodevelop.flatpakref">flatpak</a><sup>1</sup></td>
-    </tr>
-    <tr>
-      <td><a href="http://jetbrains.com/rider">JetBrains Rider</a></td>
-      <td><a href="https://www.jetbrains.com/store/license.html">Proprietary</a>, free for <a href="https://www.jetbrains.com/store/#edition=discounts">Education and OpenSource</a></td>
-      <td>✔</td>
-      <td>✔</td>
-      <td>✔</td>
-      <td> </td>
-      <td>tarball</td>
-    </tr>
-    <tr>
-      <td><a href="https://code.visualstudio.com">Visual Studio Code</a> with <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp">C# plugin</a></td>
-      <td>Binary is <a href="https://code.visualstudio.com/License/">Proprietary</a> Source Code is <a href="https://github.com/Microsoft/vscode/blob/master/LICENSE.txt">MIT</a></td>
-      <td>✔</td>
-      <td> </td>
-      <td>✔</td>
-      <td> </td>
-      <td><a href="https://flathub.org/repo/appstream/com.visualstudio.code.flatpakref">flatpak</a><sup>1</sup>, copr &amp; rpm</td>
-    </tr>
-  </tbody>
-</table>
-<p><em>1. Download and install using direct link to <a href="/deployment/Flatpak/about.html">Flatpak</a></em></p>
-<h2 id="installing-eclipse">Installing Eclipse</h2>
-<p>First install Eclipse and Eclipse Marketplace</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install eclipse eclipse-mpc
+            <h1 id="hugo">Hugo</h1>
+<p>Hugo is a fast and modern static site generator written in Go, and designed to make website creation fun again.</p>
+<h2 id="installation">Installation</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install hugo
 </code></pre></div></div>
-<p>then install the aCute extension from the <a href="https://marketplace.eclipse.org/content/acute-c-edition-eclipse-ide-experimental">Marketplace</a></p>
-<h2 id="installing-monodevelop">Installing MonoDevelop</h2>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install monodevelop
+<h2 id="creating-a-new-website">Creating a new website</h2>
+<p>If you are starting a new website, instead of creating all the necessary files yourself you can use the <code class="highlighter-rouge">hugo new</code> command.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ hugo new site my-site
+$ cd my-site
 </code></pre></div></div>
-<h2 id="installing-jetbrains-rider">Installing JetBrains Rider</h2>
-<ul>
-  <li>Apply for a <a href="https://www.jetbrains.com/store/?fromMenu#edition=discounts">license for Open Source projects or students</a> and <a href="http://jetbrains.com/rider">download Rider</a></li>
-  <li>Or download the <a href="https://www.jetbrains.com/rider/eap">Early Access</a> version</li>
-</ul>
-<h2 id="installing-visual-studio-code">Installing Visual Studio Code</h2>
-<p>Download <a href="https://code.visualstudio.com">Visual Studio Code</a> and the C# Extension from the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp">Marketplace</a></p>
-<h2 id="summary">Summary</h2>
-<p>JetBrains Rider is the most complete C# IDE, however it is not open source.</p>
-<p>VS Code and MonoDevelop work well for .NET Core and for Mono, respectively.</p>
-<p>C# via Eclipse is still young and not very friendly for the former Windows developer, but it can be useful if you’re already an Eclipse IDE user.</p>
+<p>The command will generate all the directories and config.toml files for your new website but you need to install a theme before building the site.</p>
+<h2 id="add-a-theme">Add a theme</h2>
+<p>Hugo have a list of themes on https://themes.gohugo.io/ that you can browse or you can create one yourself. Most themes use git so you just need to add them as git submodules:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git init
+$ git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
+</code></pre></div></div>
+<p>To use the theme you need to add the theme parameter to the config.toml file</p>
+<h2 id="running-hugo-built-in-server">Running Hugo built in server</h2>
+<p>Hugo comes with a built in web server to use if you don’t want to install a web server. To run the server, you need to type:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ hugo server
+</code></pre></div></div>
+<p>If you are editing and want to see your drafts, add the <code class="highlighter-rouge">-D</code> flag</p>
           </div>
         </div>
       </div>

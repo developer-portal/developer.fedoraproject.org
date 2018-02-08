@@ -194,9 +194,7 @@ and PyPys:</p>
 you how to start.</p>
 <p>Let’s create a directory and a simple Python file in it that will say something nice:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># say.py</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'Fedora is the best OS for Python developers'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">'</span><span class="se">
-
-</span><span class="s">'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Fedora is the best OS for Python developers'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">'</span><span class="se">\n\n</span><span class="s">'</span><span class="p">)</span>
 </code></pre></div></div>
 <p>Now we’ll test if it works with all the Pythons, with tox.
 We’ll create a simple configuration file for tox, <code class="highlighter-rouge">tox.ini</code>, in the same
@@ -228,9 +226,7 @@ Python 3. The full tox output (omitted here) contains the exact error.
 If you want to support old Python 2 as well, you’ll have to fix it:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># say.py</span>
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'Fedora is the best OS for Python developers'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">'</span><span class="se">
-
-</span><span class="s">'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Fedora is the best OS for Python developers'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">'</span><span class="se">\n\n</span><span class="s">'</span><span class="p">)</span>
 </code></pre></div></div>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> tox
 <span class="go">[...]
