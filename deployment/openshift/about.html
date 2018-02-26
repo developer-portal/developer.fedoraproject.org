@@ -193,8 +193,9 @@ First, install the dependencies. We’ll need <a href="/tools/docker/docker-inst
 </span></code></pre></div></div>
 <p>If you are running a default installation of Docker, you will run into the error above.
 That is okay. We will follow the suggestion on screen. The good news is that <code class="highlighter-rouge">oc cluster up</code> downloaded the Docker image for running OpenShift Origin, so next time we run it, we already have the images offline.</p>
-<p>To change the Docker configuration permanently, edit (as the <code class="highlighter-rouge">root</code> user) the file <code class="highlighter-rouge">/etc/sysconfig/docker</code> and add/uncomment the following line:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>INSECURE_REGISTRY='--insecure-registry 172.30.0.0/16'
+<p>To change the Docker configuration permanently, edit (as the <code class="highlighter-rouge">root</code> user) the file <code class="highlighter-rouge">/etc/containers/registries.conf</code> and add <code class="highlighter-rouge">172.30.0.0/16</code> to the list of <code class="highlighter-rouge">registries</code> under <code class="highlighter-rouge">[registries.insecure]</code> category. For example:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[registries.insecure]
+registries = ['172.30.0.0/16']
 </code></pre></div></div>
 <p>Then, restart the Docker daemon:</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">sudo </span>systemctl restart docker
