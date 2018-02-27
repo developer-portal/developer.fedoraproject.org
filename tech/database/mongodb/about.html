@@ -131,10 +131,9 @@
             <h1 id="mongodb">MongoDB</h1>
 <p>MongoDB is a free and open source database and uses a document-oriented data model.</p>
 <h2 id="installation">Installation</h2>
-<div class="highlighter-rouge"><pre class="highlight"><code># dnf install mongodb mongodb-server
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># dnf install mongodb mongodb-server
 # service mongod start
-</code></pre>
-</div>
+</code></pre></div></div>
 <h2 id="how-to-install-a-specific-version">How to install a specific version</h2>
 <p>First we need configure the package management system, please note that:</p>
 <blockquote>
@@ -142,40 +141,35 @@
 latter is typically used for repository configuration and takes precedence over global configuration.</p>
 </blockquote>
 <p>Access the directory and create a file mongodb-org-<em>release_series</em>.repo</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ cd /etc/yum.repos.d/
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd /etc/yum.repos.d/
 $ touch mongodb-org-3.2.repo  
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Insert this content inside mongodb-org-<em>release_series</em>.repo, edit if you want install another version.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>[mongodb-org-3.2]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[mongodb-org-3.2]
 name=MongoDB Repository
 baseurl=https://repo.mongodb.org/yum/amazon/2013.03/mongodb-org/3.2/x86_64/
 gpgcheck=1
 enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-3.2.asc
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Now you can install with dnf</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install -y mongodb-org
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install -y mongodb-org
+</code></pre></div></div>
 <h2 id="run-mongodb">Run mongoDB</h2>
 <p>Start mongoDB service and after run mongoshell to test connection</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo service mongod start
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo service mongod start
 $ mongo
 MongoDB shell version: 3.2.7
 connecting to: test
-</code></pre>
-</div>
+</code></pre></div></div>
 <h2 id="mongodb-gui">MongoDB GUI</h2>
 <p>Mongotron is a a Mongo DB GUI which uses Electron and AngularJS</p>
 <p>It’s easy install and run:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ git clone git@github.com:officert/mongotron.git
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone git@github.com:officert/mongotron.git
 $ cd mongotron/
 $ npm install
 $ npm start
-</code></pre>
-</div>
+</code></pre></div></div>
           </div>
         </div>
       </div>

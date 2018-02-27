@@ -133,54 +133,47 @@
             <h1 id="writing-go-programs">Writing Go programs</h1>
 <p>This assumes you have already <a href="/tech/languages/go/go-installation.html#go-installation">installed Go</a>.</p>
 <p>To write programs in Go, we write files with the <code class="highlighter-rouge">.go</code> extension in a subdirectory of <code class="highlighter-rouge">$GOPATH/src</code>. These are the steps:</p>
-<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">mkdir</span><span class="kv"> -p $HOME/go/src/hello
-</span><span class="w">$ </span><span class="nc">cd</span><span class="kv"> $HOME/go/src/hello
-</span><span class="w">$ </span><span class="nc">touch</span><span class="kv"> hello.go
-</span></code></pre>
-</div>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">mkdir</span> <span class="nt">-p</span> <span class="nv">$HOME</span>/go/src/hello
+<span class="gp">$</span> <span class="nb">cd</span> <span class="nv">$HOME</span>/go/src/hello
+<span class="gp">$</span> <span class="nb">touch </span>hello.go
+</code></pre></div></div>
 <p>Now, edit the file <code class="highlighter-rouge">hello.go</code> with your favorite editor and type the following:</p>
-<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
 
 </span><span class="k">import</span><span class="x"> </span><span class="s">"fmt"</span><span class="x">
 
 </span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
 	</span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Hello, Fedora!"</span><span class="p">)</span><span class="x">
 </span><span class="p">}</span><span class="x">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 <p>Save your changes and, still on the same directory (<code class="highlighter-rouge">$HOME/go/src/hello</code>), run:</p>
-<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">go</span><span class="kv"> run hello.go
-</span>Hello, Fedora!
-</code></pre>
-</div>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> go run hello.go
+<span class="go">Hello, Fedora!
+</span></code></pre></div></div>
 <p>The command <code class="highlighter-rouge">go run</code> builds and runs a Go program, and is useful for quick experiments.
 To build the program and generate a compiled binary, use <code class="highlighter-rouge">go build</code>:</p>
-<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">go</span><span class="kv"> build
-</span><span class="w">$ </span><span class="nc">ls</span><span class="kv">
-</span>hello  hello.go
-</code></pre>
-</div>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> go build
+<span class="gp">$</span> <span class="nb">ls</span>
+<span class="go">hello  hello.go
+</span></code></pre></div></div>
 <p>Without arguments, <code class="highlighter-rouge">go build</code> builds the package in the current directory, and in case of a main package it places a binary in the same directory. Let’s try it:</p>
-<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">./hello</span><span class="kv">
-</span>Hello, Fedora!
-</code></pre>
-</div>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> ./hello
+<span class="go">Hello, Fedora!
+</span></code></pre></div></div>
 <p>Yet another option is to use <code class="highlighter-rouge">go install</code>:</p>
-<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">go</span><span class="kv"> install
-</span><span class="w">$ </span><span class="nc">ls</span><span class="kv">
-</span>hello.go
-<span class="w">$ </span><span class="nc">ls</span><span class="kv"> $GOPATH/bin
-</span>hello
-</code></pre>
-</div>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> go <span class="nb">install</span>
+<span class="gp">$</span> <span class="nb">ls</span>
+<span class="go">hello.go
+</span><span class="gp">$</span> <span class="nb">ls</span> <span class="nv">$GOPATH</span>/bin
+<span class="go">hello
+</span></code></pre></div></div>
 <p>After building the current package, <code class="highlighter-rouge">go install</code> places the binary in <code class="highlighter-rouge">$GOPATH/bin</code>, instead of the current directory. It also builds and caches all dependencies in <code class="highlighter-rouge">$GOPATH/pkg</code>, making this command specially useful for bigger programs, such that <code class="highlighter-rouge">go install</code> can be faster than <code class="highlighter-rouge">go build</code> because of the cache.</p>
 <p>Because programs are installed in <code class="highlighter-rouge">$GOPATH/bin</code>, it is common to add that to the <code class="highlighter-rouge">PATH</code> environment variable, so that you can run your Go programs without specifying their full path:</p>
-<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">echo</span><span class="kv"> 'export PATH=$PATH:$GOPATH/bin' &gt;&gt; $HOME/.bashrc
-</span><span class="w">$ </span><span class="nc">source</span><span class="kv"> $HOME/.bashrc
-</span><span class="w">$ </span><span class="nc">hello</span><span class="kv">
-</span>Hello, Fedora!
-</code></pre>
-</div>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">echo</span> <span class="s1">'export PATH=$PATH:$GOPATH/bin'</span> <span class="o">&gt;&gt;</span> <span class="nv">$HOME</span>/.bashrc
+<span class="gp">$</span> <span class="nb">source</span> <span class="nv">$HOME</span>/.bashrc
+<span class="gp">$</span> hello
+<span class="go">Hello, Fedora!
+</span></code></pre></div></div>
           </div>
         </div>
       </div>

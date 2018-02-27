@@ -139,15 +139,14 @@
             <h1 id="what-is-nginx">What is NGINX</h1>
 <p>NGINX is a high-performance HTTP server and reverse proxy, as well as an IMAP/POP3 proxy server. NGINX is known for its high performance, stability, rich feature set, simple configuration, and low resource consumption. Website: <a href="https://nginx.org/">nginx.org</a>, <a href="https://www.nginx.com/">nginx.com</a>.</p>
 <h2 id="install-nginx-web-server">Install NGINX Web Server</h2>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install nginx
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>nginx
 <span class="c"># Start NGINX when system boots</span>
-<span class="gp">$ </span>sudo systemctl <span class="nb">enable </span>nginx
+<span class="nv">$ </span><span class="nb">sudo </span>systemctl <span class="nb">enable </span>nginx
 <span class="c"># Start NGINX</span>
-<span class="gp">$ </span>sudo systemctl start nginx
+<span class="nv">$ </span><span class="nb">sudo </span>systemctl start nginx
 <span class="c"># Check NGINX Status</span>
-<span class="gp">$ </span>sudo systemctl status nginx
-</code></pre>
-</div>
+<span class="nv">$ </span><span class="nb">sudo </span>systemctl status nginx
+</code></pre></div></div>
 <p>Now visit <a href="http://localhost/">http://localhost/</a>. You should see NGINX Test Page:</p>
 <p><img src="/start/sw/web-app/images/NGINX_Test_Page_on_Fedora.png" alt="NGINX Test Page on Fedora" /></p>
           </div>

@@ -130,29 +130,25 @@
           <div class="panel panel-default content-content">
             <h1 id="sqlite-installation">SQLite installation</h1>
 <p>To install basic SQLite (if it is not already), simply type:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install sqlite
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install sqlite
+</code></pre></div></div>
 <p>This package provides the basic library and the command-line client <code class="highlighter-rouge">sqlite</code>. In
 order to access SQLite databases from various programming languages (C, Tcl,
 Java), the language bindings need to be installed separately:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install sqlite-devel sqlite-tcl sqlite-jdbc
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install sqlite-devel sqlite-tcl sqlite-jdbc
+</code></pre></div></div>
 <h2 id="graphical-clients">Graphical clients</h2>
 <p>The <code class="highlighter-rouge">sqlite</code> client shipped with the basic database engine is command line (CLI)
 based. If you prefer an application with graphical user interface (GUI), install
 the <code class="highlighter-rouge">sqliteman</code> package:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install sqliteman
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install sqliteman
+</code></pre></div></div>
 <h2 id="working-with-sqlite">Working with SQLite</h2>
 <p>SQLite stores it’s data in single database file. To open such file (which will
 be created if necessary), pass it’s name as CLI argument to <code class="highlighter-rouge">sqlite3</code>
 executable:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sqlite3 hello-world.db
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sqlite3 hello-world.db
+</code></pre></div></div>
 <p>After executing this command, you will be greeted with a SQLite prompt and can
 now insert the SQL commands to execute.</p>
 <p>If you prefer using GUI, the <a href="http://sqliteman.yarpen.cz/" title="Sqliteman home page">Sqliteman</a> application enables you to
@@ -163,13 +159,11 @@ construct your SQL queries using visual tool.</p>
 <p>As is the custom in Fedora, SQLite documentation is available in <code class="highlighter-rouge">-doc</code>
 sub-package. Additionally, the JavaDoc documentation for JDBC bindings is also
 available:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install sqlite-doc sqlite-jdbc-javadoc
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install sqlite-doc sqlite-jdbc-javadoc
+</code></pre></div></div>
 <p>After the packages are installed, the actual documentation is located within <code class="highlighter-rouge">/usr/share/doc/PACKAGE</code> directory and is formatted in HTML. For example, to view documentation for SQLite itself, you can open this URL in your browser:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>file:///usr/share/doc/sqlite-doc/index.html
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>file:///usr/share/doc/sqlite-doc/index.html
+</code></pre></div></div>
 <p>If the documentation does not contain what you are looking for, you can visit
 the project <a href="https://sqlite.org/" title="SQLite home page">homepage</a>, or ask in the <a href="http://mailinglists.sqlite.org/cgi-bin/mailman/listinfo/sqlite-users" title="SQLite mailing list for users">mailing lists</a>.</p>
           </div>

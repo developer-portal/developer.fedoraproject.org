@@ -163,11 +163,10 @@ and share live code, equations, visualizations and explanatory text</li>
 <p><a href="http://www.numpy.org/">NumPy</a> is a high performance Python library providing
 fast multidimensional arrays featuring vector operations.</p>
 <p>NumPy can be installed in Fedora by typing:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install python3-numpy
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>python3-numpy
+</code></pre></div></div>
 <p>What are vector operations? The ones which are applied on multiple values at once:</p>
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">A</span>
 <span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
@@ -187,18 +186,16 @@ fast multidimensional arrays featuring vector operations.</p>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">A</span>
 <span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>NumPy also provides additional mathematical functions like <code class="highlighter-rouge">sin</code>, <code class="highlighter-rouge">cos</code>,
 <code class="highlighter-rouge">arcsin</code>, <code class="highlighter-rouge">exp</code>, <code class="highlighter-rouge">log</code>, <code class="highlighter-rouge">min</code>, <code class="highlighter-rouge">max</code>, <code class="highlighter-rouge">sum</code> and others.</p>
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span>
 <span class="n">array</span><span class="p">([</span> <span class="mf">0.</span> <span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">1.</span> <span class="p">])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 <span class="n">array</span><span class="p">([</span> <span class="mf">0.</span>        <span class="p">,</span>  <span class="mf">3.14159265</span><span class="p">])</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>NumPy includes some handy shortcuts:</p>
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">array</span><span class="p">([[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">],</span>
        <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">],</span>
        <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">]])</span>
@@ -212,36 +209,31 @@ fast multidimensional arrays featuring vector operations.</p>
        <span class="p">[</span> <span class="mf">1.</span><span class="p">]])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
 <span class="n">array</span><span class="p">([[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">]])</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <h2 id="scipy">SciPy</h2>
 <p><a href="http://scipy.org/">SciPy</a> is a Python library providing routines for basic
 and special mathematical functions, numerical integration, optimization,
 interpolation, Fourier transform, signal processing, routines for linear algebra,
 statistics and others. See a <a href="https://docs.scipy.org/doc/scipy/reference/">full SciPy reference</a>.</p>
 <p>To install it, type:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install python3-scipy
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>python3-scipy
+</code></pre></div></div>
 <p>To compute, for example, the definite integral of <em>2x</em> from 0 to 1 (which equals 1), type:</p>
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">scipy.integrate</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">scipy.integrate</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.1102230246251565e-14</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <h2 id="matplotlib">matplotlib</h2>
 <p><a href="http://matplotlib.org/">matplotlib</a> is a graph plotting library producing publication-quality plots.</p>
 <p>To install it, type:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install python3-matplotlib
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>python3-matplotlib
+</code></pre></div></div>
 <p>Test it by typing:</p>
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="s">'ro--'</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">"Hello, matplotlib!"</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>You should see the plot already.</p>
 <p>See lots of other examples at a <a href="http://matplotlib.org/gallery.html">showcases gallery</a>:</p>
 <p><img src="http://matplotlib.org/mpl_examples/pylab_examples/scatter_hist.png" alt="histogram subplot example" /></p>
@@ -253,10 +245,9 @@ a tab completion, integration of commands for filesystem access, object
 introspection and others. IPython provides the kernel
 for the <a href="http://jupyter.org/">Jupyter project</a>.</p>
 <p>To install and run IPython, type:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install python3-ipython
-</code></pre>
-</div>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ ipython3
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>python3-ipython
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ipython3
 Python 3.5.1 (default, Mar  4 2016, 15:21:15)
 Type "copyright", "credits" or "license" for more information.
 
@@ -268,18 +259,16 @@ object?   -&gt; Details about 'object', use 'object??' for extra details.
 
 In [1]: print("Hello, world!")
 Hello, world!
-</code></pre>
-</div>
+</code></pre></div></div>
 <h2 id="pandas">pandas</h2>
 <p><a href="http://pandas.pydata.org/">Pandas</a> is a Python library implementing
 a data type to store data series and relevant routines:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install python3-pandas
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>python3-pandas
+</code></pre></div></div>
 <p>Let us load famous <a href="http://archive.ics.uci.edu/ml/datasets/Iris">Iris dataset</a>,
 which is used a lot as an example in pattern recognition and machine learning
 literature.</p>
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
 
 <span class="n">iris_data_set_url</span> <span class="o">=</span> <span class="p">(</span><span class="s">"http://archive.ics.uci.edu/ml/"</span>
                      <span class="s">"machine-learning-databases/iris/iris.data"</span><span class="p">)</span>
@@ -293,18 +282,16 @@ literature.</p>
 
 <span class="c"># Let us find a record with maximal value in the first column</span>
 <span class="k">print</span><span class="p">(</span><span class="n">my_first_pandas_DataFrame</span><span class="o">.</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>See more on its usage in a <a href="http://pandas.pydata.org/pandas-docs/stable/tutorials.html">pandas tutorial</a>.</p>
 <h2 id="sympy">SymPy</h2>
 <p><a href="http://www.sympy.org/en/index.html">SymPy</a> extends SciPy with symbolic computation
 capabilities, i.e. manipulation with algebraic variables, symbols and precise values.</p>
 <p>First, install SymPy by running:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install python3-sympy
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>python3-sympy
+</code></pre></div></div>
 <p>and then your journey to the realm of CAS (Computer Algebra System) can begin:</p>
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">sympy</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">sympy</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 <span class="mi">2</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">integrate</span><span class="p">,</span> <span class="n">oo</span><span class="p">,</span> <span class="n">diff</span>
@@ -315,19 +302,16 @@ capabilities, i.e. manipulation with algebraic variables, symbols and precise va
 <span class="n">oo</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">diff</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
 <span class="o">-</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <h2 id="jupyter-notebook">Jupyter Notebook</h2>
 <p>Run and share live code via the browser; uses include: data cleaning and
 transformation, numerical simulation, statistical modeling, machine learning.</p>
 <p>First install Jupyter Notebook:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install notebook
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>notebook
+</code></pre></div></div>
 <p>To start a notebook server run:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>jupyter notebook
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>jupyter notebook
+</code></pre></div></div>
 <p>Next select the dropdown <em>New</em> then <em>Python 3</em> to create a new notebook.</p>
 <p><img src="https://jupyter.org/assets/jupyterpreview.png" alt="notebook example" /></p>
 <p>NumPy, Pandas, SciPy and IPython are included with the install of Jupyter Notebook.</p>

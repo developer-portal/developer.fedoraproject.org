@@ -137,38 +137,33 @@
           <div class="panel panel-default content-content">
             <h1 id="vagrant-with-libvirt-support-installation">Vagrant with libvirt support installation</h1>
 <p>To use Vagrant with libvirt, you need to install the <code class="highlighter-rouge">vagrant-libvirt</code> package:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install vagrant-libvirt
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install vagrant-libvirt
+</code></pre></div></div>
 <p>There is also <em>@vagrant</em> package collection created with libvirt provider in mind. With the following command you can install all necessary Vagrant packages as well:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install @vagrant
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install @vagrant
+</code></pre></div></div>
 <p>Afterwards make sure that libvirt daemon is running and that you have <code class="highlighter-rouge">kvm</code> module loaded in the kernel:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo systemctl enable libvirtd
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl enable libvirtd
 $ lsmod | grep kvm
 kvm_intel             167936  3
 kvm                   499712  1 kvm_intel
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>If you do not have KVM capabilities, you will need to use <code class="highlighter-rouge">qemu</code> driver within your Vagrantfile as follows:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>Vagrant.configure("2") do |config|
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Vagrant.configure("2") do |config|
 ...
   config.vm.provider :libvirt do |libvirt|
     libvirt.driver = "qemu"
   end
 ...
 end
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Read more on the <code class="highlighter-rouge">vagrant-libvirt</code> configuration in the <a href="https://github.com/pradels/vagrant-libvirt">upstream documentation</a>.</p>
 <h2 id="using-libvirt-from-vagrant-without-password-prompts">Using libvirt from Vagrant without password prompts</h2>
 <p>Using <code class="highlighter-rouge">libvirt</code> provider requires you to type your administrator password every time you create,
 start, halt or destroy your domains. Fortunately you can avoid this by adding yourself to the <code class="highlighter-rouge">libvirt</code> group:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo gpasswd -a ${USER} libvirt
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo gpasswd -a ${USER} libvirt
 $ newgrp libvirt
-</code></pre>
-</div>
+</code></pre></div></div>
           </div>
         </div>
       </div>

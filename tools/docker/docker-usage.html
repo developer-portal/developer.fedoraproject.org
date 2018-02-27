@@ -137,19 +137,16 @@
             <h1 id="docker-basics">Docker basics</h1>
 <h2 id="getting-started-with-images">Getting started with images</h2>
 <p>Use <a href="https://docs.docker.com/engine/reference/commandline/images/">docker images</a> to see what images you have locally on your host.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo docker images
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo docker images
+</code></pre></div></div>
 <p>Use <a href="https://docs.docker.com/engine/reference/commandline/search/">docker search</a> to see what images are available on <a href="https://hub.docker.com">Docker Hub</a>.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo docker search fedora
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo docker search fedora
+</code></pre></div></div>
 <h2 id="running-a-container">Running a container</h2>
 <p>Use <code class="highlighter-rouge">docker run</code> to run an application inside a container.
 The following command pulls Fedora image, creates a container from it and runs Bash shell inside it.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo docker run -it fedora bash
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo docker run -it fedora bash
+</code></pre></div></div>
 <p>Other useful <a href="https://docs.docker.com/engine/reference/run/#operator-exclusive-options">options</a> to use with <code class="highlighter-rouge">run</code> are for example <code class="highlighter-rouge">-d</code> to run a container in background (to daemonize it) or <code class="highlighter-rouge">--name</code> to give container a name which you can later use with <code class="highlighter-rouge">docker stop/start</code>.</p>
 <p>See also <a href="https://docs.docker.com/engine/reference/run/">Docker run reference</a>.</p>
 <p>Other useful commands regarding running containers are for example:</p>
@@ -166,16 +163,14 @@ If you want to save them in an image, use <a href="https://docs.docker.com/engin
 <h2 id="writing-a-dockerfile">Writing a Dockerfile</h2>
 <p>There are already existing Dockerfiles in <a href="https://github.com/fedora-cloud/Fedora-Dockerfiles">Fedora-Dockerfiles</a> repository. You can use them as examples for creating your own Dockerfile. Each directory contains a Dockerfile and a README with instructions how to build the image and run a container from it.</p>
 <p>A Dockerfile content can be as simple as:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>FROM fedora:latest
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FROM fedora:latest
 CMD env
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>For description of instructions used in Dockerfile see <a href="https://docs.docker.com/engine/reference/builder/">Dockerfile reference</a> and <a href="https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/">Best practices for writing Dockerfiles</a></p>
 <h2 id="building-an-image-from-dockerfile">Building an image from Dockerfile</h2>
 <p>In a directory with a Dockerfile run</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo docker build -t "my-image" .
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo docker build -t "my-image" .
+</code></pre></div></div>
 <p>If the build is successful you can see the <code class="highlighter-rouge">my-image</code> image in <code class="highlighter-rouge">docker images</code> output.</p>
 <p>See also <a href="https://docs.docker.com/engine/getstarted/step_four/">Build your own image</a> and <a href="https://docs.docker.com/engine/getstarted/step_four/#step-2-build-an-image-from-your-dockerfile">Building an image from a Dockerfile</a> for more thorough description.</p>
           </div>

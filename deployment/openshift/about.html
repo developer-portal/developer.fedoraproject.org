@@ -158,13 +158,12 @@
 <h2 id="start-a-local-openshift-all-in-one-cluster">Start a local OpenShift all-in-one cluster</h2>
 <p>The quickest way to try out OpenShift on your own computer is using the <code class="highlighter-rouge">oc cluster up</code> command.
 First, install the dependencies. We’ll need <a href="/tools/docker/docker-installation.html">Docker</a> and the <code class="highlighter-rouge">origin-clients</code> that provides the <code class="highlighter-rouge">oc</code> binary.</p>
-<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">sudo</span><span class="kv"> dnf install origin-clients docker
-</span></code></pre>
-</div>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">sudo </span>dnf <span class="nb">install </span>origin-clients docker
+</code></pre></div></div>
 <p><em>Note</em>: we recommend following the steps in the <a href="/tools/docker/docker-installation.html#why-cant-i-use-docker-command-as-a-non-root-user-by-default">Docker installation page</a> to add your user to the <code class="highlighter-rouge">docker</code> group, so that you can run the <code class="highlighter-rouge">docker</code> command without <code class="highlighter-rouge">sudo</code>.</p>
 <p>Now, let’s start our local all-in-one cluster. The command <code class="highlighter-rouge">oc cluster up</code> takes care of everything:</p>
-<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">oc</span><span class="kv"> cluster up
-</span>-- Checking OpenShift client ... OK
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> oc cluster up
+<span class="go">-- Checking OpenShift client ... OK
 -- Checking Docker client ... OK
 -- Checking Docker version ... OK
 -- Checking for existing OpenShift container ... OK
@@ -182,21 +181,18 @@ First, install the dependencies. We’ll need <a href="/tools/docker/docker-inst
 
      Ensure that the Docker daemon is running with the following argument:
         --insecure-registry 172.30.0.0/16
-</code></pre>
-</div>
+</span></code></pre></div></div>
 <p>If you are running a default installation of Docker, you will run into the error above.
 That is okay. We will follow the suggestion on screen. The good news is that <code class="highlighter-rouge">oc cluster up</code> downloaded the Docker image for running OpenShift Origin, so next time we run it, we already have the images offline.</p>
 <p>To change the Docker configuration permanently, edit (as the <code class="highlighter-rouge">root</code> user) the file <code class="highlighter-rouge">/etc/sysconfig/docker</code> and add/uncomment the following line:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>INSECURE_REGISTRY='--insecure-registry 172.30.0.0/16'
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>INSECURE_REGISTRY='--insecure-registry 172.30.0.0/16'
+</code></pre></div></div>
 <p>Then, restart the Docker daemon:</p>
-<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">sudo</span><span class="kv"> systemctl restart docker
-</span></code></pre>
-</div>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">sudo </span>systemctl restart docker
+</code></pre></div></div>
 <p>And let’s run <code class="highlighter-rouge">oc cluster up</code> again:</p>
-<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">oc</span><span class="kv"> cluster up
-</span>-- Checking OpenShift client ... OK
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> oc cluster up
+<span class="go">-- Checking OpenShift client ... OK
 -- Checking Docker client ... OK
 -- Checking Docker version ... OK
 -- Checking for existing OpenShift container ... OK
@@ -231,15 +227,14 @@ That is okay. We will follow the suggestion on screen. The good news is that <co
    To login as administrator:
        oc login -u system:admin
 
-</code></pre>
-</div>
+</span></code></pre></div></div>
 <p>Done! Follow the instructions on the screen to access the OpenShift Origin Web Console.</p>
 <h2 id="deploying-your-first-application">Deploying your first application</h2>
 <p>You can deploy application from the Web Console or from the command line.
 As a demo and to test your new environment, you can deploy a sample Ruby application:</p>
-<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">oc</span><span class="kv"> new-app https://github.com/openshift/ruby-hello-world
-</span>--&gt; Found Docker image 8a8cd6f (43 hours old) from Docker Hub for "centos/ruby-22-centos7"
-
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> oc new-app https://github.com/openshift/ruby-hello-world
+<span class="gp">--&gt;</span> Found Docker image 8a8cd6f <span class="o">(</span>43 hours old<span class="o">)</span> from Docker Hub <span class="k">for</span> <span class="s2">"centos/ruby-22-centos7"</span>
+<span class="go">
     Ruby 2.2
     --------
     Platform for building and running Ruby 2.2 applications
@@ -254,17 +249,16 @@ As a demo and to test your new environment, you can deploy a sample Ruby applica
     * Port 8080 will be load balanced by service "ruby-hello-world"
       * Other containers can access this service through the hostname "ruby-hello-world"
 
---&gt; Creating resources with label app=ruby-hello-world ...
-    imagestream "ruby-22-centos7" created
+</span><span class="gp">--&gt;</span> Creating resources with label <span class="nv">app</span><span class="o">=</span>ruby-hello-world ...
+<span class="go">    imagestream "ruby-22-centos7" created
     imagestream "ruby-hello-world" created
     buildconfig "ruby-hello-world" created
     deploymentconfig "ruby-hello-world" created
     service "ruby-hello-world" created
---&gt; Success
-    Build scheduled, use 'oc logs -f bc/ruby-hello-world' to track its progress.
+</span><span class="gp">--&gt;</span> Success
+<span class="go">    Build scheduled, use 'oc logs -f bc/ruby-hello-world' to track its progress.
     Run 'oc status' to view your app.
-</code></pre>
-</div>
+</span></code></pre></div></div>
 <p>You can find more comprehensive walkthroughs in the official documentation under <a href="#references">References</a>.</p>
 <h2 id="online-developer-preview">Online Developer Preview</h2>
 <p>An Online offering of the new OpenShift platform based on Docker and Kubernetes is available as a Developer Preview.

@@ -133,16 +133,14 @@
             <h1 id="installing-cargo">Installing Cargo</h1>
 <p>Cargo is Rust’s package manager. You can use it to download your project’s dependencies
 and to compile your project. To install Cargo, type:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install cargo
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install cargo
+</code></pre></div></div>
 <p>You can start a new project using Cargo by typing:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ cargo new my_project --bin
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cargo new my_project --bin
+</code></pre></div></div>
 <p>This will create a new directory with manifest (<code class="highlighter-rouge">Cargo.toml</code>), a source code directory
 (<code class="highlighter-rouge">src</code>) and a “Hello, World!” program in <code class="highlighter-rouge">src/main.rs</code>.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ cd my_project/
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd my_project/
 $ tree .
 .
 ├── Cargo.toml
@@ -150,25 +148,22 @@ $ tree .
     └── main.rs
 
 1 directory, 2 files
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>The manifest is written in <a href="https://github.com/toml-lang/toml">TOML language</a> and
 looks like this:</p>
-<div class="language-toml highlighter-rouge"><pre class="highlight"><code><span class="nn">[package]</span>
+<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[package]</span>
 <span class="py">name</span> <span class="p">=</span> <span class="s">"my_project"</span>
 <span class="py">version</span> <span class="p">=</span> <span class="s">"0.1.0"</span>
 <span class="py">authors</span> <span class="p">=</span> <span class="p">[</span><span class="s">"Your Name &lt;you@example.com&gt;"</span><span class="p">]</span>
 
 <span class="nn">[dependencies]</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>To run your new project, type:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ cargo run
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cargo run
    Compiling my_project v0.1.0 (file:///home/fedora/rust/my_project)
      Running `target/debug/my_project`
 Hello, world!
-</code></pre>
-</div>
+</code></pre></div></div>
 <h1 id="cratesio-repository">crates.io repository</h1>
 <p>Rust calls its compilation unit (either library or executable) a crate. Your project
 is such a crate and it can also depend on other crates specified in <code class="highlighter-rouge">Cargo.toml</code>. The

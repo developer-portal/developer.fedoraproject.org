@@ -142,42 +142,34 @@
 <h2 id="how-to-install-django-in-the-virtualenv">How to install Django in the virtualenv</h2>
 <p>It’s recommended to keep your project inside virtual environment. Let’s create a new virtual environment for your project.</p>
 <p>At first open the <em>Terminal</em> (press <code class="highlighter-rouge">Alt</code> + <code class="highlighter-rouge">F1</code>, type <em>Terminal</em> and click on the black squere icon or just press <code class="highlighter-rouge">Enter</code>). Second, create a new folder <code class="highlighter-rouge">my_project</code> open it.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mkdir my_project
-<span class="gp">$ </span><span class="nb">cd </span>my_project
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir </span>my_project
+<span class="nv">$ </span><span class="nb">cd </span>my_project
+</code></pre></div></div>
 <p>Let’s create a virtual environment called <code class="highlighter-rouge">project_venv</code> which will contain Python and pip which you can use to install Django.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python3 -m venv project_venv
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python3 <span class="nt">-m</span> venv project_venv
+</code></pre></div></div>
 <p>If you want to work in the virtual environment, you have to activate it.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">source </span>project_venv/bin/activate
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">source </span>project_venv/bin/activate
+</code></pre></div></div>
 <p>Running the virtual environment, you can install Django.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>pip install django
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>pip <span class="nb">install </span>django
+</code></pre></div></div>
 <p>That is all, you have sucessfully installed Django in the virtual environment! Now you can start working on your project.</p>
 <h2 id="first-project">First project</h2>
 <p>This is a short tutorial, how to create your first Django project. You can find a detailed tutorial in <a href="https://docs.djangoproject.com/en/1.10/intro/tutorial01/">Django Documentation</a>.</p>
 <p>Now it is a good time to activate your virtual environment (see above). Let’s initialize your project files structure. Replace <code class="highlighter-rouge">mysite</code> with the name of your project.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>django-admin startproject mysite
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>django-admin startproject mysite
+</code></pre></div></div>
 <p>Enter your new directory which was automatically created.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span><span class="nb">cd </span>mysite
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span><span class="nb">cd </span>mysite
+</code></pre></div></div>
 <p>And run the server.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>python3 manage.py runserver
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>python3 manage.py runserver
+</code></pre></div></div>
 <p>Now that the server’s running, visit http://127.0.0.1:8000/ with your Web browser. You will see a “Welcome to Django” page, in pleasant, light-blue pastel. It worked!</p>
 <p>When you finish your work, just deactivate the virtual environment.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>deactivate
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>deactivate
+</code></pre></div></div>
 <h3 id="what-next">What next?</h3>
 <ul>
   <li><a href="https://docs.djangoproject.com/">Django Documentation</a></li>

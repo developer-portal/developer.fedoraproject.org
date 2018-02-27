@@ -153,16 +153,14 @@ content. Some of them will be described in the following chapters.</p>
 <h2 id="micropython-in-fedora">MicroPython in Fedora</h2>
 <p>If you want to try MicroPython and learn about the differences between MicroPython and
 Python, install MicroPython with a command</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install micropython
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install micropython
+</code></pre></div></div>
 <p>and then start an interactive MicroPython session.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ micropython
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ micropython
 MicroPython v1.7 on 2016-04-20; linux version
 Use Ctrl-D to exit, Ctrl-E for paste mode
 &gt;&gt;&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Using MicroPython on your computer makes sense only for some basic testing
 purposes, but the main goal is to control embedded devices.</p>
 <h2 id="mu---simple-ide-for-bbc-microbit">Mu - simple IDE for BBC micro:bit</h2>
@@ -172,13 +170,11 @@ learn the basics of programming. Your device is mounted automatically in Fedora,
 so you only need one click to flash your micro:bit with your new app or to
 start REPL.</p>
 <p><em>Mu</em> is a part of Fedora, so its installation command is</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install mu
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install mu
+</code></pre></div></div>
 <p>and then you can run your new IDE from a terminal or from the apps menu.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ mu
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mu
+</code></pre></div></div>
 <p><em>Mu</em> looks like this:</p>
 <p><img src="/content/tech/languages/python/micropython-mu.png" width="97%" /></p>
 <h2 id="uflash---cli-for-flashing-the-microbit">uFlash - CLI for flashing the micro:bit</h2>
@@ -186,27 +182,24 @@ start REPL.</p>
 the right utility for you. <em>uFlash</em> is a command line tool (written
 in Python) for flashing your Python scripts to Micro:bit.</p>
 <p>To install it, type</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install uflash
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install uflash
+</code></pre></div></div>
 <p>The next step is to flash your script to Micro:bit. Just use the path to the script as
 the first parameter for <code class="highlighter-rouge">uflash</code>.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ uflash ./hello_world.py
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ uflash ./hello_world.py
+</code></pre></div></div>
 <h2 id="esptool---cli-for-flashing-boards-with-the-esp8266-chip">Esptool - CLI for flashing boards with the ESP8266 chip</h2>
 <p>If you want to control your ESP8266 device using MicroPython, write MicroPython firmware into the flash memory of your device.</p>
 <p>You can download MicroPython firmware from <a href="http://micropython.org/download/">the download section of its web page</a>.
 Choose the latest one suitable for your device.</p>
 <p><code class="highlighter-rouge">esptool</code> is a handy CLI application that helps you flash your device. To install it, type</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install esptool
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install esptool
+</code></pre></div></div>
 <p>With the firmware downloaded and <code class="highlighter-rouge">esptool</code> installed, you need to know the last
 thing to connect and flash your device - the device’s name. You can find it in
 the result of the <code class="highlighter-rouge">dmesg</code> command. Use <code class="highlighter-rouge">dmesg</code> with <code class="highlighter-rouge">tail</code> to obtain the last
 ten lines of the <code class="highlighter-rouge">dmesg</code> output.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ dmesg | tail
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dmesg | tail
 [703169.886296] ch341 1-1.1:1.0: device disconnected
 [703176.972781] usb 1-1.1: new full-speed USB device number 45 using ehci-pci
 [703177.059448] usb 1-1.1: New USB device found, idVendor=1a86, idProduct=7523
@@ -214,27 +207,24 @@ ten lines of the <code class="highlighter-rouge">dmesg</code> output.</p>
 [703177.059457] usb 1-1.1: Product: USB2.0-Serial
 [703177.060474] ch341 1-1.1:1.0: ch341-uart converter detected
 [703177.062781] usb 1-1.1: ch341-uart converter now attached to **ttyUSB0**
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>The name of your device starts with <em>tty</em>.</p>
 <p>You also need the rights to access your device.
 You can use <code class="highlighter-rouge">sudo</code> before any <code class="highlighter-rouge">esptool</code> and <code class="highlighter-rouge">picocom</code> commands
 mentioned below, but the preferred and more secure way is to add your regular
 user account to a special system group <em>dialout</em>. To do it, type</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo usermod -a -G dialout &lt;username&gt;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo usermod -a -G dialout &lt;username&gt;
+</code></pre></div></div>
 <p>It is necessary to logout and login for this change to take effect.</p>
 <p>Use <code class="highlighter-rouge">esptool</code> to flash your device. It is suggested to erase the flash
 memory before writing new firmware. To do it, type the following and do not forget to replace <code class="highlighter-rouge">ttyUSB0</code> with the name of your device.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ esptool --port /dev/ttyUSB0 erase_flash
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ esptool --port /dev/ttyUSB0 erase_flash
 esptool.py v1.1
 Connecting...
 Erasing flash (this may take a while)...
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>And now you can write MicroPython firmware to empty the flash memory. Again, do not forget to replace <code class="highlighter-rouge">ttyUSB0</code> with the name of your device.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ esptool --port /dev/ttyUSB0 --baud 115200 write_flash --flash_size=8m 0 esp8266-20160909-v1.8.4.bin 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ esptool --port /dev/ttyUSB0 --baud 115200 write_flash --flash_size=8m 0 esp8266-20160909-v1.8.4.bin 
 esptool.py v1.1
 Connecting...
 Running Cesanta flasher stub...
@@ -242,8 +232,7 @@ Flash params set to 0x0020
 Writing 565248 @ 0x0... 565248 (100 %)
 Wrote 565248 bytes at 0x0 in 49.0 seconds (92.3 kbit/s)...
 Leaving...
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>You might need to change the name of your device and the name of the binary file with
 firmware, but other parameters such as a baud-rate (connection speed) should be OK
 in most cases.</p>
@@ -252,11 +241,10 @@ in most cases.</p>
 console for communication with the outer world. Fedora provides a
 minimalistic and handy tool for connecting to it - <code class="highlighter-rouge">picocom</code>.</p>
 <p>To install it, type</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install picocom
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install picocom
+</code></pre></div></div>
 <p>To use it, type the following (and do not forget to replace <code class="highlighter-rouge">ttyUSB0</code> with the name of your device).</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ picocom -b 115200 /dev/ttyUSB0
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ picocom -b 115200 /dev/ttyUSB0
 picocom v1.7
 
 port is        : /dev/ttyUSB0
@@ -278,16 +266,14 @@ emap is        : crcrlf,delbs,
 Terminal ready
 
 &gt;&gt;&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><code class="highlighter-rouge">-b</code> parameter sets the baud-rate to 115200 bps which is the connection speed.</p>
 <p>The last line of the output (the one with <code class="highlighter-rouge">&gt;&gt;&gt;</code>) means that MicroPython on your device
 is ready to be used. If you do not see the last line, press <em>Enter</em> on your keyboard. If you still do not see the prompt, press RESET on your device.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; print('Let the connecting to IoT begins!')
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; print('Let the connecting to IoT begins!')
 Let the connecting to IoT begins!
 &gt;&gt;&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
           </div>
         </div>
       </div>

@@ -134,46 +134,38 @@
 <p><a href="https://copr.fedoraproject.org/">Copr</a> features a command line interface that can help you with managing projects, submitting builds, etc.</p>
 <h2 id="setup">Setup</h2>
 <p>Install the copr-cli package:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install copr-cli
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install copr-cli
+</code></pre></div></div>
 <p>Log into the Copr web interface and get your API token at the <a href="https://copr.fedorainfracloud.org/api/">Copr API Page</a></p>
 <ol>
   <li>Save the token to your system:</li>
 </ol>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ vim ~/.config/copr
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vim ~/.config/copr
+</code></pre></div></div>
 <h2 id="creating-a-new-project">Creating a new project</h2>
 <p>To create a new project called <code class="highlighter-rouge">test-project</code>, which would provide packages for Fedora 22, type:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ copr-cli create --chroot fedora-22-i386 --chroot fedora-22-x86_64 test-project
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli create --chroot fedora-22-i386 --chroot fedora-22-x86_64 test-project
+</code></pre></div></div>
 <h2 id="submitting-a-build">Submitting a build</h2>
 <p>There are curently two ways of getting your SRPM(s) into Copr:</p>
 <p>A. Building from URL:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ copr-cli build test-project-2 http://www.example.com/package-1.6-1.fc22.src.rpm
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli build test-project-2 http://www.example.com/package-1.6-1.fc22.src.rpm
+</code></pre></div></div>
 <p>B. Uploading them into Copr directly:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ copr-cli build test-project-2 ~/packages/package-1.6-1.fc22.src.rpm
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli build test-project-2 ~/packages/package-1.6-1.fc22.src.rpm
+</code></pre></div></div>
 <p>The command line tool will now monitor your build and keeps you updated about any changes and results. You can safely interrupt it with <code class="highlighter-rouge">ctrl+c</code> at any time. The build will continue running.</p>
 <h2 id="adding-a-repository-and-installing-the-package">Adding a repository and installing the package</h2>
 <p>Now, when your build has been finished, you can add the repository and install your package:</p>
 <p>First, make sure you have installed dnf core plugins:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install dnf-plugins-core
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dnf-plugins-core
+</code></pre></div></div>
 <p>Enable your repository:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf copr enable your_name/test-project
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf copr enable your_name/test-project
+</code></pre></div></div>
 <p>And install the package:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install package
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install package
+</code></pre></div></div>
           </div>
         </div>
       </div>

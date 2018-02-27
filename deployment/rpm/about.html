@@ -141,17 +141,16 @@
 </ul>
 <h2 id="setup">Setup</h2>
 <p>Run:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install fedora-packager rpmdevtools
-<span class="gp">$ </span>rpmdev-setuptree
-<span class="gp">$ </span><span class="nb">cd</span> ~/rpmbuild/SOURCES
-<span class="gp">$ </span>wget http://ftp.gnu.org/gnu/hello/hello-2.8.tar.gz
-<span class="gp">$ </span><span class="nb">cd</span> ~/rpmbuild/SPECS
-<span class="gp">$ </span>rpmdev-newspec --macros hello.spec
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>fedora-packager rpmdevtools
+<span class="nv">$ </span>rpmdev-setuptree
+<span class="nv">$ </span><span class="nb">cd</span> ~/rpmbuild/SOURCES
+<span class="nv">$ </span>wget http://ftp.gnu.org/gnu/hello/hello-2.8.tar.gz
+<span class="nv">$ </span><span class="nb">cd</span> ~/rpmbuild/SPECS
+<span class="nv">$ </span>rpmdev-newspec <span class="nt">--macros</span> hello.spec
+</code></pre></div></div>
 <h2 id="quick-start-guide">Quick Start Guide</h2>
 <p>Now you can open hello.spec file and alter it. Put there this content:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>Name:     hello
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Name:     hello
 Version:  2.8
 Release:  1%{?dist}
 Summary:  The "Hello World" program from GNU
@@ -199,12 +198,10 @@ fi
 %changelog
 * Tue Sep 06 2011 The Coon of Ty &lt;Ty@coon.org&gt; - 2.8-1
 - Initial version of the package
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Once you are done, you can run:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>rpmbuild -ba hello.spec
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>rpmbuild <span class="nt">-ba</span> hello.spec
+</code></pre></div></div>
 <p>Your package should be ready at <code class="highlighter-rouge">~/rpmbuild/RPMS/x86_64/hello-2.8-1.x86_64.rpm</code>.</p>
 <p>This example is taken from <a href="https://fedoraproject.org/wiki/How_to_create_a_GNU_Hello_RPM_package">How to create a GNU Hello RPM package</a>. You can follow it there.</p>
 <h3 id="resources">Resources</h3>
@@ -214,41 +211,35 @@ fi
 <p>Command rpmbuild creates package only for architecture and distribution of your own workstation. If you want to create RPM for other distribution and other architecture, you need to use <a href="https://fedoraproject.org/wiki/Mock">Mock</a>. It can build packages for different architectures and different Fedora or RHEL versions than the build host has. Mock creates chroots and builds packages in them. Its only task is to reliably populate a chroot and attempt to build a package in that chroot.</p>
 <h3 id="setup-1">Setup</h3>
 <p>Run:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install mock mock-scm
-<span class="gp">$ </span>sudo usermod -a -G mock YourUserName
-<span class="gp">$ </span>newgrp mock
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>mock mock-scm
+<span class="nv">$ </span><span class="nb">sudo </span>usermod <span class="nt">-a</span> <span class="nt">-G</span> mock YourUserName
+<span class="nv">$ </span>newgrp mock
+</code></pre></div></div>
 <h3 id="building-package-using-mock">Building package using Mock</h3>
 <p>Before you start using Mock, you have to have SRC.RPM (also called SRPM). You can create it using rpmbuild:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>rpmbuild -bs hello.spec
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>rpmbuild <span class="nt">-bs</span> hello.spec
+</code></pre></div></div>
 <p>Then you can run:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mock -r epel-7-i386.cfg hello.src.rpm
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>mock <span class="nt">-r</span> epel-7-i386.cfg hello.src.rpm
+</code></pre></div></div>
 <p>This creates CentOS/RHEL package for i386 architecture even when your workstation architecture is x86_64 and your workstation is e.g. Fedora. List of available configurations can be found at <code class="highlighter-rouge">/etc/mock/</code> directory.</p>
 <p>You can create RPM directly from git (or any other SCM) using mock-scm plugin. Just try:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mock -r fedora-22-x86_64 --scm-enable --scm-option <span class="nv">method</span><span class="o">=</span>git --scm-option <span class="nv">package</span><span class="o">=</span>PKG --scm-option <span class="nv">git_get</span><span class="o">=</span><span class="nb">set</span> --scm-option <span class="nv">spec</span><span class="o">=</span>YOUR.SPEC --scm-option <span class="nv">branch</span><span class="o">=</span>master --scm-option <span class="nv">write_tar</span><span class="o">=</span>True --scm-option <span class="nv">git_get</span><span class="o">=</span><span class="s1">'git clone git@git_ip_address:SCM_PKG.git SCM_PKG'</span>
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>mock <span class="nt">-r</span> fedora-22-x86_64 <span class="nt">--scm-enable</span> <span class="nt">--scm-option</span> <span class="nv">method</span><span class="o">=</span>git <span class="nt">--scm-option</span> <span class="nv">package</span><span class="o">=</span>PKG <span class="nt">--scm-option</span> <span class="nv">git_get</span><span class="o">=</span><span class="nb">set</span> <span class="nt">--scm-option</span> <span class="nv">spec</span><span class="o">=</span>YOUR.SPEC <span class="nt">--scm-option</span> <span class="nv">branch</span><span class="o">=</span>master <span class="nt">--scm-option</span> <span class="nv">write_tar</span><span class="o">=</span>True <span class="nt">--scm-option</span> <span class="nv">git_get</span><span class="o">=</span><span class="s1">'git clone git@git_ip_address:SCM_PKG.git SCM_PKG'</span>
+</code></pre></div></div>
 <p>You can find more details in <a href="https://fedoraproject.org/wiki/Projects/Mock/Plugin/Scm">mock-scm documentation</a>.</p>
 <p>More detailed tutorial can be found on page <a href="https://fedoraproject.org/wiki/Using_Mock_to_test_package_builds">Using Mock to test package builds</a></p>
 <h3 id="create-yumdnf-repository">Create Yum/Dnf repository</h3>
 <p>Once you have your RPM packages ready, you can put them in a directory (one directory per distribution-architecture) and run there:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install createrepo_c
-<span class="gp">$ </span><span class="nb">cd </span>where_are_your_packages/
-<span class="gp">$ </span>createrepo_c --deltas --retain-old-md 1 ./
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>createrepo_c
+<span class="nv">$ </span><span class="nb">cd </span>where_are_your_packages/
+<span class="nv">$ </span>createrepo_c <span class="nt">--deltas</span> <span class="nt">--retain-old-md</span> 1 ./
+</code></pre></div></div>
 <p>This will create Yum/Dnf repository. When you expose it to web and provide a link to it to users, they can use it as baseurl in a repo file (stored in /etc/yum.repos.d/), like:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>[myproject]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[myproject]
 name=Your application
 baseurl=http://yourdomain.com/repository/
 enabled=1
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Note: If you are building an open-source software package, you can use <a href="/deployment/copr/about.html">Copr service</a>, which automates <code class="highlighter-rouge">mock</code> and <code class="highlighter-rouge">createrepo_c</code> part while it provides nice WebUI.</p>
           </div>
         </div>

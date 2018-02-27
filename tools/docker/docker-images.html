@@ -141,38 +141,34 @@
 <p>You can find all the official Docker images provided by Fedora community in the <a href="https://hub.docker.com/_/fedora/">official Fedora repository</a> on Docker Hub.</p>
 <p>Docker images in <code class="highlighter-rouge">fedora/</code> namespace feature <code class="highlighter-rouge">fedora:latest</code> tag for rawhide and <code class="highlighter-rouge">fedora:23</code> tag for Fedora 23.</p>
 <p>To get Fedora 23 base image, run:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>Pull the image from docker.io
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pull the image from docker.io
 $ sudo docker pull fedora:23
 Run some command from the image
 $ sudo docker run --rm -ti fedora:23 bash
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>There are also a lot of application Docker images built as layered images on top of Fedora base image. It’s sources live in <a href="https://github.com/fedora-cloud/Fedora-Dockerfiles">Fedora Dockerfiles repository</a> and are available under <code class="highlighter-rouge">fedora/</code> namespace on the Docker Hub.</p>
 <p>For example, to pull and run the MariaDB Docker container, run:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>Pull the image from docker.io
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pull the image from docker.io
 $ sudo docker pull fedora/mariadb
 Run the container
 $ sudo docker run fedora/mariadb
 fedora/mariadb
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>The list of available Fedora Docker images is</p>
 <h2 id="centos-images">CentOS images</h2>
 <p>You can find find all the official Docker images provided by CentOS community in the <a href="https://hub.docker.com/u/centos/">official CentOS repository</a> and the base Docker image in the <a href="https://hub.docker.com/_/centos/">official library</a> on Docker Hub.</p>
 <p>To get CentOS 7 base image, run:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>Pull the image from docker.io
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pull the image from docker.io
 $ sudo docker pull centos:7
 Run some command from the image
 $ sudo docker run --rm -ti centos:7 bash
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>To get CentOS 6 base image, run:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>Pull the image from docker.io
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pull the image from docker.io
 $ sudo docker pull centos:6
 Run some command from the image
 $ sudo docker run --rm -ti centos:6 bash
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>There is always <code class="highlighter-rouge">centos:latest</code> tag for the latest released version.</p>
 <h3 id="software-collections-based-images">Software Collections based images</h3>
 <p>The <a href="https://hub.docker.com/u/centos/">official CentOS repository</a> contains Docker images that are similar to the images provided by Red Hat under <code class="highlighter-rouge">rhscl/</code> namespace.</p>

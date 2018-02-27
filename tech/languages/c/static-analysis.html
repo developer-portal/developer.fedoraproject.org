@@ -155,13 +155,11 @@ written in Python.</p>
 is a utility named <code class="highlighter-rouge">csbuild</code> that runs static analyzers in background fully
 transparently.  You can install csbuild by dnf, which will also pull the needed
 static analyzers as dependencies:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo dnf install csbuild
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install csbuild
+</code></pre></div></div>
 <p>Its usage is as easy as:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>csbuild -c 'make ...'
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>csbuild -c 'make ...'
+</code></pre></div></div>
 <p>… where you replace <code class="highlighter-rouge">make ...</code> by the actual command you use to compile
 your project.  By running the above command, you will get extended diagnostic
 produced by GCC and the output of Cppcheck and Clang analyzers for the modules
@@ -172,16 +170,14 @@ differential scans to check for added (or fixed) bugs between a pair of git
 revisions.  For example, before you push your commits in the master branch of
 your project to a public git repository, you can first check that you are not
 introducing any new bugs in those commits:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>csbuild -g origin/master..master -c "make ..."
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>csbuild -g origin/master..master -c "make ..."
+</code></pre></div></div>
 <p>In this mode, only bugs introduced between the specified pair of revisions are
 reported.  You can use the <code class="highlighter-rouge">--print-fixed</code> option to print also bugs that
 were fixed between the pair of revisions.  You can also use the
 <code class="highlighter-rouge">---git-bisect</code> option to find the exact commit that introduced a new bug:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>csbuild -g origin/master..master -c "make clean &amp;&amp; make ..." --git-bisect
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>csbuild -g origin/master..master -c "make clean &amp;&amp; make ..." --git-bisect
+</code></pre></div></div>
 <p>The complexity of the search algorithm is logarithmic, which means that for a
 search in 1024 commits, only 10 builds are needed.  For these options to work,
 you need to use a build command that fully rebuilds all sources.</p>
@@ -201,18 +197,16 @@ configuration file for Travis CI.  In this mode, you also need to use the
 project.  It expects a space-separated list of packages that can be installed on
 Ubuntu LTS.  The command in the following example generates a Travis CI
 configuration file to enable static analysis for <a href="http://curl.haxx.se/">curl</a>:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>csbuild -c "./buildconf &amp;&amp; ./configure &amp;&amp; make -j5" \
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>csbuild -c "./buildconf &amp;&amp; ./configure &amp;&amp; make -j5" \
         --install libtool --git-bisect \
         --gen-travis-yml &gt; .travis.yml
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Then you commit the generated file <code class="highlighter-rouge">.travis.yml</code> to your repository and
 push:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>git add .travis.yml
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add .travis.yml
 git commit -m "notify me about newly introduced bugs"
 git push
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Finally, you enable Travis CI for your GitHub repository at
 <a href="https://travis-ci.org/profile">https://travis-ci.org/profile</a> and you are done!</p>
           </div>

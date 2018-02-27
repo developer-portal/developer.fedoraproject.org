@@ -140,28 +140,23 @@
             <h1 id="using-pip">Using pip</h1>
 <p>If a Python module you need is not packaged for Fedora, you can use pip to install it from <a href="https://pypi.python.org/">PyPI</a>, but you must be a little careful. Installing modules with pip to system directories can lead to unstable system, so make sure you only use pip with the <code class="highlighter-rouge">--user</code> switch, which makes pip install modules to your home directory.</p>
 <p>Pip gets installed alongside with Python. For Python 3 it is <code class="highlighter-rouge">pip3</code>, so for example, you want to install <code class="highlighter-rouge">bokeh</code> (interactive plots in HTML for Python) from PyPI simply type:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ pip3 install --user bokeh
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip3 install --user bokeh
+</code></pre></div></div>
 <p>And there you go!</p>
 <h2 id="using-pip-in-the-virtual-environment">Using pip in the virtual environment</h2>
 <p>The best practise is using pip in the virtual environment. It will keep all modules for one project at one place and it will not break your local system. Another advantage is that you can have more versions of the same module in different virtual environments.</p>
 <p>Let’s create a virtual environment called <code class="highlighter-rouge">project_venv</code> which will contain the main Python 3 version in Fedora and pip. If you need to use another version of Python or different interpreter such as PyPy, see <a href="https://developer.fedoraproject.org/tech/languages/python/multiple-pythons.html">Multiple Interpreters section</a>.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python3 -m venv project_venv
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python3 <span class="nt">-m</span> venv project_venv
+</code></pre></div></div>
 <p>If you want to work in the virtual environment, you have to activate it.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">source </span>project_venv/bin/activate
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">source </span>project_venv/bin/activate
+</code></pre></div></div>
 <p>When the virtual environment is activated (you can see it’s name in brackets at the beginning of your prompt), you can install modules with pip.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>pip install module_name
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>pip <span class="nb">install </span>module_name
+</code></pre></div></div>
 <p>When you finish your work, just deactivate the virtual environment.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>deactivate
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>deactivate
+</code></pre></div></div>
 <h3 id="what-next">What next?</h3>
 <ul>
   <li><a href="https://pypi.python.org/">PyPI - the Python Package Index</a></li>

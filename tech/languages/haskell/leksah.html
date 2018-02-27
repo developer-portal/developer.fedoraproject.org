@@ -136,38 +136,30 @@
 <p><a href="http://leksah.org/">Leksah</a> is a Haskell IDE written in Haskell using Gtk. It offers workspaces for complex project with multiple 
 packages with automatic build of dependencies. It enables standard IDE features (debugging, auto completition etc.).</p>
 <p>To install Leksah run command:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install ghc cabal-install
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install ghc cabal-install
+</code></pre></div></div>
 <p>or install Haskell Platform by command:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install haskell-platform
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install haskell-platform
+</code></pre></div></div>
 <p>You have to also install the necessary libraries for successful build by:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install gobject-introspection-devel webkitgtk3-devel gtksourceview3-devel
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install gobject-introspection-devel webkitgtk3-devel gtksourceview3-devel
+</code></pre></div></div>
 <p>You can than install the IDE using <code class="highlighter-rouge">cabal</code>. First update all the packages by:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ cabal update
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cabal update
+</code></pre></div></div>
 <p>Now upgrade cabal to the latest stable version:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ cabal install Cabal
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cabal install Cabal
+</code></pre></div></div>
 <p>Install build packages and tools:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ cabal install alex happy
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cabal install alex happy
 $ cabal install gtk2hs-buildtools
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Install the IDE:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ cabal install leksah
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cabal install leksah
+</code></pre></div></div>
 <p>Than you can run the IDE:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ leksah
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ leksah
+</code></pre></div></div>
 <p>NOTE: It might happen that you need to reboot the system before using Leksah.</p>
           </div>
         </div>

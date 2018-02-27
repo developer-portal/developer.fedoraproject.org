@@ -144,7 +144,7 @@
 </ul>
 <h2 id="example">Example</h2>
 <p>The following example (iprutils package) will demonstrate how to get an rpm package available in Fedora repository:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code># Clone existing package available in Fedora repository e.g. iprutils
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Clone existing package available in Fedora repository e.g. iprutils
 $ fedpkg clone -a iprutils &amp;&amp; cd iprutils &amp;&amp; ls
    0001-Service-start-is-controled-by-udev-rule.patch  iprdbg.8.gz  iprutils.spec  sources
 
@@ -156,10 +156,9 @@ $ fedpkg sources &amp;&amp; ls
 $ fedpkg srpm
   0001-Service-start-is-controled-by-udev-rule.patch  iprdbg.8.gz  iprutils-2.4.11.1-1.fc25.src.rpm  iprutils-2.4.11.1.tar.gz  iprutils.spec  sources
 
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Further, to modify source or spec file follow below steps:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code># Create required directory structure in ~/rpmbuild/
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Create required directory structure in ~/rpmbuild/
 $ rpmbuild-setuptree
 
 # Copy original or modified spec file in ~/rpmbuild/SPECS/ directory
@@ -171,8 +170,7 @@ $ cp iprutils.spec ~/rpmbuild/SOURCES/
 # Create srpm file
 $ rpmbuild -bs ~/rpmbuild/SOURCES/iprutils.spec
 
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Generated srpm will be available in ~/rpmbuild/SRPMS/ directory</p>
 <p><strong>Note:</strong> iprutils package which is used as an example may get updated later on and hence content may change.</p>
           </div>

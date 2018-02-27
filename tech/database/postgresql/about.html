@@ -144,34 +144,33 @@ TODOs
 server, server-compatible plug-ins and database connectors.</p>
 <h2 id="quick-start">Quick start</h2>
 <p>PostgreSQL installation on Fedora box and basic command-line usage:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf install postgresql postgresql-server <span class="c"># install client/server</span>
-<span class="gp">$ </span>sudo postgresql-setup initdb                  <span class="c"># initialize PG cluster</span>
-<span class="gp">$ </span>sudo systemctl start postgresql               <span class="c"># start cluster</span>
-<span class="gp">$ </span>sudo su - postgres                            <span class="c"># login as DB admin</span>
-<span class="gp">$ </span>createdb quick-start                          <span class="c"># create testing database</span>
-<span class="gp">$ </span>psql -d quick-start                           <span class="c"># connect to the new database</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>postgresql postgresql-server <span class="c"># install client/server</span>
+<span class="nv">$ </span><span class="nb">sudo </span>postgresql-setup initdb                  <span class="c"># initialize PG cluster</span>
+<span class="nv">$ </span><span class="nb">sudo </span>systemctl start postgresql               <span class="c"># start cluster</span>
+<span class="nv">$ </span><span class="nb">sudo </span>su - postgres                            <span class="c"># login as DB admin</span>
+<span class="nv">$ </span>createdb quick-start                          <span class="c"># create testing database</span>
+<span class="nv">$ </span>psql <span class="nt">-d</span> quick-start                           <span class="c"># connect to the new database</span>
 psql <span class="o">(</span>9.3.9<span class="o">)</span>
 Type <span class="s2">"help"</span> <span class="k">for </span>help.
 
-<span class="gp">quick-start=# </span>create table <span class="nb">test</span> <span class="o">(</span>id int<span class="o">)</span>;       -- create testing table
+quick-start<span class="o">=</span><span class="c"># create table test (id int);       -- create testing table</span>
 CREATE TABLE
-<span class="gp">quick-start=# </span>insert into <span class="nb">test </span>values <span class="o">(</span>1<span class="o">)</span>;      -- insert some data
+quick-start<span class="o">=</span><span class="c"># insert into test values (1);      -- insert some data</span>
 INSERT 0 1
-<span class="gp">quick-start=# </span><span class="k">select</span> <span class="k">*</span> from <span class="nb">test</span>;               -- query data
- id
-----
+quick-start<span class="o">=</span><span class="c"># select * from test;               -- query data</span>
+ <span class="nb">id</span>
+<span class="nt">----</span>
   1
 <span class="o">(</span>1 row<span class="o">)</span>
 
 quick-start<span class="o">=</span><span class="c">#</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <h1 id="controlling-access-to-pg-cluster-pg_hbaconf-users-passwords">Controlling access to PG cluster (pg_hba.conf, users, passwords)</h1>
 <p>Sometimes it is useful to create a new user (with password) for specific database
 applications.  There is set of utilities in the <code class="highlighter-rouge">postgresql</code> package (see
 <code class="highlighter-rouge">rpm -ql postgresql | grep /usr/bin</code>) that may simplify some of those tasks.  Lets try to
 create additional user, password and database:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo su - postgres
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo su - postgres
 $ createuser testuser -P
 Enter password for new role:
 Enter it again:
@@ -190,26 +189,24 @@ psql (9.3.9)
 Type "help" for help.
 
 testdb=&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 <h2 id="documentation">Documentation</h2>
 <p>Packaging documentation is available as <a href="postgresql-in-rpms.html">README.rpm-dist</a> in the <code class="highlighter-rouge">postgresql</code> package (client package).  Anybody running PostgreSQL on Fedora should start here:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>rpm -qd postgresql | grep README.rpm-dist
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>rpm <span class="nt">-qd</span> postgresql | <span class="nb">grep </span>README.rpm-dist
 /usr/share/doc/postgresql/README.rpm-dist
-<span class="gp">$ </span>less /usr/share/doc/postgresql/README.rpm-dist
-</code></pre>
-</div>
+<span class="nv">$ </span>less /usr/share/doc/postgresql/README.rpm-dist
+</code></pre></div></div>
 <p>Install/use official documentation with:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install postgresql-docs
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install postgresql-docs
 $ firefox /usr/share/doc/postgresql-docs/html/index.html         # HTML version
 $ rpm -ql postgresql-docs | grep pdf
 /usr/share/doc/postgresql-docs/postgresql-9.3.9-US.pdf
 $ okular /usr/share/doc/postgresql-docs/postgresql-9.3.9-US.pdf  # PDF version
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>This documentation is also available <a href="http://www.postgresql.org/docs/">online</a>,
 please choose the version installed on your box
-(<code class="highlighter-rouge">rpm -q postgresql --qf "%{VERSION}\n"</code>).</p>
+(<code class="highlighter-rouge">rpm -q postgresql --qf "%{VERSION}
+"</code>).</p>
 <p>Other documentation available on-line:</p>
 <ul>
   <li><a href="https://fedoraproject.org/wiki/PostgreSQL">Fedora PostgreSQL Homepage</a></li>
@@ -237,7 +234,7 @@ extending SQL syntax)</li>
 EXTENSION</a>
 syntax (example with
 <a href="http://www.postgresql.org/docs/9.4/static/hstore.html">hstore</a> extension):</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install postgresql-contrib           -- install extension (hstore)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install postgresql-contrib           -- install extension (hstore)
 $ sudo su - postgres                            -- switch user to DB admin
 $ psql -d quick-start                           -- connect to an existing DB
 psql (9.3.9)
@@ -250,8 +247,7 @@ quick-start=# SELECT 'a=&gt;1,b=&gt;2'::hstore;       -- use the extension
   ----------
    "a"=&gt;"1"
    (1 row)
-</code></pre>
-</div>
+</code></pre></div></div>
 <h2 id="language-connectorsadapters-packages">Language connectors/adapters (packages)</h2>
 <ul>
   <li>Python – <a href="https://admin.fedoraproject.org/pkgdb/packages/python-psycopg2">python-psycopg2</a></li>

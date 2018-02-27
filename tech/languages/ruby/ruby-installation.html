@@ -136,33 +136,28 @@
             <h1 id="ruby-installation">Ruby installation</h1>
 <h2 id="cruby">CRuby</h2>
 <p>To install CRuby, simply type:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install ruby
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install ruby
+</code></pre></div></div>
 <p>Above command will install latest stable CRuby packages including RDoc, Psych, JSON, BigDecimal and IO/Console, and interactive Ruby shell <code class="highlighter-rouge">irb</code>. Other bundled libraries such as TclTk bindings, Rake and Test::Unit found in upstream Ruby distribution needs to be installed separately:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install ruby-tcltk rubygem-rake rubygem-test-unit
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install ruby-tcltk rubygem-rake rubygem-test-unit
+</code></pre></div></div>
 <p>Please note that we have already unbundled these libraries from Ruby itself, so they come in their own packages and need a specific dependency requirement in .gemspec or Gemfile as well as a specific <code class="highlighter-rouge">require()</code> call in your Ruby code.</p>
 <h2 id="jruby">JRuby</h2>
 <p>Alternatively Fedora comes with JRuby packages that can be installed via:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install jruby
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install jruby
+</code></pre></div></div>
 <p>Please note that JRuby packages in Fedora are not yet in the best shape and things might be broken. If you are not willing to experiment, please use the CRuby packages for now or use a Ruby version manager of your choice.</p>
 <h2 id="choosing-ruby-with-rubypick">Choosing Ruby with RubyPick</h2>
 <p>All Rubies come installed with RubyPick, the Fedora Ruby manager. Therefore CRuby has its executable at <code class="highlighter-rouge">/usr/bin/ruby-mri</code>, JRuby has its at <code class="highlighter-rouge">/usr/bin/jruby</code> and <code class="highlighter-rouge">/usr/bin/ruby</code> is a RubyPick executable that chooses the right version of Ruby to run.</p>
 <p>You don’t need to do anything to set up RubyPick to use CRuby as CRuby is the default. RubyPick was actually introduced to enable Fedora users run other Ruby implementations that might make their way into official Fedora repositories such as JRuby.</p>
 <p>To use different Ruby via RubyPick run:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>ruby _mri_ [params]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby _mri_ [params]
 ruby _jruby_ [params]
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Or set the expected environment variables as follows:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>RUBYPICK=_mri_
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RUBYPICK=_mri_
 RUBYPICK=_jruby_
-</code></pre>
-</div>
+</code></pre></div></div>
 <p><a href="https://github.com/fedora-ruby/rubypick">Read more about RubyPick</a>.</p>
           </div>
         </div>

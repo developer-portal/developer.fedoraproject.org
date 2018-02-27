@@ -137,39 +137,32 @@
 <p>You can install new gems on Fedora by either installing upstream gems from RubyGems.org or packaged gems from Fedora official repositories.</p>
 <h2 id="installing-gems-from-rubygemsorg">Installing gems from RubyGems.org</h2>
 <p>Installing upstream gems is as easy as running <code class="highlighter-rouge">gem install GEM_NAME</code> command, however some gems might fail to install due to compilation errors. If you need to compile gems C extensions, install Ruby header files with the following command:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install ruby-devel
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install ruby-devel
+</code></pre></div></div>
 <p>In case you lack the C compiler on your Fedora, you can install C development tools group:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf group install "C Development Tools and Libraries"
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf group install "C Development Tools and Libraries"
+</code></pre></div></div>
 <p>Other missing header files will depend on the particular gem you want to install. In Fedora the sub-packages containing header files are always suffixed with <code class="highlighter-rouge">-devel</code> so for example to install the <code class="highlighter-rouge">pg</code> gem, you will need to compile its C extensions against PostgreSQL header files that can be installed by installing <code class="highlighter-rouge">postgresql-devel</code> sub-package.</p>
 <p>If you installed all the above, but the extensions would still not compile, you are probably running a Fedora image that misses <code class="highlighter-rouge">redhat-rpm-config</code> package. In that case <code class="highlighter-rouge">gcc</code> compiler would complain about one of the following:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>gcc: error: conftest.c: No such file or directory
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcc: error: conftest.c: No such file or directory
 gcc: error: /usr/lib/rpm/redhat/redhat-hardened-cc1: No such file or directory
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>To solve this, simply run <code class="highlighter-rouge">sudo dnf install redhat-rpm-config</code>.</p>
 <p>If you are getting compilation issues mentioning <code class="highlighter-rouge">Failed to complete patch task</code>, you are likely missing <code class="highlighter-rouge">patch</code> command:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install patch
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install patch
+</code></pre></div></div>
 <h2 id="installing-gems-from-official-fedora-repositories">Installing gems from official Fedora repositories</h2>
 <p>Many gems from RubyGems.org are packaged and available in base Fedora to install. These packages have <code class="highlighter-rouge">rubygem-</code> prefix to upstream gem names and a <code class="highlighter-rouge">rubygem(name)</code> virtual provide, and also comes with precompiled extensions.</p>
 <p>To install <code class="highlighter-rouge">thor</code> gem you therefore install <code class="highlighter-rouge">rubygem-thor</code> package:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install rubygem-thor
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install rubygem-thor
+</code></pre></div></div>
 <p>or</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install 'rubygem(thor)'
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install 'rubygem(thor)'
+</code></pre></div></div>
 <p>This variant have the advantage of properly stating of all system dependencies and no need for any header files or development tools. Therefore you can just install the package and run it. It might also contain any security fixes or fixes that makes the gems run smoothly on Fedora without additional tweaking. This makes it a safer choice as you get the security fixes for your gems with your system updates.</p>
 <p>The disadvantage of installing Fedora packaged gems is the lack of versions to choose from. There is only one version that is usually available for a given Fedora at a time. To use the packaged gems successfully with Bundler, you will need to lock the exact version of the gem in the project’s Gemfile. If all gems are installed from Fedora repositories, you can take advantage of Bundler’s <code class="highlighter-rouge">--local</code> switch:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ bundle --local
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle --local
+</code></pre></div></div>
 <p>This way Bundler won’t try to get other gems from RubyGems.org and will only use and lock the gems found on your machine.</p>
 <p>Note that system gems are installed into <code class="highlighter-rouge">/usr/share/gems</code> and this path needs to be included in <code class="highlighter-rouge">$GEM_PATH</code> in case you are about to modify it.</p>
 <h3 id="isitfedoraruby">IsItFedoraRuby</h3>

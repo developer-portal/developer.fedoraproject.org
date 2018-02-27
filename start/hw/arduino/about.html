@@ -143,16 +143,14 @@ It allows you to:</p>
   <li>connect to the board’s serial console and communicate with it</li>
 </ul>
 <p>To install Arduino IDE on Fedora, just run:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install arduino
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install arduino
+</code></pre></div></div>
 <p>Now you are all set to start developing you project using Arduino IDE on Fedora. Just start it from your desktop environment applications menu or run the <code>arduino</code> command from the command line. For more information on how to use the Arduino IDE, please refer to the <a href="https://www.arduino.cc/en/Guide/Environment">documentation</a>.</p>
 <h2 id="ino">Ino</h2>
 <p>In contrast to Arduino IDE, the Ino tool is only command line oriented. It is ideal if you want to develop the project source using your favorite text editor and do all the tasks from the command line. You can even script some of the tasks and run those as part of the CI if you want.</p>
 <p>To install Ino tool on Fedora, just run:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install ino
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install ino
+</code></pre></div></div>
 <p>After the installation you will have the <code>ino</code> command available. Ino expect a specific directory structure for your project in order to work.</p>
 <p>You can use the <code>ino init</code> command for setting up the project directory structure. This will create <code>src/</code> directory for your project sources and <code>lib/</code> directory for the libraries your project is using.</p>
 <p>To list all supported boards use <code>ino list-models</code> command. To build the binary firmware use <code>ino build</code> with appropriate parameters. For uploading the compiled sketch use <code>ino upload</code> command and to communicate with your board using serial console use <code>ino serial</code> command.</p>

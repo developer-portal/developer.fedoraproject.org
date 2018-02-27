@@ -140,38 +140,34 @@
 sync the files instantly.</p>
 <p>To use NFS with Vagrant, <code class="highlighter-rouge">nfs-utils</code> package needs to be installed and nfs-server
 needs to be running. If it is not, run:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo dnf install nfs-utils &amp;&amp; sudo systemctl enable nfs-server
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install nfs-utils &amp;&amp; sudo systemctl enable nfs-server
+</code></pre></div></div>
 <p>Afterwards enable <code class="highlighter-rouge">nfs</code>, <code class="highlighter-rouge">rpc-bind</code> and <code class="highlighter-rouge">mountd</code> services for <code class="highlighter-rouge">firewalld</code>:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo firewall-cmd --permanent --add-service=nfs &amp;&amp;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo firewall-cmd --permanent --add-service=nfs &amp;&amp;
   sudo firewall-cmd --permanent --add-service=rpc-bind &amp;&amp;
   sudo firewall-cmd --permanent --add-service=mountd &amp;&amp;
   sudo firewall-cmd --reload
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>You need these services added for the zone you will run your virtual bridge
 (should be FedoraWorkstation as default).</p>
 <p>Once done, <code class="highlighter-rouge">:nfs</code> can be used as an option for files sync in project’s
 Vagrantfile as follows:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>Vagrant.configure("2") do |config|
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Vagrant.configure("2") do |config|
   # ...
 
   config.vm.synced_folder ".", "/vagrant", type: "nfs"
 end
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>One of the common errors when using NFS this way might be that your NFS version does not support UDP protocol which gets added by Vagrant as a default.</p>
 <p>In that case the error message is <code class="highlighter-rouge">mount.nfs: requested NFS version or transport protocol is not supported</code>. You can work around this by disabling UDP with <code class="highlighter-rouge">nfs_udp</code> option:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>config.vm.synced_folder ".", "/vagrant", type: "nfs", nfs_udp: false
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>config.vm.synced_folder ".", "/vagrant", type: "nfs", nfs_udp: false
+</code></pre></div></div>
 <h2 id="using-nfs-shares-from-vagrant-without-password-prompts">Using NFS shares from Vagrant without password prompts</h2>
 <p>To not enter password many times a day when using NFS, put the following inside
 your <code class="highlighter-rouge">/etc/sudoers</code> file by running <code class="highlighter-rouge">sudo visudo</code> (do not try to edit the file
 directly, <code class="highlighter-rouge">visudo</code> will check that the content of the file is correct before
 saving):</p>
-<div class="highlighter-rouge"><pre class="highlight"><code># Allow Vagrant to manage /etc/exports
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Allow Vagrant to manage /etc/exports
 Cmnd_Alias VAGRANT_EXPORTS_ADD = /usr/bin/tee -a /etc/exports
 Cmnd_Alias VAGRANT_NFSD_CHECK = /usr/bin/systemctl status --no-pager nfs-server.service
 Cmnd_Alias VAGRANT_NFSD_START = /usr/bin/systemctl start nfs-server.service
@@ -179,14 +175,12 @@ Cmnd_Alias VAGRANT_NFSD_APPLY = /usr/sbin/exportfs -ar
 Cmnd_Alias VAGRANT_EXPORTS_REMOVE = /bin/sed -r -e * d -ibak /*/exports
 Cmnd_Alias VAGRANT_EXPORTS_REMOVE_2 = /bin/cp /*/exports /etc/exports
 %vagrant ALL=(root) NOPASSWD: VAGRANT_EXPORTS_ADD, VAGRANT_NFSD_CHECK, VAGRANT_NFSD_START, VAGRANT_NFSD_APPLY, VAGRANT_EXPORTS_REMOVE, VAGRANT_EXPORTS_REMOVE_2
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Afterwards add yourself to the <code class="highlighter-rouge">vagrant</code> group if you are not there already by running:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo getent group vagrant &gt;/dev/null || sudo groupadd -r vagrant
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo getent group vagrant &gt;/dev/null || sudo groupadd -r vagrant
 $ sudo gpasswd -a ${USER} vagrant
 $ newgrp vagrant
-</code></pre>
-</div>
+</code></pre></div></div>
           </div>
         </div>
       </div>

@@ -138,11 +138,10 @@
           <div class="panel panel-default content-content">
             <h1 id="installing-ruby-and-rails-with-rbenv">Installing Ruby and Rails with rbenv</h1>
 <p>The first step is to install dependencies for Ruby.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo dnf install git-core zlib zlib-devel gcc-c++ patch readline readline-devel libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison curl sqlite-devel
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install git-core zlib zlib-devel gcc-c++ patch readline readline-devel libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison curl sqlite-devel
+</code></pre></div></div>
 <p>Install rbenv</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>cd
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' &gt;&gt; ~/.bashrc
 echo 'eval "$(rbenv init -)"' &gt;&gt; ~/.bashrc
@@ -151,45 +150,36 @@ exec $SHELL
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' &gt;&gt; ~/.bashrc
 exec $SHELL
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Install Ruby</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>rbenv install 2.3.1
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rbenv install 2.3.1
 rbenv global 2.3.1
 ruby -v
 
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Use this command if you do not want rubygems to install the documentation for each package locally.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>echo "gem: --no-ri --no-rdoc" &gt; ~/.gemrc
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "gem: --no-ri --no-rdoc" &gt; ~/.gemrc
+</code></pre></div></div>
 <p>Install bundler</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>gem install bundler
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install bundler
+</code></pre></div></div>
 <p>Whenever you install a new version of Ruby or a gem, you should run the rehash sub-command. This will make rails executables known to rbenv, which will allow us to run those executables:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>rbenv rehash 
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rbenv rehash 
+</code></pre></div></div>
 <h1 id="installing-rails">Installing Rails</h1>
 <p>Rails depends on a Javascript runtime, install nodejs.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo dnf install epel-release
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install epel-release
 sudo dnf install nodejs
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>And now install Rails</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>gem install rails -v 4.2.6
-</code></pre>
-</div>
-<div class="highlighter-rouge"><pre class="highlight"><code>rbenv rehash
-</code></pre>
-</div>
-<div class="highlighter-rouge"><pre class="highlight"><code>rails -v
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install rails -v 4.2.6
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rbenv rehash
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rails -v
+</code></pre></div></div>
 <p>#Create your first Rails app</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>rails new myapp
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rails new myapp
 
 # Move into the application directory
 cd myapp
@@ -199,8 +189,7 @@ rake db:create
 
 # Start the server
 rails server
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>You can now visit http://localhost:3000 to view your new website.</p>
           </div>
         </div>

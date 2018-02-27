@@ -157,21 +157,19 @@ ready for you in the repositories:</p>
 </ul>
 <p>Quite a nest, isn’t it?
 You can install them like this:</p>
-<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">sudo</span><span class="kv"> dnf install python37  # to get CPython 3.7
-</span><span class="w">$ </span><span class="nc">sudo</span><span class="kv"> dnf install python34  # to get CPython 3.4
-</span><span class="w">$ </span><span class="nc">sudo</span><span class="kv"> dnf install python26  # to get CPython 2.6
-</span><span class="w">$ </span><span class="nc">sudo</span><span class="kv"> dnf install pypy pypy3 jython python35  # to get more at once
-</span></code></pre>
-</div>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">sudo </span>dnf <span class="nb">install </span>python37  <span class="c"># to get CPython 3.7</span>
+<span class="gp">$</span> <span class="nb">sudo </span>dnf <span class="nb">install </span>python34  <span class="c"># to get CPython 3.4</span>
+<span class="gp">$</span> <span class="nb">sudo </span>dnf <span class="nb">install </span>python26  <span class="c"># to get CPython 2.6</span>
+<span class="gp">$</span> <span class="nb">sudo </span>dnf <span class="nb">install </span>pypy pypy3 jython python35  <span class="c"># to get more at once</span>
+</code></pre></div></div>
 <p>After that, you can run an interactive console or your script with, let’s say,
 CPython 3.4:</p>
-<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">python3.4</span><span class="kv">
-</span>Python 3.4.3 (default, Jul 11 2016, 11:30:44) 
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> python3.4
+<span class="go">Python 3.4.3 (default, Jul 11 2016, 11:30:44) 
 [GCC 5.3.1 20160406 (Red Hat 5.3.1-6)] on linux
 Type "help", "copyright", "credits" or "license" for more information.
-&gt;&gt;&gt; 
-</code></pre>
-</div>
+</span><span class="gp">&gt;</span><span class="o">&gt;&gt;</span> 
+</code></pre></div></div>
 <p><strong>Warning:</strong> For production purposes you should use <code class="highlighter-rouge">python3</code> or <code class="highlighter-rouge">python2</code>
 packages only. Other CPython versions might be <strong>unstable</strong> or even <strong>dangerous</strong>
 (either because they are extremely old or quite the contrary alpha/beta quality)
@@ -181,26 +179,25 @@ and are intended solely for development.</p>
 on multiple Pythons. If you install it on Fedora via the dnf package manager,
 you’ll automatically get all the CPythons (except the development version)
 and PyPys:</p>
-<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">sudo</span><span class="kv"> dnf install tox
-</span></code></pre>
-</div>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">sudo </span>dnf <span class="nb">install </span>tox
+</code></pre></div></div>
 <p>If you are not yet familiar with tox, don’t worry. This short example will show
 you how to start.</p>
 <p>Let’s create a directory and a simple Python file in it that will say something nice:</p>
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># say.py</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'Fedora is the best OS for Python developers'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">'</span><span class="se">\n\n</span><span class="s">'</span><span class="p">)</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># say.py</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Fedora is the best OS for Python developers'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">'</span><span class="se">
+
+</span><span class="s">'</span><span class="p">)</span>
+</code></pre></div></div>
 <p>Now we’ll test if it works with all the Pythons, with tox.
 We’ll create a simple configuration file for tox, <code class="highlighter-rouge">tox.ini</code>, in the same
 directory:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>[tox]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[tox]
 envlist = py27,py35,py36,pypy,pypy3
 skipsdist = True
 [testenv]
 commands=python say.py
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>The <code class="highlighter-rouge">envlist</code> directive defines the list of Pythons to test on.
 Normally, tox assumes you are testing a project with its own <code class="highlighter-rouge">setup.py</code>. For
 the simlicity of this demo, we are not using it, and we need to tell this to
@@ -209,33 +206,32 @@ Finally the <code class="highlighter-rouge">commands</code> in <code class="high
 for the test, normally that would be <code class="highlighter-rouge">python setup.py test</code>, <code class="highlighter-rouge">py.test</code> or
 similar.</p>
 <p>With <code class="highlighter-rouge">tox.ini</code>, just run tox in the same directory:</p>
-<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">tox</span><span class="kv">
-</span>[...]
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> tox
+<span class="go">[...]
 ERROR:   py27: commands failed
   py35: commands succeeded
   py36: commands succeeded
 ERROR:   pypy: commands failed
   pypy3: commands succeeded
-</code></pre>
-</div>
+</span></code></pre></div></div>
 <p>As you can see, there’s something wrong with the script: it only works on
 Python 3. The full tox output (omitted here) contains the exact error.
 If you want to support old Python 2 as well, you’ll have to fix it:</p>
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># say.py</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># say.py</span>
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'Fedora is the best OS for Python developers'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">'</span><span class="se">\n\n</span><span class="s">'</span><span class="p">)</span>
-</code></pre>
-</div>
-<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">tox</span><span class="kv">
-</span>[...]
+<span class="k">print</span><span class="p">(</span><span class="s">'Fedora is the best OS for Python developers'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">'</span><span class="se">
+
+</span><span class="s">'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> tox
+<span class="go">[...]
   py27: commands succeeded
   py35: commands succeeded
   py36: commands succeeded
   pypy: commands succeeded
   pypy3: commands succeeded
   congratulations :)
-</code></pre>
-</div>
+</span></code></pre></div></div>
 <p>If you want to use tox for your projects, you can learn more at
 <a href="https://tox.readthedocs.io/">the documentation</a>.</p>
 <h2 id="creating-virtualenvs-and-installing-packages">Creating virtualenvs and installing packages</h2>
@@ -250,40 +246,38 @@ named <code class="highlighter-rouge">env</code> and install some package into i
 <h3 id="python-34-only">Python 3.4+ only</h3>
 <p>Recent versions of Python include the <code class="highlighter-rouge">venv</code> module, which can create virtual
 environments.</p>
-<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">python3.5</span><span class="kv"> -m venv env  # create the virtualenv
-</span><span class="w">$ </span><span class="nc">.</span><span class="kv"> env/bin/activate  # activate it
-</span><span class="w">(env)$ </span><span class="nc">python</span><span class="kv"> -m pip install requests  # install a package with pip
-</span>...
-<span class="w">(env)$ </span><span class="nc">python</span><span class="kv">  # run python from that virtualenv
-</span>Python 3.5.2 (default, Aug 16 2016, 21:50:46) 
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> python3.5 <span class="nt">-m</span> venv <span class="nb">env</span>  <span class="c"># create the virtualenv</span>
+<span class="gp">$</span> <span class="nb">.</span> <span class="nb">env</span>/bin/activate  <span class="c"># activate it</span>
+<span class="gp">(env)$</span> python <span class="nt">-m</span> pip <span class="nb">install </span>requests  <span class="c"># install a package with pip</span>
+<span class="c">...
+</span><span class="gp">(env)$</span> python  <span class="c"># run python from that virtualenv</span>
+<span class="go">Python 3.5.2 (default, Aug 16 2016, 21:50:46) 
 [GCC 5.3.1 20160406 (Red Hat 5.3.1-6)] on linux
 Type "help", "copyright", "credits" or "license" for more information.
-&gt;&gt;&gt; import requests
-&gt;&gt;&gt; ...
-<span class="w">(env)$ </span><span class="nc">deactivate</span><span class="kv">  # go back to "normal"
-</span></code></pre>
-</div>
+</span><span class="gp">&gt;</span><span class="o">&gt;&gt;</span> import requests
+<span class="gp">&gt;</span><span class="o">&gt;&gt;</span> ...
+<span class="gp">(env)$</span> deactivate  <span class="c"># go back to "normal"</span>
+</code></pre></div></div>
 <h3 id="python-2x-3x-pypys-jython">Python 2.x, 3.x, PyPys, Jython</h3>
 <p>For other Python versions, a tool called <code class="highlighter-rouge">virtualenv</code> can create virtual
 environments:</p>
-<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">dnf</span><span class="kv"> install python-virtualenv  # install the necessary tool
-</span><span class="w">$ </span><span class="nc">virtualenv</span><span class="kv"> --python /usr/bin/python2.7 env  # create the virtualenv
-</span>Running virtualenv with interpreter /usr/bin/python2.7
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> dnf <span class="nb">install </span>python-virtualenv  <span class="c"># install the necessary tool</span>
+<span class="gp">$</span> virtualenv <span class="nt">--python</span> /usr/bin/python2.7 <span class="nb">env</span>  <span class="c"># create the virtualenv</span>
+<span class="go">Running virtualenv with interpreter /usr/bin/python2.7
 New python executable in env/bin/python2.7
 Also creating executable in env/bin/python
 Installing setuptools, pip...done.
-<span class="w">$ </span><span class="nc">.</span><span class="kv"> env/bin/activate  # activate it
-</span><span class="w">(env)$ </span><span class="nc">python</span><span class="kv"> -m pip install requests  # install a package with pip
-</span>...
-<span class="w">(env)$ </span><span class="nc">python</span><span class="kv">  # run python from that virtualenv
-</span>Python 2.7.11 (default, Jul  8 2016, 19:45:00) 
+</span><span class="gp">$</span> <span class="nb">.</span> <span class="nb">env</span>/bin/activate  <span class="c"># activate it</span>
+<span class="gp">(env)$</span> python <span class="nt">-m</span> pip <span class="nb">install </span>requests  <span class="c"># install a package with pip</span>
+<span class="c">...
+</span><span class="gp">(env)$</span> python  <span class="c"># run python from that virtualenv</span>
+<span class="go">Python 2.7.11 (default, Jul  8 2016, 19:45:00) 
 [GCC 5.3.1 20160406 (Red Hat 5.3.1-6)] on linux2
 Type "help", "copyright", "credits" or "license" for more information.
-&gt;&gt;&gt; import requests
-&gt;&gt;&gt; ...
-<span class="w">(env)$ </span><span class="nc">deactivate</span><span class="kv">  # go back to "normal"
-</span></code></pre>
-</div>
+</span><span class="gp">&gt;</span><span class="o">&gt;&gt;</span> import requests
+<span class="gp">&gt;</span><span class="o">&gt;&gt;</span> ...
+<span class="gp">(env)$</span> deactivate  <span class="c"># go back to "normal"</span>
+</code></pre></div></div>
 <p>If you don’t wish to use Python 2 at all, you might install <code class="highlighter-rouge">python3-virtualenv</code>
 in the first step and than use <code class="highlighter-rouge">virtualenv-3</code> command instead  of <code class="highlighter-rouge">virtualenv</code>.</p>
 <p>To learn more about virtualenvs, visit
@@ -293,9 +287,8 @@ in the first step and than use <code class="highlighter-rouge">virtualenv-3</cod
 It does have a rudimentary pip replacement called
 <a href="https://pypi.python.org/pypi/micropython-upip/">upip</a>, which you can use to
 install packages that support MicroPython. Run it to find out more:</p>
-<div class="language-console highlighter-rouge"><pre class="highlight"><code><span class="w">$ </span><span class="nc">micropython</span><span class="kv"> -m upip
-</span></code></pre>
-</div>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> micropython <span class="nt">-m</span> upip
+</code></pre></div></div>
           </div>
         </div>
       </div>
