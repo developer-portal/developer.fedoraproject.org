@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Deploy and distribute &mdash; Fedora Developer Portal</title>
+  <title>About Flatpak &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running  Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/deployment.html">
+  <link rel="canonical" href="http://developer.fedoraproject.org/deployment/flatpak/about.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -35,7 +35,7 @@
   </script>
 </head>
   <body>
-    <div style="background-color: #333">
+  <div style="background-color: #333">
 <div class="container">
 <div style="margin-bottom: 6px; margin-top: 6px" class="alert alert-warning">
 <span class="pficon pficon-warning-triangle-o"></span>
@@ -106,8 +106,18 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-  <h2>Deploy and distribute</h2>
-  <p>Package as an RPM. Distribute with Copr. Deploy to OpenShift.</p>
+          <img class="img-rounded" src="/static/logo/flatpak.png">
+          <img class="img-rounded" src="/static/logo/flatpak.png">
+          <img class="img-rounded" src="/static/logo/flatpak.png">
+          <img class="img-rounded" src="/static/logo/flatpak.png">
+          <h2>About Flatpak</h2>
+          <h2>Packaging with Flatpak</h2>
+          <h2>Installing Flatpak</h2>
+          <h2>Flatpak Usage</h2>
+          <p>Software utility for software deployment, package management and application virtualization.</p>
+          <p></p>
+          <p></p>
+          <p></p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -119,183 +129,36 @@
     </div>
     <!-- Content -->
     <div class="container">
-      <div class="section-content">
-        <div class="row">
-    <div class="col-sm-6">
-  <a class="panel-link" href="/deployment/rpm/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/rpm.png">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="list-group content-menu">
+                <a href="/deployment/flatpak/about.html" class="list-group-item  active ">About Flatpak</a>
+                <a href="/deployment/flatpak/flatpak-install.html" class="list-group-item ">Installing Flatpak</a>
+                <a href="/deployment/flatpak/flatpak-building.html" class="list-group-item ">Packaging with Flatpak</a>
+                <a href="/deployment/flatpak/flatpak-usage.html" class="list-group-item ">Flatpak Usage</a>
           </div>
-          <div class="media-body">
-            <h3>
-              RPM Packaging
-            </h3>
-            <p>How to package your application and ship it to RPM based systems.
-</p>
+          <div class="panel panel-default">
+            <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
+              <div id="ask-fedora">
+  Have a question?
+    <a href="//ask.fedoraproject.org/">Ask Fedora.</a>
+</div>
+            </div>
+          </div>
+          <a href="https://github.com/developer-portal/content/blob/master//deployment/flatpak//about.md" class="btn btn-default">Edit this page</a>
+        </div>
+        <div class="col-sm-9">
+          <div class="panel panel-default content-content">
+            <h1 id="flatpak">Flatpak</h1>
+<p><a href="https://flatpak.org/">Flatpak</a> is a software utility for software deployment, package management and application virtualization. It provides a sandbox environment in which users can run applications in isolation from the rest of the system.</p>
+<p>If you’re unsure about whether Flatpak is for you or not, you may want to check out the <a href="https://flatpak.org/faq">Frequently Asked Questions (FAQ)</a>.</p>
+<h2 id="references">References</h2>
+<ul>
+  <li><a href="https://fedoramagazine.org/getting-started-flatpak/">FedoraMagazine - Getting Started with Flatpak</a></li>
+  <li><a href="http://docs.flatpak.org/en/latest/">Official Flatpak Documentation</a></li>
+</ul>
           </div>
         </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/deployment/secondary_architectures/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/secondary_architectures.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Secondary Architectures
-            </h3>
-            <p>Building your application for architectures like s390(x), PowerPC, ARMv8</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/deployment/copr/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/copr.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Copr Build Service
-            </h3>
-            <p>Copr is a service that builds your application as an RPM and provides you with your own Dnf/Yum repository.
-</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/deployment/openshift/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/openshift.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              OpenShift
-            </h3>
-            <p>OpenShift</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/deployment/flatpak/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/flatpak.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              About Flatpak
-            </h3>
-            <p>Software utility for software deployment, package management and application virtualization.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/deployment/maintain/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/maintain.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Maintain and Improve
-            </h3>
-            <p>Maintain and improve your packages with set of tools.
-</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/deployment/flatpak/flatpak-building.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/flatpak.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Packaging with Flatpak
-            </h3>
-            <p></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/deployment/flatpak/flatpak-install.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/flatpak.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Installing Flatpak
-            </h3>
-            <p></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/deployment/flatpak/flatpak-usage.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/flatpak.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Flatpak Usage
-            </h3>
-            <p></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-</div>
       </div>
     </div>
     <!-- Some other stuff -->

@@ -49,6 +49,9 @@
 <loc>http://developer.fedoraproject.org/deployment/openshift/about.html</loc>
 </url>
 <url>
+<loc>http://developer.fedoraproject.org/deployment/flatpak/about.html</loc>
+</url>
+<url>
 <loc>http://developer.fedoraproject.org/deployment/maintain/about.html</loc>
 </url>
 <url>
@@ -152,6 +155,15 @@
 </url>
 <url>
 <loc>http://developer.fedoraproject.org/tech/languages/python/flask-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/deployment/flatpak/flatpak-building.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/deployment/flatpak/flatpak-install.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/deployment/flatpak/flatpak-usage.html</loc>
 </url>
 <url>
 <loc>http://developer.fedoraproject.org/tech/languages/rust/format-rust-code.html</loc>
