@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Virt-builder &mdash; Fedora Developer Portal</title>
+  <title>Hugo &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running  Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tools/virt-builder/about.html">
+  <link rel="canonical" href="http://developer.fedoraproject.org/start/sw/web-app/hugo.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -36,7 +36,7 @@
 </head>
   <body>
     <!-- The top blue thing -->
-    <div id="splash" class="splash-size-small splash-section-tools">
+    <div id="splash" class="splash-size-small splash-section-start">
       <div class="container">
         <div class="row" id="top">
   <div class="col-sm-2" id="logo-col">
@@ -52,10 +52,10 @@
   <div class="col-sm-7" id="menu-col">
     <nav>
   <ul class="nav navbar-nav">
-    <li class="">
+    <li class=" active ">
       <a href="/start.html">Start a project</a>
     </li>
-    <li class=" active ">
+    <li class="">
       <a href="/tools.html">Get tools</a>
     </li>
     <li class="">
@@ -97,9 +97,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/virt-builder.png">
-          <h2>Virt-builder</h2>
-          <p>Tool to quickly build (and customize) virtual machine images</p>
+          <img class="img-rounded" src="/static/logo/web-app.png">
+          <h2>Web Application</h2>
+          <p></p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -114,7 +114,16 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="list-group content-menu">
-                <a href="/tools/virt-builder/about.html" class="list-group-item  active ">Virt-builder</a>
+                <a href="/start/sw/web-app/about.html" class="list-group-item ">Web Application</a>
+                <a href="/start/sw/web-app/apache.html" class="list-group-item ">Apache HTTP Server</a>
+                <a href="/start/sw/web-app/django.html" class="list-group-item ">Python Django</a>
+                <a href="/start/sw/web-app/laravel5.html" class="list-group-item ">PHP Laravel 5</a>
+                <a href="/start/sw/web-app/jekyll.html" class="list-group-item ">Jekyll</a>
+                <a href="/start/sw/web-app/rails.html" class="list-group-item ">Ruby on Rails</a>
+                <a href="/start/sw/web-app/nginx.html" class="list-group-item ">NGINX HTTP Server</a>
+                <a href="/start/sw/web-app/hugo.html" class="list-group-item  active ">Hugo</a>
+                <a href="/start/sw/web-app/php-symfony.html" class="list-group-item ">PHP Symfony</a>
+                <a href="/start/sw/web-app/php-zend.html" class="list-group-item ">PHP Zend Framework 2</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -124,104 +133,32 @@
 </div>
             </div>
           </div>
-          <a href="https://github.com/developer-portal/content/blob/master//tools/virt-builder//about.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//start/sw/web-app//hugo.md" class="btn btn-default">Edit this page</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h1 id="virt-builder">Virt-builder</h1>
-<p><a href="http://libguestfs.org/virt-builder.1.html">Virt-builder</a> is a tool for
-quickly building new virtual machines.  You can build a variety of
-VMs for local or cloud use, usually within a few minutes or less.
-Virt-builder also has many ways to customize these VMs.  Everything is
-run from the command line and nothing requires root privileges, so
-automation and scripting is simple.</p>
-<p>Note that <code class="highlighter-rouge">virt-builder</code> does not install guests from scratch.  It takes
-cleanly prepared, digitally signed OS templates and customizes them.
-This approach is used because it is much faster, but if you need to do
-fresh installs you may want to look at
-<a href="https://github.com/virt-manager/virt-manager/blob/master/man/virt-install.pod"><code class="highlighter-rouge">virt-install(1)</code></a>
-and
-<a href="https://github.com/clalancette/oz/wiki/oz-install"><code class="highlighter-rouge">oz-install(1)</code></a>.</p>
-<p>Refer to the <a href="http://libguestfs.org/virt-builder.1.html">extensive
-documentation of <code class="highlighter-rouge">virt-builder</code></a>.</p>
+            <h1 id="hugo">Hugo</h1>
+<p>Hugo is a fast and modern static site generator written in Go, and designed to make website creation fun again.</p>
 <h2 id="installation">Installation</h2>
-<p>Virt-builder tool is provided as part of <code class="highlighter-rouge">libguestfs-tools-c</code> RPM
-package in Fedora:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install libguestfs-tools-c
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install hugo
 </code></pre></div></div>
-<h2 id="simple-usage">Simple usage</h2>
-<p>Build a minimal VM disk image:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ virt-builder fedora-27 --root-password password:123456
+<h2 id="creating-a-new-website">Creating a new website</h2>
+<p>If you are starting a new website, instead of creating all the necessary files yourself you can use the <code class="highlighter-rouge">hugo new</code> command.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ hugo new site my-site
+$ cd my-site
 </code></pre></div></div>
-<p>will build a Fedora 27 image (called ‘fedora-27.img’, in the current
-working directory, which will later be imported into libvirt for use)
-for the same architecture as virt-builder (so running it from an i386
-installation will try to build an i386 image, if available).  This will
-have all default configuration (minimal size, no user accounts, random
-root password, only the bare minimum installed software, etc.).</p>
-<p>Import the above disk image into libvirt:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ virt-install \
-   --name f27vm1 --ram 2048 \
-   --disk path=fedora-27.img,format=raw \
-   --os-variant fedora27 \
-   --import
+<p>The command will generate all the directories and config.toml files for your new website but you need to install a theme before building the site.</p>
+<h2 id="add-a-theme">Add a theme</h2>
+<p>Hugo have a list of themes on https://themes.gohugo.io/ that you can browse or you can create one yourself. Most themes use git so you just need to add them as git submodules:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git init
+$ git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
 </code></pre></div></div>
-<p>Note: The <code class="highlighter-rouge">--os-variant</code> doesn’t <em>strictly</em> have to be F27; the nearest
-possible available Fedora variant is fine.  To find the list of variants
-for your current Fedora release, run: <code class="highlighter-rouge">osinfo-query os | grep fedora</code>.</p>
-<h2 id="examples-to-create-custom-virtual-machines">Examples to create custom virtual machines</h2>
-<h3 id="create-an-up-to-date-fedora-27-vm">Create an up-to-date Fedora 27 VM</h3>
-<p>Prepare a QCOW2 Fedora 27 VM, with 40GB disk size, and update to latest
-available packages:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ virt-builder fedora-27 -o f27vm2.qcow2 --format qcow2 \
-    --update --selinux-relabel --size 40G
+<p>To use the theme you need to add the theme parameter to the config.toml file</p>
+<h2 id="running-hugo-built-in-server">Running Hugo built in server</h2>
+<p>Hugo comes with a built in web server to use if you don’t want to install a web server. To run the server, you need to type:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ hugo server
 </code></pre></div></div>
-<p>Import the disk image into libvirt, and provide it 4GB of memory:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ virt-install --name f27vm2 --ram 4096 \
-    --disk path=f27vm2.qcow2,format=qcow2,cache=writeback \
-    --nographics --os-variant fedora27 --import
-</code></pre></div></div>
-<h3 id="create-a-rawhide-vm-disk-image">Create a rawhide VM disk image</h3>
-<p>This creates a rawhide disk image:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ virt-builder fedora-27 \
-    --install fedora-repos-rawhide \
-    --edit '/etc/yum.repos.d/fedora-rawhide.repo: s/enabled=0/enabled=1/' \
-    --update \
-    --selinux-relabel --size 40G \
-    --output rawhide-vm.img
-</code></pre></div></div>
-<p>Import it into libvirt with <code class="highlighter-rouge">virt-install</code> (as shown in previous
-examples).</p>
-<p>NOTE: The ‘fedora-repos-rawhide’ RPM can also be installed from
-inside the image too:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install fedora-repos-rawhide
-</code></pre></div></div>
-<h2 id="manipulating-the-virtual-machines">Manipulating the virtual machines</h2>
-<p>Use the libvirt shell interface <code class="highlighter-rouge">virsh(1)</code> or <code class="highlighter-rouge">virt-manager(1)</code> to
-manipulate the VM.  A couple of examples:</p>
-<p>Enumerate all virtual machines:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo virsh list --all
-</code></pre></div></div>
-<p>Start a VM:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo virsh start f27vm1
-</code></pre></div></div>
-<p>Take a snapshot of a running virtual machine:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo virsh snapshot-create-as f27vm1 snap1 "Clean F27 VM"
-</code></pre></div></div>
-<p>NOTE: With this kind of snapshot, the original and its delta (the
-snapshot) are stored in a single disk image file (convenient for moving
-them across machines).  The VM disk image should be of QCOW2 format.</p>
-<p>Revert to a specific snapshot:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo virsh snapshot-revert f27vm1 snap1
-</code></pre></div></div>
-<p>Cleaning up VMs and their associated storage:</p>
-<p>To gracefully shutdown and delete a virtual machine (including all its
-associated disk images):</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo virsh stop f27vm1
-$ sudo virsh undefine f27vm1 --remove-all-storage
-</code></pre></div></div>
-<p>NOTE: The flag <code class="highlighter-rouge">--remove-all-storage</code> will delete the VM’s disk image(s),
-so ensure you took out relevant data from your VMs.</p>
+<p>If you are editing and want to see your drafts, add the <code class="highlighter-rouge">-D</code> flag</p>
           </div>
         </div>
       </div>
