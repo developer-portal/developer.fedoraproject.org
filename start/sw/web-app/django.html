@@ -150,74 +150,60 @@
 <p>Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design. 
 Django is one of the most popular Python Web Frameworks. It has very useful web page. Visit it by clicking on <a href="https://www.djangoproject.com/">this link</a>. 
 Because you will need to work with Python packages, write this command to your command line.</p>
-<p>For Python:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install python-pip
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install python3-pip
 </code></pre></div></div>
-<p>or Python 3:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install python3-pip
-</code></pre></div></div>
-<h1 id="get-started">Get started</h1>
-<h2 id="how-to-install-virtualenv">How to install virtualenv</h2>
+<h2 id="get-started">Get started</h2>
+<h3 id="how-to-install-virtualenv">How to install virtualenv</h3>
 <p>It’s recommended to keep your project inside virtual environment. But you can skip this step if you want. 
 Enter this command to your command line for installation:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install python-virtualenv
-</code></pre></div></div>
-<p>or installation for Python3:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install python3-virtualenv
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install python3-virtualenv
 </code></pre></div></div>
 <p>Get inside your working directory or create new where you want to store your virtual environment:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir working-dir
-cd working-dir
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir working-dir
+$ cd working-dir
 </code></pre></div></div>
 <p>Now we will create virtual environment called venv inside this directory using following command:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>virtualenv venv
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ virtualenv venv
 </code></pre></div></div>
 <p>When it’s done, we will activate our virtualenv. Now we will use following commands:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd venv
-source bin/activate
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd venv
+$ source bin/activate
 </code></pre></div></div>
 <p>When it’s activated we will see indicator of same name as our virtualenv. 
 Now we will check if we really have empty environment:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip freeze
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip freeze
 </code></pre></div></div>
 <p>It will return nothing.</p>
-<h2 id="how-to-install-django">How to install Django</h2>
+<h3 id="how-to-install-django">How to install Django</h3>
 <p>Now if you installed <code class="highlighter-rouge">virtualenv</code> do not leave it, we will install Django now. If you installed <code class="highlighter-rouge">virtualenv</code> use this command 
 inside your working directory with activated <code class="highlighter-rouge">virtualenv</code>:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install django
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip3 install django
 </code></pre></div></div>
 <p>If you are following a book or a tutorial, you might want to specify the same exact version like this</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install django==1.10
-</code></pre></div></div>
-<p>For Python 3:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip3 install django==1.10
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip3 install django==1.10
 </code></pre></div></div>
 <p>Of course you can use the version that is prepared by Fedora community by typing:</p>
-<p>For Python 2:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install python-django
-</code></pre></div></div>
-<p>or Python 3:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install python3-django
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install python3-django
 </code></pre></div></div>
 <p>and when it’s finished use following command to start your first project called mysite:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>django-admin startproject mysite
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ django-admin startproject mysite
 </code></pre></div></div>
 <p>Now if you will check your directory using ls you will see new directory called mysite. We 
 will go inside that directory and we will run our project by following commands:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd mysite/
-python manage.py runserver
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd mysite/
+$ python3 manage.py runserver
 </code></pre></div></div>
 <p>You will see message with information about your development server. When you insert URL into your browser, 
 you will see welcome page (default URL for development server is http://127.0.0.1:8000/).
 And you successfully started your first Django project.</p>
-<h2 id="switching-virtualenvs">Switching Virtualenvs</h2>
+<h3 id="switching-virtualenvs">Switching Virtualenvs</h3>
 <p>You can use <code class="highlighter-rouge">virtualenvwrapper</code> after installing it with usual command</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf install python-virtualenvwrapper
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install python3-virtualenvwrapper
 </code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkvirtualenv env1
-mkvirtualenv env2
-workon env1
-workon env2
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkvirtualenv env1
+$ mkvirtualenv env2
+$ workon env1
+$ workon env2
 </code></pre></div></div>
           </div>
         </div>
