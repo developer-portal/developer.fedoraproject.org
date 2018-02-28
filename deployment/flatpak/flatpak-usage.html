@@ -142,12 +142,12 @@
           <div class="panel panel-default content-content">
             <h1 id="flatpak-usage">Flatpak Usage</h1>
 <h2 id="installing-flatpak-applications">Installing Flatpak Applications</h2>
-<p>##Setting up the Flathub repository:</p>
+<h2 id="setting-up-the-flathub-repository">Setting up the Flathub repository:</h2>
 <p>Flathub is a a growing collection of apps which can be easily installed on any Linux distribution. Once setup, you can browse and install from an app center, like GNOME Software or KDE Discover. Alternatively, you can browse and install apps from the website or using the command line.</p>
 <p>To add the Flathub repository, open the Terminal, and run:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 </code></pre></div></div>
-<p>##Installing Flatpaks On Gnome (GNOME Software):</p>
+<h2 id="installing-flatpaks-on-gnome-gnome-software">Installing Flatpaks On Gnome (GNOME Software):</h2>
 <p>GNOME Software already supports Flatpak repositories, so applications can be installed directly from GNOME Software.</p>
 <p>Simply open “Software” from the GNOME Overview, and search for your desired application. If it is available as a flatpak, you will see it’s source labeled as “flathub.org”.</p>
 <p>Select the flatpak entry and click “Install”.</p>
@@ -156,7 +156,7 @@
 <p>Starting in Discover 5.12, Discover now supports Flatpak repositories, so you can directly install flatpak applications from it.</p>
 <p>Simply open Discover and browse or search through the app lists as normal. Similar to Gnome Software, applications that are available as flatpaks will list “Flatpak” as it’s source.</p>
 <p>Upon installations, applications can be launched as usual.</p>
-<p>##Installing Applications (Command Line):</p>
+<h2 id="installing-applications-command-line">Installing Applications (Command Line):</h2>
 <p>The <code class="highlighter-rouge">flatpak</code> command also lists and installs apps and runtimes. To list all apps available in a specific repository, run the <code class="highlighter-rouge">remote-ls</code> command:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ flatpak remote-ls flathub --app
 </code></pre></div></div>
