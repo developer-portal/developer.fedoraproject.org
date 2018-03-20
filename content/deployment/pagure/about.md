@@ -1,2 +1,4 @@
 
-->Authors: [Adam Samalik](asamalik@redhat.com)<-
+{:center: style="text-align: center"}
+Authors: [Adam Samalik](asamalik@redhat.com)
+{:center}
