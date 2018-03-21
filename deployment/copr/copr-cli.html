@@ -158,10 +158,10 @@
 <h2 id="submitting-a-build">Submitting a build</h2>
 <p>There are curently two ways of getting your SRPM(s) into Copr:</p>
 <p>A. Building from URL:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli build test-project-2 http://www.example.com/package-1.6-1.fc22.src.rpm
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli build test-project http://www.example.com/package-1.6-1.fc22.src.rpm
 </code></pre></div></div>
 <p>B. Uploading them into Copr directly:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli build test-project-2 ~/packages/package-1.6-1.fc22.src.rpm
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli build test-project ~/packages/package-1.6-1.fc22.src.rpm
 </code></pre></div></div>
 <p>The command line tool will now monitor your build and keeps you updated about any changes and results. You can safely interrupt it with <code class="highlighter-rouge">ctrl+c</code> at any time. The build will continue running.</p>
 <h2 id="adding-a-repository-and-installing-the-package">Adding a repository and installing the package</h2>
@@ -175,7 +175,7 @@
 <p>And install the package:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install package
 </code></pre></div></div>
-<p style="text-align: center">Authors: <a href="asamalik@redhat.com">Adam Samalik</a>, <a href="jstribny@redhat.com">Josef Stribny</a>, <a href="strzibny@strzibny.name">Josef Strzibny</a>, <a href="ssbarnea@users.noreply.github.com">Sorin Sbarnea</a></p>
+<p style="text-align: center">Authors: <a href="asamalik@redhat.com">Adam Samalik</a>, <a href="gavin.romig.koch@gmail.com">Gavin Romig-Koch</a>, <a href="jstribny@redhat.com">Josef Stribny</a>, <a href="strzibny@strzibny.name">Josef Strzibny</a>, <a href="ssbarnea@users.noreply.github.com">Sorin Sbarnea</a></p>
           </div>
         </div>
       </div>
