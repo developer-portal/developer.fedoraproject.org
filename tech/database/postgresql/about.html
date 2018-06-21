@@ -115,7 +115,6 @@
         <div class="col-sm-3">
           <div class="list-group content-menu">
                 <a href="/tech/database/postgresql/about.html" class="list-group-item  active ">PostgreSQL</a>
-                <a href="/tech/database/postgresql/postgresql-in-rpms.html" class="list-group-item ">PostgreSQL in RPMs</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -191,7 +190,7 @@ Type "help" for help.
 testdb=&gt;
 </code></pre></div></div>
 <h2 id="documentation">Documentation</h2>
-<p>Packaging documentation is available as <a href="postgresql-in-rpms.html">README.rpm-dist</a> in the <code class="highlighter-rouge">postgresql</code> package (client package).  Anybody running PostgreSQL on Fedora should start here:</p>
+<p>Packaging documentation is available as <a href="https://fedoraproject.org/wiki/PostgreSQL/README.rpm-dist">README.rpm-dist</a> in the <code class="highlighter-rouge">postgresql</code> package (client package).  Anybody running PostgreSQL on Fedora should start here:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>rpm <span class="nt">-qd</span> postgresql | <span class="nb">grep </span>README.rpm-dist
 /usr/share/doc/postgresql/README.rpm-dist
 <span class="nv">$ </span>less /usr/share/doc/postgresql/README.rpm-dist
@@ -204,8 +203,10 @@ $ rpm -ql postgresql-docs | grep pdf
 $ okular /usr/share/doc/postgresql-docs/postgresql-9.3.9-US.pdf  # PDF version
 </code></pre></div></div>
 <p>This documentation is also available <a href="http://www.postgresql.org/docs/">online</a>,
-please choose the version installed on your box
-(<code class="highlighter-rouge">rpm -q postgresql --qf "%{VERSION}\n"</code>).</p>
+please choose the version you have installed on you Fedora.
+You can look up the version by:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rpm -q postgresql --qf "%{VERSION}\n"
+</code></pre></div></div>
 <p>Other documentation available on-line:</p>
 <ul>
   <li><a href="https://fedoraproject.org/wiki/PostgreSQL">Fedora PostgreSQL Homepage</a></li>
@@ -261,7 +262,7 @@ is available on the <a href="https://github.com/fedora-cloud/Fedora-Dockerfiles/
 page</a>.</p>
 <p>There is also a PostgreSQL image available
 <a href="https://github.com/openshift/postgresql">for OpenShift</a>.</p>
-<p style="text-align: center">Authors: <a href="mailto:asamalik@redhat.com">Adam Samalik</a>, <a href="mailto:jstribny@redhat.com">Josef Stribny</a>, <a href="mailto:danofsatx@users.noreply.github.com">danofsatx</a>, <a href="mailto:ricky.grassmuck@gmail.com">ricky grassmuck</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%61%6E%74%6F%6E%69%6E.%6D%72%6B%76%69%63%61@%6F%75%74%6C%6F%6F%6B.%63%7A">antoninmrkvica</a>, <a href="mailto:%64%61%6E%6F%66%73%61%74%78@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">danofsatx</a>, <a href="mailto:%72%69%63%6B%79.%67%72%61%73%73%6D%75%63%6B@%67%6D%61%69%6C.%63%6F%6D">ricky grassmuck</a></p>
           </div>
         </div>
       </div>
@@ -282,20 +283,20 @@ page</a>.</p>
         <div class="widget-body">
           <dl>
             <dd><a href="/about.html">About Developer Portal</a></dd>
-            <dd><a href="//getfedora.org/en/sponsors">About Fedora</a></dd>
-            <dd><a href="//getfedora.org/en/sponsors">Sponsors</a></dd>
-            <dd><a href="http://fedoramagazine.org">Fedora Magazine</a></dd>
-            <dd><a href="//fedoraproject.org/wiki/Legal:Main#Legal">Legal</a></dd>
+            <dd><a href="https://getfedora.org/en/sponsors">About Fedora</a></dd>
+            <dd><a href="https://getfedora.org/en/sponsors">Sponsors</a></dd>
+            <dd><a href="https://fedoramagazine.org">Fedora Magazine</a></dd>
+            <dd><a href="https://fedoraproject.org/wiki/Legal:Main#Legal">Legal</a></dd>
           </dl>
           <ul class="list-inline">
             <li>
-              <a class="btn-social btn-outline" href="//www.facebook.com/TheFedoraProject"><i class="fa fa-fw fa-facebook"></i></a>
+              <a class="btn-social btn-outline" href="https://www.facebook.com/TheFedoraProject"><i class="fa fa-fw fa-facebook"></i></a>
             </li>
             <li>
-              <a class="btn-social btn-outline" href="//plus.google.com/112917221531140868607"><i class="fa fa-fw fa-google-plus"></i></a>
+              <a class="btn-social btn-outline" href="https://plus.google.com/112917221531140868607"><i class="fa fa-fw fa-google-plus"></i></a>
             </li>
             <li>
-              <a class="btn-social btn-outline" href="//twitter.com/fedora"><i class="fa fa-fw fa-twitter"></i></a>
+              <a class="btn-social btn-outline" href="https://twitter.com/fedora"><i class="fa fa-fw fa-twitter"></i></a>
             </li>
           </ul>
         </div>
@@ -304,13 +305,13 @@ page</a>.</p>
         <h3 class="widget-title uppercase">Download</h3>
         <div class="widget-body">
           <dl>
-            <dd><a href="//getfedora.org/en/workstation/download">Get Fedora Workstation</a></dd>
-            <dd><a href="//getfedora.org/en/server/download">Get Fedora Server</a></dd>
-            <dd><a href="//getfedora.org/en/cloud/download">Get Fedora Cloud</a></dd>
-            <dd><a href="//spins.fedoraproject.org">Fedora Spins</a></dd>
-            <dd><a href="//labs.fedoraproject.org">Fedora Labs</a></dd>
-            <dd><a href="//arm.fedoraproject.org">Fedora ARM<span class="sup">&reg;</span></a></dd>
-            <dd><a href="http://torrents.fedoraproject.org">Torrent Downloads</a></dd>
+            <dd><a href="https://getfedora.org/en/workstation/download/">Get Fedora Workstation</a></dd>
+            <dd><a href="https://getfedora.org/en/server/download/">Get Fedora Server</a></dd>
+            <dd><a href="https://alt.fedoraproject.org/en/cloud/">Get Fedora Cloud</a></dd>
+            <dd><a href="https://spins.fedoraproject.org">Fedora Spins</a></dd>
+            <dd><a href="https://labs.fedoraproject.org">Fedora Labs</a></dd>
+            <dd><a href="https://arm.fedoraproject.org">Fedora ARM<span class="sup">&reg;</span></a></dd>
+            <dd><a href="https://torrents.fedoraproject.org">Torrent Downloads</a></dd>
           </dl>
         </div>
       </div>
@@ -318,11 +319,11 @@ page</a>.</p>
         <h3 class="widget-title">Support</h3>
           <div class="widget-body">
             <dl>
-              <dd><a href="//fedoraproject.org/wiki/Communicating_and_getting_help">Get Help</a></dd>
-              <dd><a href="//ask.fedoraproject.org/">Ask Fedora</a></dd>
-              <dd><a href="http://fedoraforum.org/">Forums</a></dd>
-              <dd><a href="//fedoraproject.org/wiki/Common_F25_bugs">Common Bugs</a></dd>
-              <dd><a href="//docs.fedoraproject.org/en-US/Fedora/25/html/Installation_Guide">Installation Guide</a></dd>
+              <dd><a href="https://fedoraproject.org/wiki/Communicating_and_getting_help">Get Help</a></dd>
+              <dd><a href="https://ask.fedoraproject.org/">Ask Fedora</a></dd>
+              <dd><a href="https://fedoraforum.org/">Forums</a></dd>
+              <dd><a href="https://fedoraproject.org/wiki/Common_F25_bugs">Common Bugs</a></dd>
+              <dd><a href="https://docs.fedoraproject.org/en-US/Fedora/25/html/Installation_Guide">Installation Guide</a></dd>
             </dl>
           </div>
         </div>
@@ -330,11 +331,11 @@ page</a>.</p>
           <h3 class="widget-title">Join</h3>
             <div class="widget-body">
             <dl>
-              <dd><a href="//fedoraproject.org/wiki/Join">Join Fedora</a></dd>
+              <dd><a href="https://fedoraproject.org/wiki/Join">Join Fedora</a></dd>
               <dd><a href="http://fedoraplanet.org">Planet Fedora</a></dd>
-              <dd><a href="//fedoraproject.org/wiki/SIGs">Fedora SIGs</a></dd>
-              <dd><a href="//admin.fedoraproject.org/accounts/">Fedora Account System</a></dd>
-              <dd><a href="http://fedoracommunity.org/">Fedora Community</a></dd>
+              <dd><a href="https://fedoraproject.org/wiki/SIGs">Fedora SIGs</a></dd>
+              <dd><a href="https://admin.fedoraproject.org/accounts/">Fedora Account System</a></dd>
+              <dd><a href="https://fedoracommunity.org/">Fedora Community</a></dd>
             </dl>
           </div>
         </div>
@@ -342,13 +343,13 @@ page</a>.</p>
       <div class="row">
         <div class="col-md-2">
           <div class="widget-body">
-            <a href="http://www.redhat.com/"><img alt="Red Hat Logo" src="/static/logo/redhat.png" class="rh-logo"></a>
+            <a href="https://www.redhat.com/"><img alt="Red Hat Logo" src="/static/logo/redhat.png" class="rh-logo"></a>
           </div>
         </div>
         <div class="col-md-7">
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
-            <p class="sponsor"><a href="//www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
+            <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
             <p class="copy">&copy; 2018 Red Hat, Inc. and others.</p>
           </div>
         </div>
