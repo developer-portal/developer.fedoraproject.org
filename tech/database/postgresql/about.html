@@ -124,7 +124,6 @@
         <div class="col-sm-3">
           <div class="list-group content-menu">
                 <a href="/tech/database/postgresql/about.html" class="list-group-item  active ">PostgreSQL</a>
-                <a href="/tech/database/postgresql/postgresql-in-rpms.html" class="list-group-item ">PostgreSQL in RPMs</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -200,7 +199,7 @@ Type "help" for help.
 testdb=&gt;
 </code></pre></div></div>
 <h2 id="documentation">Documentation</h2>
-<p>Packaging documentation is available as <a href="postgresql-in-rpms.html">README.rpm-dist</a> in the <code class="highlighter-rouge">postgresql</code> package (client package).  Anybody running PostgreSQL on Fedora should start here:</p>
+<p>Packaging documentation is available as <a href="https://fedoraproject.org/wiki/PostgreSQL/README.rpm-dist">README.rpm-dist</a> in the <code class="highlighter-rouge">postgresql</code> package (client package).  Anybody running PostgreSQL on Fedora should start here:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>rpm <span class="nt">-qd</span> postgresql | <span class="nb">grep </span>README.rpm-dist
 /usr/share/doc/postgresql/README.rpm-dist
 <span class="nv">$ </span>less /usr/share/doc/postgresql/README.rpm-dist
@@ -213,8 +212,10 @@ $ rpm -ql postgresql-docs | grep pdf
 $ okular /usr/share/doc/postgresql-docs/postgresql-9.3.9-US.pdf  # PDF version
 </code></pre></div></div>
 <p>This documentation is also available <a href="http://www.postgresql.org/docs/">online</a>,
-please choose the version installed on your box
-(<code class="highlighter-rouge">rpm -q postgresql --qf "%{VERSION}\n"</code>).</p>
+please choose the version you have installed on you Fedora.
+You can look up the version by:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rpm -q postgresql --qf "%{VERSION}\n"
+</code></pre></div></div>
 <p>Other documentation available on-line:</p>
 <ul>
   <li><a href="https://fedoraproject.org/wiki/PostgreSQL">Fedora PostgreSQL Homepage</a></li>
@@ -270,7 +271,7 @@ is available on the <a href="https://github.com/fedora-cloud/Fedora-Dockerfiles/
 page</a>.</p>
 <p>There is also a PostgreSQL image available
 <a href="https://github.com/openshift/postgresql">for OpenShift</a>.</p>
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%64%61%6E%6F%66%73%61%74%78@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">danofsatx</a>, <a href="mailto:%72%69%63%6B%79.%67%72%61%73%73%6D%75%63%6B@%67%6D%61%69%6C.%63%6F%6D">ricky grassmuck</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%61%6E%74%6F%6E%69%6E.%6D%72%6B%76%69%63%61@%6F%75%74%6C%6F%6F%6B.%63%7A">antoninmrkvica</a>, <a href="mailto:%64%61%6E%6F%66%73%61%74%78@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">danofsatx</a>, <a href="mailto:%72%69%63%6B%79.%67%72%61%73%73%6D%75%63%6B@%67%6D%61%69%6C.%63%6F%6D">ricky grassmuck</a></p>
           </div>
         </div>
       </div>
