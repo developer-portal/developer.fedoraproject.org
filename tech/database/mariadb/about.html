@@ -140,11 +140,13 @@
             <h1 id="mariadb-sql-database">MariaDB SQL database</h1>
 <p><a href="https://mariadb.org/en/about/">MariaDB</a> is a drop-in replacement of MySQL, forked by the community from the latter. To learn more about MariaDB, visit <a href="https://mariadb.com/kb/en/mariadb/mariadb-vs-mysql-features/">upstream feature page</a>, and to see main differences from MySQL, see <a href="https://mariadb.com/kb/en/mariadb/mariadb-vs-mysql-compatibility/">compatibility documentation</a>.</p>
 <h2 id="what-implementations-of-mysql-we-have-in-fedora">What implementations of MySQL we have in Fedora</h2>
-<p><a href="https://apps.fedoraproject.org/packages/mariadb">MariaDB</a> is preferred MySQL implementation in Fedora. MariaDB can be usually used instead of MySQL as a drop-in replacement in most practical cases and most of the applications will work exactly the same. However, when you need to install Community MySQL, it is available as <a href="https://apps.fedoraproject.org/packages/community-mysql">community-mysql package</a> in Fedora repositories.</p>
+<p><a href="https://src.fedoraproject.org/rpms/mariadb">MariaDB</a> is preferred MySQL implementation in Fedora. MariaDB can be usually used instead of MySQL as a drop-in replacement in most practical cases and most of the applications will work exactly the same. However, when you need to install Community MySQL, it is available as <a href="https://src.fedoraproject.org/rpms/community-mysql">community-mysql package</a> in Fedora repositories.</p>
 <p>Generally, most of the <a href="http://dev.mysql.com/doc/">documentation for MySQL</a> is valid also for MariaDB.</p>
 <h2 id="what-versions-do-we-have-in-fedora">What versions do we have in Fedora</h2>
-<p>Fedora usually ships only the most recent stable version of MariaDB, which is 10.0. Learn more about this version at <a href="https://mariadb.com/kb/en/mariadb/what-is-mariadb-100/">upstream documentation</a>. The package is called <code class="highlighter-rouge">mariadb</code> (client tools) and <code class="highlighter-rouge">mariadb-server</code> (server daemon).</p>
-<p>However, you can get an older version either by installing <a href="https://www.softwarecollections.org/en/scls/rhscl/mariadb55/">Software Collection package of MariaDB 5.5</a> or by downloading <a href="https://downloads.mariadb.org/">packages provided by upstream</a>.</p>
+<p>Fedora usually ships only the most recent stable version of MariaDB.
+You can find various (unsupported) versions in the maintainer’s <a href="https://copr.fedorainfracloud.org/coprs/mschorm/">COPR repositories</a>.
+Learn more about current version at <a href="https://mariadb.com/kb/en/library/library-mariadb-releases/">upstream documentation</a>. The package is called <code class="highlighter-rouge">mariadb</code> (client tools) and <code class="highlighter-rouge">mariadb-server</code> (server daemon).</p>
+<p>You can get an older version either by installing <a href="https://www.softwarecollections.org/en/scls/rhscl/mariadb55/">Software Collection package of MariaDB 5.5</a> or by downloading <a href="https://downloads.mariadb.org/">packages provided by upstream</a>.</p>
 <p>Fedora also ships MariaDB with Galera patch. The package with MariaDB Galera is called <code class="highlighter-rouge">mariadb-galera-server</code> and the wsrep plug-in is available in package <code class="highlighter-rouge">galera</code>. See section <a href="#how-to-install-mariadb-galera-on-fedora">How to install MariaDB Galera on Fedora</a> for more information.</p>
 <h2 id="how-to-install-mariadb-on-fedora">How to install MariaDB on Fedora</h2>
 <p>In order to install MariaDB client package, run:</p>
@@ -156,13 +158,13 @@
 <p>If you need to connect to the MariaDB server using GUI, install either phpMyAdmin:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install phpMyAdmin
 </code></pre></div></div>
-<p>Or install Libre Office Base with JDBC plug-in for MySQL:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install libreoffice-base mysql-connector-java
+<p>Or install Libre Office Base with JDBC plug-in for MariaDB:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install libreoffice-base mariadb-java-client
 </code></pre></div></div>
-<p>For connecting to the MariaDB server using ODBC, install <code class="highlighter-rouge">unixODBC</code> and <code class="highlighter-rouge">mysql-connector-odbc</code> packages:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install unixODBC mysql-connector-java
+<p>For connecting to the MariaDB server using ODBC, install <code class="highlighter-rouge">unixODBC</code> and <code class="highlighter-rouge">mariadb-connector-odbc</code> packages:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install mariadb-connector-odbc
 </code></pre></div></div>
-<h2 id="basic-tutorial-for-mariadb-in-fedora"><a name="basic-tutorial-for-mariadb-in-fedora"></a>Basic tutorial for MariaDB in Fedora</h2>
+<h2 id="basic-tutorial-for-mariadb-in-fedora">Basic tutorial for MariaDB in Fedora</h2>
 <p>MariaDB runs on port 3306 by default and creates a local unix socket at <code class="highlighter-rouge">/var/lib/mysql/mysql.sock</code>. By default, data is stored in the <code class="highlighter-rouge">/var/lib/mysql</code> directory and logs are located under <code class="highlighter-rouge">/var/log/mariadb/</code>. In order to change these directories, pay attention to use correct SELinux context and owner.</p>
 <p>Right after installing, the data directory is empty. It is initialized during the first start.</p>
 <p>To start MariaDB server, run:</p>
@@ -262,7 +264,8 @@ general_log_file = "/var/log/mariadb/query.log"
 </code></pre></div></div>
 <h2 id="mariadb-server-available-as-a-dynamic-library">MariaDB server available as a dynamic library:</h2>
 <p>In Fedora, MariaDB server is available also as a dynamic library, that can be handy in some applications. This library (<code class="highlighter-rouge">libmysqld.so</code>) is available in the package <code class="highlighter-rouge">mariadb-embedded</code> and header files for building an application against this library are available in the package <code class="highlighter-rouge">mariadb-embedded-devel</code>.</p>
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%68%68%6F%72%61%6B@%72%65%64%68%61%74.%63%6F%6D">Honza Horak</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%61%6E%74%6F%6E%69%6E.%6D%72%6B%76%69%63%61@%6F%75%74%6C%6F%6F%6B.%63%7A">antoninmrkvica</a>, <a href="mailto:%72%69%63%6B%79.%67%72%61%73%73%6D%75%63%6B@%67%6D%61%69%6C.%63%6F%6D">ricky grassmuck</a></p>
+<p>However the use of the embedded library is discouraged. MySQL 8 dropped the embedded library and I expect MariaDB to go in the same direction.</p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6D%73%63%68%6F%72%6D@%63%65%6E%74%72%75%6D.%63%7A">FaramosCZ</a>, <a href="mailto:%68%68%6F%72%61%6B@%72%65%64%68%61%74.%63%6F%6D">Honza Horak</a>, <a href="mailto:%61%6E%74%6F%6E%69%6E.%6D%72%6B%76%69%63%61@%6F%75%74%6C%6F%6F%6B.%63%7A">antoninmrkvica</a>, <a href="mailto:%72%69%63%6B%79.%67%72%61%73%73%6D%75%63%6B@%67%6D%61%69%6C.%63%6F%6D">ricky grassmuck</a></p>
           </div>
         </div>
       </div>
