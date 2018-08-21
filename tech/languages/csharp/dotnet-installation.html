@@ -149,15 +149,17 @@
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf copr enable @dotnet-sig/dotnet
 </code></pre></div></div>
 <h3 id="net-core-sdk">.NET Core SDK</h3>
-<p>.NET Core SDK will enable building and publishing C# source code.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dotnet-sdk-2.0
+<p>.NET Core SDK enables building and publishing of C# source code.</p>
+<p>To install the latest SDK version:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dotnet
+</code></pre></div></div>
+<p>To install the latest SDK for a specific .NET Core Runtime, where the <em>x</em> stands for major, <em>y</em> for minor version of the runtime:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dotnet-sdk-x.y
 </code></pre></div></div>
 <h3 id="net-core-runtime-only">.NET Core Runtime only</h3>
-<p>You can install runtime only, if you are just deploying already prebuilt application.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dotnet-runtime-2.0
+<p>To install runtime only, for example to merely deploy already prebuilt applications, where <em>x</em> stands for major and <em>y</em> stands for minor version:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dotnet-runtime-x.y
 </code></pre></div></div>
-<h2 id="microsoft-net-core-packages">Microsoft .NET Core packages</h2>
-<p><a href="https://www.microsoft.com/net/download/linux">.NET Core packages built by Microsoft</a> contain some proprietary libraries of the .NET Framework.</p>
 <h2 id="references">References</h2>
 <ul>
   <li><a href="https://copr.fedorainfracloud.org/coprs/g/dotnet-sig/dotnet">Fedora .NET SIG copr</a></li>
