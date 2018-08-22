@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rebase helper &mdash; Fedora Developer Portal</title>
+  <title>Rebase helper integration &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running  Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/deployment/maintain/rebase-helper.html">
+  <link rel="canonical" href="http://developer.fedoraproject.org/deployment/maintain/rebase-helper-integration.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -125,8 +125,8 @@
         <div class="col-sm-3">
           <div class="list-group content-menu">
                 <a href="/deployment/maintain/about.html" class="list-group-item ">Maintain and Improve</a>
-                <a href="/deployment/maintain/rebase-helper.html" class="list-group-item  active ">Rebase helper</a>
-                <a href="/deployment/maintain/rebase-helper-integration.html" class="list-group-item ">Rebase helper integration</a>
+                <a href="/deployment/maintain/rebase-helper.html" class="list-group-item ">Rebase helper</a>
+                <a href="/deployment/maintain/rebase-helper-integration.html" class="list-group-item  active ">Rebase helper integration</a>
                 <a href="/deployment/maintain/static-analysis.html" class="list-group-item ">Static Analysis</a>
           </div>
           <div class="panel panel-default">
@@ -137,44 +137,37 @@
 </div>
             </div>
           </div>
-          <a href="https://github.com/developer-portal/content/blob/master//deployment/maintain//rebase-helper.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//deployment/maintain//rebase-helper-integration.md" class="btn btn-default">Edit this page</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h1 id="rebase-helper">Rebase-helper</h1>
-<p>Rebase-helper is a tool which helps package maintainers with updating package to the latest upstream version.
-It automates a lot of manual tasks the package maintainer usually does, when a new upstream version of a package is released.</p>
-<h2 id="install-rebase-helper">Install rebase-helper</h2>
-<p>Begin installation on Fedora using the <code class="highlighter-rouge">dnf</code> command:</p>
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>rebase-helper
+            <h1 id="integrating-rebase-helper-with-an-upstream-monitoring-service">Integrating rebase-helper with an upstream monitoring service</h1>
+<p>This chapter demonstrates how to include rebase-helper in your upstream monitoring service. 
+If you would like to integrate rebase-helper into your upstream monitoring services, this chapter is for you.
+Rebase-helper provides an API which you can use either directly from Python, or directly from the command line.</p>
+<h2 id="patch-new-upstream-version-and-start-scratch-builds">Patch new upstream version and start scratch builds</h2>
+<p>Example of patching new sources and starting scratch builds with fedpkg.
+This returns task_ids. The bash equivalents are included for comparison:</p>
+<h3 id="python-api">Python API</h3>
+<pre><code class="language-python3">from rebasehelper.application import Application
+cli = CLI(['--non-interactive', '--builds-nowait', '--buildtool', 'fedpkg', 'upstream_version'])
+rh = Application(cli)
+rh.set_upstream_monitoring() # Switch rebase-helper to upstream release monitoring mode.
+rh.run()
+</code></pre>
+<h3 id="bash">BASH</h3>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rebase-helper <span class="nt">--non-interactive</span> <span class="nt">--builds-nowait</span> <span class="nt">--buildtool</span> fedpkg upstream_version
 </code></pre></div></div>
-<p>It requires several other programs like <code class="highlighter-rouge">abipkgdiff</code>, <code class="highlighter-rouge">rpmdiff</code>, <code class="highlighter-rouge">mock</code>, <code class="highlighter-rouge">fedpkg</code>, <code class="highlighter-rouge">meld</code>, etc.
-These programs are installed automatically as dependencies of rebase-helper.</p>
-<p>Note: rebase-helper is also available as EPEL-7 package. Feel free to use it on CentOS and RHEL systems.</p>
-<h2 id="how-does-rebase-helper-work">How does rebase-helper work?</h2>
-<p>Rebase-helper workflow can be summarized in following steps:</p>
-<ul>
-  <li>Downloads an archive with new sources.</li>
-  <li>Rebases downstream patches on top of the latest upstream version using git rebase command.</li>
-  <li>If patching was successful, it builds two sets of RPMs. One using the <strong>old</strong> sources and a second one using the <strong>new</strong> sources. Available build tools are <code class="highlighter-rouge">mock</code>, <code class="highlighter-rouge">rpmbuild</code>, <code class="highlighter-rouge">fedpkg</code>.
-    <ul>
-      <li>If <strong>new</strong> RPMs build fails, downloads logs like <code class="highlighter-rouge">build.log</code> and <code class="highlighter-rouge">root.log</code></li>
-      <li>If the build is successful, downloads all available RPM packages.</li>
-    </ul>
-  </li>
-  <li>If all builds succeed, rebase-helper runs several checkers, like <code class="highlighter-rouge">pkgdiff</code>, <code class="highlighter-rouge">rpmdiff</code>, <code class="highlighter-rouge">abipkgdiff</code>. Rebase-helper compares <strong>old</strong> and <strong>new</strong> packages and reports results.</li>
-</ul>
-<h2 id="how-to-rebase-your-packages">How to rebase your packages?</h2>
-<p>Let’s say we want to rebase a package foobar from <code class="highlighter-rouge">foobar-1.2.0</code> to <code class="highlighter-rouge">foobar-1.2.1</code> using rebase-helper:</p>
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Change to the location of foobar.spec and other package components (cloned dist-git dir), e.g.</span>
-<span class="nv">$ </span><span class="nb">cd</span> <span class="nv">$HOME</span>/rpmbuild/REPOS/foobar
-
-<span class="c"># Update to the selected upstream version</span>
-<span class="nv">$ </span>rebase-helper 1.2.1
+<h2 id="download-logs-and-rpms-and-compare-with-tools-like-abipkgdiff">Download logs and RPMs and compare with tools like <code class="highlighter-rouge">abipkgdiff</code></h2>
+<h3 id="python-api-1">Python API</h3>
+<pre><code class="language-python3">cli = CLI(['--non-interactive', '--builds-nowait', '--buildtool', 'fedpkg', '--build-tasks', 'old_id,new_id'])
+rh.run() # Downloads RPMs, logs and runs checkers and provides logs.
+rh.get_rebasehelper_data() # Get all information about the results
+</code></pre>
+<h3 id="bash-1">BASH</h3>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rebase-helper <span class="nt">--non-interactive</span> <span class="nt">--builds-nowait</span> <span class="nt">--buildtool</span> fedpkg <span class="nt">--build-tasks</span> old_id,new_id
 </code></pre></div></div>
-<p>If you do not want to be bothered, add the <code class="highlighter-rouge">--non-interactive</code> option to rebase-helper’s command line</p>
-<p>After rebase-helper finishes, check the output.</p>
-<p style="text-align: center">Authors: <a href="mailto:%66%65%72%64%6E%79%63@%67%6D%61%69%6C.%63%6F%6D">Frank Dana</a>, <a href="mailto:%70%68%72%61%63%65%6B@%72%65%64%68%61%74.%63%6F%6D">Petr Hracek</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%66%65%72%64%6E%79%63@%67%6D%61%69%6C.%63%6F%6D">Frank Dana</a></p>
           </div>
         </div>
       </div>
