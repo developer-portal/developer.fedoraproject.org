@@ -143,7 +143,7 @@ on multiple Python interpreters. On Fedora, that’s easy: all you have to do is
 use <code class="highlighter-rouge">dnf</code> to install what you need. Currently Fedora has the following Pythons
 ready for you in the repositories:</p>
 <ul>
-  <li>CPython 3.7 (development version)</li>
+  <li>CPython 3.7</li>
   <li>CPython 3.6</li>
   <li>CPython 3.5</li>
   <li>CPython 3.4</li>
@@ -256,7 +256,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 <h3 id="python-2x-3x-pypys-jython">Python 2.x, 3.x, PyPys, Jython</h3>
 <p>For other Python versions, a tool called <code class="highlighter-rouge">virtualenv</code> can create virtual
 environments:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> dnf <span class="nb">install </span>python-virtualenv  <span class="c"># install the necessary tool</span>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> dnf <span class="nb">install</span> /usr/bin/virtualenv  <span class="c"># install the necessary tool</span>
 <span class="gp">$</span> virtualenv <span class="nt">--python</span> /usr/bin/python2.7 <span class="nb">env</span>  <span class="c"># create the virtualenv</span>
 <span class="go">Running virtualenv with interpreter /usr/bin/python2.7
 New python executable in env/bin/python2.7
@@ -273,8 +273,6 @@ Type "help", "copyright", "credits" or "license" for more information.
 <span class="gp">&gt;</span><span class="o">&gt;&gt;</span> ...
 <span class="gp">(env)$</span> deactivate  <span class="c"># go back to "normal"</span>
 </code></pre></div></div>
-<p>If you don’t wish to use Python 2 at all, you might install <code class="highlighter-rouge">python3-virtualenv</code>
-in the first step and than use <code class="highlighter-rouge">virtualenv-3</code> command instead  of <code class="highlighter-rouge">virtualenv</code>.</p>
 <p>To learn more about virtualenvs, visit
 <a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/">The Hitchhiker’s Guide to Python</a>.</p>
 <h3 id="others">Others</h3>

@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cargo &mdash; Fedora Developer Portal</title>
+  <title>Rebase helper integration &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running  Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/rust/rust-cargo.html">
+  <link rel="canonical" href="http://developer.fedoraproject.org/deployment/maintain/rebase-helper-integration.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -36,7 +36,7 @@
 </head>
   <body>
     <!-- The top blue thing -->
-    <div id="splash" class="splash-size-small splash-section-tech">
+    <div id="splash" class="splash-size-small splash-section-deploy">
       <div class="container">
         <div class="row" id="top">
   <div class="col-sm-2" id="logo-col">
@@ -58,10 +58,10 @@
     <li class="">
       <a href="/tools.html">Get tools</a>
     </li>
-    <li class=" active ">
+    <li class="">
       <a href="/tech.html">Languages &amp; databases</a>
     </li>
-    <li class="">
+    <li class=" active ">
       <a href="/deployment.html">Deploy and distribute</a>
     </li>
     <!--
@@ -97,14 +97,15 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/rust.png">
-          <h2>Rust</h2>
-          <p>Systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.</p>
+          <img class="img-rounded" src="/static/logo/maintain.png">
+          <h2>Maintain and Improve</h2>
+          <p>Maintain and improve your packages with set of tools.
+</p>
   </div>
 </div>
 <div class="row" id="attribution">
   <div class="col-sm-12">
-    <a href=""></a>
+    <a href="https://www.flickr.com/photos/gsfc/5890869490/">Minotaur Rocket Launch at NASA Wallops by NASA Goddard Space Flight Center on Flickr, CC-BY-2.0</a>
   </div>
 </div>
       </div>
@@ -114,11 +115,10 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="list-group content-menu">
-                <a href="/tech/languages/rust/rust-installation.html" class="list-group-item ">Rust</a>
-                <a href="/tech/languages/rust/rust-cargo.html" class="list-group-item  active ">Cargo</a>
-                <a href="/tech/languages/rust/format-rust-code.html" class="list-group-item ">Format Rust code</a>
-                <a href="/tech/languages/rust/further-reading.html" class="list-group-item ">Further reading</a>
-                <a href="/tech/languages/rust/rust-sig.html" class="list-group-item ">Rust SIG</a>
+                <a href="/deployment/maintain/about.html" class="list-group-item ">Maintain and Improve</a>
+                <a href="/deployment/maintain/rebase-helper.html" class="list-group-item ">Rebase helper</a>
+                <a href="/deployment/maintain/rebase-helper-integration.html" class="list-group-item  active ">Rebase helper integration</a>
+                <a href="/deployment/maintain/static-analysis.html" class="list-group-item ">Static Analysis</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -128,48 +128,37 @@
 </div>
             </div>
           </div>
-          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/rust//rust-cargo.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//deployment/maintain//rebase-helper-integration.md" class="btn btn-default">Edit this page</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h1 id="installing-cargo">Installing Cargo</h1>
-<p>Cargo is Rust’s package manager. You can use it to download your project’s dependencies
-and to compile your project. You can start a new project using Cargo by typing:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cargo new my_project
+            <h1 id="integrating-rebase-helper-with-an-upstream-monitoring-service">Integrating rebase-helper with an upstream monitoring service</h1>
+<p>This chapter demonstrates how to include rebase-helper in your upstream monitoring service. 
+If you would like to integrate rebase-helper into your upstream monitoring services, this chapter is for you.
+Rebase-helper provides an API which you can use either directly from Python, or directly from the command line.</p>
+<h2 id="patch-new-upstream-version-and-start-scratch-builds">Patch new upstream version and start scratch builds</h2>
+<p>Example of patching new sources and starting scratch builds with fedpkg.
+This returns task_ids. The bash equivalents are included for comparison:</p>
+<h3 id="python-api">Python API</h3>
+<pre><code class="language-python3">from rebasehelper.application import Application
+cli = CLI(['--non-interactive', '--builds-nowait', '--buildtool', 'fedpkg', 'upstream_version'])
+rh = Application(cli)
+rh.set_upstream_monitoring() # Switch rebase-helper to upstream release monitoring mode.
+rh.run()
+</code></pre>
+<h3 id="bash">BASH</h3>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rebase-helper <span class="nt">--non-interactive</span> <span class="nt">--builds-nowait</span> <span class="nt">--buildtool</span> fedpkg upstream_version
 </code></pre></div></div>
-<p>This will create a new directory with manifest (<code class="highlighter-rouge">Cargo.toml</code>), a source code directory
-(<code class="highlighter-rouge">src</code>) and a “Hello, World!” program in <code class="highlighter-rouge">src/main.rs</code>.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd my_project/
-$ tree .
-.
-├── Cargo.toml
-└── src
-    └── main.rs
-
-1 directory, 2 files
+<h2 id="download-logs-and-rpms-and-compare-with-tools-like-abipkgdiff">Download logs and RPMs and compare with tools like <code class="highlighter-rouge">abipkgdiff</code></h2>
+<h3 id="python-api-1">Python API</h3>
+<pre><code class="language-python3">cli = CLI(['--non-interactive', '--builds-nowait', '--buildtool', 'fedpkg', '--build-tasks', 'old_id,new_id'])
+rh.run() # Downloads RPMs, logs and runs checkers and provides logs.
+rh.get_rebasehelper_data() # Get all information about the results
+</code></pre>
+<h3 id="bash-1">BASH</h3>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rebase-helper <span class="nt">--non-interactive</span> <span class="nt">--builds-nowait</span> <span class="nt">--buildtool</span> fedpkg <span class="nt">--build-tasks</span> old_id,new_id
 </code></pre></div></div>
-<p>The manifest is written in <a href="https://github.com/toml-lang/toml">TOML language</a> and
-looks like this:</p>
-<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[package]</span>
-<span class="py">name</span> <span class="p">=</span> <span class="s">"my_project"</span>
-<span class="py">version</span> <span class="p">=</span> <span class="s">"0.1.0"</span>
-<span class="py">authors</span> <span class="p">=</span> <span class="p">[</span><span class="s">"Your Name &lt;you@example.com&gt;"</span><span class="p">]</span>
-
-<span class="nn">[dependencies]</span>
-</code></pre></div></div>
-<p>To run your new project, type:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cargo run
-   Compiling my_project v0.1.0 (file:///home/fedora/rust/my_project)
-     Running `target/debug/my_project`
-Hello, world!
-</code></pre></div></div>
-<h1 id="cratesio-repository">crates.io repository</h1>
-<p>Rust calls its compilation unit (either library or executable) a crate. Your project
-is such a crate and it can also depend on other crates specified in <code class="highlighter-rouge">Cargo.toml</code>. The
-default repository to look for dependencies is <a href="https://crates.io/">crates.io</a> but you
-can also specify dependencies on a git repository.</p>
-<p><strong>Note:</strong> Cargo currently supports only source dependencies.</p>
-<p style="text-align: center">Authors: <a href="mailto:%6D%73%65%68%6E%6F%75%74@%72%65%64%68%61%74.%63%6F%6D">Martin Sehnoutka</a>, <a href="mailto:%73%65%68%6E%6F%75%74%6B%61.%6D%61%72%74%69%6E@%67%6D%61%69%6C.%63%6F%6D">Sehny</a>, <a href="mailto:%61%6E%74%6F%6E%69%6E.%6D%72%6B%76%69%63%61@%6F%75%74%6C%6F%6F%6B.%63%7A">antoninmrkvica</a>, <a href="mailto:%6A%68%6F%72%6E%69%63%65@%72%65%64%68%61%74.%63%6F%6D">jhornice</a>, <a href="mailto:%6D%73%65%68%6E%6F%75%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">msehnout</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%66%65%72%64%6E%79%63@%67%6D%61%69%6C.%63%6F%6D">Frank Dana</a></p>
           </div>
         </div>
       </div>

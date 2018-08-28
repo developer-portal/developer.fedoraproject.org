@@ -88,6 +88,9 @@
 <loc>http://developer.fedoraproject.org/tech/database/mariadb/about.html</loc>
 </url>
 <url>
+<loc>http://developer.fedoraproject.org/tech/database/cassandra/about.html</loc>
+</url>
+<url>
 <loc>http://developer.fedoraproject.org/start/sw/web-app/apache.html</loc>
 </url>
 <url>
@@ -167,6 +170,9 @@
 </url>
 <url>
 <loc>http://developer.fedoraproject.org/tech/languages/rust/format-rust-code.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/rust/further-reading.html</loc>
 </url>
 <url>
 <loc>http://developer.fedoraproject.org/tech/languages/ruby/gems-installation.html</loc>
@@ -283,6 +289,9 @@
 <loc>http://developer.fedoraproject.org/start/sw/web-app/rails.html</loc>
 </url>
 <url>
+<loc>http://developer.fedoraproject.org/deployment/maintain/rebase-helper-integration.html</loc>
+</url>
+<url>
 <loc>http://developer.fedoraproject.org/deployment/maintain/rebase-helper.html</loc>
 </url>
 <url>
@@ -299,6 +308,9 @@
 </url>
 <url>
 <loc>http://developer.fedoraproject.org/tech/languages/rust/rust-installation.html</loc>
+</url>
+<url>
+<loc>http://developer.fedoraproject.org/tech/languages/rust/rust-sig.html</loc>
 </url>
 <url>
 <loc>http://developer.fedoraproject.org/deployment/secondary_architectures/s390.html</loc>

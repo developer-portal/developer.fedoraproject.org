@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cargo &mdash; Fedora Developer Portal</title>
+  <title>Further reading &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running  Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/rust/rust-cargo.html">
+  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/rust/further-reading.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -115,9 +115,9 @@
         <div class="col-sm-3">
           <div class="list-group content-menu">
                 <a href="/tech/languages/rust/rust-installation.html" class="list-group-item ">Rust</a>
-                <a href="/tech/languages/rust/rust-cargo.html" class="list-group-item  active ">Cargo</a>
+                <a href="/tech/languages/rust/rust-cargo.html" class="list-group-item ">Cargo</a>
                 <a href="/tech/languages/rust/format-rust-code.html" class="list-group-item ">Format Rust code</a>
-                <a href="/tech/languages/rust/further-reading.html" class="list-group-item ">Further reading</a>
+                <a href="/tech/languages/rust/further-reading.html" class="list-group-item  active ">Further reading</a>
                 <a href="/tech/languages/rust/rust-sig.html" class="list-group-item ">Rust SIG</a>
           </div>
           <div class="panel panel-default">
@@ -128,48 +128,46 @@
 </div>
             </div>
           </div>
-          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/rust//rust-cargo.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/blob/master//tech/languages/rust//further-reading.md" class="btn btn-default">Edit this page</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h1 id="installing-cargo">Installing Cargo</h1>
-<p>Cargo is Rust’s package manager. You can use it to download your project’s dependencies
-and to compile your project. You can start a new project using Cargo by typing:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cargo new my_project
-</code></pre></div></div>
-<p>This will create a new directory with manifest (<code class="highlighter-rouge">Cargo.toml</code>), a source code directory
-(<code class="highlighter-rouge">src</code>) and a “Hello, World!” program in <code class="highlighter-rouge">src/main.rs</code>.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd my_project/
-$ tree .
-.
-├── Cargo.toml
-└── src
-    └── main.rs
-
-1 directory, 2 files
-</code></pre></div></div>
-<p>The manifest is written in <a href="https://github.com/toml-lang/toml">TOML language</a> and
-looks like this:</p>
-<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[package]</span>
-<span class="py">name</span> <span class="p">=</span> <span class="s">"my_project"</span>
-<span class="py">version</span> <span class="p">=</span> <span class="s">"0.1.0"</span>
-<span class="py">authors</span> <span class="p">=</span> <span class="p">[</span><span class="s">"Your Name &lt;you@example.com&gt;"</span><span class="p">]</span>
-
-<span class="nn">[dependencies]</span>
-</code></pre></div></div>
-<p>To run your new project, type:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cargo run
-   Compiling my_project v0.1.0 (file:///home/fedora/rust/my_project)
-     Running `target/debug/my_project`
-Hello, world!
-</code></pre></div></div>
-<h1 id="cratesio-repository">crates.io repository</h1>
-<p>Rust calls its compilation unit (either library or executable) a crate. Your project
-is such a crate and it can also depend on other crates specified in <code class="highlighter-rouge">Cargo.toml</code>. The
-default repository to look for dependencies is <a href="https://crates.io/">crates.io</a> but you
-can also specify dependencies on a git repository.</p>
-<p><strong>Note:</strong> Cargo currently supports only source dependencies.</p>
-<p style="text-align: center">Authors: <a href="mailto:%6D%73%65%68%6E%6F%75%74@%72%65%64%68%61%74.%63%6F%6D">Martin Sehnoutka</a>, <a href="mailto:%73%65%68%6E%6F%75%74%6B%61.%6D%61%72%74%69%6E@%67%6D%61%69%6C.%63%6F%6D">Sehny</a>, <a href="mailto:%61%6E%74%6F%6E%69%6E.%6D%72%6B%76%69%63%61@%6F%75%74%6C%6F%6F%6B.%63%7A">antoninmrkvica</a>, <a href="mailto:%6A%68%6F%72%6E%69%63%65@%72%65%64%68%61%74.%63%6F%6D">jhornice</a>, <a href="mailto:%6D%73%65%68%6E%6F%75%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">msehnout</a></p>
+            <h1 id="learning-resources">Learning resources</h1>
+<p>There is an official book describing the Rust programming language in detail.
+<a href="https://doc.rust-lang.org/book/2018-edition/index.html">doc.rust-lang.org/book/2018-edition</a></p>
+<p>More examples of the concepts discussed in the book are available in this collection:
+<a href="https://doc.rust-lang.org/rust-by-example/">doc.rust-lang.org/rust-by-example</a></p>
+<p>When you finish with the language itself, there is an ongoing effort to create a set of examples of using core libraries for concurrency, data serialization, network programming, etc.
+<a href="https://rust-lang-nursery.github.io/rust-cookbook/intro.html">rust-lang-nursery.github.io/rust-cookbook</a></p>
+<p>Finally, you can find community pages with a list of resources such as this one:
+<a href="https://github.com/ctjhoa/rust-learning">github.com/ctjhoa/rust-learning</a></p>
+<h1 id="api-documentation">API documentation</h1>
+<p>Standard library documentation:
+<a href="https://doc.rust-lang.org/std/">doc.rust-lang.org/std</a></p>
+<p>Documentation for crates available at <a href="https://crates.io/">crates.io</a>:
+<a href="https://docs.rs/">docs.rs</a></p>
+<h1 id="ide-recommendations">IDE recommendations</h1>
+<p>There are plugins for popular editor such as Vim, Atom or Gnome Builder which are based on the Rust Language Server (RLS) implementation. Alternatively, IntelliJ IDEA provides their own, custom plugin. Unfortunatelly, the debugging support is available only in paid CLion IDE.</p>
+<p>Before you try to configure your editor or IDE, it is recommended to use install <code class="highlighter-rouge">rustup</code>:
+<a href="https://rustup.rs/">rustup.rs</a></p>
+<p>If you want to start with Rust programming, it is easiest to try the RLS frontend for Visual Studio Code:</p>
+<ol>
+  <li>Install the VSCode RPM package: <a href="https://code.visualstudio.com/docs/setup/linux">code.visualstudio.com/docs/setup/linux</a></li>
+  <li>Follow the instructions given at the extension Github page: <a href="https://github.com/rust-lang-nursery/rls-vscode">github.com/rust-lang-nursery/rls-vscode</a></li>
+</ol>
+<p>In case you prefer IDEs over editors, try the Intellij IDEA extension:</p>
+<ol>
+  <li>Install the IDE (instructions are available under the “Installation Instructions” link): <a href="https://www.jetbrains.com/idea/download/#section=linux">www.jetbrains.com/idea/download/#section=linux</a></li>
+  <li>Install the Rust plugin: <a href="https://intellij-rust.github.io/docs/quick-start.html">intellij-rust.github.io/docs/quick-start.html</a></li>
+</ol>
+<p>Complete list of available options is here:
+<a href="https://areweideyet.com/">areweideyet.com</a></p>
+<h1 id="other-useful-links">Other useful links</h1>
+<p>If you want to start with some web applications, a list of useful frameworks is available here:
+<a href="http://www.arewewebyet.org/">www.arewewebyet.org</a></p>
+<p>If you are brave enough and you want to try the nightly compiler edition (or you just want to try the awesome <a href="https://rocket.rs/">Rocket framework</a>), it is recommended to use rustup:
+<a href="https://rustup.rs/">rustup.rs</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%6D%73%65%68%6E%6F%75%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">msehnout</a></p>
           </div>
         </div>
       </div>
