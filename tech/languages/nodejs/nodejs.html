@@ -108,7 +108,7 @@
   <div class="col-sm-12">
           <img class="img-rounded" src="/static/logo/nodejs.png">
           <h2>Node.js</h2>
-          <p></p>
+          <p>Open-source cross-platform server-side JavaScript runtime environment.</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -140,22 +140,27 @@
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
             <h1 id="nodejs">Node.js</h1>
-<h2 id="nodejs-and-npm">Node.js and npm</h2>
+<h2 id="nodejs-and-npm-installation">Node.js and npm installation</h2>
 <p>Starting from Fedora 24, npm is a part of Node.js package and does not need to be installed separately. Therefore, to install both npm and Node.js, you need to run:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install nodejs
 </code></pre></div></div>
-<p>In case you are running Fedora 23, you should run:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install npm
-</code></pre></div></div>
 <p>This will install V8 Javascript Engine, Node.js runtime and npm package manager and their dependencies. Versions present in repositories are usually current or to-be (in Rawhide) Node.js LTS releases, including npm and V8 engine that come with them.</p>
-<p>If you wish to install Node.js v4:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install nodejs --releasever=24
+<p>You can check the available versions with:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dnf info nodejs
+$ dnf info nodejs --enablerepo rawhide
 </code></pre></div></div>
-<p>If you need Node.js v6:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install nodejs --releasever=25
+<h2 id="yarn">Yarn</h2>
+<p><a href="https://yarnpkg.com/en/">Yarn</a> package manager is available since Fedora 29. You can install it by running:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install nodejs-yarn
 </code></pre></div></div>
+<p>Because of conflicts with other packages, yarn has to be used in the following manner:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ nodejs-yarn add request
+$ yarnpkg add request
+</code></pre></div></div>
+<p>If you still wish to use <code class="highlighter-rouge">yarn</code> instead of <code class="highlighter-rouge">nodejs-yarn</code>, the best way is to use bash alias.</p>
+<h2 id="installing-npm-modules">Installing npm modules</h2>
 <p>Installing Node.js modules is covered in <a href="/tech/languages/nodejs/modules.html">Node.js modules</a>.</p>
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%31%39%73%76%65%74%6C%61%6E%61%39%33@%67%6D%61%69%6C.%63%6F%6D">Zuzana Svetlikova</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%7A%73%76%65%74%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Zuzana Svetlikova</a></p>
           </div>
         </div>
       </div>
