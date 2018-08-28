@@ -158,10 +158,10 @@
 <h2 id="submitting-a-build">Submitting a build</h2>
 <p>There are curently two ways of getting your SRPM(s) into Copr:</p>
 <p>A. Building from URL:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli build test-project-2 http://www.example.com/package-1.6-1.fc28.src.rpm
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli build test-project http://www.example.com/package-1.6-1.fc28.src.rpm
 </code></pre></div></div>
 <p>B. Uploading them into Copr directly:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli build test-project-2 ~/packages/package-1.6-1.fc28.src.rpm
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli build test-project ~/packages/package-1.6-1.fc28.src.rpm
 </code></pre></div></div>
 <p>The command line tool will now monitor your build and keeps you updated about any changes and results. You can safely interrupt it with <code class="highlighter-rouge">ctrl+c</code> at any time. The build will continue running.</p>
 <h2 id="adding-a-repository-and-installing-the-package">Adding a repository and installing the package</h2>
@@ -181,7 +181,7 @@
 <p>And to disable your repository:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf copr disable your_name/test-project
 </code></pre></div></div>
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%61%6E%74%6F%6E%69%6E.%6D%72%6B%76%69%63%61@%6F%75%74%6C%6F%6F%6B.%63%7A">Antonín Mrkvica</a>, <a href="mailto:%67%61%76%69%6E.%72%6F%6D%69%67.%6B%6F%63%68@%67%6D%61%69%6C.%63%6F%6D">Gavin Romig-Koch</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%73%73%62%61%72%6E%65%61@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Sorin Sbarnea</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%61%6E%74%6F%6E%69%6E.%6D%72%6B%76%69%63%61@%6F%75%74%6C%6F%6F%6B.%63%7A">Antonín Mrkvica</a>, <a href="mailto:%67%61%76%69%6E.%72%6F%6D%69%67.%6B%6F%63%68@%67%6D%61%69%6C.%63%6F%6D">Gavin Romig-Koch</a>, <a href="mailto:%73%73%62%61%72%6E%65%61@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Sorin Sbarnea</a>, <a href="mailto:%67%61%6C%6F%67%65%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">galoget</a></p>
           </div>
         </div>
       </div>

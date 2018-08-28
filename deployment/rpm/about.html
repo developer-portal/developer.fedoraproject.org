@@ -150,22 +150,22 @@
 </ul>
 <h2 id="setup">Setup</h2>
 <p>Run:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>fedora-packager rpmdevtools
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>fedora-packager rpmdevtools gcc
 <span class="nv">$ </span>rpmdev-setuptree
 <span class="nv">$ </span><span class="nb">cd</span> ~/rpmbuild/SOURCES
-<span class="nv">$ </span>wget http://ftp.gnu.org/gnu/hello/hello-2.8.tar.gz
+<span class="nv">$ </span>wget http://ftp.gnu.org/gnu/hello/hello-2.10.tar.gz
 <span class="nv">$ </span><span class="nb">cd</span> ~/rpmbuild/SPECS
 <span class="nv">$ </span>rpmdev-newspec <span class="nt">--macros</span> hello.spec
 </code></pre></div></div>
 <h2 id="quick-start-guide">Quick Start Guide</h2>
 <p>Now you can open hello.spec file and alter it. Put there this content:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Name:     hello
-Version:  2.8
+Version:  2.10
 Release:  1%{?dist}
 Summary:  The "Hello World" program from GNU
 License:  GPLv3+
 URL:      http://ftp.gnu.org/gnu/hello
-Source0:  http://ftp.gnu.org/gnu/hello/hello-2.8.tar.gz
+Source0: https://ftp.gnu.org/gnu/hello/hello-%{version}.tar.gz
 
 BuildRequires: gettext
 
@@ -181,7 +181,7 @@ project, including configuration, build, internationalization, help files, etc.
 
 %build
 %configure
-make %{?_smp_mflags}
+%make_build
 
 %install
 %make_install
@@ -211,7 +211,7 @@ fi
 <p>Once you are done, you can run:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>rpmbuild <span class="nt">-ba</span> hello.spec
 </code></pre></div></div>
-<p>Your package should be ready at <code class="highlighter-rouge">~/rpmbuild/RPMS/x86_64/hello-2.8-1.x86_64.rpm</code>.</p>
+<p>Your package should be ready at <code class="highlighter-rouge">~/rpmbuild/RPMS/x86_64/hello-2.10-1.fc27.x86_64.rpm</code>.</p>
 <p>This example is taken from <a href="https://fedoraproject.org/wiki/How_to_create_a_GNU_Hello_RPM_package">How to create a GNU Hello RPM package</a>. You can follow it there.</p>
 <h3 id="resources">Resources</h3>
 <p>You can learn more about all sections and tags of SPEC file at <a href="https://fedoraproject.org/wiki/How_to_create_an_RPM_package">Fedora documentation “How to create an RPM package”</a>.</p>
@@ -229,7 +229,7 @@ fi
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>rpmbuild <span class="nt">-bs</span> hello.spec
 </code></pre></div></div>
 <p>Then you can run:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>mock <span class="nt">-r</span> epel-7-i386.cfg hello.src.rpm
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>mock <span class="nt">-r</span> /etc/mock/epel-6-i386.cfg ~/rpmbuild/SRPMS/hello-2.10-1.fc27.src.rpm
 </code></pre></div></div>
 <p>This creates CentOS/RHEL package for i386 architecture even when your workstation architecture is x86_64 and your workstation is e.g. Fedora. List of available configurations can be found at <code class="highlighter-rouge">/etc/mock/</code> directory.</p>
 <p>You can create RPM directly from git (or any other SCM) using mock-scm plugin. Just try:</p>
@@ -250,7 +250,7 @@ baseurl=http://yourdomain.com/repository/
 enabled=1
 </code></pre></div></div>
 <p>Note: If you are building an open-source software package, you can use <a href="/deployment/copr/about.html">Copr service</a>, which automates <code class="highlighter-rouge">mock</code> and <code class="highlighter-rouge">createrepo_c</code> part while it provides nice WebUI.</p>
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%63%68%61%64@%6B%69%77%69%74%72%65%65.%6E%65%74">Chad Versace</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%6E%67%6F%6D%70%61%31%33@%67%6D%61%69%6C.%63%6F%6D">Neal Gompa (ニール・ゴンパ)</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%63%68%61%64@%6B%69%77%69%74%72%65%65.%6E%65%74">Chad Versace</a>, <a href="mailto:%6E%67%6F%6D%70%61%31%33@%67%6D%61%69%6C.%63%6F%6D">Neal Gompa (ニール・ゴンパ)</a>, <a href="mailto:%67%61%6C%6F%67%65%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">galoget</a></p>
           </div>
         </div>
       </div>
