@@ -176,7 +176,7 @@ and are intended solely for development.</p>
 <h2 id="getting-it-and-running-it-all-with-tox">Getting it and running it all with tox</h2>
 <p><a href="https://tox.readthedocs.io/">Tox</a> is tool that helps you test your Python code
 on multiple Pythons. If you install it on Fedora via the dnf package manager,
-you’ll automatically get all the CPythons (except the development version)
+you’ll automatically get all the CPythons (except Python 2.6)
 and PyPys:</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">sudo </span>dnf <span class="nb">install </span>tox
 </code></pre></div></div>
@@ -229,6 +229,9 @@ If you want to support old Python 2 as well, you’ll have to fix it:</p>
 </span></code></pre></div></div>
 <p>If you want to use tox for your projects, you can learn more at
 <a href="https://tox.readthedocs.io/">the documentation</a>.</p>
+<p><strong>Warning:</strong> Tox version 3 and greater does not support Python 2.6.
+If you really need tox with Python 2.6, we recommend creating a virtual
+environment with <code class="highlighter-rouge">python3</code> (see bellow) and installing <code class="highlighter-rouge">tox&lt;3</code> in it.</p>
 <h2 id="creating-virtualenvs-and-installing-packages">Creating virtualenvs and installing packages</h2>
 <p>Fedora only packages Python modules for current versions of <code class="highlighter-rouge">python2</code>
 and <code class="highlighter-rouge">python3</code>. For all other interpreters, you will need to install packages
