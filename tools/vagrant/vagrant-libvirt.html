@@ -191,7 +191,7 @@ $ lsmod | grep kvm
 kvm_intel             167936  3
 kvm                   499712  1 kvm_intel
 </code></pre></div></div>
-<p>If you do not have KVM capabilities, you will need to use <code class="highlighter-rouge">qemu</code> driver within your Vagrantfile as follows:</p>
+<p>If you do not have KVM capabilities, you will need to use <code class="highlighter-rouge">qemu</code> driver within your Vagrantfile. Note the <code class="highlighter-rouge">qemu</code> driver may severely impact performance of your Vagrant virtual machine.</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Vagrant.configure("2") do |config|
 ...
   config.vm.provider :libvirt do |libvirt|
@@ -200,14 +200,14 @@ kvm                   499712  1 kvm_intel
 ...
 end
 </code></pre></div></div>
-<p>Read more on the <code class="highlighter-rouge">vagrant-libvirt</code> configuration in the <a href="https://github.com/pradels/vagrant-libvirt">upstream documentation</a>.</p>
+<p>Read more on the <code class="highlighter-rouge">vagrant-libvirt</code> configuration in the <a href="https://github.com/vagrant-libvirt/vagrant-libvirt">upstream documentation</a>.</p>
 <h2 id="using-libvirt-from-vagrant-without-password-prompts">Using libvirt from Vagrant without password prompts</h2>
 <p>Using <code class="highlighter-rouge">libvirt</code> provider requires you to type your administrator password every time you create,
 start, halt or destroy your domains. Fortunately you can avoid this by adding yourself to the <code class="highlighter-rouge">libvirt</code> group:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo gpasswd -a ${USER} libvirt
 $ newgrp libvirt
 </code></pre></div></div>
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%67%69%74@%6A%77%66.%69%6F">Justin W. Flory</a></p>
           </div>
         </div>
       </div>
