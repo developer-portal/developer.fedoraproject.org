@@ -185,15 +185,15 @@ latter is typically used for repository configuration and takes precedence over 
 </blockquote>
 <p>Access the directory and create a file mongodb-org-<em>release_series</em>.repo</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd /etc/yum.repos.d/
-$ touch mongodb-org-3.2.repo  
+$ sudo touch mongodb-org-4.0.repo  
 </code></pre></div></div>
 <p>Insert this content inside mongodb-org-<em>release_series</em>.repo, edit if you want install another version.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[mongodb-org-3.2]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Mongodb]
 name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/amazon/2013.03/mongodb-org/3.2/x86_64/
+baseurl=https://repo.mongodb.org/yum/amazon/2013.03/mongodb-org/4.0/x86_64/
 gpgcheck=1
 enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-3.2.asc
+gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc
 </code></pre></div></div>
 <p>Now you can install with dnf</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install -y mongodb-org
@@ -202,7 +202,7 @@ gpgkey=https://www.mongodb.org/static/pgp/server-3.2.asc
 <p>Start mongoDB service and after run mongoshell to test connection</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo service mongod start
 $ mongo
-MongoDB shell version: 3.2.7
+MongoDB shell version: 4.0.0
 connecting to: test
 </code></pre></div></div>
 <h2 id="mongodb-gui">MongoDB GUI</h2>
@@ -213,7 +213,7 @@ $ cd mongotron/
 $ npm install
 $ npm start
 </code></pre></div></div>
-<p style="text-align: center">Authors: <a href="mailto:%64%61%6E%69%65%6C%61%6D%6F%72%61%69%73@%74%75%74%61.%69%6F">Daniela Marques de Morais</a>, <a href="mailto:%6B%65%6E%6E%65%74%68%6B%61%75@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Kenneth K Au</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%64%61%6E%69%65%6C%61%6D%6F%72%61%69%73@%74%75%74%61.%69%6F">Daniela Marques de Morais</a>, <a href="mailto:%6B%65%6E%6E%65%74%68%6B%61%75@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Kenneth K Au</a>, <a href="mailto:%6C%75%69%73.%63%6F%6E%74%72%65%72%61%73.%64%6F@%67%6D%61%69%6C.%63%6F%6D">Luis Contreras</a></p>
           </div>
         </div>
       </div>
