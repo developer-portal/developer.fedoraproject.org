@@ -191,11 +191,11 @@ ready for you in the repositories:</p>
   <li>CPython 3.5</li>
   <li>CPython 3.4</li>
   <li>CPython 2.7</li>
-  <li>CPython 2.6</li>
+  <li>CPython 2.6*</li>
   <li>PyPy</li>
   <li>PyPy 3</li>
-  <li>Jython</li>
-  <li>MicroPython</li>
+  <li>Jython*</li>
+  <li>MicroPython*</li>
 </ul>
 <p>Quite a nest, isn’t it?
 You can install them like this:</p>
@@ -212,15 +212,18 @@ CPython 3.4:</p>
 Type "help", "copyright", "credits" or "license" for more information.
 </span><span class="gp">&gt;</span><span class="o">&gt;&gt;</span> 
 </code></pre></div></div>
-<p><strong>Warning:</strong> For production purposes you should use <code class="highlighter-rouge">python3</code> or <code class="highlighter-rouge">python2</code>
+<p><strong>Warning:</strong> For production purposes you should use the <code class="highlighter-rouge">python3</code> or <code class="highlighter-rouge">python2</code>
 packages only. Other CPython versions might be <strong>unstable</strong> or even <strong>dangerous</strong>
 (either because they are extremely old or quite the contrary alpha/beta quality)
 and are intended solely for development.</p>
+<p><strong>*</strong> Interpreters marked with * do not work with Tox and virtualenv
+packaged in Fedora.
+For using tox, virtualenv or pip with these interpreters, see the bottom
+sections of this page.</p>
 <h2 id="getting-it-and-running-it-all-with-tox">Getting it and running it all with tox</h2>
 <p><a href="https://tox.readthedocs.io/">Tox</a> is tool that helps you test your Python code
 on multiple Pythons. If you install it on Fedora via the dnf package manager,
-you’ll automatically get all the CPythons (except Python 2.6)
-and PyPys:</p>
+you’ll automatically get all supported CPythons and PyPys:</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">sudo </span>dnf <span class="nb">install </span>tox
 </code></pre></div></div>
 <p>If you are not yet familiar with tox, don’t worry. This short example will show
@@ -240,7 +243,7 @@ commands=python say.py
 </code></pre></div></div>
 <p>The <code class="highlighter-rouge">envlist</code> directive defines the list of Pythons to test on.
 Normally, tox assumes you are testing a project with its own <code class="highlighter-rouge">setup.py</code>. For
-the simlicity of this demo, we are not using it, and we need to tell this to
+the simplicity of this demo, we are not using it, and we need to tell this to
 tox via the <code class="highlighter-rouge">skipsdist</code> option.
 Finally the <code class="highlighter-rouge">commands</code> in <code class="highlighter-rouge">[testenv]</code> section tells tox what commands to run
 for the test, normally that would be <code class="highlighter-rouge">python setup.py test</code>, <code class="highlighter-rouge">py.test</code> or
@@ -272,9 +275,6 @@ If you want to support old Python 2 as well, you’ll have to fix it:</p>
 </span></code></pre></div></div>
 <p>If you want to use tox for your projects, you can learn more at
 <a href="https://tox.readthedocs.io/">the documentation</a>.</p>
-<p><strong>Warning:</strong> Tox version 3 and greater does not support Python 2.6.
-If you really need tox with Python 2.6, we recommend creating a virtual
-environment with <code class="highlighter-rouge">python3</code> (see bellow) and installing <code class="highlighter-rouge">tox&lt;3</code> in it.</p>
 <h2 id="creating-virtualenvs-and-installing-packages">Creating virtualenvs and installing packages</h2>
 <p>Fedora only packages Python modules for current versions of <code class="highlighter-rouge">python2</code>
 and <code class="highlighter-rouge">python3</code>. For all other interpreters, you will need to install packages
@@ -284,8 +284,8 @@ The invocation to create them differs for different Python versions.
 Packages installed in a virtualenv are only available once the virtualenv
 is activated. Here you can see two demos that create virtualenv in a folder
 named <code class="highlighter-rouge">env</code> and install some package into it.</p>
-<h3 id="python-34-only">Python 3.4+ only</h3>
-<p>Recent versions of Python include the <code class="highlighter-rouge">venv</code> module, which can create virtual
+<h3 id="python-3-including-pypy-3">Python 3 (including PyPy 3)</h3>
+<p>Recent versions of Python 3 include the <code class="highlighter-rouge">venv</code> module, which can create virtual
 environments.</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> python3.5 <span class="nt">-m</span> venv <span class="nb">env</span>  <span class="c"># create the virtualenv</span>
 <span class="gp">$</span> <span class="nb">.</span> <span class="nb">env</span>/bin/activate  <span class="c"># activate it</span>
@@ -299,7 +299,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 <span class="gp">&gt;</span><span class="o">&gt;&gt;</span> ...
 <span class="gp">(env)$</span> deactivate  <span class="c"># go back to "normal"</span>
 </code></pre></div></div>
-<h3 id="python-2x-3x-pypys-jython">Python 2.x, 3.x, PyPys, Jython</h3>
+<h3 id="python-27-pypy-2">Python 2.7, PyPy 2</h3>
 <p>For other Python versions, a tool called <code class="highlighter-rouge">virtualenv</code> can create virtual
 environments:</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> dnf <span class="nb">install</span> /usr/bin/virtualenv  <span class="c"># install the necessary tool</span>
@@ -321,7 +321,44 @@ Type "help", "copyright", "credits" or "license" for more information.
 </code></pre></div></div>
 <p>To learn more about virtualenvs, visit
 <a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/">The Hitchhiker’s Guide to Python</a>.</p>
-<h3 id="others">Others</h3>
+<h3 id="python-26-jython">Python 2.6, Jython</h3>
+<p>The versions of virtualenv and tox packages in Fedora do not support the
+following interpreters:</p>
+<ul>
+  <li>Python 2.6</li>
+  <li>Jython</li>
+</ul>
+<p>If you really need to support such old interpreters, you will need to install
+and use older virtualenv/tox from PyPI.</p>
+<p>First, create a virtual environment with a newer Python, preferably <code class="highlighter-rouge">python3</code>:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> python3 <span class="nt">-m</span> venv py3env
+<span class="gp">$</span> <span class="nb">.</span> py3env/bin/activate  <span class="c"># activate it</span>
+</code></pre></div></div>
+<p>Then, install older packages (virtualenv 15 and tox 2) into it:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">(py3env)$</span> python <span class="nt">-m</span> pip <span class="nb">install</span> <span class="s1">'virtualenv&lt;16'</span> <span class="s1">'tox&lt;3'</span>
+</code></pre></div></div>
+<p>Now, whenever the Python 3 virtual environment is activated, you can invoke
+tox 2 using the <code class="highlighter-rouge">tox</code> command.
+Include <code class="highlighter-rouge">py26</code> and/or <code class="highlighter-rouge">jython</code> in the <code class="highlighter-rouge">envlist</code> section in <code class="highlighter-rouge">tox.ini</code> to test
+on the old interpreters.</p>
+<p>You can also use the older virtualenv to create environments for
+Python 2.6 or Jython:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">(py3env)$</span> python <span class="nt">-m</span> virtualenv <span class="nt">--python</span> /usr/bin/python2.6 py26env
+<span class="gp">(py3env)$</span> python <span class="nt">-m</span> virtualenv <span class="nt">--python</span> /usr/bin/jython jyenv
+</code></pre></div></div>
+<p>To activate these, you don’t need the <code class="highlighter-rouge">py3env</code> activated.
+That is only needed to create them.</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">.</span> py26env/bin/activate
+<span class="gp">(py26env)$</span> python <span class="nt">--version</span>
+<span class="go">Python 2.6.9
+</span><span class="gp">(py26env)$</span> deactivate
+</code></pre></div></div>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">.</span> jyenv/bin/activate
+<span class="gp">(jyenv)$</span> python <span class="nt">--version</span>
+<span class="go">Jython 2.7.1
+</span><span class="gp">(jyenv)$</span> deactivate
+</code></pre></div></div>
+<h3 id="micropython">MicroPython</h3>
 <p>MicroPython does not support virtual environments.
 It does have a rudimentary pip replacement called
 <a href="https://pypi.python.org/pypi/micropython-upip/">upip</a>, which you can use to
