@@ -21,6 +21,7 @@
         indexUrl: '/js/index.json',   // Url for the .json file containing search index data
         results : '#search-results',  // selector for containing search results element
         entries : '.entries',         // selector for search entries containing element (contained within results above)
+        titleMsg  : '',   // message attached in front of results (can be empty)
         template: '#search-results-template'  // selector for Mustache.js template
       });
     });
@@ -168,30 +169,30 @@
     <div class="row">
     <div class="col-sm-6 blog-headlines">
         <article>
-        <h3><a href="https://rwmj.wordpress.com/2018/09/04/nbdkit-as-a-flexible-alternative-to-loopback-mounts/"> nbdkit as a flexible alternative to loopback mounts</a></h3>
-        <p>Look: $ nbdkit -f -v memory size=$(( 2**63-1 )) On the same machine: # modprobe nbd # nbd-client localhost /dev/nbd0 Warning: the oldstyle protocol is...</p>
-        <p><a href="https://rwmj.wordpress.com/2018/09/04/nbdkit-as-a-flexible-alternative-to-loopback-mounts/">Read more</a></p>
-        <p class="byline">by <span class="author">Richard W.M. Jones</span> <span class="date">Tue, 04 Sep 2018</span></p>
+        <h3><a href="https://rwmj.wordpress.com/2018/09/27/programming-a-game-on-the-zx81/"> Programming a game on the ZX81</a></h3>
+        <p>&lt;iframe allowfullscreen="true" class="youtube-player" height="282" src="https://www.youtube.com/embed/WqVfyyZbIvo?version=3&amp;amp;rel=1&amp;amp;fs=1&amp;amp;autohide=2&amp;amp;showsearch=0&amp;amp;showinfo=1&amp;amp;iv_load_policy=1&amp;amp;wmode=transparent" style="border:0;" type="text/html" width="500"&gt;&lt;/iframe&gt; This took me back as it was my first ever computer and I had no games so...</p>
+        <p><a href="https://rwmj.wordpress.com/2018/09/27/programming-a-game-on-the-zx81/">Read more</a></p>
+        <p class="byline">by <span class="author">Richard W.M. Jones</span> <span class="date">Thu, 27 Sep 2018</span></p>
         </article>
         <article>
-        <h3><a href="https://blog.fedora-fr.org/renault/post/%5BF29%5D-Participez-%C3%A0-la-journ%C3%A9e-de-test-consacr%C3%A9e-%C3%A0-l-internationalisation"> [F29] Participez à la journée de test consacrée à l'internationalisation</a></h3>
-        <p>Aujourd'hui, ce mardi 4 septembre, est une journée dédiée à un test précis : sur l'internationalisation de Fedora. En effet, durant le cycle de développement,...</p>
-        <p><a href="https://blog.fedora-fr.org/renault/post/%5BF29%5D-Participez-%C3%A0-la-journ%C3%A9e-de-test-consacr%C3%A9e-%C3%A0-l-internationalisation">Read more</a></p>
-        <p class="byline">by <span class="author">Charles-Antoine Couret</span> <span class="date">Tue, 04 Sep 2018</span></p>
+        <h3><a href="https://fedoramagazine.org/5-cool-tiling-window-managers/"> 5 cool tiling window managers</a></h3>
+        <p>The Linux desktop ecosystem offers multiple window managers (WMs). Some are developed as part of a desktop environment. Others are meant to be used as...</p>
+        <p><a href="https://fedoramagazine.org/5-cool-tiling-window-managers/">Read more</a></p>
+        <p class="byline">by <span class="author">Fedora Magazine</span> <span class="date">Thu, 27 Sep 2018</span></p>
         </article>
     </div>
     <div class="col-sm-6 blog-headlines">
         <article>
-        <h3><a href="http://feedproxy.google.com/~r/Who-t/~3/aV79OH3aI4A/whats-new-in-libinput-112.html"> What's new in libinput 1.12</a></h3>
-        <p>libinput 1.12 was a massive development effort (over 300 patchsets) with a bunch of new features being merged. It'll be released next week or so,...</p>
-        <p><a href="http://feedproxy.google.com/~r/Who-t/~3/aV79OH3aI4A/whats-new-in-libinput-112.html">Read more</a></p>
-        <p class="byline">by <span class="author">Peter Hutterer</span> <span class="date">Tue, 04 Sep 2018</span></p>
+        <h3><a href="https://communityblog.fedoraproject.org/fedora-29-atomic-and-cloud-test-day-2018-10-01/"> Fedora 29 Atomic and Cloud Test Day 2018-10-01</a></h3>
+        <p>Why test Atomic and Cloud Fedora 29 Atomic and Cloud provides latest version of packages from Fedora 29.Both Fedora Cloud Base and Atomic Host provide...</p>
+        <p><a href="https://communityblog.fedoraproject.org/fedora-29-atomic-and-cloud-test-day-2018-10-01/">Read more</a></p>
+        <p class="byline">by <span class="author">Fedora Community Blog</span> <span class="date">Thu, 27 Sep 2018</span></p>
         </article>
         <article>
-        <h3><a href="https://fedoramagazine.org/test-internationalization-improvements-coming-fedora-29/"> Test Internationalization improvements coming in Fedora 29</a></h3>
-        <p>Fedora 29 development and testing is currently in full swing, and Fedora 29 features a range of improvements to Internationalization (i18n) support. Major improvements in...</p>
-        <p><a href="https://fedoramagazine.org/test-internationalization-improvements-coming-fedora-29/">Read more</a></p>
-        <p class="byline">by <span class="author">Fedora Magazine</span> <span class="date">Tue, 04 Sep 2018</span></p>
+        <h3><a href="https://cecinestpasunefromage.wordpress.com/2018/09/26/fedora-29-beta/"> Fedora 29 Beta</a></h3>
+        <p>It’s Beta time again! As is my habit, I upgraded my laptop at Beta time. dnf system-upgrade didn’t work for me because of some dependency...</p>
+        <p><a href="https://cecinestpasunefromage.wordpress.com/2018/09/26/fedora-29-beta/">Read more</a></p>
+        <p class="byline">by <span class="author">Gwyn Ciesla</span> <span class="date">Wed, 26 Sep 2018</span></p>
         </article>
     </div>
 </div>
