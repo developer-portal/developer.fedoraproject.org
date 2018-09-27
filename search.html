@@ -77,6 +77,46 @@
 </nav>
   </div>
   <div class="col-sm-3" id="search-col">
+<!-- // search.html page only -->
+<style media="screen, print">
+#search-results {
+  display: block;
+  position: static;
+  padding: 20px;
+  margin: 0;
+  border: 0;
+  width: 100%;
+}
+#search-results a {
+  color: #000;
+  text-decoration: none;
+}
+#search-results a:visited {
+  color: #000;
+}
+#search-results article, a {
+  width: 100%;
+}
+#search-results a {
+  display: block;
+}
+#search-results article:hover {
+  background-color: #e6e6e6;
+}
+#search-results h1 {
+  text-align: center;
+}
+</style>
+  <script id="search-results-template" type="text/mustache">
+  <h1>Search results</h1>
+    {{#entries}}
+      <article>
+        <h3>
+          <a href="{{url}}">{{title}}</a>
+        </h3>
+      </article>
+    {{/entries}}
+  </script>
   </div>
 </div>
         <div class="row" id="headlines">
@@ -105,17 +145,10 @@
 </div>
 <div class="panel panel-default">
   <section id="search-results">
-    <div class="entries" style="font-size: 15px; display: block; position: static; padding: 0; margin: 0; border: 0; width: 100%;">
+    <div class="entries">
     </div>
   </section>
 </div>
-<script id="search-results-template" type="text/mustache">
-    <article style="padding: 0; margin: 0;">
-      <h3>
-        <a href=""></a>
-      </h3>
-    </article>
-</script>
       </div>
     </div>
     <!-- Some other stuff -->
