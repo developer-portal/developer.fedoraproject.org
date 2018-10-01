@@ -133,7 +133,7 @@
   <div class="col-sm-12">
           <img class="img-rounded" src="/static/logo/cli-app.png">
           <h2>Command Line Application</h2>
-          <p></p>
+          <p>Creating a command line application using C</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -162,12 +162,96 @@
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-              <div class="alert alert-warning">
-  <strong> This page is not ready. </strong>
-  You can <a href="http://developer-portal.github.io/contributing/"> learn how to contribute </a> and help us by writing content.
-</div>
             <h1 id="command-line-application">Command Line Application</h1>
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%64%75%66%66%79@%72%65%64%68%61%74.%63%6F%6D">Máirín Duffy</a></p>
+<p>Creating command line apps using various programming languages is easy with Fedora. For this example we will write a simple c program that gathers system info and prints to stdout.</p>
+<h2 id="getting-started">Getting started</h2>
+<h3 id="install-required-libraries">Install required libraries</h3>
+<p>For simple C programs a compiler and a text editor is all we need to get started.</p>
+<p>For this example we will use <a href="https://gcc.gnu.org/"><code class="highlighter-rouge">gcc</code></a> as our compiler.</p>
+<p><code class="highlighter-rouge">$ sudo dnf install gcc</code></p>
+<h3 id="create-a-workspace">Create a workspace</h3>
+<p><code class="highlighter-rouge">$ mkdir work &amp;&amp; cd work</code></p>
+<h2 id="command-line-application-in-c">Command Line Application in C</h2>
+<p>For this example we will use the uname function in <a href="http://pubs.opengroup.org/onlinepubs/7908799/xsh/sysutsname.h.html">utsname</a> C library to gather information about the system similar to the output of the <code class="highlighter-rouge">uname -a</code> command and format it into a human readable block.</p>
+<p>The output from our example cli should match the output of <code class="highlighter-rouge">uname</code> with the corresponding switches.</p>
+<p>Here is an example of the <code class="highlighter-rouge">uname</code> output we are trying to achieve using <code class="highlighter-rouge">cat</code> to match the format</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat &lt;&lt; EOF
+Node Info
+---------- 
+node: $(uname -n)          
+system: $(uname -s)
+version: $(uname -v)
+release: $(uname -r)
+arch: $(uname -m)
+
+EOF
+</code></pre></div></div>
+<p>The results look like this</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Node Info
+----------
+node: fedora
+system: Linux
+version: #1 SMP Tue Sep 4 15:56:14 UTC 2018
+release: 4.18.5-200.fc28.x86_64
+arch: x86_64
+</code></pre></div></div>
+<h2 id="write-code-for-command-line-application">Write code for command line application</h2>
+<p>Our example is a simple one file C program. To get started we need to write our C code into a file named <code class="highlighter-rouge">nodeinfo.c</code></p>
+<p>You can write the C file using the editor of your choice.</p>
+<p><code class="highlighter-rouge">$ gedit nodeinfo.c</code></p>
+<p>Here is the example code for <code class="highlighter-rouge">nodeinfo.c</code></p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Node Info Cli App</span>
+<span class="cp">#include &lt;sys/utsname.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;errno.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// define utsname struct</span>
+    <span class="k">struct</span> <span class="n">utsname</span> <span class="n">info</span><span class="p">;</span>
+    <span class="c1">// call uname() and check call</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">uname</span><span class="p">(</span><span class="o">&amp;</span><span class="n">info</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// error if call fails</span>
+        <span class="n">perror</span><span class="p">(</span><span class="s">"uname"</span><span class="p">);</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"Error in uname : %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">errno</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// Print Node Info</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Node Info</span><span class="se">\n</span><span class="s">----------</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"node : %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">nodename</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"system : %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">sysname</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"version : %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">version</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"release : %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">release</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"arch : %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">machine</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+</code></pre></div></div>
+<p>Save the file as <code class="highlighter-rouge">nodeinfo.c</code>.</p>
+<h2 id="compile-code-for-command-line-application">Compile code for command line application</h2>
+<p>We can compile our cli at the command line using <code class="highlighter-rouge">gcc</code>. To do this open a terminal and navigate to your workspace.</p>
+<p>The command is as follows.</p>
+<p><code class="highlighter-rouge">$ gcc -o nodeinfo nodeinfo.c</code></p>
+<p>The <code class="highlighter-rouge">gcc</code> command flag <code class="highlighter-rouge">-o nodeinfo</code> tells <code class="highlighter-rouge">gcc</code> to generate a binary named <code class="highlighter-rouge">nodeinfo</code> in the same directory as <code class="highlighter-rouge">nodeinfo.c</code>.</p>
+<p>The binary should be executable so give it a spin.</p>
+<p><code class="highlighter-rouge">$ ./nodeinfo</code></p>
+<p>And the output should be similar to this</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Node Info
+----------
+node : fedora
+system : Linux
+version : #1 SMP Tue Sep 4 15:56:14 UTC 2018
+release : 4.18.5-200.fc28.x86_64
+arch : x86_64
+</code></pre></div></div>
+<h2 id="source-code">Source Code</h2>
+<p>Source code for this and more examples</p>
+<p><a href="https://github.com/xbcsmith/cli-app">https://github.com/xbcsmith/cli-app</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%78%62%63%73%6D%69%74%68@%67%6D%61%69%6C.%63%6F%6D">Brett Smith</a>, <a href="mailto:%64%75%66%66%79@%72%65%64%68%61%74.%63%6F%6D">Máirín Duffy</a></p>
           </div>
         </div>
       </div>
