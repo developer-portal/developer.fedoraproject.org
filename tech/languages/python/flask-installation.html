@@ -194,7 +194,7 @@
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
 
-<span class="nd">@app.route</span><span class="p">(</span><span class="s">"/"</span><span class="p">)</span>
+<span class="o">@</span><span class="n">app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s">"/"</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
     <span class="k">return</span> <span class="s">"Hello World!"</span>
 
@@ -215,7 +215,7 @@
   <li><a href="http://flask.pocoo.org/docs/">Flask Documentation</a></li>
   <li><a href="https://docs.python.org/3/library/venv.html#module-venv">Python Documentation: venv</a></li>
 </ul>
-<p style="text-align: center">Authors: <a href="mailto:%61%76%69%77%6F%6C%6C@%67%6D%61%69%6C.%63%6F%6D">Avi Wollman</a>, <a href="mailto:%64%6B%72%65%6A%63%69@%72%65%64%68%61%74.%63%6F%6D">Dominika Krejčí</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%61%76%69%77%6F%6C%6C@%67%6D%61%69%6C.%63%6F%6D">Avi Wollman</a>, <a href="mailto:%64%6B%72%65%6A%63%69@%72%65%64%68%61%74.%63%6F%6D">Dominika Krejčí</a>, <a href="mailto:%66%72%6F%73%74%79%78@%65%6D%61%69%6C.%63%7A">Jakub Kadlčík</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a></p>
           </div>
         </div>
       </div>
@@ -236,7 +236,7 @@
         <div class="widget-body">
           <dl>
             <dd><a href="/about.html">About Developer Portal</a></dd>
-            <dd><a href="https://getfedora.org/en/sponsors">About Fedora</a></dd>
+            <dd><a href="https://docs.fedoraproject.org/en-US/project/">About Fedora</a></dd>
             <dd><a href="https://getfedora.org/en/sponsors">Sponsors</a></dd>
             <dd><a href="https://fedoramagazine.org">Fedora Magazine</a></dd>
             <dd><a href="https://fedoraproject.org/wiki/Legal:Main#Legal">Legal</a></dd>
@@ -260,11 +260,12 @@
           <dl>
             <dd><a href="https://getfedora.org/en/workstation/download/">Get Fedora Workstation</a></dd>
             <dd><a href="https://getfedora.org/en/server/download/">Get Fedora Server</a></dd>
+            <dd><a href="https://getfedora.org/en/atomic/download/">Get Fedora Atomic</a></dd>
             <dd><a href="https://alt.fedoraproject.org/en/cloud/">Get Fedora Cloud</a></dd>
             <dd><a href="https://spins.fedoraproject.org">Fedora Spins</a></dd>
             <dd><a href="https://labs.fedoraproject.org">Fedora Labs</a></dd>
             <dd><a href="https://arm.fedoraproject.org">Fedora ARM<span class="sup">&reg;</span></a></dd>
-            <dd><a href="https://torrents.fedoraproject.org">Torrent Downloads</a></dd>
+            <dd><a href="https://alt.fedoraproject.org/">Alternative Downloads</a></dd>
           </dl>
         </div>
       </div>
@@ -303,7 +304,7 @@
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2018 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

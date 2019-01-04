@@ -166,7 +166,7 @@
           <div class="panel panel-default content-content">
             <h1 id="java-installation">Java installation</h1>
 <p>Fedora comes with <a href="http://openjdk.java.net/">OpenJDK</a> - a free and open source implementation of the Java Platform, Standard Edition. To install it, simply type:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install java-1.8.0-openjdk-devel
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install java-11-openjdk-devel
 </code></pre></div></div>
 <p>This command will install Java Development Kit - runtime environment and associated development tools.</p>
 <p><a href="http://icedtea.classpath.org/wiki/IcedTea-Web">IcedTea-Web</a> may come handy if your plan is to develop Java applets or to experiment with Java Web Start. To install it, simply type:</p>
@@ -174,14 +174,14 @@
 </code></pre></div></div>
 <p>This command will install Java web browser plugin and free implementation of Java Web Start.</p>
 <p>Later, when you will want to test your new application in a production-like environment, it’s possible to install just Java runtime environment (JRE) - without development tools. This can be achieved by several means:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install java-1.8.0-openjdk-headless
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install java-11-openjdk-headless
 </code></pre></div></div>
 <p>The command above will install so-called “headless” JRE, i.e. JRE without support for graphic and audio. If your application is supposed to run on a server without any graphical user interface (GUI) installed, then this is likely what you want.</p>
 <p>However, if your application needs support for GUI or audio, you will likely want to install full JRE. You can do that simply by typing:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install java-1.8.0-openjdk
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install java-11-openjdk
 </code></pre></div></div>
 <!-- TODO: add section about installing JDK from 3rd parties + how to switch between them -->
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%6D%69%7A%64%65%62%73%6B@%72%65%64%68%61%74.%63%6F%6D">Mikolaj Izdebski</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%6D%69%7A%64%65%62%73%6B@%72%65%64%68%61%74.%63%6F%6D">Mikolaj Izdebski</a>, <a href="mailto:%73%69%6E%61%64%6F%6F%6D@%67%6D%61%69%6C.%63%6F%6D">Sina Madani</a></p>
           </div>
         </div>
       </div>
@@ -202,7 +202,7 @@
         <div class="widget-body">
           <dl>
             <dd><a href="/about.html">About Developer Portal</a></dd>
-            <dd><a href="https://getfedora.org/en/sponsors">About Fedora</a></dd>
+            <dd><a href="https://docs.fedoraproject.org/en-US/project/">About Fedora</a></dd>
             <dd><a href="https://getfedora.org/en/sponsors">Sponsors</a></dd>
             <dd><a href="https://fedoramagazine.org">Fedora Magazine</a></dd>
             <dd><a href="https://fedoraproject.org/wiki/Legal:Main#Legal">Legal</a></dd>
@@ -226,11 +226,12 @@
           <dl>
             <dd><a href="https://getfedora.org/en/workstation/download/">Get Fedora Workstation</a></dd>
             <dd><a href="https://getfedora.org/en/server/download/">Get Fedora Server</a></dd>
+            <dd><a href="https://getfedora.org/en/atomic/download/">Get Fedora Atomic</a></dd>
             <dd><a href="https://alt.fedoraproject.org/en/cloud/">Get Fedora Cloud</a></dd>
             <dd><a href="https://spins.fedoraproject.org">Fedora Spins</a></dd>
             <dd><a href="https://labs.fedoraproject.org">Fedora Labs</a></dd>
             <dd><a href="https://arm.fedoraproject.org">Fedora ARM<span class="sup">&reg;</span></a></dd>
-            <dd><a href="https://torrents.fedoraproject.org">Torrent Downloads</a></dd>
+            <dd><a href="https://alt.fedoraproject.org/">Alternative Downloads</a></dd>
           </dl>
         </div>
       </div>
@@ -269,7 +270,7 @@
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2018 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

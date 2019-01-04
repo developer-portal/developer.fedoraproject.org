@@ -175,39 +175,44 @@
 <blockquote>
   <p>The PHP Framework For Web Artisans</p>
 </blockquote>
-<p>Laravel is a high-level PHP Web framework.</p>
-<h4 id="install-apache-web-server">Install Apache Web Server</h4>
-<p>Follow the Apache installation instructions <a href="/start/sw/web-app/apache.html">here</a>.</p>
-<h4 id="install-mariadb-relational-database-server">Install MariaDB Relational Database Server</h4>
+<p>Laravel is a high-level PHP MVC framework. It is also the most used PHP framework today. For more information, <a href="https://laravel.com/">click here</a>.</p>
+<p>This guide will help you setup your local development environment for Laravel, and it applies to setting up Lumen as well.</p>
+<h2 id="dependencies-for-laravel">Dependencies for Laravel</h2>
+<h4 id="install-nginx-web-server">Install Nginx Web Server</h4>
+<p>Laravel Valet and Laravel recommends using Nginx. Follow the nginx installation instructions <a href="/start/sw/web-app/nginx.html">here</a>.</p>
+<h4 id="install-mariadb-relational-database-server-or-other-database-you-prefer">Install MariaDB Relational Database Server (Or other database you prefer)</h4>
 <p>Follow the MariaDB installation instructions <a href="/tech/database/mariadb/about.html">here</a>.</p>
-<h4 id="install-php">Install PHP</h4>
+<h4 id="setup-environment-for-php-development">Setup environment for PHP development</h4>
 <p>Follow the PHP installation instructions <a href="/tech/languages/php/php-installation.html">here</a>.</p>
-<h4 id="install-php-extensions">Install PHP Extensions</h4>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Laravel required PHP extensions.</span>
-<span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>php php-common php-cli php-pdo php-mbstring php-zip php-xml
-<span class="c"># Restart Apache</span>
-<span class="nv">$ </span><span class="nb">sudo </span>systemctl restart httpd
+<p>OR, you can rip the benefit of using Fedora, and install composer directly instead. This will install PHP, and all the required extensions/libraries needed.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># It will install all required extensions, perk of Fedora</span>
+<span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>composer
 </code></pre></div></div>
-<h4 id="install-composer">Install Composer</h4>
-<p>We will need composer to install laravel and it’s dependencies</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl <span class="nt">-sS</span> https://getcomposer.org/installer | php
-<span class="nv">$ </span><span class="nb">sudo mv </span>composer.phar /usr/local/bin/composer
-<span class="nv">$ </span><span class="nb">chmod</span> +x /usr/local/bin/composer
-<span class="nv">$ </span>composer <span class="nt">-V</span>
-</code></pre></div></div>
-<h4 id="install-laravel-installer">Install laravel installer</h4>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>composer global require <span class="s2">"laravel/installer"</span>
-<span class="c"># Place the ~/.config/composer/vendor/bin directory in your PATH so the laravel </span>
-<span class="c"># executable can be located by your system.</span>
+<h4 id="install-valet-linux">Install Valet Linux</h4>
+<p>We will need to set it up for easier development. Valet is original designed for MacOS by the Laravel Team; Valet Linux is a port to that. It setups up the neccesary environments for PHP Development, including a test domain. Please do not run valet as root. 
+For More Information, you can check them out here: 
+<a href="https://cpriego.github.io/valet-linux/">Valet Linux</a>  and  <a href="https://laravel.com/docs/5.7/valet">Laravel Valet</a></p>
+<p>You can also setup Laravel using <a href="/tools/vagrant/about.html">Vagrant</a>, <a href="/tools/docker/about.html">Docker</a>.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Place the ~/.config/composer/vendor/bin directory in your PATH so the composer </span>
+<span class="c"># global executable can be located by your system.</span>
 <span class="nv">$ </span><span class="nb">echo</span> <span class="s1">'export PATH="$PATH:$HOME/.config/composer/vendor/bin"'</span> <span class="o">&gt;&gt;</span> ~/.bashrc
+<span class="c"># Install valet </span>
+<span class="nv">$ </span>composer global require cpriego/valet-linux
+<span class="c"># Initialize valet</span>
+<span class="nv">$ </span>valet <span class="nb">install</span>
 </code></pre></div></div>
-<p>Restart Terminal. Now you can create a laravel project with the commands</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>laravel new ProjectName
+<h2 id="setup-laravel">Setup Laravel</h2>
+<h4 id="install-laravel-installer">Install laravel installer</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Install Laravel Installer</span>
+<span class="nv">$ </span>composer global require <span class="s2">"laravel/installer"</span>
+<span class="c"># use Laravel Installer to Create a new Laravel Project</span>
+<span class="nv">$ </span>laravel new ProjectName
 </code></pre></div></div>
 <h4 id="setup">Setup</h4>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>ProjectName
 <span class="nv">$ </span><span class="nb">cp</span> .env.example .env
-<span class="nv">$ </span>nano .env
+<span class="c">#Editing your environment file</span>
+<span class="nv">$ </span>gedit .env 
 </code></pre></div></div>
 <p>Edit the .env file with DB_* lines with the correct info</p>
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DB_HOST</span><span class="o">=</span><span class="nx">localhost</span>
@@ -218,8 +223,22 @@
 <h4 id="serve">Serve</h4>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>php artisan serve
 <span class="c"># Laravel development server started on http://localhost:PORT/</span>
+
+<span class="c"># or use valet</span>
+<span class="nv">$ </span>valet park
+<span class="nv">$ </span>valet <span class="nb">link </span>DOMAIN
+
+<span class="c"># Now visit http://DOMAIN.test/</span>
 </code></pre></div></div>
-<p style="text-align: center">Authors: <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%6D%6D%68%79%61%6D%69%6E@%67%6D%61%69%6C.%63%6F%6D">Syed Muhammad Mahmudul Haque</a></p>
+<h5 id="if-ssl-is-desired">If ssl is desired</h5>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>valet secure
+<span class="c"># Now visit https://DOMAIN.test/</span>
+
+</code></pre></div></div>
+<h5 id="if-need-a-callback-urlan-url-over-the-internet">If need a callback URL/an URL over the internet</h5>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>valet share
+</code></pre></div></div>
+<p style="text-align: center">Authors: <a href="mailto:%6A%72%69%64%6B%79@%72%65%64%68%61%74.%63%6F%6D">Josef Ridky</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%6A%75%6E%68%61%69@%6B%6F%72%65%63%6F%6E%78.%63%6F%6D">Junhai</a>, <a href="mailto:%6D%6D%68%79%61%6D%69%6E@%67%6D%61%69%6C.%63%6F%6D">Syed Muhammad Mahmudul Haque</a>, <a href="mailto:%6E%61%74%68%61%6E%61%65%6C.%68%6F%6C%6C%69%6E%67%73@%67%6D%61%69%6C.%63%6F%6D">nat-</a></p>
           </div>
         </div>
       </div>
@@ -240,7 +259,7 @@
         <div class="widget-body">
           <dl>
             <dd><a href="/about.html">About Developer Portal</a></dd>
-            <dd><a href="https://getfedora.org/en/sponsors">About Fedora</a></dd>
+            <dd><a href="https://docs.fedoraproject.org/en-US/project/">About Fedora</a></dd>
             <dd><a href="https://getfedora.org/en/sponsors">Sponsors</a></dd>
             <dd><a href="https://fedoramagazine.org">Fedora Magazine</a></dd>
             <dd><a href="https://fedoraproject.org/wiki/Legal:Main#Legal">Legal</a></dd>
@@ -264,11 +283,12 @@
           <dl>
             <dd><a href="https://getfedora.org/en/workstation/download/">Get Fedora Workstation</a></dd>
             <dd><a href="https://getfedora.org/en/server/download/">Get Fedora Server</a></dd>
+            <dd><a href="https://getfedora.org/en/atomic/download/">Get Fedora Atomic</a></dd>
             <dd><a href="https://alt.fedoraproject.org/en/cloud/">Get Fedora Cloud</a></dd>
             <dd><a href="https://spins.fedoraproject.org">Fedora Spins</a></dd>
             <dd><a href="https://labs.fedoraproject.org">Fedora Labs</a></dd>
             <dd><a href="https://arm.fedoraproject.org">Fedora ARM<span class="sup">&reg;</span></a></dd>
-            <dd><a href="https://torrents.fedoraproject.org">Torrent Downloads</a></dd>
+            <dd><a href="https://alt.fedoraproject.org/">Alternative Downloads</a></dd>
           </dl>
         </div>
       </div>
@@ -307,7 +327,7 @@
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2018 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

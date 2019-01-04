@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>.NET Core &mdash; Fedora Developer Portal</title>
+  <title>Mono &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/csharp/dotnet-installation.html">
+  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/dotnet/mono.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -131,9 +131,12 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/csharp.png">
-          <h2>C#</h2>
-          <p>.NET Core and Mono open source frameworks, and available IDEs.</p>
+          <img class="img-rounded" src="/static/logo/dotnet.png">
+          <img class="img-rounded" src="/static/logo/dotnet.png">
+          <h2>.NET</h2>
+          <h2>.NET</h2>
+          <p>.NET Core and Mono are open-source .NET platforms. .NET applications are developed using the C#, F# and VB.NET programming languages.</p>
+          <p></p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -148,12 +151,12 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="list-group content-menu">
-                <a href="/tech/languages/csharp/about.html" class="list-group-item ">C#</a>
-                <a href="/tech/languages/csharp/csharp-ide.html" class="list-group-item ">IDEs</a>
-                <a href="/tech/languages/csharp/dotnet-installation.html" class="list-group-item  active ">.NET Core</a>
-                <a href="/tech/languages/csharp/mono-installation.html" class="list-group-item ">Mono</a>
-                <a href="/tech/languages/csharp/dotnet-sig.html" class="list-group-item ">DotNet SIG</a>
-                <a href="/tech/languages/csharp/mono-sig.html" class="list-group-item ">Mono SIG</a>
+                <a href="/tech/languages/dotnet/about.html" class="list-group-item ">.NET</a>
+                <a href="/tech/languages/dotnet/dotnet.html" class="list-group-item ">.NET</a>
+                <a href="/tech/languages/dotnet/mono.html" class="list-group-item  active ">Mono</a>
+                <a href="/tech/languages/dotnet/dotnet-ide.html" class="list-group-item ">IDEs</a>
+                <a href="/tech/languages/dotnet/dotnet-sig.html" class="list-group-item ">DotNet SIG</a>
+                <a href="/tech/languages/dotnet/mono-sig.html" class="list-group-item ">Mono SIG</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -163,36 +166,30 @@
 </div>
             </div>
           </div>
-          <a href="https://github.com/developer-portal/content/edit/master/tech/languages/csharp/dotnet-installation.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/edit/master/tech/languages/dotnet/mono.md" class="btn btn-default">Edit this page</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h1 id="net-core">.NET Core</h1>
-<h2 id="fedora-net-sig-repository">Fedora .NET SIG repository</h2>
-<p>.NET Core is still work in progress. The download location below contains packages that do not meet the official Fedora requirements yet (such as using prebuilt tools to build the source) but are <em>free</em>.</p>
-<p>To enable the .NET SIG’s copr repository:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf copr enable @dotnet-sig/dotnet
+            <h2 id="mono-installation">Mono installation</h2>
+<p>To install Mono, simply type:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install mono-devel
 </code></pre></div></div>
-<h3 id="net-core-sdk">.NET Core SDK</h3>
-<p>.NET Core SDK enables building and publishing of C# source code.</p>
-<p>To install the latest SDK version:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dotnet
+<p>This command will install Mono – the runtime environment and associated development tools.</p>
+<h2 id="nant-installation">NAnt installation</h2>
+<p>The most popular build tool for Mono is <a href="http://nant.sourceforge.net/">NAnt</a>. To install it, simply type:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install nant
 </code></pre></div></div>
-<p>To install the latest SDK for a specific .NET Core Runtime, where the <em>x</em> stands for major, <em>y</em> for minor version of the runtime:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dotnet-sdk-x.y
+<h2 id="nunit-installation">NUnit installation</h2>
+<p><a href="http://nunit.org/">NUnit</a> is very useful for test driven development. To install it, simply type:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install nunit nunit-gui
 </code></pre></div></div>
-<h3 id="net-core-runtime-only">.NET Core Runtime only</h3>
-<p>To install runtime only, for example to merely deploy already prebuilt applications, where <em>x</em> stands for major and <em>y</em> stands for minor version:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dotnet-runtime-x.y
-</code></pre></div></div>
-<h2 id="create-your-app">Create your app</h2>
-<p>You can create your first console app following instructions in <a href="https://www.microsoft.com/net/learn/get-started-with-dotnet-tutorial#create">this official guide</a>.</p>
-<h2 id="references">References</h2>
-<ul>
-  <li><a href="https://copr.fedorainfracloud.org/coprs/g/dotnet-sig/dotnet">Fedora .NET SIG copr</a></li>
-  <li><a href="https://docs.microsoft.com/en-us/dotnet/api/index?view=netcore-2.0">.NET Core API documentation</a></li>
-</ul>
-<p style="text-align: center">Authors: <a href="mailto:%72%61%64%6B%61.%6A%61%6E%65%6B@%72%65%64%68%61%74.%63%6F%6D">Radka Janek</a>, <a href="mailto:%72%61%64%6F%73%6C%61%76%63@%6B%65%6E%74%69%63%6F.%63%6F%6D">Radoslav Čáp</a></p>
+<h2 id="documentation">Documentation</h2>
+<p>The information about installing Mono and related details can be found at <a href="http://www.mono-project.com/docs">mono-project.com/docs</a></p>
+<h2 id="api-reference">API Reference</h2>
+<p>The documentation by Microsoft for the .NET Framework API generally applies to Mono as well, with minor differences.
+You can find the .NET Framework API documentation for versions 4.5 and higher at <a href="https://docs.microsoft.com/en-us/dotnet/api/index?view=netframework-4.5">docs.microsoft.com</a>.
+In the Fedora packages for Mono, we don’t support earlier versions of the .NET Framework API.</p>
+<p style="text-align: center">Authors: <a href="mailto:%74%6F%6D.%64%65%73%65%79%6E@%67%6D%61%69%6C.%63%6F%6D">Tom Deseyn</a></p>
           </div>
         </div>
       </div>
@@ -213,7 +210,7 @@
         <div class="widget-body">
           <dl>
             <dd><a href="/about.html">About Developer Portal</a></dd>
-            <dd><a href="https://getfedora.org/en/sponsors">About Fedora</a></dd>
+            <dd><a href="https://docs.fedoraproject.org/en-US/project/">About Fedora</a></dd>
             <dd><a href="https://getfedora.org/en/sponsors">Sponsors</a></dd>
             <dd><a href="https://fedoramagazine.org">Fedora Magazine</a></dd>
             <dd><a href="https://fedoraproject.org/wiki/Legal:Main#Legal">Legal</a></dd>
@@ -237,11 +234,12 @@
           <dl>
             <dd><a href="https://getfedora.org/en/workstation/download/">Get Fedora Workstation</a></dd>
             <dd><a href="https://getfedora.org/en/server/download/">Get Fedora Server</a></dd>
+            <dd><a href="https://getfedora.org/en/atomic/download/">Get Fedora Atomic</a></dd>
             <dd><a href="https://alt.fedoraproject.org/en/cloud/">Get Fedora Cloud</a></dd>
             <dd><a href="https://spins.fedoraproject.org">Fedora Spins</a></dd>
             <dd><a href="https://labs.fedoraproject.org">Fedora Labs</a></dd>
             <dd><a href="https://arm.fedoraproject.org">Fedora ARM<span class="sup">&reg;</span></a></dd>
-            <dd><a href="https://torrents.fedoraproject.org">Torrent Downloads</a></dd>
+            <dd><a href="https://alt.fedoraproject.org/">Alternative Downloads</a></dd>
           </dl>
         </div>
       </div>
@@ -280,7 +278,7 @@
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2018 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

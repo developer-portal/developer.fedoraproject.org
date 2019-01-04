@@ -170,9 +170,14 @@
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install nodejs
 </code></pre></div></div>
 <p>This will install V8 Javascript Engine, Node.js runtime and npm package manager and their dependencies. Versions present in repositories are usually current or to-be (in Rawhide) Node.js LTS releases, including npm and V8 engine that come with them.</p>
-<p>You can check the available versions with:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dnf info nodejs
-$ dnf info nodejs --enablerepo rawhide
+<h3 id="alternative-versions">Alternative versions</h3>
+<p>There are alternative versions available as <a href="https://docs.fedoraproject.org/en-US/modularity/using-modules/">Fedora Modules</a>.</p>
+<p><strong>Note:</strong> Modules are available for all editions from Fedora 29, and on the Server Edition from Fedora 28.</p>
+<p>To list all available versions, run:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dnf module list
+</code></pre></div></div>
+<p>And to install an alternative version, run a command similar to this:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf module install nodejs:8
 </code></pre></div></div>
 <h2 id="yarn">Yarn</h2>
 <p><a href="https://yarnpkg.com/en/">Yarn</a> package manager is available since Fedora 29. You can install it by running:</p>
@@ -185,7 +190,7 @@ $ yarnpkg add request
 <p>If you still wish to use <code class="highlighter-rouge">yarn</code> instead of <code class="highlighter-rouge">nodejs-yarn</code>, the best way is to use bash alias.</p>
 <h2 id="installing-npm-modules">Installing npm modules</h2>
 <p>Installing Node.js modules is covered in <a href="/tech/languages/nodejs/modules.html">Node.js modules</a>.</p>
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%7A%73%76%65%74%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Zuzana Svetlikova</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%70%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Petr Stribny</a>, <a href="mailto:%7A%73%76%65%74%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Zuzana Svetlikova</a></p>
           </div>
         </div>
       </div>
@@ -206,7 +211,7 @@ $ yarnpkg add request
         <div class="widget-body">
           <dl>
             <dd><a href="/about.html">About Developer Portal</a></dd>
-            <dd><a href="https://getfedora.org/en/sponsors">About Fedora</a></dd>
+            <dd><a href="https://docs.fedoraproject.org/en-US/project/">About Fedora</a></dd>
             <dd><a href="https://getfedora.org/en/sponsors">Sponsors</a></dd>
             <dd><a href="https://fedoramagazine.org">Fedora Magazine</a></dd>
             <dd><a href="https://fedoraproject.org/wiki/Legal:Main#Legal">Legal</a></dd>
@@ -230,11 +235,12 @@ $ yarnpkg add request
           <dl>
             <dd><a href="https://getfedora.org/en/workstation/download/">Get Fedora Workstation</a></dd>
             <dd><a href="https://getfedora.org/en/server/download/">Get Fedora Server</a></dd>
+            <dd><a href="https://getfedora.org/en/atomic/download/">Get Fedora Atomic</a></dd>
             <dd><a href="https://alt.fedoraproject.org/en/cloud/">Get Fedora Cloud</a></dd>
             <dd><a href="https://spins.fedoraproject.org">Fedora Spins</a></dd>
             <dd><a href="https://labs.fedoraproject.org">Fedora Labs</a></dd>
             <dd><a href="https://arm.fedoraproject.org">Fedora ARM<span class="sup">&reg;</span></a></dd>
-            <dd><a href="https://torrents.fedoraproject.org">Torrent Downloads</a></dd>
+            <dd><a href="https://alt.fedoraproject.org/">Alternative Downloads</a></dd>
           </dl>
         </div>
       </div>
@@ -273,7 +279,7 @@ $ yarnpkg add request
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2018 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

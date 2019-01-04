@@ -220,8 +220,8 @@ you’ll automatically get all supported CPythons and PyPys:</p>
 <p>If you are not yet familiar with tox, don’t worry. This short example will show
 you how to start.</p>
 <p>Let’s create a directory and a simple Python file in it that will say something nice:</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># say.py</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'Fedora is the best OS for Python developers'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">'</span><span class="se">\n\n</span><span class="s">'</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># say.py
+</span><span class="k">print</span><span class="p">(</span><span class="s">'Fedora is the best OS for Python developers'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">'</span><span class="se">\n\n</span><span class="s">'</span><span class="p">)</span>
 </code></pre></div></div>
 <p>Now we’ll test if it works with all the Pythons, with tox.
 We’ll create a simple configuration file for tox, <code class="highlighter-rouge">tox.ini</code>, in the same
@@ -251,8 +251,8 @@ ERROR:   pypy: commands failed
 <p>As you can see, there’s something wrong with the script: it only works on
 Python 3. The full tox output (omitted here) contains the exact error.
 If you want to support old Python 2 as well, you’ll have to fix it:</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># say.py</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># say.py
+</span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
 <span class="k">print</span><span class="p">(</span><span class="s">'Fedora is the best OS for Python developers'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">'</span><span class="se">\n\n</span><span class="s">'</span><span class="p">)</span>
 </code></pre></div></div>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> tox
@@ -356,7 +356,7 @@ It does have a rudimentary pip replacement called
 install packages that support MicroPython. Run it to find out more:</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> micropython <span class="nt">-m</span> upip
 </code></pre></div></div>
-<p style="text-align: center">Authors: <a href="mailto:%6D%69%72%6F@%68%72%6F%6E%63%6F%6B.%63%7A">Miro Hrončok</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%6D%69%72%6F@%68%72%6F%6E%63%6F%6B.%63%7A">Miro Hrončok</a>, <a href="mailto:%65%6E%63%75%6B%6F%75@%67%6D%61%69%6C.%63%6F%6D">Petr Viktorin</a></p>
           </div>
         </div>
       </div>
@@ -377,7 +377,7 @@ install packages that support MicroPython. Run it to find out more:</p>
         <div class="widget-body">
           <dl>
             <dd><a href="/about.html">About Developer Portal</a></dd>
-            <dd><a href="https://getfedora.org/en/sponsors">About Fedora</a></dd>
+            <dd><a href="https://docs.fedoraproject.org/en-US/project/">About Fedora</a></dd>
             <dd><a href="https://getfedora.org/en/sponsors">Sponsors</a></dd>
             <dd><a href="https://fedoramagazine.org">Fedora Magazine</a></dd>
             <dd><a href="https://fedoraproject.org/wiki/Legal:Main#Legal">Legal</a></dd>
@@ -401,11 +401,12 @@ install packages that support MicroPython. Run it to find out more:</p>
           <dl>
             <dd><a href="https://getfedora.org/en/workstation/download/">Get Fedora Workstation</a></dd>
             <dd><a href="https://getfedora.org/en/server/download/">Get Fedora Server</a></dd>
+            <dd><a href="https://getfedora.org/en/atomic/download/">Get Fedora Atomic</a></dd>
             <dd><a href="https://alt.fedoraproject.org/en/cloud/">Get Fedora Cloud</a></dd>
             <dd><a href="https://spins.fedoraproject.org">Fedora Spins</a></dd>
             <dd><a href="https://labs.fedoraproject.org">Fedora Labs</a></dd>
             <dd><a href="https://arm.fedoraproject.org">Fedora ARM<span class="sup">&reg;</span></a></dd>
-            <dd><a href="https://torrents.fedoraproject.org">Torrent Downloads</a></dd>
+            <dd><a href="https://alt.fedoraproject.org/">Alternative Downloads</a></dd>
           </dl>
         </div>
       </div>
@@ -444,7 +445,7 @@ install packages that support MicroPython. Run it to find out more:</p>
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2018 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->
