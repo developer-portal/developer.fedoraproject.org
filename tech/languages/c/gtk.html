@@ -170,7 +170,7 @@
             <h1 id="gtk">Gtk+</h1>
 <p>Gtk+ is a cross-plataform GUI toolkit created for the development of the GIMP project. Offering a complete set of widgets, Gtk+ is suitable for projects ranging from small one-off tools to complete applications suites.</p>
 <p>For C programming with Gtk+ you need to install the development version of the important GNOME libraries. Those contain the header files and additional linker information:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install gtk3-devel gstreamer-devel clutter-devel webkitgtk3-devel libgda-devel gobject-introspection-devel
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install gtk3-devel gstreamer-devel clutter-devel webkit2gtk3-devel libgda-devel gobject-introspection-devel
 </code></pre></div></div>
 <p>In addition, you will want to install the documentation packages of this libraries so you can view them in the API browser (devhelp):</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install devhelp gtk3-devel-docs gstreamer-devel-docs clutter-doc
@@ -202,6 +202,9 @@
 <p>In the program above we initially included gtk/gtk.h, which declares all the gtk+ objects used in the rest of the program:</p>
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;gtk/gtk.h&gt;
 </span></code></pre></div></div>
+<p>or</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;gtk-3.0/gtk/gtk.h&gt;
+</span></code></pre></div></div>
 <p>After the declaration of the window object variable, we call the gtk_init method which initializes the library and its internal procedures.</p>
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gtk_init</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">argv</span><span class="p">);</span>
 </code></pre></div></div>
@@ -223,7 +226,8 @@
   <li><a href="https://developer.gnome.org/gtk3/stable/">Gtk+ 3 Reference Manual</a></li>
   <li><a href="https://developer.gnome.org/gtk3/stable/gtk-compiling.html">Compiling Gtk+ Applications</a></li>
 </ul>
-<p style="text-align: center">Authors: <a href="mailto:%66%65%6C%69%70%65%31%30%62%6F%72%67%65%73@%67%6D%61%69%6C.%63%6F%6D">Felipe Borges</a></p>
+<hr id="authors-rule" />
+<p style="text-align: center">Authors: <a href="mailto:%66%65%6C%69%70%65%31%30%62%6F%72%67%65%73@%67%6D%61%69%6C.%63%6F%6D">Felipe Borges</a>, <a href="mailto:%6D%61%63%72%6F%63%6F%64%65@%79%61%68%6F%6F.%63%6F%6D">Gabe Ron</a></p>
           </div>
         </div>
       </div>

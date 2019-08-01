@@ -177,6 +177,7 @@ on multiple Python interpreters. On Fedora, that’s easy: all you have to do is
 use <code class="highlighter-rouge">dnf</code> to install what you need. Currently Fedora has the following Pythons
 ready for you in the repositories:</p>
 <ul>
+  <li>CPython 3.8</li>
   <li>CPython 3.7</li>
   <li>CPython 3.6</li>
   <li>CPython 3.5</li>
@@ -190,7 +191,8 @@ ready for you in the repositories:</p>
 </ul>
 <p>Quite a nest, isn’t it?
 You can install them like this:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">sudo </span>dnf <span class="nb">install </span>python37  <span class="c"># to get CPython 3.7</span>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">sudo </span>dnf <span class="nb">install </span>python38  <span class="c"># to get CPython 3.8</span>
+<span class="gp">$</span> <span class="nb">sudo </span>dnf <span class="nb">install </span>python37  <span class="c"># to get CPython 3.7</span>
 <span class="gp">$</span> <span class="nb">sudo </span>dnf <span class="nb">install </span>python34  <span class="c"># to get CPython 3.4</span>
 <span class="gp">$</span> <span class="nb">sudo </span>dnf <span class="nb">install </span>python26  <span class="c"># to get CPython 2.6</span>
 <span class="gp">$</span> <span class="nb">sudo </span>dnf <span class="nb">install </span>pypy pypy3 jython python35  <span class="c"># to get more at once</span>
@@ -319,8 +321,15 @@ following interpreters:</p>
   <li>Python 2.6</li>
   <li>Jython</li>
 </ul>
-<p>If you really need to support such old interpreters, you will need to install
+<p>If you really need to support such old interpreters, you will need to work around some issues or install
 and use older virtualenv/tox from PyPI.</p>
+<p>A workaround for Python 2.6 is to chnage the <code class="highlighter-rouge">install</code> and the <code class="highlighter-rouge">list_dependencies</code> commands with a <code class="highlighter-rouge">tox.ini</code> configuration like:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[testenv:py26]
+install_command = pip install {opts} {packages}
+list_dependencies_command = pip freeze
+basepython = python2.6
+</code></pre></div></div>
+<p>A more generic approach is to install an older version of tox that still supports these python versions:</p>
 <p>First, create a virtual environment with a newer Python, preferably <code class="highlighter-rouge">python3</code>:</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> python3 <span class="nt">-m</span> venv py3env
 <span class="gp">$</span> <span class="nb">.</span> py3env/bin/activate  <span class="c"># activate it</span>
@@ -356,7 +365,8 @@ It does have a rudimentary pip replacement called
 install packages that support MicroPython. Run it to find out more:</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> micropython <span class="nt">-m</span> upip
 </code></pre></div></div>
-<p style="text-align: center">Authors: <a href="mailto:%6D%69%72%6F@%68%72%6F%6E%63%6F%6B.%63%7A">Miro Hrončok</a>, <a href="mailto:%65%6E%63%75%6B%6F%75@%67%6D%61%69%6C.%63%6F%6D">Petr Viktorin</a></p>
+<hr id="authors-rule" />
+<p style="text-align: center">Authors: <a href="mailto:%6D%69%72%6F@%68%72%6F%6E%63%6F%6B.%63%7A">Miro Hrončok</a>, <a href="mailto:%65%6E%63%75%6B%6F%75@%67%6D%61%69%6C.%63%6F%6D">Petr Viktorin</a>, <a href="mailto:%6F%70%65%6E%73%6F%75%72%63%65@%74%69%6C%6C.%6E%61%6D%65">Till Maas</a></p>
           </div>
         </div>
       </div>

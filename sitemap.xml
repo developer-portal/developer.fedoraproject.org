@@ -64,7 +64,7 @@
 <loc>http://developer.fedoraproject.org/tech/database/sqlite/about.html</loc>
 </url>
 <url>
-<loc>http://developer.fedoraproject.org/tech/languages/dotnet/about.html</loc>
+<loc>http://developer.fedoraproject.org/tech/languages/csharp/dotnet-installation.html</loc>
 </url>
 <url>
 <loc>http://developer.fedoraproject.org/start/tips/documentation/about.html</loc>
@@ -151,7 +151,7 @@
 <loc>http://developer.fedoraproject.org/tech/languages/dotnet/dotnet-sig.html</loc>
 </url>
 <url>
-<loc>http://developer.fedoraproject.org/tech/languages/dotnet/dotnet.html</loc>
+<loc>http://developer.fedoraproject.org/tech/languages/dotnet/dotnetcore.html</loc>
 </url>
 <url>
 <loc>http://developer.fedoraproject.org/tech/languages/elixir/elixir-installation.html</loc>

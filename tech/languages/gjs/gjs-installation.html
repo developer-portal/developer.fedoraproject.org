@@ -175,11 +175,11 @@
 </code></pre></div></div>
 <p>To create our window, we need to create a GtkWindow object. Gjs allows the initialization of object attributes to be made when the object is constructed.</p>
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nb">window</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Gtk</span><span class="p">.</span><span class="nx">Window</span><span class="p">({</span>
-    <span class="na">title</span><span class="p">:</span> <span class="s2">"Hello World"</span>
+    <span class="na">title</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Hello World</span><span class="dl">"</span>
 <span class="p">});</span>
 </code></pre></div></div>
 <p>In the lines below we are connecting the destroy event of the window to ensure that the application is terminated if we click on the x button to close the window.</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">window</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s2">"destroy"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">window</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="dl">"</span><span class="s2">destroy</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">Gtk</span><span class="p">.</span><span class="nx">main_quit</span><span class="p">();</span>
 <span class="p">});</span>
 </code></pre></div></div>
@@ -198,10 +198,10 @@
 <span class="nx">Gtk</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 
 <span class="kd">let</span> <span class="nb">window</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Gtk</span><span class="p">.</span><span class="nx">Window</span><span class="p">({</span>
-    <span class="na">title</span><span class="p">:</span> <span class="s2">"Hello World"</span>
+    <span class="na">title</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Hello World</span><span class="dl">"</span>
 <span class="p">});</span>
 
-<span class="nb">window</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s2">"destroy"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="dl">"</span><span class="s2">destroy</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">Gtk</span><span class="p">.</span><span class="nx">main_quit</span><span class="p">();</span>
 <span class="p">});</span>
 <span class="nb">window</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
@@ -213,6 +213,7 @@
   <li><a href="https://developer.gnome.org/gnome-devel-demos/stable/js.html">Example demo applications</a></li>
   <li><a href="https://people.gnome.org/~gcampagna/docs/">API Documentation</a></li>
 </ul>
+<hr id="authors-rule" />
 <p style="text-align: center">Authors: <a href="mailto:%66%65%6C%69%70%65%31%30%62%6F%72%67%65%73@%67%6D%61%69%6C.%63%6F%6D">Felipe Borges</a></p>
           </div>
         </div>

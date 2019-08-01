@@ -173,7 +173,7 @@
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install ruby
 </code></pre></div></div>
 <p>Above command will install latest stable CRuby packages including RDoc, Psych, JSON, BigDecimal and IO/Console, and interactive Ruby shell <code class="highlighter-rouge">irb</code>. Other bundled libraries such as TclTk bindings, Rake and Test::Unit found in upstream Ruby distribution needs to be installed separately:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install ruby-tcltk rubygem-rake rubygem-test-unit
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install rubygem-{tk{,-doc},rake,test-unit}
 </code></pre></div></div>
 <p>Please note that we have already unbundled these libraries from Ruby itself, so they come in their own packages and need a specific dependency requirement in .gemspec or Gemfile as well as a specific <code class="highlighter-rouge">require()</code> call in your Ruby code.</p>
 <h2 id="jruby">JRuby</h2>
@@ -193,7 +193,8 @@ ruby _jruby_ [params]
 RUBYPICK=_jruby_
 </code></pre></div></div>
 <p><a href="https://github.com/fedora-ruby/rubypick">Read more about RubyPick</a>.</p>
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%70%68%72%61%63%65%6B@%72%65%64%68%61%74.%63%6F%6D">Petr Hracek</a></p>
+<hr id="authors-rule" />
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%70%68%72%61%63%65%6B@%72%65%64%68%61%74.%63%6F%6D">Petr Hracek</a>, <a href="mailto:%73%6B%62%69%65%72%6D@%67%6D%61%69%6C.%63%6F%6D">Sascha</a></p>
           </div>
         </div>
       </div>

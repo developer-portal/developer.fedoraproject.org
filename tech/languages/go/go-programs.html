@@ -172,14 +172,14 @@
 <span class="gp">$</span> <span class="nb">touch </span>hello.go
 </code></pre></div></div>
 <p>Now, edit the file <code class="highlighter-rouge">hello.go</code> with your favorite editor and type the following:</p>
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
 
-</span><span class="k">import</span><span class="x"> </span><span class="s">"fmt"</span><span class="x">
+<span class="k">import</span> <span class="s">"fmt"</span>
 
-</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
-	</span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Hello, Fedora!"</span><span class="p">)</span><span class="x">
-</span><span class="p">}</span><span class="x">
-</span></code></pre></div></div>
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Hello, Fedora!"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
 <p>Save your changes and, still on the same directory (<code class="highlighter-rouge">$HOME/go/src/hello</code>), run:</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> go run hello.go
 <span class="go">Hello, Fedora!
@@ -208,6 +208,7 @@ To build the program and generate a compiled binary, use <code class="highlighte
 <span class="gp">$</span> hello
 <span class="go">Hello, Fedora!
 </span></code></pre></div></div>
+<hr id="authors-rule" />
 <p style="text-align: center">Authors: <a href="mailto:%72%68%63%61%72%76%61%6C%68%6F@%67%6D%61%69%6C.%63%6F%6D">Rodolfo Carvalho</a>, <a href="mailto:%74%69%61%6E%78%69%61%6E%67.%78%69%6F%6E%67@%67%6D%61%69%6C.%63%6F%6D">Tianxiang Xiong</a></p>
           </div>
         </div>
