@@ -167,15 +167,17 @@
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' &gt;&gt; ~/.bashrc
 echo 'eval "$(rbenv init -)"' &gt;&gt; ~/.bashrc
+source ~/.bashrc
 exec $SHELL
 
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' &gt;&gt; ~/.bashrc
+source ~/.bashrc
 exec $SHELL
 </code></pre></div></div>
 <p>Install Ruby</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rbenv install 2.3.1
-rbenv global 2.3.1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rbenv install 2.6.6
+rbenv global 2.6.6
 ruby -v
 
 </code></pre></div></div>
@@ -214,7 +216,7 @@ rails server
 </code></pre></div></div>
 <p>You can now visit http://localhost:3000 to view your new website.</p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%6A%72%69%64%6B%79@%72%65%64%68%61%74.%63%6F%6D">Josef Ridky</a>, <a href="mailto:%6D%65%6C%6C%6F%68%65%79@%69%63%6C%6F%75%64.%63%6F%6D">MelloHey</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%62%6B%6D%67%69%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Benson Muite</a>, <a href="mailto:%6A%72%69%64%6B%79@%72%65%64%68%61%74.%63%6F%6D">Josef Ridky</a>, <a href="mailto:%6D%65%6C%6C%6F%68%65%79@%69%63%6C%6F%75%64.%63%6F%6D">MelloHey</a></p>
           </div>
         </div>
       </div>

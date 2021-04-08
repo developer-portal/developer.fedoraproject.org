@@ -153,7 +153,7 @@
           <div class="panel panel-default content-content">
             <h1 id="java-installation">Java installation</h1>
 <p>Fedora comes with <a href="http://openjdk.java.net/">OpenJDK</a> - a free and open source implementation of the Java Platform, Standard Edition. To install it, simply type:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install java-11-openjdk-devel
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install java-15-openjdk-devel
 </code></pre></div></div>
 <p>This command will install Java Development Kit - runtime environment and associated development tools.</p>
 <p><a href="http://icedtea.classpath.org/wiki/IcedTea-Web">IcedTea-Web</a> may come handy if your plan is to develop Java applets or to experiment with Java Web Start. To install it, simply type:</p>
@@ -161,15 +161,15 @@
 </code></pre></div></div>
 <p>This command will install Java web browser plugin and free implementation of Java Web Start.</p>
 <p>Later, when you will want to test your new application in a production-like environment, it’s possible to install just Java runtime environment (JRE) - without development tools. This can be achieved by several means:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install java-11-openjdk-headless
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install java-15-openjdk-headless
 </code></pre></div></div>
 <p>The command above will install so-called “headless” JRE, i.e. JRE without support for graphic and audio. If your application is supposed to run on a server without any graphical user interface (GUI) installed, then this is likely what you want.</p>
 <p>However, if your application needs support for GUI or audio, you will likely want to install full JRE. You can do that simply by typing:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install java-11-openjdk
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install java-15-openjdk
 </code></pre></div></div>
 <!-- TODO: add section about installing JDK from 3rd parties + how to switch between them -->
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%6D%69%7A%64%65%62%73%6B@%72%65%64%68%61%74.%63%6F%6D">Mikolaj Izdebski</a>, <a href="mailto:%73%69%6E%61%64%6F%6F%6D@%67%6D%61%69%6C.%63%6F%6D">Sina Madani</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%37%32%35%35%39%32%30%36+%4D%6F%68%61%6D%6D%61%4A%61%76%61%64%54%44@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">MohammaJavadTD</a>, <a href="mailto:%73%69%6E%61%64%6F%6F%6D@%67%6D%61%69%6C.%63%6F%6D">Sina Madani</a></p>
           </div>
         </div>
       </div>

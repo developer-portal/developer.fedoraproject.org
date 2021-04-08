@@ -495,7 +495,7 @@ h2 { font-size: 1.5em !important; font-weight: 700; color: #888; padding-bottom:
 
 @media all and (min-width: 781px) { .carousel .headlines { min-height: 290px; } }
 
-@media all and (min-width: 1100px) { #search { position: absolute; top: 0px; right: 15px; z-index: 10; width: 288px; display: none; } .carousel .headlines { min-height: 240px; } }
+@media all and (min-width: 1100px) { #search { position: absolute; top: 0px; right: 15px; z-index: 10; width: 288px; } .carousel .headlines { min-height: 240px; } }
 
 @media all and (max-width: 780px) { body .row { margin-left: 0; margin-right: 0; } #headlines { text-align: center; padding: 10px; } #headline-search { width: 100%; } .headlines { min-height: 440px; } .headlines h2, .headlines p { margin-left: 50px; } }
 

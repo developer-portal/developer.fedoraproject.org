@@ -202,24 +202,16 @@ arch: x86_64
     <span class="p">{</span>
         <span class="c1">// error if call fails</span>
         <span class="n">perror</span><span class="p">(</span><span class="s">"uname"</span><span class="p">);</span>
-        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"Error in uname : %d</span><span class="se">
-</span><span class="s">"</span><span class="p">,</span> <span class="n">errno</span><span class="p">);</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"Error in uname : %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">errno</span><span class="p">);</span>
         <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
         <span class="c1">// Print Node Info</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"Node Info</span><span class="se">
-</span><span class="s">----------</span><span class="se">
-</span><span class="s">"</span><span class="p">);</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"node : %s</span><span class="se">
-</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">nodename</span><span class="p">);</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"system : %s</span><span class="se">
-</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">sysname</span><span class="p">);</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"version : %s</span><span class="se">
-</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">version</span><span class="p">);</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"release : %s</span><span class="se">
-</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">release</span><span class="p">);</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"arch : %s</span><span class="se">
-</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">machine</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Node Info</span><span class="se">\n</span><span class="s">----------</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"node : %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">nodename</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"system : %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">sysname</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"version : %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">version</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"release : %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">release</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"arch : %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">machine</span><span class="p">);</span>
         <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
