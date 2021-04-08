@@ -7,25 +7,12 @@
   <title>Copr command line interface &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/deployment/copr/copr-cli.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/deployment/copr/copr-cli.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-deploy">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -168,43 +155,43 @@
 <p><a href="https://copr.fedoraproject.org/">Copr</a> features a command line interface that can help you with managing projects, submitting builds, etc.</p>
 <h2 id="setup">Setup</h2>
 <p>Install the copr-cli package:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install copr-cli
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install copr-cli
 </code></pre></div></div>
 <p>Log into the Copr web interface and get your API token at the <a href="https://copr.fedorainfracloud.org/api/">Copr API Page</a></p>
 <ol>
   <li>Save the token to your system:</li>
 </ol>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vim ~/.config/copr
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vim ~/.config/copr
 </code></pre></div></div>
 <h2 id="creating-a-new-project">Creating a new project</h2>
-<p>To create a new project called <code class="highlighter-rouge">test-project</code>, which would provide packages for Fedora 28, type:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli create --chroot fedora-28-i386 --chroot fedora-28-x86_64 test-project
+<p>To create a new project called <code class="language-plaintext highlighter-rouge">test-project</code>, which would provide packages for Fedora 33, type:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli create --chroot fedora-33-i386 --chroot fedora-33-x86_64 test-project
 </code></pre></div></div>
 <h2 id="submitting-a-build">Submitting a build</h2>
 <p>There are curently two ways of getting your SRPM(s) into Copr:</p>
 <p>A. Building from URL:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli build test-project http://www.example.com/package-1.6-1.fc28.src.rpm
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli build test-project http://www.example.com/package-1.6-1.fc33.src.rpm
 </code></pre></div></div>
 <p>B. Uploading them into Copr directly:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli build test-project ~/packages/package-1.6-1.fc28.src.rpm
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli build test-project ~/packages/package-1.6-1.fc33.src.rpm
 </code></pre></div></div>
-<p>The command line tool will now monitor your build and keeps you updated about any changes and results. You can safely interrupt it with <code class="highlighter-rouge">ctrl+c</code> at any time. The build will continue running.</p>
+<p>The command line tool will now monitor your build and keeps you updated about any changes and results. You can safely interrupt it with <code class="language-plaintext highlighter-rouge">ctrl+c</code> at any time. The build will continue running.</p>
 <h2 id="adding-a-repository-and-installing-the-package">Adding a repository and installing the package</h2>
 <p>Now, when your build has been finished, you can add the repository and install your package:</p>
 <p>First, make sure you have installed dnf core plugins:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dnf-plugins-core
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dnf-plugins-core
 </code></pre></div></div>
 <p>Enable your repository:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf copr enable your_name/test-project
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf copr enable your_name/test-project
 </code></pre></div></div>
 <p>And install the package:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install package
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install package
 </code></pre></div></div>
 <p>To uninstall your package:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf remove package
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf remove package
 </code></pre></div></div>
 <p>And to disable your repository:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf copr disable your_name/test-project
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf copr disable your_name/test-project
 </code></pre></div></div>
 <hr id="authors-rule" />
 <p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%61%6E%74%6F%6E%69%6E.%6D%72%6B%76%69%63%61@%6F%75%74%6C%6F%6F%6B.%63%7A">Antonín Mrkvica</a>, <a href="mailto:%67%61%76%69%6E.%72%6F%6D%69%67.%6B%6F%63%68@%67%6D%61%69%6C.%63%6F%6D">Gavin Romig-Koch</a>, <a href="mailto:%73%73%62%61%72%6E%65%61@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Sorin Sbarnea</a>, <a href="mailto:%67%61%6C%6F%67%65%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">galoget</a></p>
@@ -296,7 +283,7 @@
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

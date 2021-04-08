@@ -7,25 +7,12 @@
   <title>IDEs &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/dotnet/dotnet-ide.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/dotnet/dotnet-ide.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -222,11 +209,11 @@
 <p><em>1. Download and install using direct link to <a href="/deployment/Flatpak/about.html">Flatpak</a></em></p>
 <h2 id="installing-eclipse">Installing Eclipse</h2>
 <p>First install Eclipse and Eclipse Marketplace</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install eclipse eclipse-mpc
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install eclipse eclipse-mpc
 </code></pre></div></div>
 <p>then install the aCute extension from the <a href="https://marketplace.eclipse.org/content/acute-c-edition-eclipse-ide-experimental">Marketplace</a></p>
 <h2 id="installing-monodevelop">Installing MonoDevelop</h2>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install monodevelop
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install monodevelop
 </code></pre></div></div>
 <h2 id="installing-jetbrains-rider">Installing JetBrains Rider</h2>
 <ul>
@@ -235,12 +222,13 @@
 </ul>
 <h2 id="installing-visual-studio-code">Installing Visual Studio Code</h2>
 <p>Download <a href="https://code.visualstudio.com">Visual Studio Code</a> and the C# Extension from the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp">Marketplace</a></p>
+<p>Alternatively use the <a href="https://vscodium.com/">VSCodium</a> for Free/Libre Open Source Software Binaries of VSCode.</p>
 <h2 id="summary">Summary</h2>
 <p>JetBrains Rider is the most complete C# IDE, however it is not open source.</p>
 <p>VS Code and MonoDevelop work well for .NET Core and for Mono, respectively.</p>
 <p>C# via Eclipse is still young and not very friendly for the former Windows developer, but it can be useful if you’re already an Eclipse IDE user.</p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%74%6F%6D.%64%65%73%65%79%6E@%67%6D%61%69%6C.%63%6F%6D">Tom Deseyn</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%72%61%64%6B%61.%6A%61%6E%65%6B@%72%65%64%68%61%74.%63%6F%6D">Radka Janek</a>, <a href="mailto:%74%6F%6D.%64%65%73%65%79%6E@%67%6D%61%69%6C.%63%6F%6D">Tom Deseyn</a></p>
           </div>
         </div>
       </div>
@@ -329,7 +317,7 @@
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

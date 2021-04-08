@@ -7,25 +7,12 @@
   <title>SQLite &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/database/sqlite/about.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/database/sqlite/about.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -164,24 +151,24 @@
           <div class="panel panel-default content-content">
             <h1 id="sqlite-installation">SQLite installation</h1>
 <p>To install basic SQLite (if it is not already), simply type:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install sqlite
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install sqlite
 </code></pre></div></div>
-<p>This package provides the basic library and the command-line client <code class="highlighter-rouge">sqlite</code>. In
+<p>This package provides the basic library and the command-line client <code class="language-plaintext highlighter-rouge">sqlite</code>. In
 order to access SQLite databases from various programming languages (C, Tcl,
 Java), the language bindings need to be installed separately:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install sqlite-devel sqlite-tcl sqlite-jdbc
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install sqlite-devel sqlite-tcl sqlite-jdbc
 </code></pre></div></div>
 <h2 id="graphical-clients">Graphical clients</h2>
-<p>The <code class="highlighter-rouge">sqlite</code> client shipped with the basic database engine is command line (CLI)
+<p>The <code class="language-plaintext highlighter-rouge">sqlite</code> client shipped with the basic database engine is command line (CLI)
 based. If you prefer an application with graphical user interface (GUI), install
-the <code class="highlighter-rouge">sqlitebrowser</code> package:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install sqlitebrowser
+the <code class="language-plaintext highlighter-rouge">sqlitebrowser</code> package:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install sqlitebrowser
 </code></pre></div></div>
 <h2 id="working-with-sqlite">Working with SQLite</h2>
 <p>SQLite stores it’s data in single database file. To open such file (which will
-be created if necessary), pass it’s name as CLI argument to <code class="highlighter-rouge">sqlite3</code>
+be created if necessary), pass it’s name as CLI argument to <code class="language-plaintext highlighter-rouge">sqlite3</code>
 executable:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sqlite3 hello-world.db
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sqlite3 hello-world.db
 </code></pre></div></div>
 <p>After executing this command, you will be greeted with a SQLite prompt and can
 now insert the SQL commands to execute.</p>
@@ -190,13 +177,13 @@ construct your SQL queries using visual tool.</p>
 <p>If you are new to SQL databases and would like to learn more, you can visit a
 <a href="http://www.w3schools.com/sql/default.asp" title="W3CSchools SQL Tutorial">W3CSchools SQL tutorial</a>, which should give you a nice head start.</p>
 <h2 id="getting-help-with-sqlite">Getting help with SQLite</h2>
-<p>As is the custom in Fedora, SQLite documentation is available in <code class="highlighter-rouge">-doc</code>
+<p>As is the custom in Fedora, SQLite documentation is available in <code class="language-plaintext highlighter-rouge">-doc</code>
 sub-package. Additionally, the JavaDoc documentation for JDBC bindings is also
 available:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install sqlite-doc sqlite-jdbc-javadoc
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install sqlite-doc sqlite-jdbc-javadoc
 </code></pre></div></div>
-<p>After the packages are installed, the actual documentation is located within <code class="highlighter-rouge">/usr/share/doc/PACKAGE</code> directory and is formatted in HTML. For example, to view documentation for SQLite itself, you can open this URL in your browser:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>file:///usr/share/doc/sqlite-doc/index.html
+<p>After the packages are installed, the actual documentation is located within <code class="language-plaintext highlighter-rouge">/usr/share/doc/PACKAGE</code> directory and is formatted in HTML. For example, to view documentation for SQLite itself, you can open this URL in your browser:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>file:///usr/share/doc/sqlite-doc/index.html
 </code></pre></div></div>
 <p>If the documentation does not contain what you are looking for, you can visit
 the project <a href="https://sqlite.org/" title="SQLite home page">homepage</a>, or ask in the <a href="http://mailinglists.sqlite.org/cgi-bin/mailman/listinfo/sqlite-users" title="SQLite mailing list for users">mailing lists</a>.</p>
@@ -290,7 +277,7 @@ the project <a href="https://sqlite.org/" title="SQLite home page">homepage</a>,
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

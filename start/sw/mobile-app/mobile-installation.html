@@ -7,25 +7,12 @@
   <title>Mobile application &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/start/sw/mobile-app/mobile-installation.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/start/sw/mobile-app/mobile-installation.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-start">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -166,7 +153,7 @@
 <p>Today wide range of smart mobile devices make it possible to create clever applications.</p>
 <h2 id="get-started">Get started</h2>
 <h3 id="install-required-libraries">Install required libraries</h3>
-<p><code class="highlighter-rouge">$ sudo dnf install glibc.i686 glibc-devel.i686 libstdc++.i686 zlib-devel.i686 ncurses-devel.i686</code></p>
+<p><code class="language-plaintext highlighter-rouge">$ sudo dnf install glibc.i686 glibc-devel.i686 libstdc++.i686 zlib-devel.i686 ncurses-devel.i686</code></p>
 <h3 id="install-android-studio">Install Android Studio</h3>
 <ol>
   <li>
@@ -176,12 +163,12 @@
     <p>Unpack the .zip and install to the opt directory.</p>
   </li>
 </ol>
-<p><code class="highlighter-rouge">$ unzip android-studio*.zip</code></p>
-<p><code class="highlighter-rouge">$ sudo mv android-studio /opt/android-studio</code></p>
+<p><code class="language-plaintext highlighter-rouge">$ unzip android-studio*.zip</code></p>
+<p><code class="language-plaintext highlighter-rouge">$ sudo mv android-studio /opt/android-studio</code></p>
 <ol>
   <li>Navigate to directory where Android Studio was installed and run start script. This will start Android Studio with a wizard to complete the installation.</li>
 </ol>
-<p><code class="highlighter-rouge">$ ./bin/studio.sh</code></p>
+<p><code class="language-plaintext highlighter-rouge">$ ./bin/studio.sh</code></p>
 <hr id="authors-rule" />
 <p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%62%66%6B%65%6C%73%65%79@%67%6D%61%69%6C.%63%6F%6D">Ben Kelsey</a>, <a href="mailto:%70%68%72%61%63%65%6B@%72%65%64%68%61%74.%63%6F%6D">Petr Hracek</a>, <a href="mailto:%70%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Petr Stribny</a></p>
           </div>
@@ -272,7 +259,7 @@
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

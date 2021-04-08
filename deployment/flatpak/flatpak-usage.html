@@ -7,25 +7,12 @@
   <title>Flatpak Usage &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/deployment/flatpak/flatpak-usage.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/deployment/flatpak/flatpak-usage.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-deploy">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -170,7 +157,10 @@
 <h2 id="setting-up-the-flathub-repository">Setting up the Flathub repository:</h2>
 <p>Flathub is a a growing collection of apps which can be easily installed on any Linux distribution. Once setup, you can browse and install from an app center, like GNOME Software or KDE Discover. Alternatively, you can browse and install apps from the website or using the command line.</p>
 <p>To add the Flathub repository, open the Terminal, and run:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+</code></pre></div></div>
+<p>To add the Fedora Flatpaks repository (built in Fedora), run:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org
 </code></pre></div></div>
 <h2 id="installing-flatpaks-on-gnome-gnome-software">Installing Flatpaks On Gnome (GNOME Software):</h2>
 <p>GNOME Software already supports Flatpak repositories, so applications can be installed directly from GNOME Software.</p>
@@ -182,21 +172,22 @@
 <p>Simply open Discover and browse or search through the app lists as normal. Similar to Gnome Software, applications that are available as flatpaks will list “Flatpak” as it’s source.</p>
 <p>Upon installations, applications can be launched as usual.</p>
 <h2 id="installing-applications-command-line">Installing Applications (Command Line):</h2>
-<p>The <code class="highlighter-rouge">flatpak</code> command also lists and installs apps and runtimes. To list all apps available in a specific repository, run the <code class="highlighter-rouge">remote-ls</code> command:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ flatpak remote-ls flathub --app
+<p>The <code class="language-plaintext highlighter-rouge">flatpak</code> command also lists and installs apps and runtimes. To list all apps available in a specific repository, run the <code class="language-plaintext highlighter-rouge">remote-ls</code> command:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ flatpak remote-ls flathub --app
 </code></pre></div></div>
-<p>Then, install an app with the <code class="highlighter-rouge">install</code> command:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ flatpak install flathub org.gnome.Polari
+<p>Then, install an app with the <code class="language-plaintext highlighter-rouge">install</code> command:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ flatpak install flathub org.gnome.Polari
 </code></pre></div></div>
-<p>Once installed, you can use the <code class="highlighter-rouge">run</code> command to run the application:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ flatpak run org.gnome.Polari
+<p>Once installed, you can use the <code class="language-plaintext highlighter-rouge">run</code> command to run the application:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ flatpak run org.gnome.Polari
 </code></pre></div></div>
 <h2 id="further-reading">Further Reading</h2>
 <ul>
   <li><a href="https://flathub.org/apps.html">Flathub Applications</a></li>
+  <li><a href="https://docs.fedoraproject.org/en-US/flatpak/tutorial/">Fedora Flatpaks</a></li>
 </ul>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%37%36%37%37%39%35%34+%41%78%65%6C%53%69%6C%76%65%72%64%65%77@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">AxelSilverdew</a>, <a href="mailto:%70%76%61%6C%65%6E%61@%72%65%64%68%61%74.%63%6F%6D">Pavel Valena</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%37%36%37%37%39%35%34+%41%78%65%6C%53%69%6C%76%65%72%64%65%77@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">AxelSilverdew</a>, <a href="mailto:%66%65%62%6F%72%67%65%73@%72%65%64%68%61%74.%63%6F%6D">Felipe Borges</a>, <a href="mailto:%70%76%61%6C%65%6E%61@%72%65%64%68%61%74.%63%6F%6D">Pavel Valena</a></p>
           </div>
         </div>
       </div>
@@ -285,7 +276,7 @@
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

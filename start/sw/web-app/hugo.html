@@ -7,25 +7,12 @@
   <title>Hugo &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/start/sw/web-app/hugo.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/start/sw/web-app/hugo.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-start">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -133,7 +120,7 @@
   <div class="col-sm-12">
           <img class="img-rounded" src="/static/logo/web-app.png">
           <h2>Web Application</h2>
-          <p></p>
+          <p>Short introduction to web application development</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -174,25 +161,25 @@
             <h1 id="hugo">Hugo</h1>
 <p>Hugo is a fast and modern static site generator written in Go, and designed to make website creation fun again.</p>
 <h2 id="installation">Installation</h2>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install hugo
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install hugo
 </code></pre></div></div>
 <h2 id="creating-a-new-website">Creating a new website</h2>
-<p>If you are starting a new website, instead of creating all the necessary files yourself you can use the <code class="highlighter-rouge">hugo new</code> command.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ hugo new site my-site
+<p>If you are starting a new website, instead of creating all the necessary files yourself you can use the <code class="language-plaintext highlighter-rouge">hugo new</code> command.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ hugo new site my-site
 $ cd my-site
 </code></pre></div></div>
 <p>The command will generate all the directories and config.toml files for your new website but you need to install a theme before building the site.</p>
 <h2 id="add-a-theme">Add a theme</h2>
 <p>Hugo have a list of themes on https://themes.gohugo.io/ that you can browse or you can create one yourself. Most themes use git so you just need to add them as git submodules:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git init
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git init
 $ git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
 </code></pre></div></div>
 <p>To use the theme you need to add the theme parameter to the config.toml file</p>
 <h2 id="running-hugo-built-in-server">Running Hugo built in server</h2>
 <p>Hugo comes with a built in web server to use if you don’t want to install a web server. To run the server, you need to type:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ hugo server
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ hugo server
 </code></pre></div></div>
-<p>If you are editing and want to see your drafts, add the <code class="highlighter-rouge">-D</code> flag</p>
+<p>If you are editing and want to see your drafts, add the <code class="language-plaintext highlighter-rouge">-D</code> flag</p>
 <hr id="authors-rule" />
 <p style="text-align: center">Authors: <a href="mailto:%79%6F%74%61%6D%6E%61%63%68%75%6D%31@%67%6D%61%69%6C.%63%6F%6D">Yotam Nachum</a></p>
           </div>
@@ -283,7 +270,7 @@ $ git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/an
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

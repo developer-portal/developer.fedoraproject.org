@@ -7,25 +7,12 @@
   <title>Vagrant with Docker provider &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tools/vagrant/vagrant-docker.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tools/vagrant/vagrant-docker.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tools">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -170,36 +157,36 @@
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
             <h1 id="vagrant-with-docker-support-installation">Vagrant with Docker support installation</h1>
-<p>To use Vagrant with Docker, you need to install the <code class="highlighter-rouge">vagrant</code> and <code class="highlighter-rouge">docker</code> packages:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install vagrant docker
+<p>To use Vagrant with Docker, you need to install the <code class="language-plaintext highlighter-rouge">vagrant</code> and <code class="language-plaintext highlighter-rouge">docker</code> packages:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install vagrant docker
 </code></pre></div></div>
-<p>And start <code class="highlighter-rouge">docker</code> service:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl start docker
+<p>And start <code class="language-plaintext highlighter-rouge">docker</code> service:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl start docker
 </code></pre></div></div>
 <p>Vagrant itself comes with the support for Docker baked-in. By installing Docker alongside
 Vagrant you can start using Docker both as a provider and as a provisioner. Please refer to
 the <a href="https://docs.vagrantup.com/v2/">official documentation</a> for more.</p>
-<p>Note: All Vagrant commands have to be ran as root (e.g. with <code class="highlighter-rouge">sudo</code>). This is similar to running
+<p>Note: All Vagrant commands have to be ran as root (e.g. with <code class="language-plaintext highlighter-rouge">sudo</code>). This is similar to running
 Docker commands directly.</p>
 <h2 id="using-docker-as-a-default">Using Docker as a default</h2>
-<p>To use Docker provider with any Vagrant commands, one has to explicitly append <code class="highlighter-rouge">--provider=docker</code>.</p>
+<p>To use Docker provider with any Vagrant commands, one has to explicitly append <code class="language-plaintext highlighter-rouge">--provider=docker</code>.</p>
 <p>To avoid this, you can set the default provider for your project in the beginning of your
 Vagrantfile as:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Vagrantfile
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Vagrantfile
 ENV['VAGRANT_DEFAULT_PROVIDER'] = 'docker'
 ...
 </code></pre></div></div>
 <p>Or set it for your environment with:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export VAGRANT_DEFAULT_PROVIDER=docker
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export VAGRANT_DEFAULT_PROVIDER=docker
 </code></pre></div></div>
 <h2 id="using-docker-from-vagrant-without-password-prompts">Using Docker from Vagrant without password prompts</h2>
-<p>To use Vagrant with Docker without password prompts it is enough to add yourself to the <code class="highlighter-rouge">docker</code>
-group. This will make <code class="highlighter-rouge">docker</code> commands password-less as well.</p>
+<p>To use Vagrant with Docker without password prompts it is enough to add yourself to the <code class="language-plaintext highlighter-rouge">docker</code>
+group. This will make <code class="language-plaintext highlighter-rouge">docker</code> commands password-less as well.</p>
 <p>To do so, type:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo groupadd docker &amp;&amp; sudo gpasswd -a ${USER} docker &amp;&amp; sudo systemctl restart docker
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo groupadd docker &amp;&amp; sudo gpasswd -a ${USER} docker &amp;&amp; sudo systemctl restart docker
 $ newgrp docker
 </code></pre></div></div>
-<p>Above commands will create the group <code class="highlighter-rouge">docker</code> and add current user to this group. This user
+<p>Above commands will create the group <code class="language-plaintext highlighter-rouge">docker</code> and add current user to this group. This user
 also need to have administrator privileges.</p>
 <p>Note: This has security implications, read about this in the <a href="https://docs.docker.com/articles/security/#docker-daemon-attack-surface">official docs</a>.</p>
 <hr id="authors-rule" />
@@ -292,7 +279,7 @@ also need to have administrator privileges.</p>
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

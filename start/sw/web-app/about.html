@@ -7,25 +7,12 @@
   <title>Web Application &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/start/sw/web-app/about.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/start/sw/web-app/about.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-start">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -133,7 +120,7 @@
   <div class="col-sm-12">
           <img class="img-rounded" src="/static/logo/web-app.png">
           <h2>Web Application</h2>
-          <p></p>
+          <p>Short introduction to web application development</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -171,13 +158,50 @@
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-              <div class="alert alert-warning">
-  <strong> This page is not ready. </strong>
-  You can <a href="http://developer-portal.github.io/contributing/"> learn how to contribute </a> and help us by writing content.
-</div>
-            <h1 id="web-application">Web Application</h1>
+            <h1 id="web-application-development">Web Application Development</h1>
+<p>Web application development can be anything from classic server-side applications that render dynamic HTML pages, to real-time audio/video applications. What is common for all of them though, Fedora is here to offer all needed components and great development environment.</p>
+<h2 id="technologies-used-for-web-development">Technologies used for web development</h2>
+<p>Except HTML, which is almost always improved by CSS, most developers add dynamic items to the web pages via JavaScript. For both, CSS nad JavaScript, libraries exist to make developers’ tasks easier:</p>
+<ul>
+  <li><a href="https://jquery.com/">JQuery</a>, a fast, small, and feature-rich JavaScript library</li>
+  <li><a href="https://reactjs.org/">React</a>, a JavaScript library for building user interfaces</li>
+  <li><a href="https://angular.io/">Angular</a>, one framework for mobile and desktop</li>
+  <li><a href="https://www.patternfly.org/">PatternFly</a> to build better experiences with repeatable, scalable design</li>
+</ul>
+<p>A client application is most often a browser like Firefox or Chromium, which talks to the server via HTTP protocol. It does not need to be that case always, a client application might be also substituted by a <a href="/start/sw/gui-app/about.html">GUI</a> or <a href="/start/sw/cli-app/about.html">terminal</a> application.</p>
+<h3 id="languages-often-used-for-back-end-development">Languages often used for back-end development</h3>
+<ul>
+  <li><a href="/tech/languages/python/flask-installation.html">Python</a></li>
+  <li><a href="/tech/languages/ruby/ruby-installation.html">Ruby</a></li>
+  <li><a href="/tech/languages/php/php-installation.html">PHP</a></li>
+  <li><a href="/tech/languages/nodejs/nodejs.html">Node.js/JavaScript</a></li>
+  <li><a href="/tech/languages/go/go-installation.html">Golang</a></li>
+  <li><a href="/tech/languages/rust/rust-installation.html">Rust</a></li>
+</ul>
+<h3 id="webservers-for-static-pages-or-processing-http-requests">Webservers for static pages or processing HTTP requests</h3>
+<ul>
+  <li><a href="/start/sw/web-app/apache.html">Apache HTTPD</a></li>
+  <li><a href="/start/sw/web-app/nginx.html">Nginx</a></li>
+</ul>
+<h3 id="databases-for-more-complex-web-applications">Databases for more complex web applications</h3>
+<ul>
+  <li><a href="/tech/database/postgresql/about.html">PostgreSQL</a></li>
+  <li><a href="/tech/database/mariadb/about.html">MariaDB</a></li>
+</ul>
+<h3 id="certificates">Certificates</h3>
+<p>For web applications, the trafic between client and server machine goes over the Internet in many cases. To not reveal any sensitive information, many sites have utilized an SSL-secured connection over HTTP, shortly HTTPS.</p>
+<p>To make it work properly, the server needs to have a valid certificate, which either is obtained and signed by one of the authorities, or can be generated using service <a href="https://letsencrypt.org/">Let’s Encrypt</a>. Such certificates require management though, so read about how to secure your webserver with improved Certbot in the <a href="https://fedoramagazine.org/secure-your-webserver-improved-certbot/">Fedora magazine</a>.</p>
+<h2 id="editing-the-source-code">Editing the source-code</h2>
+<p>The following IDE are popular even for web development:</p>
+<ul>
+  <li><a href="https://www.jetbrains.com/pycharm/">PyCharm</a>, a popular IDE for Python development, is available as a <a href="https://copr.fedorainfracloud.org/coprs/phracek/PyCharm/">copr repository</a></li>
+  <li><a href="https://code.visualstudio.com/">Visual Studio Code</a>: Microsoft’s famous Visual Studio, rewritten to a modern web-based platform based on open-source technologies, <a href="https://fedoramagazine.org/using-visual-studio-code-fedora/">read here</a> how you can install it on your Fedora</li>
+  <li><a href="https://atom.io/">Atom</a> is another modern IDE, which can be <a href="https://fedoramagazine.org/install-atom-fedora/">installed easily on Fedora</a> as well</li>
+</ul>
+<h2 id="more-information">More information</h2>
+<p>For learning more about web technologies, visit for example web <a href="https://www.w3schools.com/">w3schools.com</a>.</p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%64%75%66%66%79@%72%65%64%68%61%74.%63%6F%6D">Máirín Duffy</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%68%68%6F%72%61%6B@%72%65%64%68%61%74.%63%6F%6D">Honza Horak</a>, <a href="mailto:%64%75%66%66%79@%72%65%64%68%61%74.%63%6F%6D">Máirín Duffy</a>, <a href="mailto:%70%76%61%6C%65%6E%61@%72%65%64%68%61%74.%63%6F%6D">Pavel Valena</a></p>
           </div>
         </div>
       </div>
@@ -266,7 +290,7 @@
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

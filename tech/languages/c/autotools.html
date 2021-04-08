@@ -7,25 +7,12 @@
   <title>Autotools &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/c/autotools.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/c/autotools.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -169,41 +156,41 @@
           <div class="panel panel-default content-content">
             <h1 id="autotools">Autotools</h1>
 <p>When you work on a project and you want to distribute this project among other users you also need to provide instructions about how to build the project.
-Traditionally these instructions were provided in a file called <code class="highlighter-rouge">Makefile</code> which is basically a recipe that holds all the information
-you need to build the package on your system. This can be achieved by using the command <code class="highlighter-rouge">make</code>. After initiating the command <code class="highlighter-rouge">make</code>
+Traditionally these instructions were provided in a file called <code class="language-plaintext highlighter-rouge">Makefile</code> which is basically a recipe that holds all the information
+you need to build the package on your system. This can be achieved by using the command <code class="language-plaintext highlighter-rouge">make</code>. After initiating the command <code class="language-plaintext highlighter-rouge">make</code>
 the system goes through the Makefile step by step and executes commands that are in it.</p>
 <p>However, if you have a project that will be built on a different platform than it was developed on, your Makefile needs adjustments.
-This is why the <code class="highlighter-rouge">configure</code> script was introduced. Configure script can automatically adjust the Makefile according to the system
+This is why the <code class="language-plaintext highlighter-rouge">configure</code> script was introduced. Configure script can automatically adjust the Makefile according to the system
 requirements. The script probes the system for important information about the compilation and build processes and creates Makefiles for your project.</p>
 <h2 id="autotools-installation">Autotools installation</h2>
 <p>To install <a href="https://en.wikipedia.org/wiki/GNU_build_system">GNU build system</a>, also known as Autotools, you need to install autoconf and automake packages:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install autoconf automake
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install autoconf automake
 </code></pre></div></div>
 <h2 id="autotools-usage">Autotools usage</h2>
-<p>To create your own <code class="highlighter-rouge">configure</code> script, you need to create a few input files that will be used by <code class="highlighter-rouge">autoreconf</code> command which
-creates the configure script. These files are <code class="highlighter-rouge">configure.ac</code> and <code class="highlighter-rouge">Makefile.am</code>. <code class="highlighter-rouge">Configure.ac</code> contains instructions to create <code class="highlighter-rouge">configure</code> script.
-<code class="highlighter-rouge">Makefile.am</code> contains instructions for each directory, so there is one <code class="highlighter-rouge">Makefile.am</code> in each directory that your project contains.
-You can find instructions about how to create these files in info page of <code class="highlighter-rouge">autoconf</code>. How to access the info page is described at the end.
+<p>To create your own <code class="language-plaintext highlighter-rouge">configure</code> script, you need to create a few input files that will be used by <code class="language-plaintext highlighter-rouge">autoreconf</code> command which
+creates the configure script. These files are <code class="language-plaintext highlighter-rouge">configure.ac</code> and <code class="language-plaintext highlighter-rouge">Makefile.am</code>. <code class="language-plaintext highlighter-rouge">Configure.ac</code> contains instructions to create <code class="language-plaintext highlighter-rouge">configure</code> script.
+<code class="language-plaintext highlighter-rouge">Makefile.am</code> contains instructions for each directory, so there is one <code class="language-plaintext highlighter-rouge">Makefile.am</code> in each directory that your project contains.
+You can find instructions about how to create these files in info page of <code class="language-plaintext highlighter-rouge">autoconf</code>. How to access the info page is described at the end.
 When these files are ready, one simple command creates everything you need to distribute your project:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ autoreconf --install
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ autoreconf --install
 </code></pre></div></div>
-<p>This command will produce several files: <code class="highlighter-rouge">configure</code> script, <code class="highlighter-rouge">config.h.in</code> and <code class="highlighter-rouge">Makefile.in</code> in every directory. The two latter are then used
+<p>This command will produce several files: <code class="language-plaintext highlighter-rouge">configure</code> script, <code class="language-plaintext highlighter-rouge">config.h.in</code> and <code class="language-plaintext highlighter-rouge">Makefile.in</code> in every directory. The two latter are then used
 by configure script to produce actual Makefiles. Now your project is ready to be distributed. Simply add these generated files to your
 package. Now when someone wants to use your package she only needs to type:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./configure
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./configure
 </code></pre></div></div>
-<p>This command will produce <code class="highlighter-rouge">Makefile</code> in every directory and <code class="highlighter-rouge">config.h</code> in the main directory. Now simply type:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+<p>This command will produce <code class="language-plaintext highlighter-rouge">Makefile</code> in every directory and <code class="language-plaintext highlighter-rouge">config.h</code> in the main directory. Now simply type:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
 </code></pre></div></div>
 <p>Now all important parts of project are compiled and linked and the program is ready to be used.
 Note that this tutorial is very short and describes only absolute basics of GNU build system.
-If you want to use <code class="highlighter-rouge">automake</code> in your project try reading the manual page:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ man automake
+If you want to use <code class="language-plaintext highlighter-rouge">automake</code> in your project try reading the manual page:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ man automake
 </code></pre></div></div>
 <p>If you need more detailed explanation of GNU build system and some simple examples of usage,
 try this <a href="http://www.freesoftwaremagazine.com/books/autotools_a_guide_to_autoconf_automake_libtool">guide to Autotools</a>
 or info page:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ info automake
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ info automake
 </code></pre></div></div>
 <hr id="authors-rule" />
 <p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%70%6F%70%65%6C%6B%61@%72%65%64%68%61%74.%63%6F%6D">Jiri Popelka</a></p>
@@ -295,7 +282,7 @@ or info page:</p>
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

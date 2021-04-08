@@ -7,25 +7,12 @@
   <title>Docker images &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tools/docker/docker-images.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tools/docker/docker-images.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tools">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -173,16 +160,16 @@
 <p>It is necessary to realize that when working with Docker containers, content of the image matters and is very important to trust it. Container itself is protected by cgroups and SELinux, but it still shares the kernel, so malicious container may theoretically harm the host system as well. See more information about security at <a href="https://docs.docker.com/engine/security/security/">Docker Security</a> and <a href="http://www.projectatomic.io/docs/docker-and-selinux/">Project Atomic article</a>. Long story short, you should never run random image container on your production host.</p>
 <h2 id="fedora-images">Fedora images</h2>
 <p>You can find all the official Docker images provided by Fedora community in the <a href="https://hub.docker.com/_/fedora/">official Fedora repository</a> on Docker Hub.</p>
-<p>Docker images in <code class="highlighter-rouge">fedora/</code> namespace feature <code class="highlighter-rouge">fedora:latest</code> tag for rawhide and <code class="highlighter-rouge">fedora:23</code> tag for Fedora 23.</p>
+<p>Docker images in <code class="language-plaintext highlighter-rouge">fedora/</code> namespace feature <code class="language-plaintext highlighter-rouge">fedora:latest</code> tag for rawhide and <code class="language-plaintext highlighter-rouge">fedora:23</code> tag for Fedora 23.</p>
 <p>To get Fedora 23 base image, run:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pull the image from docker.io
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pull the image from docker.io
 $ sudo docker pull fedora:23
 Run some command from the image
 $ sudo docker run --rm -ti fedora:23 bash
 </code></pre></div></div>
-<p>There are also a lot of application Docker images built as layered images on top of Fedora base image. It’s sources live in <a href="https://github.com/fedora-cloud/Fedora-Dockerfiles">Fedora Dockerfiles repository</a> and are available under <code class="highlighter-rouge">fedora/</code> namespace on the Docker Hub.</p>
+<p>There are also a lot of application Docker images built as layered images on top of Fedora base image. It’s sources live in <a href="https://github.com/fedora-cloud/Fedora-Dockerfiles">Fedora Dockerfiles repository</a> and are available under <code class="language-plaintext highlighter-rouge">fedora/</code> namespace on the Docker Hub.</p>
 <p>For example, to pull and run the MariaDB Docker container, run:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pull the image from docker.io
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pull the image from docker.io
 $ sudo docker pull fedora/mariadb
 Run the container
 $ sudo docker run fedora/mariadb
@@ -192,22 +179,22 @@ fedora/mariadb
 <h2 id="centos-images">CentOS images</h2>
 <p>You can find find all the official Docker images provided by CentOS community in the <a href="https://hub.docker.com/u/centos/">official CentOS repository</a> and the base Docker image in the <a href="https://hub.docker.com/_/centos/">official library</a> on Docker Hub.</p>
 <p>To get CentOS 7 base image, run:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pull the image from docker.io
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pull the image from docker.io
 $ sudo docker pull centos:7
 Run some command from the image
 $ sudo docker run --rm -ti centos:7 bash
 </code></pre></div></div>
 <p>To get CentOS 6 base image, run:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pull the image from docker.io
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pull the image from docker.io
 $ sudo docker pull centos:6
 Run some command from the image
 $ sudo docker run --rm -ti centos:6 bash
 </code></pre></div></div>
-<p>There is always <code class="highlighter-rouge">centos:latest</code> tag for the latest released version.</p>
+<p>There is always <code class="language-plaintext highlighter-rouge">centos:latest</code> tag for the latest released version.</p>
 <h3 id="software-collections-based-images">Software Collections based images</h3>
-<p>The <a href="https://hub.docker.com/u/centos/">official CentOS repository</a> contains Docker images that are similar to the images provided by Red Hat under <code class="highlighter-rouge">rhscl/</code> namespace.</p>
+<p>The <a href="https://hub.docker.com/u/centos/">official CentOS repository</a> contains Docker images that are similar to the images provided by Red Hat under <code class="language-plaintext highlighter-rouge">rhscl/</code> namespace.</p>
 <p>These Docker images are based on <a href="https://www.softwarecollections.org/en/">Software Collections</a>. Some of them (older versions) are released under <a href="https://hub.docker.com/u/openshift/">the OpenShift organization</a>, the newer versions are available under <a href="https://hub.docker.com/u/centos/">CentOS organization</a>. Some of them are enabled for <a href="https://github.com/openshift/source-to-image">Source-To-Image</a>.</p>
-<p>To download them just run <code class="highlighter-rouge">docker pull IMAGE_NAME</code>.</p>
+<p>To download them just run <code class="language-plaintext highlighter-rouge">docker pull IMAGE_NAME</code>.</p>
 <table>
   <thead>
     <tr>
@@ -392,7 +379,7 @@ $ sudo docker run --rm -ti centos:6 bash
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

@@ -7,25 +7,12 @@
   <title>CMake &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/c/cmake.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/c/cmake.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -169,8 +156,8 @@
           <div class="panel panel-default content-content">
             <h1 id="cmake">CMake</h1>
 <p>CMake is a multi-platform software designed for automated compilation on various operating systems.
-It uses a C or C++ compiler and <code class="highlighter-rouge">make</code> to build your project.
-CMake uses a configuration file named <code class="highlighter-rouge">CMakeLists.txt</code>, which is a file containing <code class="highlighter-rouge">cmake</code> commands.
+It uses a C or C++ compiler and <code class="language-plaintext highlighter-rouge">make</code> to build your project.
+CMake uses a configuration file named <code class="language-plaintext highlighter-rouge">CMakeLists.txt</code>, which is a file containing <code class="language-plaintext highlighter-rouge">cmake</code> commands.
 With these commands you can specify directories, libraries, header files, output binary files and many more
 features that are part of your project and are important for succesfully building your project.</p>
 <p>To familiarize yourself with basic features of CMake you should try the online tutorial on cmake website:</p>
@@ -179,19 +166,19 @@ features that are part of your project and are important for succesfully buildin
 <p><a href="http://www.cmake.org/cmake/help/v3.3/">CMake latest documantation</a></p>
 <h2 id="cmake-installation">CMake installation</h2>
 <p>To install CMake all you need to do is:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># sudo dnf install cmake
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># sudo dnf install cmake
 </code></pre></div></div>
 <h2 id="cmake-usage">CMake usage</h2>
 <p>The beauty of CMake is that after you create a simple CMakeLists.txt file you only need to use this command:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># cmake /path/to/CMakeLists.txt
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># cmake /path/to/CMakeLists.txt
 </code></pre></div></div>
 <p>This command should be used in a directory where you want to have the Makefile for your project.
 It will create all necessary Makefiles and configuration files needed to compile your project.
 It is considered good practice to build outside of the source tree (i.e. do not execute the above command from within your source code directory).  This will help to keep your source code free from any build artifacts and it also makes it easier to clean up if things go wrong.</p>
-<p>Than after using the command <code class="highlighter-rouge">make</code> your project is built and ready for use.
-This <code class="highlighter-rouge">cmake</code> command above is only a basic example. There are of course many more options that can be used with <code class="highlighter-rouge">cmake</code>.
+<p>Than after using the command <code class="language-plaintext highlighter-rouge">make</code> your project is built and ready for use.
+This <code class="language-plaintext highlighter-rouge">cmake</code> command above is only a basic example. There are of course many more options that can be used with <code class="language-plaintext highlighter-rouge">cmake</code>.
 These can be found in the manual page:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># man cmake
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># man cmake
 </code></pre></div></div>
 <hr id="authors-rule" />
 <p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%6C%6F%75%69%73@%6B%72%61%67%6E%69%7A.%65%75">Louis Taylor</a>, <a href="mailto:%70%68%72%61%63%65%6B@%72%65%64%68%61%74.%63%6F%6D">Petr Hracek</a>, <a href="mailto:%73%74%75%61%72%74@%73%74%75%61%72%74%63%61%6D%70%62%65%6C%6C.%6D%65">Stuart Campbell</a></p>
@@ -283,7 +270,7 @@ These can be found in the manual page:</p>
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

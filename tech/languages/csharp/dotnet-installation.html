@@ -7,25 +7,12 @@
   <title>.NET Platforms &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/csharp/dotnet-installation.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/csharp/dotnet-installation.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -170,19 +157,23 @@
             <p>.NET Core and Mono are available on Fedora. .NET applications are developed using the C#, F# and VB.NET programming languages.</p>
 <h2 id="net-core">.NET Core</h2>
 <p><a href="https://docs.microsoft.com/en-us/dotnet/core/">.NET Core</a> is a general-purpose, modular, cross-platform and open-source development Platform.</p>
-<p>To install .NET Core, add the .NET SIG’s <a href="/deployment/copr/about.html">copr repository</a> repository and install the <code class="highlighter-rouge">dotnet</code> package.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf copr enable @dotnet-sig/dotnet
-$ sudo dnf install dotnet
+<p>.NET Core 3.1 and later versions are packaged in Fedora since 32. Installing the latest SDK can be done with a simple</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dotnet
 </code></pre></div></div>
+<p>For older versions of Fedora and .NET Core 2.1, add the .NET SIG’s <a href="/deployment/copr/about.html">copr repository</a> repository and install the <code class="language-plaintext highlighter-rouge">dotnet-sdk-2.1</code> package.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf copr enable @dotnet-sig/dotnet
+$ sudo dnf install dotnet-sdk-2.1
+</code></pre></div></div>
+<p>It is not advised to mix these packages with those provided by Microsoft, please disable any other repositories providing dotnet before installing these.</p>
 <p>See the <a href="dotnetcore.html">.NET Core</a> page for more information.</p>
 <h2 id="mono">Mono</h2>
 <p><a href="http://www.mono-project.com/">Mono</a> is a free and open source implementation of the .NET Framework.</p>
 <p>To install Mono, simply type:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install mono-devel
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install mono-devel
 </code></pre></div></div>
 <p>See the <a href="mono.html">Mono</a> page for more information.</p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%52%61%64%6F%73%6C%61%76%43%61%70@%70%72%6F%74%6F%6E%6D%61%69%6C.%63%6F%6D">Radoslav Čáp</a>, <a href="mailto:%74%6F%6D.%64%65%73%65%79%6E@%67%6D%61%69%6C.%63%6F%6D">Tom Deseyn</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%72%61%64%6B%61.%6A%61%6E%65%6B@%72%65%64%68%61%74.%63%6F%6D">Radka Janek</a>, <a href="mailto:%52%61%64%6F%73%6C%61%76%43%61%70@%70%72%6F%74%6F%6E%6D%61%69%6C.%63%6F%6D">Radoslav Čáp</a>, <a href="mailto:%74%6F%6D.%64%65%73%65%79%6E@%67%6D%61%69%6C.%63%6F%6D">Tom Deseyn</a></p>
           </div>
         </div>
       </div>
@@ -271,7 +262,7 @@ $ sudo dnf install dotnet
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

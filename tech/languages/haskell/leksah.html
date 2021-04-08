@@ -7,25 +7,12 @@
   <title>Leksah &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/haskell/leksah.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/haskell/leksah.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -170,29 +157,29 @@
 <p><a href="http://leksah.org/">Leksah</a> is a Haskell IDE written in Haskell using Gtk. It offers workspaces for complex project with multiple 
 packages with automatic build of dependencies. It enables standard IDE features (debugging, auto completition etc.).</p>
 <p>To install Leksah run command:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install ghc cabal-install
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install ghc cabal-install
 </code></pre></div></div>
 <p>or install Haskell Platform by command:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install haskell-platform
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install haskell-platform
 </code></pre></div></div>
 <p>You have to also install the necessary libraries for successful build by:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install gobject-introspection-devel webkitgtk3-devel gtksourceview3-devel
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install gobject-introspection-devel webkitgtk3-devel gtksourceview3-devel
 </code></pre></div></div>
-<p>You can than install the IDE using <code class="highlighter-rouge">cabal</code>. First update all the packages by:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cabal update
+<p>You can than install the IDE using <code class="language-plaintext highlighter-rouge">cabal</code>. First update all the packages by:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cabal update
 </code></pre></div></div>
 <p>Now upgrade cabal to the latest stable version:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cabal install Cabal
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cabal install Cabal
 </code></pre></div></div>
 <p>Install build packages and tools:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cabal install alex happy
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cabal install alex happy
 $ cabal install gtk2hs-buildtools
 </code></pre></div></div>
 <p>Install the IDE:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cabal install leksah
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cabal install leksah
 </code></pre></div></div>
 <p>Than you can run the IDE:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ leksah
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ leksah
 </code></pre></div></div>
 <p>NOTE: It might happen that you need to reboot the system before using Leksah.</p>
 <hr id="authors-rule" />
@@ -285,7 +272,7 @@ $ cabal install gtk2hs-buildtools
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

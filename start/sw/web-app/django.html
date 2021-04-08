@@ -7,25 +7,12 @@
   <title>Python Django &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/start/sw/web-app/django.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/start/sw/web-app/django.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-start">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -133,7 +120,7 @@
   <div class="col-sm-12">
           <img class="img-rounded" src="/static/logo/web-app.png">
           <h2>Web Application</h2>
-          <p></p>
+          <p>Short introduction to web application development</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -175,57 +162,57 @@
 <p>Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design. 
 Django is one of the most popular Python Web Frameworks. It has very useful web page. Visit it by clicking on <a href="https://www.djangoproject.com/">this link</a>. 
 Because you will need to work with Python packages, write this command to your command line.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install python3-pip
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install python3-pip
 </code></pre></div></div>
 <h2 id="get-started">Get started</h2>
 <h3 id="how-to-install-virtualenv">How to install virtualenv</h3>
 <p>It’s recommended to keep your project inside virtual environment. But you can skip this step if you want. 
 Enter this command to your command line for installation:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install python3-virtualenv
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install python3-virtualenv
 </code></pre></div></div>
 <p>Get inside your working directory or create new where you want to store your virtual environment:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir working-dir
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir working-dir
 $ cd working-dir
 </code></pre></div></div>
 <p>Now we will create virtual environment called venv inside this directory using following command:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ virtualenv venv
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ virtualenv venv
 </code></pre></div></div>
 <p>When it’s done, we will activate our virtualenv. Now we will use following commands:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd venv
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd venv
 $ source bin/activate
 </code></pre></div></div>
 <p>When it’s activated we will see indicator of same name as our virtualenv. 
 Now we will check if we really have empty environment:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip freeze
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip freeze
 </code></pre></div></div>
 <p>It will return nothing.</p>
 <h3 id="how-to-install-django">How to install Django</h3>
-<p>Now if you installed <code class="highlighter-rouge">virtualenv</code> do not leave it, we will install Django now. If you installed <code class="highlighter-rouge">virtualenv</code> use this command 
-inside your working directory with activated <code class="highlighter-rouge">virtualenv</code>:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip3 install django
+<p>Now if you installed <code class="language-plaintext highlighter-rouge">virtualenv</code> do not leave it, we will install Django now. If you installed <code class="language-plaintext highlighter-rouge">virtualenv</code> use this command 
+inside your working directory with activated <code class="language-plaintext highlighter-rouge">virtualenv</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip3 install django
 </code></pre></div></div>
 <p>If you are following a book or a tutorial, you might want to specify the same exact version like this</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip3 install django==1.10
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip3 install django==1.10
 </code></pre></div></div>
 <p>Of course you can use the version that is prepared by Fedora community by typing:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install python3-django
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install python3-django
 </code></pre></div></div>
 <p>and when it’s finished use following command to start your first project called mysite:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ django-admin startproject mysite
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ django-admin startproject mysite
 </code></pre></div></div>
 <p>Now if you will check your directory using ls you will see new directory called mysite. We 
 will go inside that directory and we will run our project by following commands:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd mysite/
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd mysite/
 $ python3 manage.py runserver
 </code></pre></div></div>
 <p>You will see message with information about your development server. When you insert URL into your browser, 
 you will see welcome page (default URL for development server is http://127.0.0.1:8000/).
 And you successfully started your first Django project.</p>
 <h3 id="switching-virtualenvs">Switching Virtualenvs</h3>
-<p>You can use <code class="highlighter-rouge">virtualenvwrapper</code> after installing it with usual command</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install python3-virtualenvwrapper
+<p>You can use <code class="language-plaintext highlighter-rouge">virtualenvwrapper</code> after installing it with usual command</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install python3-virtualenvwrapper
 </code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkvirtualenv env1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkvirtualenv env1
 $ mkvirtualenv env2
 $ workon env1
 $ workon env2
@@ -320,7 +307,7 @@ $ workon env2
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

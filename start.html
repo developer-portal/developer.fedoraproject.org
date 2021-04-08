@@ -7,25 +7,12 @@
   <title>Start a project &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/start.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/start.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-start">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -150,19 +137,18 @@
     <h2> Software Application Creation Guides </h2>
   </div>
     <div class="col-sm-6">
-  <a class="panel-link" href="/start/sw/web-app/about.html">
+  <a class="panel-link" href="/start/sw/cli-app/about.html">
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="media">
           <div class="media-left">
-            <img style="height:100px" src="/static/logo/web-app.png">
+            <img style="height:100px" src="/static/logo/cli-app.png">
           </div>
           <div class="media-body">
             <h3>
-              Web Application
+              Command Line Application
             </h3>
-            <small><span class="label label-default" style="background-color: #159818"> Help Needed </span></small>
-            <p></p>
+            <p>Creating a command line application using C</p>
           </div>
         </div>
       </div>
@@ -190,18 +176,18 @@
   </a>
 </div>
     <div class="col-sm-6">
-  <a class="panel-link" href="/start/sw/cli-app/about.html">
+  <a class="panel-link" href="/start/sw/web-app/about.html">
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="media">
           <div class="media-left">
-            <img style="height:100px" src="/static/logo/cli-app.png">
+            <img style="height:100px" src="/static/logo/web-app.png">
           </div>
           <div class="media-body">
             <h3>
-              Command Line Application
+              Web Application
             </h3>
-            <p>Creating a command line application using C</p>
+            <p>Short introduction to web application development</p>
           </div>
         </div>
       </div>
@@ -231,25 +217,6 @@
     <h2> Hardware Device Project Creation Guides </h2>
   </div>
     <div class="col-sm-6">
-  <a class="panel-link" href="/start/hw/arduino/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/arduino.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Work with Arduino
-            </h3>
-            <p>Using Arduino with Fedora as a workstation.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
   <a class="panel-link" href="/start/hw/raspberry-pi/about.html">
     <div class="panel panel-default">
       <div class="panel-body">
@@ -263,6 +230,25 @@
             </h3>
             <small><span class="label label-default" style="background-color: #159818"> Help Needed </span></small>
             <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+    <div class="col-sm-6">
+  <a class="panel-link" href="/start/hw/arduino/about.html">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="media">
+          <div class="media-left">
+            <img style="height:100px" src="/static/logo/arduino.png">
+          </div>
+          <div class="media-body">
+            <h3>
+              Work with Arduino
+            </h3>
+            <p>Using Arduino with Fedora as a workstation.</p>
           </div>
         </div>
       </div>
@@ -419,7 +405,7 @@
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

@@ -7,25 +7,12 @@
   <title>Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/">
+  <link rel="canonical" href="https://developer.fedoraproject.org/">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-large splash-section-homepage">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -202,30 +189,30 @@
     <div class="row">
     <div class="col-sm-6 blog-headlines">
         <article>
-        <h3><a href="https://communityblog.fedoraproject.org/flock-to-budapest/"> Flock to Budapest</a></h3>
-        <p>I hear many of you are coming to Budapest. Here’s a quick overview and collection of links to help you easily get to Flock’s venue...</p>
-        <p><a href="https://communityblog.fedoraproject.org/flock-to-budapest/">Read more</a></p>
-        <p class="byline">by <span class="author">Fedora Community Blog</span> <span class="date">Thu, 01 Aug 2019</span></p>
+        <h3><a href="https://airlied.blogspot.com/2021/04/lavapipe-reporting-vulkan-11-not.html"> lavapipe reporting Vulkan 1.1 (not compliant)</a></h3>
+        <p>The lavapipe vulkan software rasterizer in Mesa is now reporting Vulkan 1.1 support.It passes all CTS tests for those new features in 1.1 but it...</p>
+        <p><a href="https://airlied.blogspot.com/2021/04/lavapipe-reporting-vulkan-11-not.html">Read more</a></p>
+        <p class="byline">by <span class="author">Dave Airlie</span> <span class="date">Wed, 07 Apr 2021</span></p>
         </article>
         <article>
-        <h3><a href="https://communityblog.fedoraproject.org/modularity-at-flock-2019/"> Modularity at Flock 2019</a></h3>
-        <p>Come and discuss Modularity at Flock! There are three sessions ready that will help you decide when to make a module, how to make them,...</p>
-        <p><a href="https://communityblog.fedoraproject.org/modularity-at-flock-2019/">Read more</a></p>
-        <p class="byline">by <span class="author">Fedora Community Blog</span> <span class="date">Thu, 01 Aug 2019</span></p>
+        <h3><a href="https://fedoramagazine.org/network-bound-disk-encryption-with-stratis/"> Using network bound disk encryption with Stratis</a></h3>
+        <p>In an environment with many encrypted disks, unlocking them all is a difficult task. Network bound disk encryption (NBDE) helps automate the process of unlocking...</p>
+        <p><a href="https://fedoramagazine.org/network-bound-disk-encryption-with-stratis/">Read more</a></p>
+        <p class="byline">by <span class="author">Fedora Magazine</span> <span class="date">Wed, 07 Apr 2021</span></p>
         </article>
     </div>
     <div class="col-sm-6 blog-headlines">
         <article>
-        <h3><a href="http://lokomurdok.blogspot.com/2019/07/how-to-install-spacewalk-29-on-centos-7.html"> How to install spacewalk 2.9 on CentOS 7</a></h3>
-        <p>Spacewalk is an open source Linux systems management solution.&lt;o:p&gt;&lt;/o:p&gt;Spacewalk's capabilities include:&lt;o:p&gt;&lt;/o:p&gt;- Inventory your systems (hardware and software information)&lt;o:p&gt;&lt;/o:p&gt;- Install and update software on your systems&lt;o:p&gt;&lt;/o:p&gt;-...</p>
-        <p><a href="http://lokomurdok.blogspot.com/2019/07/how-to-install-spacewalk-29-on-centos-7.html">Read more</a></p>
-        <p class="byline">by <span class="author">Luis Bazan</span> <span class="date">Wed, 31 Jul 2019</span></p>
+        <h3><a href="https://www.syslog-ng.com/community/b/blog/posts/changes-in-technologies-supported-by-syslog-ng-python-2-centos-6-co"> Changes in technologies supported by syslog-ng: Python 2, CentOS 6 &#38; Co.</a></h3>
+        <p>Technology is continuously evolving. There are regular changes in platforms running syslog-ng: old technologies disappear, and new technologies are introduced. While we try to provide...</p>
+        <p><a href="https://www.syslog-ng.com/community/b/blog/posts/changes-in-technologies-supported-by-syslog-ng-python-2-centos-6-co">Read more</a></p>
+        <p class="byline">by <span class="author">Peter Czanik</span> <span class="date">Tue, 06 Apr 2021</span></p>
         </article>
         <article>
-        <h3><a href="https://cecinestpasunefromage.wordpress.com/2019/07/31/two-numpys-diverged-in-a-wood/"> Two numpys diverged in a wood. . .</a></h3>
-        <p>python2-numpy has split off from numpy(python3-numpy) as of rawhide/f31. Dependencies have remained the same, so unless your Python 2 package requires numpy, you should be...</p>
-        <p><a href="https://cecinestpasunefromage.wordpress.com/2019/07/31/two-numpys-diverged-in-a-wood/">Read more</a></p>
-        <p class="byline">by <span class="author">Gwyn Ciesla</span> <span class="date">Wed, 31 Jul 2019</span></p>
+        <h3><a href="https://communityblog.fedoraproject.org/summary-from-the-diversity-inclusion-team-meetup/"> Summary from the Diversity &#38; Inclusion Team Meetup</a></h3>
+        <p>Fedora’s Diversity &amp; Inclusion Team held a virtual meetup on Sunday March 21st, 2021. We had more than 20 attendees, with three main planning sessions...</p>
+        <p><a href="https://communityblog.fedoraproject.org/summary-from-the-diversity-inclusion-team-meetup/">Read more</a></p>
+        <p class="byline">by <span class="author">Fedora Community Blog</span> <span class="date">Tue, 06 Apr 2021</span></p>
         </article>
     </div>
 </div>
@@ -308,7 +295,7 @@
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

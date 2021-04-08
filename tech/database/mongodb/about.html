@@ -7,25 +7,12 @@
   <title>MongoDB &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/database/mongodb/about.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/database/mongodb/about.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -165,7 +152,7 @@
             <h1 id="mongodb">MongoDB</h1>
 <p>MongoDB is a free and open source database and uses a document-oriented data model.</p>
 <h2 id="installation">Installation</h2>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># dnf install mongodb mongodb-server
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># dnf install mongodb mongodb-server
 # service mongod start
 </code></pre></div></div>
 <h2 id="how-to-install-a-specific-version">How to install a specific version</h2>
@@ -175,23 +162,23 @@
 latter is typically used for repository configuration and takes precedence over global configuration.</p>
 </blockquote>
 <p>Access the directory and create a file mongodb-org-<em>release_series</em>.repo</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd /etc/yum.repos.d/
-$ sudo touch mongodb-org-4.0.repo  
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd /etc/yum.repos.d/
+$ sudo touch mongodb-org-4.4.repo  
 </code></pre></div></div>
 <p>Insert this content inside mongodb-org-<em>release_series</em>.repo, edit if you want install another version.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Mongodb]
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Mongodb]
 name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/amazon/2013.03/mongodb-org/4.0/x86_64/
+baseurl=https://repo.mongodb.org/yum/redhat/8/mongodb-org/4.4/x86_64/
 gpgcheck=1
 enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc
+gpgkey=https://www.mongodb.org/static/pgp/server-4.4.asc
 </code></pre></div></div>
 <p>Now you can install with dnf</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install -y mongodb-org
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install -y mongodb-org
 </code></pre></div></div>
 <h2 id="run-mongodb">Run mongoDB</h2>
 <p>Start mongoDB service and after run mongoshell to test connection</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo service mongod start
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo service mongod start
 $ mongo
 MongoDB shell version: 4.0.0
 connecting to: test
@@ -199,7 +186,7 @@ connecting to: test
 <h2 id="mongodb-gui-not-tested">MongoDB GUI (not tested)</h2>
 <p><a href="https://github.com/hatamiarash7/MongoDB_Admin/wiki/1.-Getting-Start">MongoDB Admin</a> is a Cross Platform GUI.</p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%64%61%6E%69%65%6C%61%6D%6F%72%61%69%73@%74%75%74%61.%69%6F">Daniela Marques de Morais</a>, <a href="mailto:%6B%65%6E%6E%65%74%68%6B%61%75@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Kenneth K Au</a>, <a href="mailto:%6C%75%69%73.%63%6F%6E%74%72%65%72%61%73.%64%6F@%67%6D%61%69%6C.%63%6F%6D">Luis Contreras</a>, <a href="mailto:%73%65%72%67%75%73%68%61%6B%6F%76@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Sergey Ushakov</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%64%61%6E%69%65%6C%61%6D%6F%72%61%69%73@%74%75%74%61.%69%6F">Daniela Marques de Morais</a>, <a href="mailto:%6B%65%6E%6E%65%74%68%6B%61%75@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Kenneth K Au</a>, <a href="mailto:%6C%75%69%73.%63%6F%6E%74%72%65%72%61%73.%64%6F@%67%6D%61%69%6C.%63%6F%6D">Luis Contreras</a>, <a href="mailto:%61%6C%73%61%64%69@%67%6D%61%69%6C.%63%6F%6D">Muayyad Alsadi</a>, <a href="mailto:%73%65%72%67%75%73%68%61%6B%6F%76@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Sergey Ushakov</a></p>
           </div>
         </div>
       </div>
@@ -288,7 +275,7 @@ connecting to: test
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

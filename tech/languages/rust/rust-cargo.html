@@ -7,25 +7,12 @@
   <title>Cargo &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/rust/rust-cargo.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/rust/rust-cargo.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -169,11 +156,11 @@
             <h1 id="installing-cargo">Installing Cargo</h1>
 <p>Cargo is Rust’s package manager. You can use it to download your project’s dependencies
 and to compile your project. You can start a new project using Cargo by typing:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cargo new my_project
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cargo new my_project
 </code></pre></div></div>
-<p>This will create a new directory with manifest (<code class="highlighter-rouge">Cargo.toml</code>), a source code directory
-(<code class="highlighter-rouge">src</code>) and a “Hello, World!” program in <code class="highlighter-rouge">src/main.rs</code>.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd my_project/
+<p>This will create a new directory with manifest (<code class="language-plaintext highlighter-rouge">Cargo.toml</code>), a source code directory
+(<code class="language-plaintext highlighter-rouge">src</code>) and a “Hello, World!” program in <code class="language-plaintext highlighter-rouge">src/main.rs</code>.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd my_project/
 $ tree .
 .
 ├── Cargo.toml
@@ -188,23 +175,24 @@ looks like this:</p>
 <span class="py">name</span> <span class="p">=</span> <span class="s">"my_project"</span>
 <span class="py">version</span> <span class="p">=</span> <span class="s">"0.1.0"</span>
 <span class="py">authors</span> <span class="p">=</span> <span class="p">[</span><span class="s">"Your Name &lt;you@example.com&gt;"</span><span class="p">]</span>
+<span class="py">edition</span> <span class="p">=</span> <span class="s">"2018"</span>
 
 <span class="nn">[dependencies]</span>
 </code></pre></div></div>
 <p>To run your new project, type:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cargo run
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cargo run
    Compiling my_project v0.1.0 (file:///home/fedora/rust/my_project)
      Running `target/debug/my_project`
 Hello, world!
 </code></pre></div></div>
 <h1 id="cratesio-repository">crates.io repository</h1>
 <p>Rust calls its compilation unit (either library or executable) a crate. Your project
-is such a crate and it can also depend on other crates specified in <code class="highlighter-rouge">Cargo.toml</code>. The
+is such a crate and it can also depend on other crates specified in <code class="language-plaintext highlighter-rouge">Cargo.toml</code>. The
 default repository to look for dependencies is <a href="https://crates.io/">crates.io</a> but you
 can also specify dependencies on a git repository.</p>
 <p><strong>Note:</strong> Cargo currently supports only source dependencies.</p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%6D%73%65%68%6E%6F%75%74@%72%65%64%68%61%74.%63%6F%6D">Martin Sehnoutka</a>, <a href="mailto:%73%65%68%6E%6F%75%74%6B%61.%6D%61%72%74%69%6E@%67%6D%61%69%6C.%63%6F%6D">Sehny</a>, <a href="mailto:%61%6E%74%6F%6E%69%6E.%6D%72%6B%76%69%63%61@%6F%75%74%6C%6F%6F%6B.%63%7A">antoninmrkvica</a>, <a href="mailto:%6A%68%6F%72%6E%69%63%65@%72%65%64%68%61%74.%63%6F%6D">jhornice</a>, <a href="mailto:%6D%73%65%68%6E%6F%75%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">msehnout</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%6A%69%73%74%6F%6E%65@%72%65%64%68%61%74.%63%6F%6D">Josh Stone</a>, <a href="mailto:%6D%73%65%68%6E%6F%75%74@%72%65%64%68%61%74.%63%6F%6D">Martin Sehnoutka</a>, <a href="mailto:%61%6E%74%6F%6E%69%6E.%6D%72%6B%76%69%63%61@%6F%75%74%6C%6F%6F%6B.%63%7A">antoninmrkvica</a>, <a href="mailto:%6A%68%6F%72%6E%69%63%65@%72%65%64%68%61%74.%63%6F%6D">jhornice</a>, <a href="mailto:%6D%73%65%68%6E%6F%75%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">msehnout</a></p>
           </div>
         </div>
       </div>
@@ -293,7 +281,7 @@ can also specify dependencies on a git repository.</p>
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

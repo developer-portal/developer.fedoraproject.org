@@ -7,25 +7,12 @@
   <title>Command Line Application &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/start/sw/cli-app/about.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/start/sw/cli-app/about.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-start">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -167,15 +154,15 @@
 <h2 id="getting-started">Getting started</h2>
 <h3 id="install-required-libraries">Install required libraries</h3>
 <p>For simple C programs a compiler and a text editor is all we need to get started.</p>
-<p>For this example we will use <a href="https://gcc.gnu.org/"><code class="highlighter-rouge">gcc</code></a> as our compiler.</p>
-<p><code class="highlighter-rouge">$ sudo dnf install gcc</code></p>
+<p>For this example we will use <a href="https://gcc.gnu.org/"><code class="language-plaintext highlighter-rouge">gcc</code></a> as our compiler.</p>
+<p><code class="language-plaintext highlighter-rouge">$ sudo dnf install gcc</code></p>
 <h3 id="create-a-workspace">Create a workspace</h3>
-<p><code class="highlighter-rouge">$ mkdir work &amp;&amp; cd work</code></p>
+<p><code class="language-plaintext highlighter-rouge">$ mkdir work &amp;&amp; cd work</code></p>
 <h2 id="command-line-application-in-c">Command Line Application in C</h2>
-<p>For this example we will use the uname function in <a href="http://pubs.opengroup.org/onlinepubs/7908799/xsh/sysutsname.h.html">utsname</a> C library to gather information about the system similar to the output of the <code class="highlighter-rouge">uname -a</code> command and format it into a human readable block.</p>
-<p>The output from our example cli should match the output of <code class="highlighter-rouge">uname</code> with the corresponding switches.</p>
-<p>Here is an example of the <code class="highlighter-rouge">uname</code> output we are trying to achieve using <code class="highlighter-rouge">cat</code> to match the format</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat &lt;&lt; EOF
+<p>For this example we will use the uname function in <a href="http://pubs.opengroup.org/onlinepubs/7908799/xsh/sysutsname.h.html">utsname</a> C library to gather information about the system similar to the output of the <code class="language-plaintext highlighter-rouge">uname -a</code> command and format it into a human readable block.</p>
+<p>The output from our example cli should match the output of <code class="language-plaintext highlighter-rouge">uname</code> with the corresponding switches.</p>
+<p>Here is an example of the <code class="language-plaintext highlighter-rouge">uname</code> output we are trying to achieve using <code class="language-plaintext highlighter-rouge">cat</code> to match the format</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat &lt;&lt; EOF
 Node Info
 ---------- 
 node: $(uname -n)          
@@ -187,7 +174,7 @@ arch: $(uname -m)
 EOF
 </code></pre></div></div>
 <p>The results look like this</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Node Info
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Node Info
 ----------
 node: fedora
 system: Linux
@@ -196,10 +183,10 @@ release: 4.18.5-200.fc28.x86_64
 arch: x86_64
 </code></pre></div></div>
 <h2 id="write-code-for-command-line-application">Write code for command line application</h2>
-<p>Our example is a simple one file C program. To get started we need to write our C code into a file named <code class="highlighter-rouge">nodeinfo.c</code></p>
+<p>Our example is a simple one file C program. To get started we need to write our C code into a file named <code class="language-plaintext highlighter-rouge">nodeinfo.c</code></p>
 <p>You can write the C file using the editor of your choice.</p>
-<p><code class="highlighter-rouge">$ gedit nodeinfo.c</code></p>
-<p>Here is the example code for <code class="highlighter-rouge">nodeinfo.c</code></p>
+<p><code class="language-plaintext highlighter-rouge">$ gedit nodeinfo.c</code></p>
+<p>Here is the example code for <code class="language-plaintext highlighter-rouge">nodeinfo.c</code></p>
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Node Info Cli App</span>
 <span class="cp">#include &lt;sys/utsname.h&gt;
 #include &lt;stdio.h&gt;
@@ -215,32 +202,40 @@ arch: x86_64
     <span class="p">{</span>
         <span class="c1">// error if call fails</span>
         <span class="n">perror</span><span class="p">(</span><span class="s">"uname"</span><span class="p">);</span>
-        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"Error in uname : %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">errno</span><span class="p">);</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"Error in uname : %d</span><span class="se">
+</span><span class="s">"</span><span class="p">,</span> <span class="n">errno</span><span class="p">);</span>
         <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
         <span class="c1">// Print Node Info</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"Node Info</span><span class="se">\n</span><span class="s">----------</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"node : %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">nodename</span><span class="p">);</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"system : %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">sysname</span><span class="p">);</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"version : %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">version</span><span class="p">);</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"release : %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">release</span><span class="p">);</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"arch : %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">machine</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Node Info</span><span class="se">
+</span><span class="s">----------</span><span class="se">
+</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"node : %s</span><span class="se">
+</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">nodename</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"system : %s</span><span class="se">
+</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">sysname</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"version : %s</span><span class="se">
+</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">version</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"release : %s</span><span class="se">
+</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">release</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"arch : %s</span><span class="se">
+</span><span class="s">"</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">machine</span><span class="p">);</span>
         <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
 
 </code></pre></div></div>
-<p>Save the file as <code class="highlighter-rouge">nodeinfo.c</code>.</p>
+<p>Save the file as <code class="language-plaintext highlighter-rouge">nodeinfo.c</code>.</p>
 <h2 id="compile-code-for-command-line-application">Compile code for command line application</h2>
-<p>We can compile our cli at the command line using <code class="highlighter-rouge">gcc</code>. To do this open a terminal and navigate to your workspace.</p>
+<p>We can compile our cli at the command line using <code class="language-plaintext highlighter-rouge">gcc</code>. To do this open a terminal and navigate to your workspace.</p>
 <p>The command is as follows.</p>
-<p><code class="highlighter-rouge">$ gcc -o nodeinfo nodeinfo.c</code></p>
-<p>The <code class="highlighter-rouge">gcc</code> command flag <code class="highlighter-rouge">-o nodeinfo</code> tells <code class="highlighter-rouge">gcc</code> to generate a binary named <code class="highlighter-rouge">nodeinfo</code> in the same directory as <code class="highlighter-rouge">nodeinfo.c</code>.</p>
+<p><code class="language-plaintext highlighter-rouge">$ gcc -o nodeinfo nodeinfo.c</code></p>
+<p>The <code class="language-plaintext highlighter-rouge">gcc</code> command flag <code class="language-plaintext highlighter-rouge">-o nodeinfo</code> tells <code class="language-plaintext highlighter-rouge">gcc</code> to generate a binary named <code class="language-plaintext highlighter-rouge">nodeinfo</code> in the same directory as <code class="language-plaintext highlighter-rouge">nodeinfo.c</code>.</p>
 <p>The binary should be executable so give it a spin.</p>
-<p><code class="highlighter-rouge">$ ./nodeinfo</code></p>
+<p><code class="language-plaintext highlighter-rouge">$ ./nodeinfo</code></p>
 <p>And the output should be similar to this</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Node Info
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Node Info
 ----------
 node : fedora
 system : Linux
@@ -341,7 +336,7 @@ arch : x86_64
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

@@ -7,25 +7,12 @@
   <title>Python &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/python/python-installation.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/python/python-installation.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -149,15 +136,16 @@
         <div class="col-sm-3">
           <div class="list-group content-menu">
                 <a href="/tech/languages/python/python-installation.html" class="list-group-item  active ">Python</a>
-                <a href="/tech/languages/python/pypi-installation.html" class="list-group-item ">PyPI</a>
+                <a href="/tech/languages/python/pypi-installation.html" class="list-group-item ">Pip & PyPI</a>
+                <a href="/tech/languages/python/multiple-pythons.html" class="list-group-item ">Multiple Pythons</a>
                 <a href="/tech/languages/python/django-installation.html" class="list-group-item ">Django</a>
                 <a href="/tech/languages/python/flask-installation.html" class="list-group-item ">Flask</a>
                 <a href="/tech/languages/python/micropython.html" class="list-group-item ">MicroPython</a>
                 <a href="/tech/languages/python/python-sig.html" class="list-group-item ">Python SIG</a>
                 <a href="/tech/languages/python/pygobject.html" class="list-group-item ">PyGObject</a>
                 <a href="/tech/languages/python/sphinx.html" class="list-group-item ">Sphinx</a>
-                <a href="/tech/languages/python/multiple-pythons.html" class="list-group-item ">Multiple Pythons</a>
                 <a href="/tech/languages/python/scipy.html" class="list-group-item ">Scientific Python Stack</a>
+                <a href="/tech/languages/python/pipenv.html" class="list-group-item ">Pipenv</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -172,40 +160,52 @@
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
             <h1 id="python-in-fedora">Python in Fedora</h1>
-<p><a href="https://www.python.org/">Python</a> is is a widely used, interpreted, object-oriented, high-level programming language with dynamic semantics. It is simple and easy to learn.
+<p><a href="https://www.python.org/">Python</a> is a widely used, interpreted, object-oriented, high-level programming language with dynamic semantics. It is simple and easy to learn.
 Python 3 is already pre-installed on Fedora. Let’s use it!</p>
 <h2 id="running-python">Running Python</h2>
 <ol>
-  <li>Open the <em>Terminal</em> (press <code class="highlighter-rouge">Alt</code> + <code class="highlighter-rouge">F1</code>, type <em>Terminal</em> and click on the black square icon or just press <code class="highlighter-rouge">Enter</code>).</li>
-  <li>To run Python 3 type <code class="highlighter-rouge">python3</code>. You should see something like this:</li>
+  <li>Open the <em>Terminal</em> (press <code class="language-plaintext highlighter-rouge">Alt</code> + <code class="language-plaintext highlighter-rouge">F1</code>, type <em>Terminal</em> and click on the black square icon or just press <code class="language-plaintext highlighter-rouge">Enter</code>).</li>
+  <li>To run Python 3 type <code class="language-plaintext highlighter-rouge">python3</code>. You should see something like this:</li>
 </ol>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Python</span> <span class="mf">3.5.2</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Sep</span> <span class="mi">14</span> <span class="mi">2016</span><span class="p">,</span> <span class="mi">11</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">32</span><span class="p">)</span>
-<span class="p">[</span><span class="n">GCC</span> <span class="mf">6.2.1</span> <span class="mi">20160901</span> <span class="p">(</span><span class="n">Red</span> <span class="n">Hat</span> <span class="mf">6.2.1</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span> <span class="n">on</span> <span class="n">linux</span>
-<span class="n">Type</span> <span class="s">"help"</span><span class="p">,</span> <span class="s">"copyright"</span><span class="p">,</span> <span class="s">"credits"</span> <span class="ow">or</span> <span class="s">"license"</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Python</span> <span class="mf">3.9</span><span class="p">.</span><span class="mi">0</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Oct</span>  <span class="mi">6</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">)</span> 
+<span class="p">[</span><span class="n">GCC</span> <span class="mf">10.2</span><span class="p">.</span><span class="mi">1</span> <span class="mi">20201005</span> <span class="p">(</span><span class="n">Red</span> <span class="n">Hat</span> <span class="mf">10.2</span><span class="p">.</span><span class="mi">1</span><span class="o">-</span><span class="mi">5</span><span class="p">)]</span> <span class="n">on</span> <span class="n">linux</span>
+<span class="n">Type</span> <span class="s">"help"</span><span class="p">,</span> <span class="s">"copyright"</span><span class="p">,</span> <span class="s">"credits"</span> <span class="ow">or</span> <span class="s">"license"</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="p">.</span>
 <span class="o">&gt;&gt;&gt;</span> 
 </code></pre></div></div>
 <p>Now you can start to write in Python! Let’s print <em>Hello World</em>!</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'Hello World!'</span><span class="p">)</span>
 </code></pre></div></div>
-<p>If you want to <strong>exit</strong> Python, press <code class="highlighter-rouge">Ctrl</code> + <code class="highlighter-rouge">D</code>.</p>
-<p>To run a program written in Python, type <code class="highlighter-rouge">python3</code> followed by the path and name of the program. Like this:</p>
+<p>If you want to <strong>exit</strong> Python, press <code class="language-plaintext highlighter-rouge">Ctrl</code> + <code class="language-plaintext highlighter-rouge">D</code>.</p>
+<p>To run a program written in Python, type <code class="language-plaintext highlighter-rouge">python3</code> followed by the path and name of the program. Like this:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python3 example.py
 </code></pre></div></div>
-<h2 id="using-virtualenv">Using virtualenv</h2>
-<p>When you work on a project, it is good to keep it inside a virtual environment. It will keep the dependencies you need in one place and you do not have to worry about different projects which need different versions of the same module.</p>
-<p>Let’s create a virtual environment called <code class="highlighter-rouge">project_venv</code> which will contain Python and pip. You can use pip to install a project’s dependencies.</p>
+<p>The command <code class="language-plaintext highlighter-rouge">python</code> (without the <code class="language-plaintext highlighter-rouge">3</code>) will also work.
+You can also use a specific version of Python, like <code class="language-plaintext highlighter-rouge">python3.9</code>, if you have that interpreter installed.
+See the <a href="https://developer.fedoraproject.org/tech/languages/python/multiple-pythons.html">Multiple Interpreters section</a> for details.</p>
+<h2 id="python-packages">Python packages</h2>
+<p>Fedora contains many popular packages for Python.
+Usually, they are named with a <code class="language-plaintext highlighter-rouge">python3-</code> prefix, such as <code class="language-plaintext highlighter-rouge">python3-requests</code>.</p>
+<p>These are useful for scripting and exploring Python and for Fedora-specific applications.
+For software development or reproducible data analysis, it is better to use virtual environments.</p>
+<h2 id="using-virtual-environments">Using virtual environments</h2>
+<p>When you work on a project, it is good to keep it inside a virtual environment. It will keep the dependencies you need in one place and you do not have to worry about different projects which need different versions of the same module.
+It also makes it easy to collaborate with people who don’t use Fedora yet.</p>
+<p>Let’s create a virtual environment called <code class="language-plaintext highlighter-rouge">project_venv</code> which will contain Python and pip. You can use pip to install a project’s dependencies.</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python3 <span class="nt">-m</span> venv project_venv
 </code></pre></div></div>
 <p>If you want to work in the virtual environment, you have to activate it.</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">source </span>project_venv/bin/activate
 </code></pre></div></div>
-<p>When the virtual environment is activated (you can see its name in brackets at the beginning of your prompt), you can install modules via <code class="highlighter-rouge">pip install</code>.</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>pip <span class="nb">install </span>name_of_module
+<p>When the virtual environment is activated (you can see its name in brackets at the beginning of your prompt), you can install modules via <code class="language-plaintext highlighter-rouge">pip install</code>.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>python <span class="nt">-m</span> pip <span class="nb">install </span>requests
 </code></pre></div></div>
 <p>That is all, you have successfully created your own virtual environment. Now you can run Python (see above) and start working on your project.</p>
-<p>When you finish your work, just deactivate the virtual environment.</p>
+<p>When you finish your work, you can deactivate the virtual environment.</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>deactivate
 </code></pre></div></div>
+<p>Note that packages installed system-wide are not available in the virtual environments:
+by default, virtual environments are isolated from the system.
+As an alternative, you can create the environment with <code class="language-plaintext highlighter-rouge">--system-site-packages</code> – but note that when you update your Fedora packages, they may get out of sync with modules installed inside the environment.</p>
 <h3 id="what-next">What next?</h3>
 <ul>
   <li><a href="https://www.python.org/">Python homepage</a></li>
@@ -218,7 +218,7 @@ Python 3 is already pre-installed on Fedora. Let’s use it!</p>
   <li><a href="https://docs.python.org/2/">Python 2 Documentation</a></li>
 </ul>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%76%69%77%6F%6C%6C@%67%6D%61%69%6C.%63%6F%6D">Avi Wollman</a>, <a href="mailto:%64%6B%72%65%6A%63%69@%72%65%64%68%61%74.%63%6F%6D">Dominika Krejčí</a>, <a href="mailto:%77%68%79%64%6F%75%62%74@%67%6D%61%69%6C.%63%6F%6D">Jeff Smith</a>, <a href="mailto:%70%76%61%6C%65%6E%61@%72%65%64%68%61%74.%63%6F%6D">Pavel Valena</a>, <a href="mailto:%72%68%63%61%72%76%61%6C%68%6F@%67%6D%61%69%6C.%63%6F%6D">Rodolfo Carvalho</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%76%69%77%6F%6C%6C@%67%6D%61%69%6C.%63%6F%6D">Avi Wollman</a>, <a href="mailto:%68%61%70%70%79%67%75%69%74%61%72@%67%6D%61%69%6C.%63%6F%6D">Jeff Donovan</a>, <a href="mailto:%77%68%79%64%6F%75%62%74@%67%6D%61%69%6C.%63%6F%6D">Jeff Smith</a>, <a href="mailto:%65%6E%63%75%6B%6F%75@%67%6D%61%69%6C.%63%6F%6D">Petr Viktorin</a>, <a href="mailto:%72%68%63%61%72%76%61%6C%68%6F@%67%6D%61%69%6C.%63%6F%6D">Rodolfo Carvalho</a></p>
           </div>
         </div>
       </div>
@@ -307,7 +307,7 @@ Python 3 is already pre-installed on Fedora. Let’s use it!</p>
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

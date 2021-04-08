@@ -7,25 +7,12 @@
   <title>Eclipse &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tools/eclipse/about.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tools/eclipse/about.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tools">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -166,7 +153,7 @@
 <p><a href="https://www.eclipse.org/ide/">Eclipse</a> is a full featured, multi language IDE aiding developers in every step of software development lifecycle. Starting new project, working on established project with complex structure, monitoring and performance optimizing application, writing documentation, interacting with issue tracking systems or CI all from inside Eclipse IDE.</p>
 <h2 id="installing-eclipse-on-fedora">Installing Eclipse on Fedora</h2>
 <p>On Fedora install the eclipse package:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install eclipse
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install eclipse
 </code></pre></div></div>
 <p>This would give you Eclipse Platform with Java and Plugin development tools but it’s easy to install support for various other languages and ecosystems as they are packaged in Fedora:</p>
 <ul>
@@ -191,8 +178,8 @@
   <li>Bug trackers and CIs - eclipse-mylyn-* packages</li>
 </ul>
 <p>The list above doesn’t contain all Eclipse plugins available in Fedora but is supposed to serve as an example of the range of different technologies integrated.</p>
-<p>Alternative method for installing Eclipse on Fedora is by using <code class="highlighter-rouge">gnome-software</code>. Some of the packaged plugins ship proper metadata so they can be seen and installed directly from it.</p>
-<p>Last but not least there is <a href="http://marketplace.eclipse.org/">Eclipse Marketplace</a> (<code class="highlighter-rouge">sudo dnf install eclipse-mpc</code>) giving you access to even bigger list of plugins to integrate even more tools in your ide. Once Eclipse is running go to <code class="highlighter-rouge">Help\Eclipse Marketplace...</code> and search for plugins serving your needs.</p>
+<p>Alternative method for installing Eclipse on Fedora is by using <code class="language-plaintext highlighter-rouge">gnome-software</code>. Some of the packaged plugins ship proper metadata so they can be seen and installed directly from it.</p>
+<p>Last but not least there is <a href="http://marketplace.eclipse.org/">Eclipse Marketplace</a> (<code class="language-plaintext highlighter-rouge">sudo dnf install eclipse-mpc</code>) giving you access to even bigger list of plugins to integrate even more tools in your ide. Once Eclipse is running go to <code class="language-plaintext highlighter-rouge">Help\Eclipse Marketplace...</code> and search for plugins serving your needs.</p>
 <hr id="authors-rule" />
 <p style="text-align: center">Authors: <a href="mailto:%61%6B%75%72%74%61%6B%6F@%72%65%64%68%61%74.%63%6F%6D">Alexander Kurtakov</a></p>
           </div>
@@ -283,7 +270,7 @@
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

@@ -7,25 +7,12 @@
   <title>Synced folders with NFS &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tools/vagrant/vagrant-nfs.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tools/vagrant/vagrant-nfs.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tools">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -172,36 +159,37 @@
             <h1 id="synced-folders-with-nfs">Synced folders with NFS</h1>
 <p>NFS is a faster way of sharing your project’s files between host and guests that
 sync the files instantly.</p>
-<p>To use NFS with Vagrant, <code class="highlighter-rouge">nfs-utils</code> package needs to be installed and nfs-server
+<p>To use NFS with Vagrant, <code class="language-plaintext highlighter-rouge">nfs-utils</code> package needs to be installed and nfs-server
 needs to be running. If it is not, run:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install nfs-utils &amp;&amp; sudo systemctl enable nfs-server
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install nfs-utils &amp;&amp; sudo systemctl enable nfs-server
 </code></pre></div></div>
-<p>Afterwards enable <code class="highlighter-rouge">nfs</code>, <code class="highlighter-rouge">rpc-bind</code> and <code class="highlighter-rouge">mountd</code> services for <code class="highlighter-rouge">firewalld</code>:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo firewall-cmd --permanent --add-service=nfs \
+<p>Afterwards enable <code class="language-plaintext highlighter-rouge">nfs</code>, <code class="language-plaintext highlighter-rouge">rpc-bind</code> and <code class="language-plaintext highlighter-rouge">mountd</code> services for <code class="language-plaintext highlighter-rouge">firewalld</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo firewall-cmd --permanent --add-service=nfs3 \
+    &amp;&amp; sudo firewall-cmd --permanent --add-service=nfs \
     &amp;&amp; sudo firewall-cmd --permanent --add-service=rpc-bind \
     &amp;&amp; sudo firewall-cmd --permanent --add-service=mountd \
     &amp;&amp; sudo firewall-cmd --reload
 </code></pre></div></div>
 <p>You need these services added for the zone you will run your virtual bridge
 (should be FedoraWorkstation as default).</p>
-<p>Once done, <code class="highlighter-rouge">:nfs</code> can be used as an option for files sync in project’s
+<p>Once done, <code class="language-plaintext highlighter-rouge">:nfs</code> can be used as an option for files sync in project’s
 Vagrantfile as follows:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Vagrant.configure("2") do |config|
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Vagrant.configure("2") do |config|
   # ...
 
   config.vm.synced_folder ".", "/vagrant", type: "nfs"
 end
 </code></pre></div></div>
 <p>One of the common errors when using NFS this way might be that your NFS version does not support UDP protocol which gets added by Vagrant as a default.</p>
-<p>In that case the error message is <code class="highlighter-rouge">mount.nfs: requested NFS version or transport protocol is not supported</code>. You can work around this by disabling UDP with <code class="highlighter-rouge">nfs_udp</code> option:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>config.vm.synced_folder ".", "/vagrant", type: "nfs", nfs_udp: false
+<p>In that case the error message is <code class="language-plaintext highlighter-rouge">mount.nfs: requested NFS version or transport protocol is not supported</code>. You can work around this by disabling UDP with <code class="language-plaintext highlighter-rouge">nfs_udp</code> option:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>config.vm.synced_folder ".", "/vagrant", type: "nfs", nfs_udp: false
 </code></pre></div></div>
 <h2 id="using-nfs-shares-from-vagrant-without-password-prompts">Using NFS shares from Vagrant without password prompts</h2>
 <p>To not enter password many times a day when using NFS, put the following inside
-your <code class="highlighter-rouge">/etc/sudoers</code> file by running <code class="highlighter-rouge">sudo visudo</code> (do not try to edit the file
-directly, <code class="highlighter-rouge">visudo</code> will check that the content of the file is correct before
+your <code class="language-plaintext highlighter-rouge">/etc/sudoers</code> file by running <code class="language-plaintext highlighter-rouge">sudo visudo</code> (do not try to edit the file
+directly, <code class="language-plaintext highlighter-rouge">visudo</code> will check that the content of the file is correct before
 saving):</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Allow Vagrant to manage /etc/exports
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Allow Vagrant to manage /etc/exports
 Cmnd_Alias VAGRANT_EXPORTS_ADD = /usr/bin/tee -a /etc/exports
 Cmnd_Alias VAGRANT_NFSD_CHECK = /usr/bin/systemctl status --no-pager nfs-server.service
 Cmnd_Alias VAGRANT_NFSD_START = /usr/bin/systemctl start nfs-server.service
@@ -210,13 +198,13 @@ Cmnd_Alias VAGRANT_EXPORTS_REMOVE = /bin/sed -r -e * d -ibak /*/exports
 Cmnd_Alias VAGRANT_EXPORTS_REMOVE_2 = /bin/cp /*/exports /etc/exports
 %vagrant ALL=(root) NOPASSWD: VAGRANT_EXPORTS_ADD, VAGRANT_NFSD_CHECK, VAGRANT_NFSD_START, VAGRANT_NFSD_APPLY, VAGRANT_EXPORTS_REMOVE, VAGRANT_EXPORTS_REMOVE_2
 </code></pre></div></div>
-<p>Afterwards add yourself to the <code class="highlighter-rouge">vagrant</code> group if you are not there already by running:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo getent group vagrant &gt;/dev/null || sudo groupadd -r vagrant
+<p>Afterwards add yourself to the <code class="language-plaintext highlighter-rouge">vagrant</code> group if you are not there already by running:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo getent group vagrant &gt;/dev/null || sudo groupadd -r vagrant
 $ sudo gpasswd -a ${USER} vagrant
-$ newgrp vagrant
+$ sudo -u ${USER} ${SHELL}
 </code></pre></div></div>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%61%6E%74%6F%6E%69%6E.%6D%72%6B%76%69%63%61@%6F%75%74%6C%6F%6F%6B.%63%7A">Antonín Mrkvica</a>, <a href="mailto:%64%75%73%74%79@%64%75%73%74%79%6D%61%62%65.%63%6F%6D">Dusty Mabe</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%6E%74%6F%6E%69%6E.%6D%72%6B%76%69%63%61@%6F%75%74%6C%6F%6F%6B.%63%7A">Antonín Mrkvica</a>, <a href="mailto:%64%75%73%74%79@%64%75%73%74%79%6D%61%62%65.%63%6F%6D">Dusty Mabe</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%6D%62%6F%63%65%6B@%72%65%64%68%61%74.%63%6F%6D">Michal Bocek</a>, <a href="mailto:%70%76%61%6C%65%6E%61@%72%65%64%68%61%74.%63%6F%6D">Pavel Valena</a></p>
           </div>
         </div>
       </div>
@@ -305,7 +293,7 @@ $ newgrp vagrant
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

@@ -7,25 +7,12 @@
   <title>Get tools &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tools.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tools.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tools">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -150,25 +137,6 @@
     <h2> Development Tools Overview </h2>
   </div>
     <div class="col-sm-6">
-  <a class="panel-link" href="/tools/eclipse/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/eclipse.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Eclipse
-            </h3>
-            <p>Full featured development environment for various programming languages integrating with plethora of different tools to make development process as integrated as possible</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
   <a class="panel-link" href="/tools/vagrant/about.html">
     <div class="panel panel-default">
       <div class="panel-body">
@@ -181,44 +149,6 @@
               Vagrant
             </h3>
             <p>Create reproducible and portable development environments that can be easily shared in your team.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/abrt/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/abrt.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              ABRT
-            </h3>
-            <p>Handle crashes of your applications automatically and debug with ease!</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/devassistant/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/devassistant.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              DevAssistant
-            </h3>
-            <p>Set up your development environment, publish your code, and do many of the chores that somehow keep you from the important stuff — writing your software.</p>
           </div>
         </div>
       </div>
@@ -245,6 +175,44 @@
   </a>
 </div>
     <div class="col-sm-6">
+  <a class="panel-link" href="/tools/abrt/about.html">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="media">
+          <div class="media-left">
+            <img style="height:100px" src="/static/logo/abrt.png">
+          </div>
+          <div class="media-body">
+            <h3>
+              ABRT
+            </h3>
+            <p>Handle crashes of your applications automatically and debug with ease!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+    <div class="col-sm-6">
+  <a class="panel-link" href="/tools/eclipse/about.html">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="media">
+          <div class="media-left">
+            <img style="height:100px" src="/static/logo/eclipse.png">
+          </div>
+          <div class="media-body">
+            <h3>
+              Eclipse
+            </h3>
+            <p>Full featured development environment for various programming languages integrating with plethora of different tools to make development process as integrated as possible</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+    <div class="col-sm-6">
   <a class="panel-link" href="/tools/docker/about.html">
     <div class="panel panel-default">
       <div class="panel-body">
@@ -257,6 +225,25 @@
               Docker
             </h3>
             <p>Platform for distributed applications.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+    <div class="col-sm-6">
+  <a class="panel-link" href="/tools/devassistant/about.html">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="media">
+          <div class="media-left">
+            <img style="height:100px" src="/static/logo/devassistant.png">
+          </div>
+          <div class="media-body">
+            <h3>
+              DevAssistant
+            </h3>
+            <p>Set up your development environment, publish your code, and do many of the chores that somehow keep you from the important stuff — writing your software.</p>
           </div>
         </div>
       </div>
@@ -350,7 +337,7 @@
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

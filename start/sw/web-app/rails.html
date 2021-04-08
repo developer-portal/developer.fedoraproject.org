@@ -7,25 +7,12 @@
   <title>Ruby on Rails &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/start/sw/web-app/rails.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/start/sw/web-app/rails.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-start">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -133,7 +120,7 @@
   <div class="col-sm-12">
           <img class="img-rounded" src="/static/logo/web-app.png">
           <h2>Web Application</h2>
-          <p></p>
+          <p>Short introduction to web application development</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -173,10 +160,10 @@
           <div class="panel panel-default content-content">
             <h1 id="installing-ruby-and-rails-with-rbenv">Installing Ruby and Rails with rbenv</h1>
 <p>The first step is to install dependencies for Ruby.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install git-core zlib zlib-devel gcc-c++ patch readline readline-devel libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison curl sqlite-devel
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install git-core zlib zlib-devel gcc-c++ patch readline readline-devel libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison curl sqlite-devel
 </code></pre></div></div>
 <p>Install rbenv</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' &gt;&gt; ~/.bashrc
 echo 'eval "$(rbenv init -)"' &gt;&gt; ~/.bashrc
@@ -187,34 +174,34 @@ echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' &gt;&gt; ~/.bashr
 exec $SHELL
 </code></pre></div></div>
 <p>Install Ruby</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rbenv install 2.3.1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rbenv install 2.3.1
 rbenv global 2.3.1
 ruby -v
 
 </code></pre></div></div>
 <p>Use this command if you do not want rubygems to install the documentation for each package locally.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "gem: --no-ri --no-rdoc" &gt; ~/.gemrc
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "gem: --no-ri --no-rdoc" &gt; ~/.gemrc
 </code></pre></div></div>
 <p>Install bundler</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install bundler
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install bundler
 </code></pre></div></div>
 <p>Whenever you install a new version of Ruby or a gem, you should run the rehash sub-command. This will make rails executables known to rbenv, which will allow us to run those executables:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rbenv rehash 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rbenv rehash 
 </code></pre></div></div>
 <h1 id="installing-rails">Installing Rails</h1>
 <p>Rails depends on a Javascript runtime, install nodejs.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install epel-release
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install epel-release
 sudo dnf install nodejs
 </code></pre></div></div>
 <p>And now install Rails</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install rails -v 4.2.6
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install rails -v 4.2.6
 </code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rbenv rehash
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rbenv rehash
 </code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rails -v
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rails -v
 </code></pre></div></div>
 <p>#Create your first Rails app</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rails new myapp
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rails new myapp
 
 # Move into the application directory
 cd myapp
@@ -316,7 +303,7 @@ rails server
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

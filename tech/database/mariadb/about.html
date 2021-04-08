@@ -7,25 +7,12 @@
   <title>MariaDB &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/database/mariadb/about.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/database/mariadb/about.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -170,46 +157,46 @@
 <h2 id="what-versions-do-we-have-in-fedora">What versions do we have in Fedora</h2>
 <p>Fedora usually ships only the most recent stable version of MariaDB.
 You can find various (unsupported) versions in the maintainer’s <a href="https://copr.fedorainfracloud.org/coprs/mschorm/">COPR repositories</a>.
-Learn more about current version at <a href="https://mariadb.com/kb/en/library/library-mariadb-releases/">upstream documentation</a>. The package is called <code class="highlighter-rouge">mariadb</code> (client tools) and <code class="highlighter-rouge">mariadb-server</code> (server daemon).</p>
+Learn more about current version at <a href="https://mariadb.com/kb/en/library/library-mariadb-releases/">upstream documentation</a>. The package is called <code class="language-plaintext highlighter-rouge">mariadb</code> (client tools) and <code class="language-plaintext highlighter-rouge">mariadb-server</code> (server daemon).</p>
 <p>You can get an older version either by installing <a href="https://www.softwarecollections.org/en/scls/rhscl/mariadb55/">Software Collection package of MariaDB 5.5</a> or by downloading <a href="https://downloads.mariadb.org/">packages provided by upstream</a>.</p>
-<p>Fedora also ships MariaDB with Galera patch. The package with MariaDB Galera is called <code class="highlighter-rouge">mariadb-galera-server</code> and the wsrep plug-in is available in package <code class="highlighter-rouge">galera</code>. See section <a href="#how-to-install-mariadb-galera-on-fedora">How to install MariaDB Galera on Fedora</a> for more information.</p>
+<p>Fedora also ships MariaDB with Galera patch. The package with MariaDB Galera is called <code class="language-plaintext highlighter-rouge">mariadb-galera-server</code> and the wsrep plug-in is available in package <code class="language-plaintext highlighter-rouge">galera</code>. See section <a href="#how-to-install-mariadb-galera-on-fedora">How to install MariaDB Galera on Fedora</a> for more information.</p>
 <h2 id="how-to-install-mariadb-on-fedora">How to install MariaDB on Fedora</h2>
 <p>In order to install MariaDB client package, run:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install mariadb
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install mariadb
 </code></pre></div></div>
 <p>In order to install MariaDB server package, run:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install mariadb-server
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install mariadb-server
 </code></pre></div></div>
 <p>If you need to connect to the MariaDB server using GUI, install either phpMyAdmin:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install phpMyAdmin
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install phpMyAdmin
 </code></pre></div></div>
 <p>Or install Libre Office Base with JDBC plug-in for MariaDB:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install libreoffice-base mariadb-java-client
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install libreoffice-base mariadb-java-client
 </code></pre></div></div>
-<p>For connecting to the MariaDB server using ODBC, install <code class="highlighter-rouge">unixODBC</code> and <code class="highlighter-rouge">mariadb-connector-odbc</code> packages:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install mariadb-connector-odbc
+<p>For connecting to the MariaDB server using ODBC, install <code class="language-plaintext highlighter-rouge">unixODBC</code> and <code class="language-plaintext highlighter-rouge">mariadb-connector-odbc</code> packages:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install mariadb-connector-odbc
 </code></pre></div></div>
 <h2 id="basic-tutorial-for-mariadb-in-fedora">Basic tutorial for MariaDB in Fedora</h2>
-<p>MariaDB runs on port 3306 by default and creates a local unix socket at <code class="highlighter-rouge">/var/lib/mysql/mysql.sock</code>. By default, data is stored in the <code class="highlighter-rouge">/var/lib/mysql</code> directory and logs are located under <code class="highlighter-rouge">/var/log/mariadb/</code>. In order to change these directories, pay attention to use correct SELinux context and owner.</p>
+<p>MariaDB runs on port 3306 by default and creates a local unix socket at <code class="language-plaintext highlighter-rouge">/var/lib/mysql/mysql.sock</code>. By default, data is stored in the <code class="language-plaintext highlighter-rouge">/var/lib/mysql</code> directory and logs are located under <code class="language-plaintext highlighter-rouge">/var/log/mariadb/</code>. In order to change these directories, pay attention to use correct SELinux context and owner.</p>
 <p>Right after installing, the data directory is empty. It is initialized during the first start.</p>
 <p>To start MariaDB server, run:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl start mariadb
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl start mariadb
 </code></pre></div></div>
 <p>In order to setup MariaDB to start after system reboot, run:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl enable mariadb
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl enable mariadb
 </code></pre></div></div>
 <p>The root user has no password set by default and so it is allowed to connect without the password:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u root
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u root
 </code></pre></div></div>
 <p>It is suggested to make the MariaDB more secure by running secure installation assistant:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo mysql_secure_installation
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo mysql_secure_installation
 </code></pre></div></div>
 <p>This tool asks you several questions and you are supposed to answer interactively. Do not provide the system administrator’s password for your Linux system here. Use a different strong password, since this is a separate authentication for a MySQL user called “root.”</p>
 <h2 id="how-to-configure-mariadb">How to configure MariaDB</h2>
-<p>Configuration of both, client and server, is done by editing files <code class="highlighter-rouge">/etc/my.cnf</code>, <code class="highlighter-rouge">~/.my.cnf</code> and any files under <code class="highlighter-rouge">/etc/my.cnf.d/</code> with <code class="highlighter-rouge">.cnf</code> suffix. For more informations how to change configuration, see <a href="https://mariadb.com/kb/en/mariadb/server-system-variables/#about-the-server-system-variables">the upstream documentation</a>.</p>
+<p>Configuration of both, client and server, is done by editing files <code class="language-plaintext highlighter-rouge">/etc/my.cnf</code>, <code class="language-plaintext highlighter-rouge">~/.my.cnf</code> and any files under <code class="language-plaintext highlighter-rouge">/etc/my.cnf.d/</code> with <code class="language-plaintext highlighter-rouge">.cnf</code> suffix. For more informations how to change configuration, see <a href="https://mariadb.com/kb/en/mariadb/server-system-variables/#about-the-server-system-variables">the upstream documentation</a>.</p>
 <h3 id="how-to-configure-mariadb-server-for-local-development">How to configure MariaDB server for local development</h3>
 <p>When developing an application that uses MariaDB as the storage engine, developers typically use one user account that has full access to one dedicated database scheme. In order to do so, run the commands from section <a href="#basic-tutorial-for-mariadb-in-fedora">Basic tutorial for MariaDB in Fedora</a> and then create the user and the dedicated database:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl start mariadb
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl start mariadb
 $ sudo systemctl enable mariadb
 $ sudo mysql_secure_installation
 ...My Account sudo mysql -u root -p
@@ -226,29 +213,29 @@ MariaDB [(none)]&gt; exit
 Bye
 </code></pre></div></div>
 <p>After that you may access the database from MariaDB command-line tool by running:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mysql -u valeria -p
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mysql -u valeria -p
 </code></pre></div></div>
-<p>By specifying  <code class="highlighter-rouge">-p</code> without password, you’ll be asked for the password interactively.</p>
+<p>By specifying  <code class="language-plaintext highlighter-rouge">-p</code> without password, you’ll be asked for the password interactively.</p>
 <p>In various frameworks or libraries, you will usually use the username, password and database to access the database.</p>
 <h3 id="how-to-run-mariadb-in-production-development">How to run MariaDB in production development</h3>
 <p>In order to run MariaDB in production development, you should pay extra attention to setting up the service in order to minimize the risk of being exploited. Among other things, this means:</p>
 <ul>
-  <li>use <code class="highlighter-rouge">mysql_secure_installation</code> as mentioned above</li>
+  <li>use <code class="language-plaintext highlighter-rouge">mysql_secure_installation</code> as mentioned above</li>
   <li>do not accept connections from all addresses unless absolutely necessary</li>
   <li><strong>Always use a strong password</strong></li>
   <li>Limit user permissions to those necessary for the application to run</li>
 </ul>
 <p>By default, MariaDB cannot be accessed from another computer. In order to allow access from another computer, we need to do the following things.</p>
 <p>Allow to accept connections on port 3306:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>firewall-cmd --permanent --zone=public --add-port=3306/tcp
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>firewall-cmd --permanent --zone=public --add-port=3306/tcp
 </code></pre></div></div>
 <p>Allow to listen on all interfaces (or your preferred network interface) by adding configuration option:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bind-address = 0.0.0.0
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bind-address = 0.0.0.0
 </code></pre></div></div>
 <h3 id="other-common-configuration">Other common configuration</h3>
-<p>In order to change configuration parameters for the MariaDB server, create the a configuration file under <code class="highlighter-rouge">/etc/my.cnf.d/</code> directory.</p>
-<p>The following example shows content of the file <code class="highlighter-rouge">/etc/my.cnf.d/myconfig.cnf</code> which contains several commonly changed options (use any variables that matches your needs).</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># The maximum permitted number of simultaneous client connections:
+<p>In order to change configuration parameters for the MariaDB server, create the a configuration file under <code class="language-plaintext highlighter-rouge">/etc/my.cnf.d/</code> directory.</p>
+<p>The following example shows content of the file <code class="language-plaintext highlighter-rouge">/etc/my.cnf.d/myconfig.cnf</code> which contains several commonly changed options (use any variables that matches your needs).</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># The maximum permitted number of simultaneous client connections:
 max_connections = 20
 
 # The minimum length of the word to be included in a FULLTEXT index:
@@ -268,27 +255,27 @@ slow_query_log_file = "/var/log/mariadb/slowquery.log"
 general_log = 1
 general_log_file = "/var/log/mariadb/query.log"
 </code></pre></div></div>
-<p>After changing the configuration, restart the daemon using <code class="highlighter-rouge">$ sudo systemctl restart mariadb</code>.</p>
+<p>After changing the configuration, restart the daemon using <code class="language-plaintext highlighter-rouge">$ sudo systemctl restart mariadb</code>.</p>
 <h2 id="how-to-install-mariadb-galera-on-fedora"><a name="how-to-install-mariadb-galera-on-fedora"></a>How to install MariaDB Galera on Fedora</h2>
 <p>MariaDB Galera Cluster is a synchronous multi-master cluster for MariaDB.</p>
 <p>In order to install MariaDB Galera server package, run:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install mariadb-galera-server galera
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install mariadb-galera-server galera
 </code></pre></div></div>
 <p>MariaDB Galera uses several packages from base MariaDB and also provides the same service name. Thus, for starting MariaDB Galera, run:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl start mariadb
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl start mariadb
 </code></pre></div></div>
 <h2 id="how-to-get-mariadb-as-docker-container">How to get MariaDB as Docker container</h2>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo docker pull fedora/mariadb
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo docker pull fedora/mariadb
 </code></pre></div></div>
 <h2 id="how-to-extend-mariadb-server-by-installing-extensions-available-in-fedora">How to extend MariaDB server by installing extensions available in Fedora</h2>
 <p><a href="https://mariadb.com/kb/en/mariadb/connect/">MariaDB Connect Storage Engine</a> enables MariaDB to access external local or remote data (MED). In order to install this engine, run:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dnf install mariadb-connect-engine
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dnf install mariadb-connect-engine
 </code></pre></div></div>
 <p>In order to install <a href="https://mariadb.com/kb/en/mariadb/oqgraph-storage-engine/">The Open Query GRAPH computation engine</a>, run:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dnf install mariadb-oqgraph-engine
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dnf install mariadb-oqgraph-engine
 </code></pre></div></div>
 <h2 id="mariadb-server-available-as-a-dynamic-library">MariaDB server available as a dynamic library:</h2>
-<p>In Fedora, MariaDB server is available also as a dynamic library, that can be handy in some applications. This library (<code class="highlighter-rouge">libmysqld.so</code>) is available in the package <code class="highlighter-rouge">mariadb-embedded</code> and header files for building an application against this library are available in the package <code class="highlighter-rouge">mariadb-embedded-devel</code>.</p>
+<p>In Fedora, MariaDB server is available also as a dynamic library, that can be handy in some applications. This library (<code class="language-plaintext highlighter-rouge">libmysqld.so</code>) is available in the package <code class="language-plaintext highlighter-rouge">mariadb-embedded</code> and header files for building an application against this library are available in the package <code class="language-plaintext highlighter-rouge">mariadb-embedded-devel</code>.</p>
 <p>However the use of the embedded library is discouraged. MySQL 8 dropped the embedded library and I expect MariaDB to go in the same direction.</p>
 <hr id="authors-rule" />
 <p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6D%73%63%68%6F%72%6D@%63%65%6E%74%72%75%6D.%63%7A">FaramosCZ</a>, <a href="mailto:%68%68%6F%72%61%6B@%72%65%64%68%61%74.%63%6F%6D">Honza Horak</a>, <a href="mailto:%61%6E%74%6F%6E%69%6E.%6D%72%6B%76%69%63%61@%6F%75%74%6C%6F%6F%6B.%63%7A">antoninmrkvica</a>, <a href="mailto:%72%69%63%6B%79.%67%72%61%73%73%6D%75%63%6B@%67%6D%61%69%6C.%63%6F%6D">ricky grassmuck</a></p>
@@ -380,7 +367,7 @@ general_log_file = "/var/log/mariadb/query.log"
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

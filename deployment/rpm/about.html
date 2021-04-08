@@ -7,25 +7,12 @@
   <title>RPM Packaging &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/deployment/rpm/about.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/deployment/rpm/about.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-deploy">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -184,7 +171,7 @@
 </code></pre></div></div>
 <h2 id="quick-start-guide">Quick Start Guide</h2>
 <p>Now you can open hello.spec file and alter it. Put there this content:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Name:     hello
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Name:     hello
 Version:  2.10
 Release:  1%{?dist}
 Summary:  The "Hello World" program from GNU
@@ -236,7 +223,7 @@ fi
 <p>Once you are done, you can run:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>rpmbuild <span class="nt">-ba</span> hello.spec
 </code></pre></div></div>
-<p>Your package should be ready at <code class="highlighter-rouge">~/rpmbuild/RPMS/x86_64/hello-2.10-1.fc27.x86_64.rpm</code>.</p>
+<p>Your package should be ready at <code class="language-plaintext highlighter-rouge">~/rpmbuild/RPMS/x86_64/hello-2.10-1.fc27.x86_64.rpm</code>.</p>
 <p>This example is taken from <a href="https://fedoraproject.org/wiki/How_to_create_a_GNU_Hello_RPM_package">How to create a GNU Hello RPM package</a>. You can follow it there.</p>
 <h3 id="resources">Resources</h3>
 <p>You can learn more about all sections and tags of SPEC file at <a href="https://fedoraproject.org/wiki/How_to_create_an_RPM_package">Fedora documentation “How to create an RPM package”</a> or at <a href="https://rpm-packaging-guide.github.io/">RPM Packaging Guide</a>.</p>
@@ -256,7 +243,7 @@ fi
 <p>Then you can run:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>mock <span class="nt">-r</span> /etc/mock/epel-6-i386.cfg ~/rpmbuild/SRPMS/hello-2.10-1.fc27.src.rpm
 </code></pre></div></div>
-<p>This creates CentOS/RHEL package for i386 architecture even when your workstation architecture is x86_64 and your workstation is e.g. Fedora. List of available configurations can be found at <code class="highlighter-rouge">/etc/mock/</code> directory.</p>
+<p>This creates CentOS/RHEL package for i386 architecture even when your workstation architecture is x86_64 and your workstation is e.g. Fedora. List of available configurations can be found at <code class="language-plaintext highlighter-rouge">/etc/mock/</code> directory.</p>
 <p>You can create RPM directly from git (or any other SCM) using mock-scm plugin. Just try:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>mock <span class="nt">-r</span> fedora-22-x86_64 <span class="nt">--scm-enable</span> <span class="nt">--scm-option</span> <span class="nv">method</span><span class="o">=</span>git <span class="nt">--scm-option</span> <span class="nv">package</span><span class="o">=</span>PKG <span class="nt">--scm-option</span> <span class="nv">git_get</span><span class="o">=</span><span class="nb">set</span> <span class="nt">--scm-option</span> <span class="nv">spec</span><span class="o">=</span>YOUR.SPEC <span class="nt">--scm-option</span> <span class="nv">branch</span><span class="o">=</span>master <span class="nt">--scm-option</span> <span class="nv">write_tar</span><span class="o">=</span>True <span class="nt">--scm-option</span> <span class="nv">git_get</span><span class="o">=</span><span class="s1">'git clone git@git_ip_address:SCM_PKG.git SCM_PKG'</span>
 </code></pre></div></div>
@@ -269,12 +256,12 @@ fi
 <span class="nv">$ </span>createrepo_c <span class="nt">--deltas</span> <span class="nt">--retain-old-md</span> 1 ./
 </code></pre></div></div>
 <p>This will create Yum/Dnf repository. When you expose it to web and provide a link to it to users, they can use it as baseurl in a repo file (stored in /etc/yum.repos.d/), like:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[myproject]
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[myproject]
 name=Your application
 baseurl=http://yourdomain.com/repository/
 enabled=1
 </code></pre></div></div>
-<p>Note: If you are building an open-source software package, you can use <a href="/deployment/copr/about.html">Copr service</a>, which automates <code class="highlighter-rouge">mock</code> and <code class="highlighter-rouge">createrepo_c</code> part while it provides nice WebUI.</p>
+<p>Note: If you are building an open-source software package, you can use <a href="/deployment/copr/about.html">Copr service</a>, which automates <code class="language-plaintext highlighter-rouge">mock</code> and <code class="language-plaintext highlighter-rouge">createrepo_c</code> part while it provides nice WebUI.</p>
 <hr id="authors-rule" />
 <p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%63%68%61%64@%6B%69%77%69%74%72%65%65.%6E%65%74">Chad Versace</a>, <a href="mailto:%6D%73%75%63%68%79@%72%65%64%68%61%74.%63%6F%6D">Miroslav Suchý</a>, <a href="mailto:%6E%67%6F%6D%70%61%31%33@%67%6D%61%69%6C.%63%6F%6D">Neal Gompa (ニール・ゴンパ)</a>, <a href="mailto:%67%61%6C%6F%67%65%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">galoget</a></p>
           </div>
@@ -365,7 +352,7 @@ enabled=1
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

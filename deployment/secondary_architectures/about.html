@@ -7,25 +7,12 @@
   <title>Secondary Architectures &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/deployment/secondary_architectures/about.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/deployment/secondary_architectures/about.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-deploy">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -178,7 +165,7 @@
 </ul>
 <h2 id="example">Example</h2>
 <p>The following example (iprutils package) will demonstrate how to get an rpm package available in Fedora repository:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Clone existing package available in Fedora repository e.g. iprutils
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Clone existing package available in Fedora repository e.g. iprutils
 $ fedpkg clone -a iprutils &amp;&amp; cd iprutils &amp;&amp; ls
    0001-Service-start-is-controled-by-udev-rule.patch  iprdbg.8.gz  iprutils.spec  sources
 
@@ -192,7 +179,7 @@ $ fedpkg srpm
 
 </code></pre></div></div>
 <p>Further, to modify source or spec file follow below steps:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Create required directory structure in ~/rpmbuild/
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Create required directory structure in ~/rpmbuild/
 $ rpmbuild-setuptree
 
 # Copy original or modified spec file in ~/rpmbuild/SPECS/ directory
@@ -208,7 +195,7 @@ $ rpmbuild -bs ~/rpmbuild/SOURCES/iprutils.spec
 <p>Generated srpm will be available in ~/rpmbuild/SRPMS/ directory</p>
 <p><strong>Note:</strong> iprutils package which is used as an example may get updated later on and hence content may change.</p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%73%69%6E%6E%79@%72%65%64%68%61%74.%63%6F%6D">Sinny Kumari</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%70%76%61%6C%65%6E%61@%72%65%64%68%61%74.%63%6F%6D">Pavel Valena</a>, <a href="mailto:%73%69%6E%6E%79@%72%65%64%68%61%74.%63%6F%6D">Sinny Kumari</a></p>
           </div>
         </div>
       </div>
@@ -297,7 +284,7 @@ $ rpmbuild -bs ~/rpmbuild/SOURCES/iprutils.spec
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

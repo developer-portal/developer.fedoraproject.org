@@ -7,25 +7,12 @@
   <title>Languages &amp; databases &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -384,25 +371,6 @@
       <h2> Databases </h2>
   </div>
     <div class="col-sm-6">
-  <a class="panel-link" href="/tech/database/cassandra/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/cassandra.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Cassandra
-            </h3>
-            <p>OpenSource database server for high-scale application.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
   <a class="panel-link" href="/tech/database/mariadb/about.html">
     <div class="panel panel-default">
       <div class="panel-body">
@@ -422,18 +390,37 @@
   </a>
 </div>
     <div class="col-sm-6">
-  <a class="panel-link" href="/tech/database/mongodb/about.html">
+  <a class="panel-link" href="/tech/database/sqlite/about.html">
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="media">
           <div class="media-left">
-            <img style="height:100px" src="/static/logo/mongodb.png">
+            <img style="height:100px" src="/static/logo/sqlite.png">
           </div>
           <div class="media-body">
             <h3>
-              MongoDB
+              SQLite
             </h3>
-            <p>Document-oriented and NoSQL database</p>
+            <p>Software library that implements a self-contained server-less transactional SQL database engine.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+    <div class="col-sm-6">
+  <a class="panel-link" href="/tech/database/cassandra/about.html">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="media">
+          <div class="media-left">
+            <img style="height:100px" src="/static/logo/cassandra.png">
+          </div>
+          <div class="media-body">
+            <h3>
+              Cassandra
+            </h3>
+            <p>OpenSource database server for high-scale application.</p>
           </div>
         </div>
       </div>
@@ -460,18 +447,18 @@
   </a>
 </div>
     <div class="col-sm-6">
-  <a class="panel-link" href="/tech/database/sqlite/about.html">
+  <a class="panel-link" href="/tech/database/mongodb/about.html">
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="media">
           <div class="media-left">
-            <img style="height:100px" src="/static/logo/sqlite.png">
+            <img style="height:100px" src="/static/logo/mongodb.png">
           </div>
           <div class="media-body">
             <h3>
-              SQLite
+              MongoDB
             </h3>
-            <p>Software library that implements a self-contained server-less transactional SQL database engine.</p>
+            <p>Document-oriented and NoSQL database</p>
           </div>
         </div>
       </div>
@@ -565,7 +552,7 @@
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

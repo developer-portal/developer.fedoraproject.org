@@ -7,25 +7,12 @@
   <title>Ruby &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/ruby/ruby-installation.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/ruby/ruby-installation.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -170,26 +157,26 @@
             <h1 id="ruby-installation">Ruby installation</h1>
 <h2 id="cruby">CRuby</h2>
 <p>To install CRuby, simply type:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install ruby
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install ruby
 </code></pre></div></div>
-<p>Above command will install latest stable CRuby packages including RDoc, Psych, JSON, BigDecimal and IO/Console, and interactive Ruby shell <code class="highlighter-rouge">irb</code>. Other bundled libraries such as TclTk bindings, Rake and Test::Unit found in upstream Ruby distribution needs to be installed separately:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install rubygem-{tk{,-doc},rake,test-unit}
+<p>Above command will install latest stable CRuby packages including RDoc, Psych, JSON, BigDecimal and IO/Console, and interactive Ruby shell <code class="language-plaintext highlighter-rouge">irb</code>. Other bundled libraries such as TclTk bindings, Rake and Test::Unit found in upstream Ruby distribution needs to be installed separately:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install rubygem-{tk{,-doc},rake,test-unit}
 </code></pre></div></div>
-<p>Please note that we have already unbundled these libraries from Ruby itself, so they come in their own packages and need a specific dependency requirement in .gemspec or Gemfile as well as a specific <code class="highlighter-rouge">require()</code> call in your Ruby code.</p>
+<p>Please note that we have already unbundled these libraries from Ruby itself, so they come in their own packages and need a specific dependency requirement in .gemspec or Gemfile as well as a specific <code class="language-plaintext highlighter-rouge">require()</code> call in your Ruby code.</p>
 <h2 id="jruby">JRuby</h2>
 <p>Alternatively Fedora comes with JRuby packages that can be installed via:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install jruby
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install jruby
 </code></pre></div></div>
 <p>Please note that JRuby packages in Fedora are not yet in the best shape and things might be broken. If you are not willing to experiment, please use the CRuby packages for now or use a Ruby version manager of your choice.</p>
 <h2 id="choosing-ruby-with-rubypick">Choosing Ruby with RubyPick</h2>
-<p>All Rubies come installed with RubyPick, the Fedora Ruby manager. Therefore CRuby has its executable at <code class="highlighter-rouge">/usr/bin/ruby-mri</code>, JRuby has its at <code class="highlighter-rouge">/usr/bin/jruby</code> and <code class="highlighter-rouge">/usr/bin/ruby</code> is a RubyPick executable that chooses the right version of Ruby to run.</p>
+<p>All Rubies come installed with RubyPick, the Fedora Ruby manager. Therefore CRuby has its executable at <code class="language-plaintext highlighter-rouge">/usr/bin/ruby-mri</code>, JRuby has its at <code class="language-plaintext highlighter-rouge">/usr/bin/jruby</code> and <code class="language-plaintext highlighter-rouge">/usr/bin/ruby</code> is a RubyPick executable that chooses the right version of Ruby to run.</p>
 <p>You don’t need to do anything to set up RubyPick to use CRuby as CRuby is the default. RubyPick was actually introduced to enable Fedora users run other Ruby implementations that might make their way into official Fedora repositories such as JRuby.</p>
 <p>To use different Ruby via RubyPick run:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby _mri_ [params]
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby _mri_ [params]
 ruby _jruby_ [params]
 </code></pre></div></div>
 <p>Or set the expected environment variables as follows:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RUBYPICK=_mri_
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RUBYPICK=_mri_
 RUBYPICK=_jruby_
 </code></pre></div></div>
 <p><a href="https://github.com/fedora-ruby/rubypick">Read more about RubyPick</a>.</p>
@@ -283,7 +270,7 @@ RUBYPICK=_jruby_
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

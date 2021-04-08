@@ -7,25 +7,12 @@
   <title>Getting started with Docker on Fedora &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tools/docker/docker-installation.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tools/docker/docker-installation.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tools">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -170,32 +157,43 @@
           <div class="panel panel-default content-content">
             <h1 id="getting-started-with-docker">Getting started with Docker</h1>
 <h2 id="installation">Installation</h2>
-<p>On Fedora 22 and above install the <code class="highlighter-rouge">docker</code> package:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install docker
+<p>Install the <code class="language-plaintext highlighter-rouge">docker-ce</code> package using the Docker repository:</p>
+<p>To install the dnf-plugins-core package (which provides the commands to manage your DNF repositories) and set up the stable repository.</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>dnf-plugins-core
 </code></pre></div></div>
+<p>To add the <code class="language-plaintext highlighter-rouge">docker-ce</code> repository</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf config-manager <span class="nt">--add-repo</span> https://download.docker.com/linux/fedora/docker-ce.repo
+</code></pre></div></div>
+<p>To install the docker engine. The Docker daemon relies on a OCI compliant runtime (invoked via the containerd daemon) as its interface to the Linux kernel namespaces, cgroups, and SELinux.</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>docker-ce docker-ce-cli containerd.io
+</code></pre></div></div>
+<p>Afterwards you need to enable the backward compatability for Cgroups. Docker Engine on Linux relies on control groups (cgroups). A cgroup limits an application to a specific set of resources. Control groups allow Docker Engine to share available hardware resources to containers and optionally enforce limits and constraints.</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>grubby <span class="nt">--update-kernel</span><span class="o">=</span>ALL <span class="nt">--args</span><span class="o">=</span><span class="s2">"systemd.unified_cgroup_hierarchy=0"</span>
+</code></pre></div></div>
+<p>You must reboot after running the command for the changes to take effect</p>
 <p>To start the Docker service use:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl start docker
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>systemctl start docker
 </code></pre></div></div>
 <p>Now you can verify that Docker was correctly installed and is running by running the Docker hello-world image.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo docker run hello-world
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>docker run hello-world
 </code></pre></div></div>
 <h2 id="start-the-docker-daemon-at-boot">Start the Docker daemon at boot</h2>
 <p>To make Docker start when you boot your system, use the command:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl enable docker
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>systemctl <span class="nb">enable </span>docker
 </code></pre></div></div>
 <p>For additional systemd configuration options for Docker, like adding an HTTP Proxy, refer to the Docker documentation <a href="https://docs.docker.com/engine/admin/systemd/">Systemd article</a>.</p>
-<h2 id="why-cant-i-use-docker-command-as-a-non-root-user-by-default">Why can’t I use docker command as a non <code class="highlighter-rouge">root</code> user, by default?</h2>
-<p>The Docker daemon binds to a Unix socket instead of a TCP port. By default that Unix socket is owned by the user <code class="highlighter-rouge">root</code> and other users can access it with <code class="highlighter-rouge">sudo</code>. For this reason, Docker daemon always runs as the <code class="highlighter-rouge">root</code> user.</p>
+<h2 id="why-cant-i-use-docker-command-as-a-non-root-user-by-default">Why can’t I use docker command as a non <code class="language-plaintext highlighter-rouge">root</code> user, by default?</h2>
+<p>The Docker daemon binds to a Unix socket instead of a TCP port. By default that Unix socket is owned by the user <code class="language-plaintext highlighter-rouge">root</code> and other users can access it with <code class="language-plaintext highlighter-rouge">sudo</code>. For this reason, Docker daemon always runs as the <code class="language-plaintext highlighter-rouge">root</code> user.</p>
 <p>You can either <a href="http://www.projectatomic.io/blog/2015/08/why-we-dont-let-non-root-users-run-docker-in-centos-fedora-or-rhel">set up sudo</a> to give docker access to non-root users.</p>
-<p>Or you can create a Unix group called <code class="highlighter-rouge">docker</code> and add users to it. When the Docker daemon starts, it makes the ownership of the Unix socket read/writable by the <code class="highlighter-rouge">docker</code> group.</p>
-<p><strong>Warning:</strong> The <code class="highlighter-rouge">docker</code> group is equivalent to the <code class="highlighter-rouge">root</code> user; For details on how this impacts security in your system, see <a href="https://docs.docker.com/engine/security/security/#docker-daemon-attack-surface">Docker Daemon Attack Surface</a> for details.</p>
-<p>To create the <code class="highlighter-rouge">docker</code> group and add your user:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo groupadd docker &amp;&amp; sudo gpasswd -a ${USER} docker &amp;&amp; sudo systemctl restart docker
-$ newgrp docker
+<p>Or you can create a Unix group called <code class="language-plaintext highlighter-rouge">docker</code> and add users to it. When the Docker daemon starts, it makes the ownership of the Unix socket read/writable by the <code class="language-plaintext highlighter-rouge">docker</code> group.</p>
+<p><strong>Warning:</strong> The <code class="language-plaintext highlighter-rouge">docker</code> group is equivalent to the <code class="language-plaintext highlighter-rouge">root</code> user; For details on how this impacts security in your system, see <a href="https://docs.docker.com/engine/security/security/#docker-daemon-attack-surface">Docker Daemon Attack Surface</a> for details.</p>
+<p>To create the <code class="language-plaintext highlighter-rouge">docker</code> group and add your user:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>groupadd docker <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>gpasswd <span class="nt">-a</span> <span class="k">${</span><span class="nv">USER</span><span class="k">}</span> docker <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>systemctl restart docker
+<span class="gp">$</span><span class="w"> </span>newgrp docker
 </code></pre></div></div>
-<p>You have to log out and log back in (or restart Docker daemon and use <code class="highlighter-rouge">newgrp</code> command as mentioned here) for these changes to take effect. Then you can verify if your changes were successful by running Docker without <code class="highlighter-rouge">sudo</code>.</p>
+<p>You have to log out and log back in (or restart Docker daemon and use <code class="language-plaintext highlighter-rouge">newgrp</code> command as mentioned here) for these changes to take effect. Then you can verify if your changes were successful by running Docker without <code class="language-plaintext highlighter-rouge">sudo</code>.</p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%62%75%64%68%72%61%6D.%67%75%72%75%6E%67%30%31@%67%6D%61%69%6C.%63%6F%6D">Budh Ram Gurung</a>, <a href="mailto:%6A%70%6F%70%65%6C%6B%61@%72%65%64%68%61%74.%63%6F%6D">Jiri Popelka</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%72%68%63%61%72%76%61%6C%68%6F@%67%6D%61%69%6C.%63%6F%6D">Rodolfo Carvalho</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%62%75%64%68%72%61%6D.%67%75%72%75%6E%67%30%31@%67%6D%61%69%6C.%63%6F%6D">Budh Ram Gurung</a>, <a href="mailto:%6A%70%6F%70%65%6C%6B%61@%72%65%64%68%61%74.%63%6F%6D">Jiri Popelka</a>, <a href="mailto:%34%39%36%39%36%31%36%35+%4A%6F%73%68%75%61-%72%6F%73%65@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Joshua Rose</a>, <a href="mailto:%72%68%63%61%72%76%61%6C%68%6F@%67%6D%61%69%6C.%63%6F%6D">Rodolfo Carvalho</a></p>
           </div>
         </div>
       </div>
@@ -284,7 +282,7 @@ $ newgrp docker
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

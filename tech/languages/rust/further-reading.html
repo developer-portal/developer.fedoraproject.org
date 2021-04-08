@@ -7,25 +7,12 @@
   <title>Further reading &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/rust/further-reading.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/rust/further-reading.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -168,7 +155,7 @@
           <div class="panel panel-default content-content">
             <h1 id="learning-resources">Learning resources</h1>
 <p>There is an official book describing the Rust programming language in detail.
-<a href="https://doc.rust-lang.org/book/2018-edition/index.html">doc.rust-lang.org/book/2018-edition</a></p>
+<a href="https://doc.rust-lang.org/book/index.html">doc.rust-lang.org/book/</a></p>
 <p>More examples of the concepts discussed in the book are available in this collection:
 <a href="https://doc.rust-lang.org/rust-by-example/">doc.rust-lang.org/rust-by-example</a></p>
 <p>When you finish with the language itself, there is an ongoing effort to create a set of examples of using core libraries for concurrency, data serialization, network programming, etc.
@@ -178,11 +165,13 @@
 <h1 id="api-documentation">API documentation</h1>
 <p>Standard library documentation:
 <a href="https://doc.rust-lang.org/std/">doc.rust-lang.org/std</a></p>
+<p>The Cargo book:
+<a href="https://doc.rust-lang.org/cargo/">doc.rust-lang.org/cargo</a></p>
 <p>Documentation for crates available at <a href="https://crates.io/">crates.io</a>:
 <a href="https://docs.rs/">docs.rs</a></p>
 <h1 id="ide-recommendations">IDE recommendations</h1>
 <p>There are plugins for popular editor such as Vim, Atom or Gnome Builder which are based on the Rust Language Server (RLS) implementation. Alternatively, IntelliJ IDEA provides their own, custom plugin. Unfortunatelly, the debugging support is available only in paid CLion IDE.</p>
-<p>Before you try to configure your editor or IDE, it is recommended to use install <code class="highlighter-rouge">rustup</code>:
+<p>Before you try to configure your editor or IDE, it is recommended to use install <code class="language-plaintext highlighter-rouge">rustup</code>:
 <a href="https://rustup.rs/">rustup.rs</a></p>
 <p>If you want to start with Rust programming, it is easiest to try the RLS frontend for Visual Studio Code:</p>
 <ol>
@@ -202,7 +191,7 @@
 <p>If you are brave enough and you want to try the nightly compiler edition (or you just want to try the awesome <a href="https://rocket.rs/">Rocket framework</a>), it is recommended to use rustup:
 <a href="https://rustup.rs/">rustup.rs</a></p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%6D%73%65%68%6E%6F%75%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">msehnout</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%6A%69%73%74%6F%6E%65@%72%65%64%68%61%74.%63%6F%6D">Josh Stone</a>, <a href="mailto:%6D%73%65%68%6E%6F%75%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">msehnout</a></p>
           </div>
         </div>
       </div>
@@ -291,7 +280,7 @@
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

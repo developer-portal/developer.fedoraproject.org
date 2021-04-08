@@ -7,25 +7,12 @@
   <title>PyGObject &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/python/pygobject.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/python/pygobject.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -149,15 +136,16 @@
         <div class="col-sm-3">
           <div class="list-group content-menu">
                 <a href="/tech/languages/python/python-installation.html" class="list-group-item ">Python</a>
-                <a href="/tech/languages/python/pypi-installation.html" class="list-group-item ">PyPI</a>
+                <a href="/tech/languages/python/pypi-installation.html" class="list-group-item ">Pip & PyPI</a>
+                <a href="/tech/languages/python/multiple-pythons.html" class="list-group-item ">Multiple Pythons</a>
                 <a href="/tech/languages/python/django-installation.html" class="list-group-item ">Django</a>
                 <a href="/tech/languages/python/flask-installation.html" class="list-group-item ">Flask</a>
                 <a href="/tech/languages/python/micropython.html" class="list-group-item ">MicroPython</a>
                 <a href="/tech/languages/python/python-sig.html" class="list-group-item ">Python SIG</a>
                 <a href="/tech/languages/python/pygobject.html" class="list-group-item  active ">PyGObject</a>
                 <a href="/tech/languages/python/sphinx.html" class="list-group-item ">Sphinx</a>
-                <a href="/tech/languages/python/multiple-pythons.html" class="list-group-item ">Multiple Pythons</a>
                 <a href="/tech/languages/python/scipy.html" class="list-group-item ">Scientific Python Stack</a>
+                <a href="/tech/languages/python/pipenv.html" class="list-group-item ">Pipenv</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -175,44 +163,44 @@
 <p>PyGObject, also known as PyGI, is a Python extension module that gives clean and consistent access to the entire GNOME software platform through the use of GObject Introspection.</p>
 <p>PyGObject provides full support of GObject Introspection and all of its features (callbacks, GVariant support, closures, sub-classing, etc.).</p>
 <p>To install PyGObject on Fedora, run:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install pygobject3 python3-gobject
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install python3-gobject
 </code></pre></div></div>
 <h2 id="getting-started">Getting started</h2>
 <h3 id="writing-your-first-gtk-application">Writing your first Gtk+ application</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import gi
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 </code></pre></div></div>
-<p>In the beginning, we have to import the Gtk module to be able to access GTK+’s classes and functions. Since a user’s system can have multiple versions of GTK+ installed at the same, we want to make sure that we when we import Gtk that it referrs to GTK+ 3 and not any other version of the library, which is the purpose of statement gi.require_version(‘Gtk’, ‘3.0’).</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>win = Gtk.Window()
+<p>In the beginning, we have to import the Gtk module to be able to access GTK+’s classes and functions. Since a user’s system can have multiple versions of GTK+ installed at the same, we want to make sure that we when we import Gtk that it refers to GTK+ 3 and not any other version of the library, which is the purpose of statement gi.require_version(‘Gtk’, ‘3.0’).</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>win = Gtk.Window()
 </code></pre></div></div>
 <p>The line above creates an empty window.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>win.connect("delete-event", Gtk.main_quit)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>win.connect("delete-event", Gtk.main_quit)
 </code></pre></div></div>
 <p>After creating the window, we connect its delete event to ensure that the application is terminated if we click on the x button to close the window.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>win.set_title("Hello World")
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>win.set_title("Hello World")
 </code></pre></div></div>
 <p>In the line above we set the window title to be a string of our choice, in this case: “Hello World”.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>win.show_all()
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>win.show_all()
 </code></pre></div></div>
 <p>The show_all method called above displays the window and the widgets contained on it.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Gtk.main()
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Gtk.main()
 </code></pre></div></div>
 <p>Finally, we start the GTK+ processing loop which we quit when the window is closed.</p>
-<p>To run the program, open a terminal, change to the directory of the file, and enter:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python hello.py
+<p>To run the program, save the file as <code class="language-plaintext highlighter-rouge">hello.py</code>, then open a terminal, change to the directory of the file, and enter:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python hello.py
 </code></pre></div></div>
 <p>The complete program can be seen below:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">gi</span>
-<span class="n">gi</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s">'Gtk'</span><span class="p">,</span> <span class="s">'3.0'</span><span class="p">)</span>
+<span class="n">gi</span><span class="p">.</span><span class="n">require_version</span><span class="p">(</span><span class="s">'Gtk'</span><span class="p">,</span> <span class="s">'3.0'</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">gi.repository</span> <span class="kn">import</span> <span class="n">Gtk</span>
 
-<span class="n">win</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="p">()</span>
-<span class="n">win</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"delete-event"</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">)</span>
-<span class="n">win</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">)</span>
-<span class="n">win</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+<span class="n">win</span> <span class="o">=</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Window</span><span class="p">()</span>
+<span class="n">win</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"delete-event"</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">main_quit</span><span class="p">)</span>
+<span class="n">win</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">)</span>
+<span class="n">win</span><span class="p">.</span><span class="n">show_all</span><span class="p">()</span>
 
-<span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+<span class="n">Gtk</span><span class="p">.</span><span class="n">main</span><span class="p">()</span>
 
 </code></pre></div></div>
 <h2 id="what-next">What next?</h2>
@@ -222,7 +210,7 @@ from gi.repository import Gtk
   <li><a href="https://developer.gnome.org/gnome-devel-demos/stable/py.html.en">GNOME Platform Demos in Python</a></li>
 </ul>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%66%65%6C%69%70%65%31%30%62%6F%72%67%65%73@%67%6D%61%69%6C.%63%6F%6D">Felipe Borges</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%71%75%61%6E%74%75%6D.%61%6E%61%6C%79%73%74@%67%6D%61%69%6C.%63%6F%6D">Elliott Sales de Andrade</a>, <a href="mailto:%66%65%6C%69%70%65%31%30%62%6F%72%67%65%73@%67%6D%61%69%6C.%63%6F%6D">Felipe Borges</a>, <a href="mailto:%65%6E%63%75%6B%6F%75@%67%6D%61%69%6C.%63%6F%6D">Petr Viktorin</a></p>
           </div>
         </div>
       </div>
@@ -311,7 +299,7 @@ from gi.repository import Gtk
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

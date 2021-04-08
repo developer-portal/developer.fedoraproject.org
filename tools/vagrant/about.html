@@ -7,25 +7,12 @@
   <title>Vagrant &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tools/vagrant/about.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tools/vagrant/about.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tools">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -182,7 +169,7 @@
 <p>Vagrant can be extended by plenty of plugins, some of them are even packaged in
 Fedora. <a href="/tools/vagrant/vagrant-plugins.html">Read more</a>.</p>
 <h2 id="limitations">Limitations</h2>
-<p>Vagrant packaged in Fedora currently does not support Windows guests. This is due to missing various dependencies that will be hopefully added to Fedora. The other limitation is the lack of support for <code class="highlighter-rouge">vagrant push</code>. This is unfortunately due to the licencing of the libraries used by upstream and probably will not be resolved in the foreseeable future.</p>
+<p>Vagrant packaged in Fedora currently does not support Windows guests. This is due to missing various dependencies that will be hopefully added to Fedora. The other limitation is the lack of support for <code class="language-plaintext highlighter-rouge">vagrant push</code>. This is unfortunately due to the licencing of the libraries used by upstream and probably will not be resolved in the foreseeable future.</p>
 <hr id="authors-rule" />
 <p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%64%75%66%66%79@%72%65%64%68%61%74.%63%6F%6D">Máirín Duffy</a>, <a href="mailto:%72%6D%61%72%6B%6F@%66%65%64%6F%72%61%70%72%6F%6A%65%63%74.%6F%72%67">Richard Marko</a></p>
           </div>
@@ -273,7 +260,7 @@ Fedora. <a href="/tools/vagrant/vagrant-plugins.html">Read more</a>.</p>
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

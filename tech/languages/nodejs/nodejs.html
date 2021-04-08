@@ -7,25 +7,12 @@
   <title>Node.js &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/nodejs/nodejs.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/nodejs/nodejs.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -167,31 +154,30 @@
             <h1 id="nodejs">Node.js</h1>
 <h2 id="nodejs-and-npm-installation">Node.js and npm installation</h2>
 <p>Starting from Fedora 24, npm is a part of Node.js package and does not need to be installed separately. Therefore, to install both npm and Node.js, you need to run:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install nodejs
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install nodejs
 </code></pre></div></div>
 <p>This will install V8 Javascript Engine, Node.js runtime and npm package manager and their dependencies. Versions present in repositories are usually current or to-be (in Rawhide) Node.js LTS releases, including npm and V8 engine that come with them.</p>
 <h3 id="alternative-versions">Alternative versions</h3>
 <p>There are alternative versions available as <a href="https://docs.fedoraproject.org/en-US/modularity/using-modules/">Fedora Modules</a>.</p>
 <p><strong>Note:</strong> Modules are available for all editions from Fedora 29, and on the Server Edition from Fedora 28.</p>
 <p>To list all available versions, run:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dnf module list
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dnf module list
 </code></pre></div></div>
 <p>And to install an alternative version, run a command similar to this:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf module install nodejs:8
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf module install nodejs:8
 </code></pre></div></div>
 <h2 id="yarn">Yarn</h2>
 <p><a href="https://yarnpkg.com/en/">Yarn</a> package manager is available since Fedora 29. You can install it by running:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install nodejs-yarn
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install yarnpkg
 </code></pre></div></div>
-<p>Because of conflicts with other packages, yarn has to be used in the following manner:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ nodejs-yarn add request
-$ yarnpkg add request
+<p>Yarn can be used in the following manner:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ yarnpkg add request
+$ yarn add request
 </code></pre></div></div>
-<p>If you still wish to use <code class="highlighter-rouge">yarn</code> instead of <code class="highlighter-rouge">nodejs-yarn</code>, the best way is to use bash alias.</p>
 <h2 id="installing-npm-modules">Installing npm modules</h2>
 <p>Installing Node.js modules is covered in <a href="/tech/languages/nodejs/modules.html">Node.js modules</a>.</p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%70%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Petr Stribny</a>, <a href="mailto:%7A%73%76%65%74%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Zuzana Svetlikova</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%70%76%61%6C%65%6E%61@%72%65%64%68%61%74.%63%6F%6D">Pavel Valena</a>, <a href="mailto:%70%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Petr Stribny</a>, <a href="mailto:%7A%73%76%65%74%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Zuzana Svetlikova</a></p>
           </div>
         </div>
       </div>
@@ -280,7 +266,7 @@ $ yarnpkg add request
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

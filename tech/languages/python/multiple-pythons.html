@@ -7,25 +7,12 @@
   <title>Multiple Pythons &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/python/multiple-pythons.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/python/multiple-pythons.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -149,15 +136,16 @@
         <div class="col-sm-3">
           <div class="list-group content-menu">
                 <a href="/tech/languages/python/python-installation.html" class="list-group-item ">Python</a>
-                <a href="/tech/languages/python/pypi-installation.html" class="list-group-item ">PyPI</a>
+                <a href="/tech/languages/python/pypi-installation.html" class="list-group-item ">Pip & PyPI</a>
+                <a href="/tech/languages/python/multiple-pythons.html" class="list-group-item  active ">Multiple Pythons</a>
                 <a href="/tech/languages/python/django-installation.html" class="list-group-item ">Django</a>
                 <a href="/tech/languages/python/flask-installation.html" class="list-group-item ">Flask</a>
                 <a href="/tech/languages/python/micropython.html" class="list-group-item ">MicroPython</a>
                 <a href="/tech/languages/python/python-sig.html" class="list-group-item ">Python SIG</a>
                 <a href="/tech/languages/python/pygobject.html" class="list-group-item ">PyGObject</a>
                 <a href="/tech/languages/python/sphinx.html" class="list-group-item ">Sphinx</a>
-                <a href="/tech/languages/python/multiple-pythons.html" class="list-group-item  active ">Multiple Pythons</a>
                 <a href="/tech/languages/python/scipy.html" class="list-group-item ">Scientific Python Stack</a>
+                <a href="/tech/languages/python/pipenv.html" class="list-group-item ">Pipenv</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -174,38 +162,41 @@
             <h1 id="multiple-python-interpreters">Multiple Python interpreters</h1>
 <p>If you are working on a piece of Python software, you probably want to test it
 on multiple Python interpreters. On Fedora, that’s easy: all you have to do is
-use <code class="highlighter-rouge">dnf</code> to install what you need. Currently Fedora has the following Pythons
+use <code class="language-plaintext highlighter-rouge">dnf</code> to install what you need.</p>
+<p>Fedora includes all Python versions which are <a href="https://devguide.python.org/#status-of-python-branches">supported upstream</a>, a few older ones and possibly a pre-release of a newer one.</p>
+<p>At the time of this writing, Fedora has the following Pythons
 ready for you in the repositories:</p>
 <ul>
+  <li>CPython 3.10</li>
+  <li>CPython 3.9</li>
   <li>CPython 3.8</li>
   <li>CPython 3.7</li>
   <li>CPython 3.6</li>
   <li>CPython 3.5</li>
-  <li>CPython 3.4</li>
   <li>CPython 2.7</li>
-  <li>CPython 2.6*</li>
-  <li>PyPy</li>
+  <li>PyPy 2</li>
   <li>PyPy 3</li>
   <li>Jython*</li>
   <li>MicroPython*</li>
 </ul>
 <p>Quite a nest, isn’t it?
 You can install them like this:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">sudo </span>dnf <span class="nb">install </span>python38  <span class="c"># to get CPython 3.8</span>
-<span class="gp">$</span> <span class="nb">sudo </span>dnf <span class="nb">install </span>python37  <span class="c"># to get CPython 3.7</span>
-<span class="gp">$</span> <span class="nb">sudo </span>dnf <span class="nb">install </span>python34  <span class="c"># to get CPython 3.4</span>
-<span class="gp">$</span> <span class="nb">sudo </span>dnf <span class="nb">install </span>python26  <span class="c"># to get CPython 2.6</span>
-<span class="gp">$</span> <span class="nb">sudo </span>dnf <span class="nb">install </span>pypy pypy3 jython python35  <span class="c"># to get more at once</span>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>python3.9  <span class="c"># to get CPython 3.9</span>
+<span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>python3.8  <span class="c"># to get CPython 3.8</span>
+<span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>python3.7  <span class="c"># to get CPython 3.7</span>
+<span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>python3.6  <span class="c"># to get CPython 3.7</span>
+<span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>python2.7  <span class="c"># to get CPython 2.7</span>
+<span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>pypy2 pypy3 jython python3.5  <span class="c"># to get more at once</span>
 </code></pre></div></div>
 <p>After that, you can run an interactive console or your script with, let’s say,
-CPython 3.4:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> python3.4
-<span class="go">Python 3.4.3 (default, Jul 11 2016, 11:30:44) 
-[GCC 5.3.1 20160406 (Red Hat 5.3.1-6)] on linux
+CPython 3.6:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>python3.6
+<span class="go">Python 3.6.12 (default, Aug 19 2020, 00:00:00) 
+[GCC 10.2.1 20200723 (Red Hat 10.2.1-1)] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 </span><span class="gp">&gt;</span><span class="o">&gt;&gt;</span> 
 </code></pre></div></div>
-<p><strong>Warning:</strong> For production purposes you should use the <code class="highlighter-rouge">python3</code> or <code class="highlighter-rouge">python2</code>
+<p><strong>Warning:</strong> For production purposes you should use the <code class="language-plaintext highlighter-rouge">python3</code> or <code class="language-plaintext highlighter-rouge">python2</code>
 packages only. Other CPython versions might be <strong>unstable</strong> or even <strong>dangerous</strong>
 (either because they are extremely old or quite the contrary alpha/beta quality)
 and are intended solely for development.</p>
@@ -217,36 +208,39 @@ sections of this page.</p>
 <p><a href="https://tox.readthedocs.io/">Tox</a> is tool that helps you test your Python code
 on multiple Pythons. If you install it on Fedora via the dnf package manager,
 you’ll automatically get all supported CPythons and PyPys:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">sudo </span>dnf <span class="nb">install </span>tox
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>tox
 </code></pre></div></div>
 <p>If you are not yet familiar with tox, don’t worry. This short example will show
 you how to start.</p>
 <p>Let’s create a directory and a simple Python file in it that will say something nice:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># say.py
-</span><span class="k">print</span><span class="p">(</span><span class="s">'Fedora is the best OS for Python developers'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">'</span><span class="se">\n\n</span><span class="s">'</span><span class="p">)</span>
+</span><span class="k">print</span><span class="p">(</span><span class="s">'Fedora is the best OS for Python developers'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">'</span><span class="se">
+
+</span><span class="s">'</span><span class="p">)</span>
 </code></pre></div></div>
 <p>Now we’ll test if it works with all the Pythons, with tox.
-We’ll create a simple configuration file for tox, <code class="highlighter-rouge">tox.ini</code>, in the same
+We’ll create a simple configuration file for tox, <code class="language-plaintext highlighter-rouge">tox.ini</code>, in the same
 directory:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[tox]
-envlist = py27,py35,py36,pypy,pypy3
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[tox]
+envlist = py27,py37,py38,py39,pypy,pypy3
 skipsdist = True
 [testenv]
 commands=python say.py
 </code></pre></div></div>
-<p>The <code class="highlighter-rouge">envlist</code> directive defines the list of Pythons to test on.
-Normally, tox assumes you are testing a project with its own <code class="highlighter-rouge">setup.py</code>. For
+<p>The <code class="language-plaintext highlighter-rouge">envlist</code> directive defines the list of Pythons to test on.
+Normally, tox assumes you are testing a project with its own <code class="language-plaintext highlighter-rouge">setup.py</code>. For
 the simplicity of this demo, we are not using it, and we need to tell this to
-tox via the <code class="highlighter-rouge">skipsdist</code> option.
-Finally the <code class="highlighter-rouge">commands</code> in <code class="highlighter-rouge">[testenv]</code> section tells tox what commands to run
-for the test, normally that would be <code class="highlighter-rouge">python setup.py test</code>, <code class="highlighter-rouge">py.test</code> or
-similar.</p>
-<p>With <code class="highlighter-rouge">tox.ini</code>, just run tox in the same directory:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> tox
+tox via the <code class="language-plaintext highlighter-rouge">skipsdist</code> option.
+Finally the <code class="language-plaintext highlighter-rouge">commands</code> in the <code class="language-plaintext highlighter-rouge">[testenv]</code> section tells tox what commands to run
+for the test.
+Normally, that would be <code class="language-plaintext highlighter-rouge">python setup.py test</code>, <code class="language-plaintext highlighter-rouge">pytest</code> or similar.</p>
+<p>With <code class="language-plaintext highlighter-rouge">tox.ini</code> in place, run <code class="language-plaintext highlighter-rouge">tox</code> in the same directory:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>tox
 <span class="go">[...]
 ERROR:   py27: commands failed
-  py35: commands succeeded
-  py36: commands succeeded
+  py37: commands succeeded
+  py38: commands succeeded
+  py39: commands succeeded
 ERROR:   pypy: commands failed
   pypy3: commands succeeded
 </span></code></pre></div></div>
@@ -255,118 +249,111 @@ Python 3. The full tox output (omitted here) contains the exact error.
 If you want to support old Python 2 as well, you’ll have to fix it:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># say.py
 </span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'Fedora is the best OS for Python developers'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">'</span><span class="se">\n\n</span><span class="s">'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Fedora is the best OS for Python developers'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">'</span><span class="se">
+
+</span><span class="s">'</span><span class="p">)</span>
 </code></pre></div></div>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> tox
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>tox
 <span class="go">[...]
   py27: commands succeeded
-  py35: commands succeeded
-  py36: commands succeeded
+  py37: commands succeeded
+  py38: commands succeeded
+  py39: commands succeeded
   pypy: commands succeeded
   pypy3: commands succeeded
   congratulations :)
 </span></code></pre></div></div>
 <p>If you want to use tox for your projects, you can learn more at
 <a href="https://tox.readthedocs.io/">the documentation</a>.</p>
-<h2 id="creating-virtualenvs-and-installing-packages">Creating virtualenvs and installing packages</h2>
-<p>Fedora only packages Python modules for current versions of <code class="highlighter-rouge">python2</code>
-and <code class="highlighter-rouge">python3</code>. For all other interpreters, you will need to install packages
+<h2 id="creating-virtual-environments-and-installing-packages">Creating virtual environments and installing packages</h2>
+<p>Fedora only packages Python modules for one current version of <code class="language-plaintext highlighter-rouge">python3</code>.
+For all other interpreters, you will need to install packages
 from <a href="https://pypi.python.org/pypi">PyPI</a>, the Python Package Index.</p>
-<p>The best way is to use Python virtual environments (virtualenvs, or venvs).
+<p>The best way is to use Python virtual environments.
 The invocation to create them differs for different Python versions.
-Packages installed in a virtualenv are only available once the virtualenv
-is activated. Here you can see two demos that create virtualenv in a folder
-named <code class="highlighter-rouge">env</code> and install some package into it.</p>
+Packages installed in a virtual environment are only available once the
+environment is activated.
+Here you can see two demos that create a virtual environment in a folder
+named <code class="language-plaintext highlighter-rouge">env</code> and install some package into it.</p>
 <h3 id="python-3-including-pypy-3">Python 3 (including PyPy 3)</h3>
-<p>Recent versions of Python 3 include the <code class="highlighter-rouge">venv</code> module, which can create virtual
-environments.</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> python3.5 <span class="nt">-m</span> venv <span class="nb">env</span>  <span class="c"># create the virtualenv</span>
-<span class="gp">$</span> <span class="nb">.</span> <span class="nb">env</span>/bin/activate  <span class="c"># activate it</span>
-<span class="gp">(env)$</span> python <span class="nt">-m</span> pip <span class="nb">install </span>requests  <span class="c"># install a package with pip</span>
+<p>Recent versions of Python 3 include the <code class="language-plaintext highlighter-rouge">venv</code> module, which can create virtual
+environments.
+See the <a href="https://developer.fedoraproject.org/tech/languages/python/pypi-install.html">PyPI &amp; pip section</a> for details.</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>python3.9 <span class="nt">-m</span> venv <span class="nb">env</span>  <span class="c"># create the environment</span>
+<span class="gp">$</span><span class="w"> </span><span class="nb">source env</span>/bin/activate  <span class="c"># activate it</span>
+<span class="gp">(env)$</span><span class="w"> </span>python <span class="nt">-m</span> pip <span class="nb">install </span>requests  <span class="c"># install a package with pip</span>
 <span class="c">...
-</span><span class="gp">(env)$</span> python  <span class="c"># run python from that virtualenv</span>
-<span class="go">Python 3.5.2 (default, Aug 16 2016, 21:50:46) 
-[GCC 5.3.1 20160406 (Red Hat 5.3.1-6)] on linux
+</span><span class="gp">(env)$</span><span class="w"> </span>python  <span class="c"># run python from that environment</span>
+<span class="go">Python 3.9.0 (default, Oct  6 2020, 00:00:00) 
+[GCC 10.2.1 20200723 (Red Hat 10.2.1-1)] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 </span><span class="gp">&gt;</span><span class="o">&gt;&gt;</span> import requests
 <span class="gp">&gt;</span><span class="o">&gt;&gt;</span> ...
-<span class="gp">(env)$</span> deactivate  <span class="c"># go back to "normal"</span>
+<span class="gp">&gt;</span><span class="o">&gt;&gt;</span> <span class="nb">exit</span><span class="o">()</span>
+<span class="gp">(env)$</span><span class="w"> </span>deactivate  <span class="c"># go back to "normal"</span>
 </code></pre></div></div>
+<p>The environment is a directory.
+If you no longer need it, deactivate it and delete it with <code class="language-plaintext highlighter-rouge">rm -rv env</code>.</p>
 <h3 id="python-27-pypy-2">Python 2.7, PyPy 2</h3>
-<p>For other Python versions, a tool called <code class="highlighter-rouge">virtualenv</code> can create virtual
+<p>For other Python versions, a tool called <code class="language-plaintext highlighter-rouge">virtualenv</code> can create virtual
 environments:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> dnf <span class="nb">install</span> /usr/bin/virtualenv  <span class="c"># install the necessary tool</span>
-<span class="gp">$</span> virtualenv <span class="nt">--python</span> /usr/bin/python2.7 <span class="nb">env</span>  <span class="c"># create the virtualenv</span>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install</span> /usr/bin/virtualenv  <span class="c"># install the necessary tool</span>
+<span class="gp">$</span><span class="w"> </span>virtualenv <span class="nt">--python</span> /usr/bin/python2.7 <span class="nb">env</span>  <span class="c"># create the virtualenv</span>
 <span class="go">Running virtualenv with interpreter /usr/bin/python2.7
 New python executable in env/bin/python2.7
 Also creating executable in env/bin/python
 Installing setuptools, pip...done.
-</span><span class="gp">$</span> <span class="nb">.</span> <span class="nb">env</span>/bin/activate  <span class="c"># activate it</span>
-<span class="gp">(env)$</span> python <span class="nt">-m</span> pip <span class="nb">install </span>requests  <span class="c"># install a package with pip</span>
+</span><span class="gp">$</span><span class="w"> </span><span class="nb">source env</span>/bin/activate  <span class="c"># activate it</span>
+<span class="gp">(env)$</span><span class="w"> </span>python <span class="nt">-m</span> pip <span class="nb">install </span>requests  <span class="c"># install a package with pip</span>
 <span class="c">...
-</span><span class="gp">(env)$</span> python  <span class="c"># run python from that virtualenv</span>
+</span><span class="gp">(env)$</span><span class="w"> </span>python  <span class="c"># run python from that virtualenv</span>
 <span class="go">Python 2.7.11 (default, Jul  8 2016, 19:45:00) 
 [GCC 5.3.1 20160406 (Red Hat 5.3.1-6)] on linux2
 Type "help", "copyright", "credits" or "license" for more information.
 </span><span class="gp">&gt;</span><span class="o">&gt;&gt;</span> import requests
 <span class="gp">&gt;</span><span class="o">&gt;&gt;</span> ...
-<span class="gp">(env)$</span> deactivate  <span class="c"># go back to "normal"</span>
+<span class="gp">&gt;</span><span class="o">&gt;&gt;</span> <span class="nb">exit</span><span class="o">()</span>
+<span class="gp">(env)$</span><span class="w"> </span>deactivate  <span class="c"># go back to "normal"</span>
 </code></pre></div></div>
-<p>To learn more about virtualenvs, visit
-<a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/">The Hitchhiker’s Guide to Python</a>.</p>
-<h3 id="python-26-jython">Python 2.6, Jython</h3>
-<p>The versions of virtualenv and tox packages in Fedora do not support the
-following interpreters:</p>
-<ul>
-  <li>Python 2.6</li>
-  <li>Jython</li>
-</ul>
-<p>If you really need to support such old interpreters, you will need to work around some issues or install
-and use older virtualenv/tox from PyPI.</p>
-<p>A workaround for Python 2.6 is to chnage the <code class="highlighter-rouge">install</code> and the <code class="highlighter-rouge">list_dependencies</code> commands with a <code class="highlighter-rouge">tox.ini</code> configuration like:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[testenv:py26]
-install_command = pip install {opts} {packages}
-list_dependencies_command = pip freeze
-basepython = python2.6
-</code></pre></div></div>
-<p>A more generic approach is to install an older version of tox that still supports these python versions:</p>
-<p>First, create a virtual environment with a newer Python, preferably <code class="highlighter-rouge">python3</code>:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> python3 <span class="nt">-m</span> venv py3env
-<span class="gp">$</span> <span class="nb">.</span> py3env/bin/activate  <span class="c"># activate it</span>
+<h3 id="jython">Jython</h3>
+<p>The versions of virtualenv and tox packages in Fedora do not support Jython,
+an interpreter that interoperates with the Java ecosystem.</p>
+<p>If you need to support it, you will need to install
+and use older virtualenv/tox versions from PyPI.</p>
+<p>First, create and activate a virtual environment with a newer Python, preferably <code class="language-plaintext highlighter-rouge">python3</code>:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>python3 <span class="nt">-m</span> venv py3env
+<span class="gp">$</span><span class="w"> </span><span class="nb">source </span>py3env/bin/activate  <span class="c"># activate it</span>
 </code></pre></div></div>
 <p>Then, install older packages (virtualenv 15 and tox 2) into it:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">(py3env)$</span> python <span class="nt">-m</span> pip <span class="nb">install</span> <span class="s1">'virtualenv&lt;16'</span> <span class="s1">'tox&lt;3'</span>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">(py3env)$</span><span class="w"> </span>python <span class="nt">-m</span> pip <span class="nb">install</span> <span class="s1">'virtualenv&lt;16'</span> <span class="s1">'tox&lt;3'</span>
 </code></pre></div></div>
 <p>Now, whenever the Python 3 virtual environment is activated, you can invoke
-tox 2 using the <code class="highlighter-rouge">tox</code> command.
-Include <code class="highlighter-rouge">py26</code> and/or <code class="highlighter-rouge">jython</code> in the <code class="highlighter-rouge">envlist</code> section in <code class="highlighter-rouge">tox.ini</code> to test
-on the old interpreters.</p>
-<p>You can also use the older virtualenv to create environments for
-Python 2.6 or Jython:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">(py3env)$</span> python <span class="nt">-m</span> virtualenv <span class="nt">--python</span> /usr/bin/python2.6 py26env
-<span class="gp">(py3env)$</span> python <span class="nt">-m</span> virtualenv <span class="nt">--python</span> /usr/bin/jython jyenv
+tox 2 using the <code class="language-plaintext highlighter-rouge">tox</code> command.
+Include <code class="language-plaintext highlighter-rouge">jython</code> in the <code class="language-plaintext highlighter-rouge">envlist</code> section in <code class="language-plaintext highlighter-rouge">tox.ini</code> to test
+on that interpreters.</p>
+<p>You can also use the older virtualenv to create environments for Jython:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">(py3env)$</span><span class="w"> </span>python <span class="nt">-m</span> virtualenv <span class="nt">--python</span> /usr/bin/jython jyenv <span class="nt">--no-setuptools</span> <span class="nt">--no-pip</span> <span class="nt">--no-wheel</span>
 </code></pre></div></div>
-<p>To activate these, you don’t need the <code class="highlighter-rouge">py3env</code> activated.
+<p>To activate these, you don’t need the <code class="language-plaintext highlighter-rouge">py3env</code> activated.
 That is only needed to create them.</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">.</span> py26env/bin/activate
-<span class="gp">(py26env)$</span> python <span class="nt">--version</span>
-<span class="go">Python 2.6.9
-</span><span class="gp">(py26env)$</span> deactivate
-</code></pre></div></div>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">.</span> jyenv/bin/activate
-<span class="gp">(jyenv)$</span> python <span class="nt">--version</span>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">source </span>jyenv/bin/activate
+<span class="gp">(jyenv)$</span><span class="w"> </span>python <span class="nt">--version</span>
 <span class="go">Jython 2.7.1
-</span><span class="gp">(jyenv)$</span> deactivate
+</span></code></pre></div></div>
+<p>To be able to install packages, run Jython’s <code class="language-plaintext highlighter-rouge">ensurepip</code> command.
+This will install a compatible version of <code class="language-plaintext highlighter-rouge">pip</code>.</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">(jyenv)$</span><span class="w"> </span>python <span class="nt">-m</span> ensurepip
+<span class="gp">(jyenv)$</span><span class="w"> </span>python <span class="nt">-m</span> pip <span class="nb">install </span>requests
 </code></pre></div></div>
 <h3 id="micropython">MicroPython</h3>
 <p>MicroPython does not support virtual environments.
 It does have a rudimentary pip replacement called
 <a href="https://pypi.python.org/pypi/micropython-upip/">upip</a>, which you can use to
 install packages that support MicroPython. Run it to find out more:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> micropython <span class="nt">-m</span> upip
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>micropython <span class="nt">-m</span> upip
 </code></pre></div></div>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%6D%69%72%6F@%68%72%6F%6E%63%6F%6B.%63%7A">Miro Hrončok</a>, <a href="mailto:%65%6E%63%75%6B%6F%75@%67%6D%61%69%6C.%63%6F%6D">Petr Viktorin</a>, <a href="mailto:%6F%70%65%6E%73%6F%75%72%63%65@%74%69%6C%6C.%6E%61%6D%65">Till Maas</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%6D%69%72%6F@%68%72%6F%6E%63%6F%6B.%63%7A">Miro Hrončok</a>, <a href="mailto:%65%6E%63%75%6B%6F%75@%67%6D%61%69%6C.%63%6F%6D">Petr Viktorin</a>, <a href="mailto:%6F%70%65%6E%73%6F%75%72%63%65@%74%69%6C%6C.%6E%61%6D%65">Till Maas</a>, <a href="mailto:%76%73%74%69%6E%6E%65%72@%70%79%74%68%6F%6E.%6F%72%67">Victor Stinner</a></p>
           </div>
         </div>
       </div>
@@ -455,7 +442,7 @@ install packages that support MicroPython. Run it to find out more:</p>
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

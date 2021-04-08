@@ -7,25 +7,12 @@
   <title>Cabal &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/haskell/cabal.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/haskell/cabal.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -168,20 +155,20 @@
           <div class="panel panel-default content-content">
             <h1 id="cabal">Cabal</h1>
 <p>To install Haskell libraries and build Haskell projects, you will likely want to
-install <code class="highlighter-rouge">cabal</code> – a system which aids in the packaging, distribution, and
+install <code class="language-plaintext highlighter-rouge">cabal</code> – a system which aids in the packaging, distribution, and
 installation of Haskell libraries and applications.</p>
 <p>If you’ve chosen to install the Haskell Platform, then you already have Cabal
 installed. Otherwise, you can install it by:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install cabal-install
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install cabal-install
 </code></pre></div></div>
 <p>You can then install packages from <a href="https://hackage.haskell.org/">Hackage</a> by
 using:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cabal install &lt;package name&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cabal install &lt;package name&gt;
 </code></pre></div></div>
 <p>Note that Fedora offers a large number of Hackage packages in its official
-repositories as RPMs. You can always try installing a Hackage package via <code class="highlighter-rouge">dnf</code>
+repositories as RPMs. You can always try installing a Hackage package via <code class="language-plaintext highlighter-rouge">dnf</code>
 first using:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install ghc-&lt;package name&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install ghc-&lt;package name&gt;
 </code></pre></div></div>
 <hr id="authors-rule" />
 <p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%72%69%63%6B%79@%65%6C%72%6F%64.%6D%65">Ricky Elrod</a></p>
@@ -273,7 +260,7 @@ first using:</p>
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

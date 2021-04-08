@@ -7,25 +7,12 @@
   <title>Apache HTTP Server &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/start/sw/web-app/apache.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/start/sw/web-app/apache.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-start">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -133,7 +120,7 @@
   <div class="col-sm-12">
           <img class="img-rounded" src="/static/logo/web-app.png">
           <h2>Web Application</h2>
-          <p></p>
+          <p>Short introduction to web application development</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -175,23 +162,23 @@
 <p>The Apache HTTP Server Project is an effort to develop and maintain an open source HTTP server for modern operating systems including UNIX and Windows. The goal of this project is to provide a secure, efficient and extensible server that provides HTTP services in sync with the current HTTP standards.
 The Apache HTTP Server was launched in 1995 and it has been the most popular web server on the Internet since April 1996. It celebrated its 20th birthday as a project in February 2015. The Apache HTTP Server is a project of <a href="http://www.apache.org/">The Apache Software Foundation</a>.</p>
 <h1 id="installation">Installation</h1>
-<p>The Apache HTTP server is known as a <code class="highlighter-rouge">httpd</code> package in Fedora. You will probably have this package already installed on your Fedora system but in case you do not have it, install it with this command:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install httpd
+<p>The Apache HTTP server is known as a <code class="language-plaintext highlighter-rouge">httpd</code> package in Fedora. You will probably have this package already installed on your Fedora system but in case you do not have it, install it with this command:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install httpd
 </code></pre></div></div>
 <p>To start the Apache server at each boot, type:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl enable httpd.service
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl enable httpd.service
 </code></pre></div></div>
 <p>To run the Apache server immediately, type:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl start httpd.service
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl start httpd.service
 </code></pre></div></div>
 <p>To try if your Apache server is running, visit your localhost page at <a href="http://localhost">http://localhost</a>.</p>
 <p>If everything goes as expected, you will see the Fedora Test Page:</p>
 <p><img src="./images/screenshot.png?raw=true" alt="" /></p>
 <h1 id="how-to-run-your-own-web-presentation">How to run your own web presentation</h1>
-<p>The root directory of your web server is now situated at <code class="highlighter-rouge">/var/www/html/</code>.</p>
+<p>The root directory of your web server is now situated at <code class="language-plaintext highlighter-rouge">/var/www/html/</code>.</p>
 <p><strong>WARNING: The owner of this directory is the root user!</strong></p>
-<p>To disable rendering the Fedora Test Page, comment out all the lines in <code class="highlighter-rouge">/etc/httpd/conf.d/welcome.conf</code>.
-After that, create an <code class="highlighter-rouge">index.html</code> file with your customized content in the <code class="highlighter-rouge">/var/www/html/</code> directory, for example:</p>
+<p>To disable rendering the Fedora Test Page, comment out all the lines in <code class="language-plaintext highlighter-rouge">/etc/httpd/conf.d/welcome.conf</code>.
+After that, create an <code class="language-plaintext highlighter-rouge">index.html</code> file with your customized content in the <code class="language-plaintext highlighter-rouge">/var/www/html/</code> directory, for example:</p>
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="nt">&lt;html&gt;</span>
     <span class="nt">&lt;head&gt;</span>
@@ -205,9 +192,9 @@ After that, create an <code class="highlighter-rouge">index.html</code> file wit
 </code></pre></div></div>
 <p>Now, when you visit <a href="http://localhost">http://localhost</a>, you will see your new index page.</p>
 <h1 id="server-configuration">Server configuration</h1>
-<p>The main server configuration file is situated at <code class="highlighter-rouge">/etc/httpd/conf/httpd.conf</code>. Here you can change the server root directory, server admin contact, supported file extension for the index file (e.g., .htm, .php, .aspx and so on; you have to install the packages which support your selected file extension) and many other things. For everything that you can set in this file, visit the official Apache <a href="https://httpd.apache.org/docs/current/getting-started.html">getting started</a> or <a href="https://httpd.apache.org/docs/current/">documentation</a> page.</p>
+<p>The main server configuration file is situated at <code class="language-plaintext highlighter-rouge">/etc/httpd/conf/httpd.conf</code>. Here you can change the server root directory, server admin contact, supported file extension for the index file (e.g., .htm, .php, .aspx and so on; you have to install the packages which support your selected file extension) and many other things. For everything that you can set in this file, visit the official Apache <a href="https://httpd.apache.org/docs/current/getting-started.html">getting started</a> or <a href="https://httpd.apache.org/docs/current/">documentation</a> page.</p>
 <p>To apply the new server settings, reload apache and restart httpd.service:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apachectl reload
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apachectl reload
 sudo systemctl restart httpd.service
 </code></pre></div></div>
 <h1 id="more-information">More information</h1>
@@ -303,7 +290,7 @@ For general information about the Apache HTTP Server you can visit <a href="http
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

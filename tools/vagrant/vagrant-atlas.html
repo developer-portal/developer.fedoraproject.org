@@ -7,25 +7,12 @@
   <title>Downloading Vagrant images from Atlas &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tools/vagrant/vagrant-atlas.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tools/vagrant/vagrant-atlas.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tools">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -175,23 +162,23 @@ of images that you can use with Vagrant. To download an image using
 Vagrant you need to know the organization name as well as the individual
 image name. In the case of Fedora we have the <a href="https://app.vagrantup.com/fedora/">Fedora</a>
 organization and under that we have different boxes that can be used.
-An example of one of those is the <code class="highlighter-rouge">fedora/28-cloud-base</code> Vagrant box.
+An example of one of those is the <code class="language-plaintext highlighter-rouge">fedora/33-cloud-base</code> Vagrant box.
 You can download this box with the following command:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vagrant box add fedora/28-cloud-base
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vagrant box add fedora/33-cloud-base
 </code></pre></div></div>
 <p>This will ask you which provider you want to download the Vagrant box
-for. You can choose <code class="highlighter-rouge">libvirt</code> or <code class="highlighter-rouge">virtualbox</code> based on which one of
+for. You can choose <code class="language-plaintext highlighter-rouge">libvirt</code> or <code class="language-plaintext highlighter-rouge">virtualbox</code> based on which one of
 those virtual machine technologies you are using.</p>
 <p>After downloading this image you can then start up a machine with:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vagrant init fedora/28-cloud-base &amp;&amp; vagrant up
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vagrant init fedora/33-cloud-base &amp;&amp; vagrant up
 </code></pre></div></div>
-<p><em>NOTE</em> you can skip the <code class="highlighter-rouge">vagrant box add</code> command if you want to. The
-<code class="highlighter-rouge">vagrant up</code> command will automatically consult Atlas for that named
+<p><em>NOTE</em> you can skip the <code class="language-plaintext highlighter-rouge">vagrant box add</code> command if you want to. The
+<code class="language-plaintext highlighter-rouge">vagrant up</code> command will automatically consult Atlas for that named
 box and download it if it exists.</p>
 <h1 id="upgrading-vagrant-images-from-atlas">Upgrading Vagrant images from Atlas</h1>
 <p>If you want to update the Vagrant box image at a later time you can do
 so by issuing the following command:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vagrant box update --box fedora/28-cloud-base
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vagrant box update --box fedora/33-cloud-base
 </code></pre></div></div>
 <hr id="authors-rule" />
 <p style="text-align: center">Authors: <a href="mailto:%61%6E%74%6F%6E%69%6E.%6D%72%6B%76%69%63%61@%6F%75%74%6C%6F%6F%6B.%63%7A">Antonín Mrkvica</a>, <a href="mailto:%64%75%73%74%79@%64%75%73%74%79%6D%61%62%65.%63%6F%6D">Dusty Mabe</a></p>
@@ -283,7 +270,7 @@ so by issuing the following command:</p>
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

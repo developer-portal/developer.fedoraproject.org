@@ -7,25 +7,12 @@
   <title>Java build tools &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="http://developer.fedoraproject.org/tech/languages/java/java-build-tools-installation.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/java/java-build-tools-installation.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <!-- Site search -->
-  <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-    $(function() {
-      $('#search-query').lunrSearch({
-        indexUrl: '/js/index.json',   // Url for the .json file containing search index data
-        results : '#search-results',  // selector for containing search results element
-        entries : '.entries',         // selector for search entries containing element (contained within results above)
-        titleMsg  : '',   // message attached in front of results (can be empty)
-        template: '#search-results-template'  // selector for Mustache.js template
-      });
-    });
-  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -36,7 +23,7 @@
   </script>
 </head>
   <body>
-    <!-- The top blue thing -->
+        <!-- The top blue thing -->
     <div id="splash" class="splash-size-small splash-section-tech">
       <div class="container">
         <div class="row" id="top">
@@ -76,7 +63,7 @@
   </ul>
 </nav>
   </div>
-  <div class="col-sm-3" id="search-col">
+  <div class="col-sm-3" id="search-col" style="display: none;">
 <!-- // every other page -->
 <style media="screen, print">
 #search-results {
@@ -168,30 +155,26 @@
 <p>The most popular build tools used by millions of Java developers are packaged in official Fedora repositories. This page contains information on how easy it is to install them.</p>
 <h2 id="maven-installation">Maven installation</h2>
 <p><a href="https://maven.apache.org/">Maven</a> is probably the most popular build tool in Java world these days. To install it, simply type:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install maven
-</code></pre></div></div>
-<h2 id="gradle-installation">Gradle installation</h2>
-<p><a href="https://gradle.org/">Gradle</a> is another popular tool used not only for building Java projects. To install it, simply type:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install gradle
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install maven
 </code></pre></div></div>
 <h2 id="antivy-installation">Ant+Ivy installation</h2>
 <p>Last but not least, still quite popular duo <a href="http://ant.apache.org/ivy/">Ant+Ivy</a> can be installed simply by typing:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install ant apache-ivy
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install ant apache-ivy
 </code></pre></div></div>
 <h2 id="devassistant-is-obsolete-use-it-for-reference-only">DevAssistant is obsolete, use it for reference only</h2>
 <p>You can get started with Maven by using <a href="/tools/devassistant/about.html">DevAssistant</a> to create a simple project, simply type (after you have DevAssistant setup and installed):</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>da --debug crt java maven -n Dev_Sample
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>da --debug crt java maven -n Dev_Sample
 </code></pre></div></div>
-<p>The project that is created (Example: Dev_Sample), roughly follows the <a href="http://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html">Maven Project Structure</a> but does not contain all of the directories or files. Initially you should see 2 directories (<code class="highlighter-rouge">src</code> and <code class="highlighter-rouge">target</code>) when you explore the project directory. You will also notice that your project directory has a file, the <a href="https://maven.apache.org/pom.html">pom.xml</a> in it, this is your Maven project file that defines your build, and how you will transition through the Maven build <a href="https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html">lifecycles</a>.</p>
-<p>The <code class="highlighter-rouge">target</code> directory is created as part of your initial project build, triggered by DevAssistant command above. This directory is where your compiled artifacts, or generated outputs (from builds) are stored. Its best to think of this directory as a temp space, used to store the outputs from a build.</p>
+<p>The project that is created (Example: Dev_Sample), roughly follows the <a href="http://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html">Maven Project Structure</a> but does not contain all of the directories or files. Initially you should see 2 directories (<code class="language-plaintext highlighter-rouge">src</code> and <code class="language-plaintext highlighter-rouge">target</code>) when you explore the project directory. You will also notice that your project directory has a file, the <a href="https://maven.apache.org/pom.html">pom.xml</a> in it, this is your Maven project file that defines your build, and how you will transition through the Maven build <a href="https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html">lifecycles</a>.</p>
+<p>The <code class="language-plaintext highlighter-rouge">target</code> directory is created as part of your initial project build, triggered by DevAssistant command above. This directory is where your compiled artifacts, or generated outputs (from builds) are stored. Its best to think of this directory as a temp space, used to store the outputs from a build.</p>
 <ul>
-  <li>Note: if you run <code class="highlighter-rouge">git status</code> in the created <code class="highlighter-rouge">Dev_Sample</code> directory, you will see that the <code class="highlighter-rouge">target</code> directory is not part of your git repository. Its a best practice to not include this in your version control system, so its recommended that you create a <a href="https://git-scm.com/docs/gitignore">gitignore</a> file, add this directory and anything under it as ignored files.</li>
+  <li>Note: if you run <code class="language-plaintext highlighter-rouge">git status</code> in the created <code class="language-plaintext highlighter-rouge">Dev_Sample</code> directory, you will see that the <code class="language-plaintext highlighter-rouge">target</code> directory is not part of your git repository. Its a best practice to not include this in your version control system, so its recommended that you create a <a href="https://git-scm.com/docs/gitignore">gitignore</a> file, add this directory and anything under it as ignored files.</li>
 </ul>
-<p>The <code class="highlighter-rouge">src</code> directory, is the start of your source directory structure, and under this directory you will see typically see any number of <a href="http://docs.oracle.com/javase/tutorial/java/package/managingfiles.html">package directories</a>(Example: main), and the template testing framework (using junit).</p>
-<p>The sample application created, as part of the DevAssisttant project creation, creates a single application (jar) from the <code class="highlighter-rouge">main.java.org.devassistant.maven.Main</code> class. It also creates a single test (test if a boolean is true), that is run when a build happens.</p>
+<p>The <code class="language-plaintext highlighter-rouge">src</code> directory, is the start of your source directory structure, and under this directory you will see typically see any number of <a href="http://docs.oracle.com/javase/tutorial/java/package/managingfiles.html">package directories</a>(Example: main), and the template testing framework (using junit).</p>
+<p>The sample application created, as part of the DevAssisttant project creation, creates a single application (jar) from the <code class="language-plaintext highlighter-rouge">main.java.org.devassistant.maven.Main</code> class. It also creates a single test (test if a boolean is true), that is run when a build happens.</p>
 <!-- TODO: once content for Scala programming language is created, mention here that it's also possible to use SBT to build Java projects + link to corresponding Scala section. -->
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%73%66%65%72%69%63%68%38%38%38@%67%6D%61%69%6C.%63%6F%6D">Eric Rich</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%70%76%61%6C%65%6E%61@%72%65%64%68%61%74.%63%6F%6D">Pavel Valena</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%73%66%65%72%69%63%68%38%38%38@%67%6D%61%69%6C.%63%6F%6D">Eric Rich</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%70%76%61%6C%65%6E%61@%72%65%64%68%61%74.%63%6F%6D">Pavel Valena</a>, <a href="mailto:%67%69%74@%6D%61%76%69%74.%6F%72%67.%75%6B">Peter Oliver</a></p>
           </div>
         </div>
       </div>
@@ -280,7 +263,7 @@
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2019 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->
