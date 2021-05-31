@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Java build tools &mdash; Fedora Developer Portal</title>
+  <title>R SIG &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/java/java-build-tools-installation.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/r/r-sig.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -118,9 +118,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/java.png">
-          <h2>Java</h2>
-          <p>General-purpose, object-oriented and concurrent computer programming language.</p>
+          <img class="img-rounded" src="/static/logo/r.png">
+          <h2>R</h2>
+          <p>Free software environment for statistical computing and graphics.</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -135,9 +135,11 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="list-group content-menu">
-                <a href="/tech/languages/java/java-installation.html" class="list-group-item ">Java</a>
-                <a href="/tech/languages/java/java-build-tools-installation.html" class="list-group-item  active ">Java build tools</a>
-                <a href="/tech/languages/java/java-sig.html" class="list-group-item ">Java SIG</a>
+                <a href="/tech/languages/r/r-installation.html" class="list-group-item ">R</a>
+                <a href="/tech/languages/r/r-packages.html" class="list-group-item ">R packages</a>
+                <a href="/tech/languages/r/blas-lapack.html" class="list-group-item ">BLAS/LAPACK switching</a>
+                <a href="/tech/languages/r/r-ide.html" class="list-group-item ">R IDE</a>
+                <a href="/tech/languages/r/r-sig.html" class="list-group-item  active ">R SIG</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -147,44 +149,15 @@
 </div>
             </div>
           </div>
-          <a href="https://github.com/developer-portal/content/edit/master/tech/languages/java/java-build-tools-installation.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/edit/master/tech/languages/r/r-sig.md" class="btn btn-default">Edit this page</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h1 id="java-build-tools">Java build tools</h1>
-<p>The most popular build tools used by millions of Java developers are packaged in official Fedora repositories. This page contains information on how easy it is to install them.</p>
-<h2 id="maven-installation">Maven installation</h2>
-<p><a href="https://maven.apache.org/">Maven</a> is probably the most popular build tool in Java world these days. To install it, simply type:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install maven
-</code></pre></div></div>
-<h2 id="antivy-installation">Ant+Ivy installation</h2>
-<p>Last but not least, still quite popular duo <a href="http://ant.apache.org/ivy/">Ant+Ivy</a> can be installed simply by typing:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install ant apache-ivy
-</code></pre></div></div>
-<h2 id="creating-a-maven-project">Creating a Maven project</h2>
-<h3 id="using-mvn-command-line-tool">Using <code class="language-plaintext highlighter-rouge">mvn</code> command-line tool</h3>
-<p>Use the command from the <a href="https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">Maven quick start guide</a>:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
-</code></pre></div></div>
-<p>The project that is created follows the <a href="http://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html">Maven Project Structure</a>. Initially you should see the <code class="language-plaintext highlighter-rouge">src</code> directory when you explore the project directory. You will also notice that your project directory has a file, the <a href="https://maven.apache.org/pom.html">pom.xml</a> in it, this is your Maven project file that defines your build, and how you will transition through the Maven build <a href="https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html">lifecycles</a>.</p>
-<p>The sample application created by the Maven archetype contains a single “Hello World” application (jar).</p>
-<p>The <code class="language-plaintext highlighter-rouge">target</code> directory will be created after the first compilation: run</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mvn compile
-</code></pre></div></div>
-<p>This directory is where your compiled artifacts, or generated outputs (from builds) are stored. Its best to think of this directory as a temp space, used to store the outputs from a build.</p>
-<h3 id="creating-a-git-repo">Creating a git repo</h3>
-<p>This project folder is not a Git repository yet. Create a git repo:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd my-app
-$ git init
-</code></pre></div></div>
-<p>If you run <code class="language-plaintext highlighter-rouge">git status</code> in the created <code class="language-plaintext highlighter-rouge">my-app</code> directory, you will see that the <code class="language-plaintext highlighter-rouge">target</code> directory is still part of your git repository. It is a best practice not to include this in your version control system, so it is recommended that you create a <a href="https://git-scm.com/docs/gitignore">gitignore</a> file, add this directory and anything under it as ignored files.</p>
-<p>A good starter <code class="language-plaintext highlighter-rouge">.gitignore</code> file for Maven projects can be found on <a href="https://github.com/github/gitignore/blob/master/Maven.gitignore">Github</a>. Download it into your repo with:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl https://raw.githubusercontent.com/github/gitignore/master/Maven.gitignore -o .gitignore
-</code></pre></div></div>
-<p>The <code class="language-plaintext highlighter-rouge">src</code> directory is the start of your source directory structure, and under this directory you will see typically see any number of <a href="http://docs.oracle.com/javase/tutorial/java/package/managingfiles.html">package directories</a> (example: <code class="language-plaintext highlighter-rouge">main</code>). If you have tests, you will find them in the <code class="language-plaintext highlighter-rouge">test</code> directory.</p>
-<!-- TODO: once content for Scala programming language is created, mention here that it's also possible to use SBT to build Java projects + link to corresponding Scala section. -->
+            <h1 id="r-in-fedora-special-interest-group">R in Fedora Special Interest Group</h1>
+<p>There is a special interest group within the R Project for Fedora Linux.
+If you are interested in R and Fedora, join us in the <a href="https://stat.ethz.ch/mailman/listinfo/r-sig-fedora">r-sig-fedora</a> mailing list!</p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%73%66%65%72%69%63%68%38%38%38@%67%6D%61%69%6C.%63%6F%6D">Eric Rich</a>, <a href="mailto:%67%65%72%67%65%6C%79.%67%6F%6D%62%6F%73@%6C%6F%67%6D%65%69%6E.%63%6F%6D">Gergely Gombos</a>, <a href="mailto:%70%76%61%6C%65%6E%61@%72%65%64%68%61%74.%63%6F%6D">Pavel Valena</a>, <a href="mailto:%67%69%74@%6D%61%76%69%74.%6F%72%67.%75%6B">Peter Oliver</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%69%75%63%61%72@%66%65%64%6F%72%61%70%72%6F%6A%65%63%74.%6F%72%67">Iñaki Úcar</a></p>
           </div>
         </div>
       </div>

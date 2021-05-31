@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Java build tools &mdash; Fedora Developer Portal</title>
+  <title>R &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/java/java-build-tools-installation.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/r/r-installation.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -118,9 +118,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/java.png">
-          <h2>Java</h2>
-          <p>General-purpose, object-oriented and concurrent computer programming language.</p>
+          <img class="img-rounded" src="/static/logo/r.png">
+          <h2>R</h2>
+          <p>Free software environment for statistical computing and graphics.</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -135,9 +135,11 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="list-group content-menu">
-                <a href="/tech/languages/java/java-installation.html" class="list-group-item ">Java</a>
-                <a href="/tech/languages/java/java-build-tools-installation.html" class="list-group-item  active ">Java build tools</a>
-                <a href="/tech/languages/java/java-sig.html" class="list-group-item ">Java SIG</a>
+                <a href="/tech/languages/r/r-installation.html" class="list-group-item  active ">R</a>
+                <a href="/tech/languages/r/r-packages.html" class="list-group-item ">R packages</a>
+                <a href="/tech/languages/r/blas-lapack.html" class="list-group-item ">BLAS/LAPACK switching</a>
+                <a href="/tech/languages/r/r-ide.html" class="list-group-item ">R IDE</a>
+                <a href="/tech/languages/r/r-sig.html" class="list-group-item ">R SIG</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -147,44 +149,92 @@
 </div>
             </div>
           </div>
-          <a href="https://github.com/developer-portal/content/edit/master/tech/languages/java/java-build-tools-installation.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/edit/master/tech/languages/r/r-installation.md" class="btn btn-default">Edit this page</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h1 id="java-build-tools">Java build tools</h1>
-<p>The most popular build tools used by millions of Java developers are packaged in official Fedora repositories. This page contains information on how easy it is to install them.</p>
-<h2 id="maven-installation">Maven installation</h2>
-<p><a href="https://maven.apache.org/">Maven</a> is probably the most popular build tool in Java world these days. To install it, simply type:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install maven
+            <h1 id="r-in-fedora">R in Fedora</h1>
+<p><a href="https://www.r-project.org/">R</a> provides a wide variety of statistical and graphical techniques:
+linear and nonlinear modelling, statistical tests, time series analysis, classification, clustering, and much more through its rich package ecosystem.</p>
+<h2 id="installation">Installation</h2>
+<p>The newest R release, including recommended packages and development headers and tools, can be installed by running:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>R
 </code></pre></div></div>
-<h2 id="antivy-installation">Ant+Ivy installation</h2>
-<p>Last but not least, still quite popular duo <a href="http://ant.apache.org/ivy/">Ant+Ivy</a> can be installed simply by typing:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install ant apache-ivy
+<p>The following components will be installed by default:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>R-core</td>
+      <td>The minimal R components necessary for a functional runtime</td>
+    </tr>
+    <tr>
+      <td>R-core-devel</td>
+      <td>Core files for development of R packages (no Java)</td>
+    </tr>
+    <tr>
+      <td>R-java</td>
+      <td>R with Fedora-provided Java Runtime Environment</td>
+    </tr>
+    <tr>
+      <td>R-java-devel</td>
+      <td>Development package for use with Java enabled R components</td>
+    </tr>
+    <tr>
+      <td>libRmath</td>
+      <td>Standalone math library from the R project</td>
+    </tr>
+    <tr>
+      <td>libRmath-devel</td>
+      <td>Headers from the R standalone math library</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="running-r">Running R</h2>
+<p>To run R, simply type <code class="language-plaintext highlighter-rouge">R</code> in your terminal:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>R
+R version 4.0.4 <span class="o">(</span>2021-02-15<span class="o">)</span> <span class="nt">--</span> <span class="s2">"Lost Library Book"</span>
+Copyright <span class="o">(</span>C<span class="o">)</span> 2021 The R Foundation <span class="k">for </span>Statistical Computing
+Platform: x86_64-redhat-linux-gnu <span class="o">(</span>64-bit<span class="o">)</span>
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type <span class="s1">'license()'</span> or <span class="s1">'licence()'</span> <span class="k">for </span>distribution details.
+
+  Natural language support but running <span class="k">in </span>an English locale
+
+R is a collaborative project with many contributors.
+Type <span class="s1">'contributors()'</span> <span class="k">for </span>more information and
+<span class="s1">'citation()'</span> on how to cite R or R packages <span class="k">in </span>publications.
+
+Type <span class="s1">'demo()'</span> <span class="k">for </span>some demos, <span class="s1">'help()'</span> <span class="k">for </span>on-line <span class="nb">help</span>, or
+<span class="s1">'help.start()'</span> <span class="k">for </span>an HTML browser interface to help.
+Type <span class="s1">'q()'</span> to quit R.
+
+<span class="o">&gt;</span>
 </code></pre></div></div>
-<h2 id="creating-a-maven-project">Creating a Maven project</h2>
-<h3 id="using-mvn-command-line-tool">Using <code class="language-plaintext highlighter-rouge">mvn</code> command-line tool</h3>
-<p>Use the command from the <a href="https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">Maven quick start guide</a>:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+<p>Now you can start to write in R! Let’s print <em>Hello World</em>!</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">print</span><span class="p">(</span><span class="s2">"Hello World!"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+<p>If you want to <strong>exit</strong> R, type <code class="language-plaintext highlighter-rouge">quit()</code> or press <code class="language-plaintext highlighter-rouge">Ctrl</code> + <code class="language-plaintext highlighter-rouge">D</code>, then press <code class="language-plaintext highlighter-rouge">n</code> to avoid saving the workspace.</p>
+<p>To run a program written in R, type <code class="language-plaintext highlighter-rouge">Rscript</code> followed by the path and name of the program.
+For example, for a script called <code class="language-plaintext highlighter-rouge">example.R</code> in the current path, run the following:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>Rscript example.R
 </code></pre></div></div>
-<p>The project that is created follows the <a href="http://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html">Maven Project Structure</a>. Initially you should see the <code class="language-plaintext highlighter-rouge">src</code> directory when you explore the project directory. You will also notice that your project directory has a file, the <a href="https://maven.apache.org/pom.html">pom.xml</a> in it, this is your Maven project file that defines your build, and how you will transition through the Maven build <a href="https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html">lifecycles</a>.</p>
-<p>The sample application created by the Maven archetype contains a single “Hello World” application (jar).</p>
-<p>The <code class="language-plaintext highlighter-rouge">target</code> directory will be created after the first compilation: run</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mvn compile
-</code></pre></div></div>
-<p>This directory is where your compiled artifacts, or generated outputs (from builds) are stored. Its best to think of this directory as a temp space, used to store the outputs from a build.</p>
-<h3 id="creating-a-git-repo">Creating a git repo</h3>
-<p>This project folder is not a Git repository yet. Create a git repo:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd my-app
-$ git init
-</code></pre></div></div>
-<p>If you run <code class="language-plaintext highlighter-rouge">git status</code> in the created <code class="language-plaintext highlighter-rouge">my-app</code> directory, you will see that the <code class="language-plaintext highlighter-rouge">target</code> directory is still part of your git repository. It is a best practice not to include this in your version control system, so it is recommended that you create a <a href="https://git-scm.com/docs/gitignore">gitignore</a> file, add this directory and anything under it as ignored files.</p>
-<p>A good starter <code class="language-plaintext highlighter-rouge">.gitignore</code> file for Maven projects can be found on <a href="https://github.com/github/gitignore/blob/master/Maven.gitignore">Github</a>. Download it into your repo with:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl https://raw.githubusercontent.com/github/gitignore/master/Maven.gitignore -o .gitignore
-</code></pre></div></div>
-<p>The <code class="language-plaintext highlighter-rouge">src</code> directory is the start of your source directory structure, and under this directory you will see typically see any number of <a href="http://docs.oracle.com/javase/tutorial/java/package/managingfiles.html">package directories</a> (example: <code class="language-plaintext highlighter-rouge">main</code>). If you have tests, you will find them in the <code class="language-plaintext highlighter-rouge">test</code> directory.</p>
-<!-- TODO: once content for Scala programming language is created, mention here that it's also possible to use SBT to build Java projects + link to corresponding Scala section. -->
+<h2 id="what-next">What next?</h2>
+<ul>
+  <li><a href="https://www.r-project.org/">R Project homepage</a></li>
+  <li><a href="https://cran.r-project.org/manuals.html">R Manuals</a></li>
+  <li><a href="https://r4ds.had.co.nz/">R for Data Science</a>, by Hadley Wickham.</li>
+  <li><a href="https://adv-r.hadley.nz/">Advanced R</a>, by Hadley Wickham.</li>
+</ul>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%73%66%65%72%69%63%68%38%38%38@%67%6D%61%69%6C.%63%6F%6D">Eric Rich</a>, <a href="mailto:%67%65%72%67%65%6C%79.%67%6F%6D%62%6F%73@%6C%6F%67%6D%65%69%6E.%63%6F%6D">Gergely Gombos</a>, <a href="mailto:%70%76%61%6C%65%6E%61@%72%65%64%68%61%74.%63%6F%6D">Pavel Valena</a>, <a href="mailto:%67%69%74@%6D%61%76%69%74.%6F%72%67.%75%6B">Peter Oliver</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%69%75%63%61%72@%66%65%64%6F%72%61%70%72%6F%6A%65%63%74.%6F%72%67">Iñaki Úcar</a></p>
           </div>
         </div>
       </div>

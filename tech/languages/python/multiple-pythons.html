@@ -172,21 +172,21 @@ ready for you in the repositories:</p>
   <li>CPython 3.8</li>
   <li>CPython 3.7</li>
   <li>CPython 3.6</li>
-  <li>CPython 3.5</li>
+  <li>CPython 3.5<sup>💀</sup></li>
   <li>CPython 2.7</li>
   <li>PyPy 2</li>
   <li>PyPy 3</li>
-  <li>Jython*</li>
-  <li>MicroPython*</li>
+  <li>Jython<sup>💀</sup></li>
+  <li>MicroPython</li>
 </ul>
 <p>Quite a nest, isn’t it?
 You can install them like this:</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>python3.9  <span class="c"># to get CPython 3.9</span>
 <span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>python3.8  <span class="c"># to get CPython 3.8</span>
 <span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>python3.7  <span class="c"># to get CPython 3.7</span>
-<span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>python3.6  <span class="c"># to get CPython 3.7</span>
+<span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>python3.6  <span class="c"># to get CPython 3.6</span>
 <span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>python2.7  <span class="c"># to get CPython 2.7</span>
-<span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>pypy2 pypy3 jython python3.5  <span class="c"># to get more at once</span>
+<span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>pypy2 pypy3 python3.10  <span class="c"># to get more at once</span>
 </code></pre></div></div>
 <p>After that, you can run an interactive console or your script with, let’s say,
 CPython 3.6:</p>
@@ -196,14 +196,11 @@ CPython 3.6:</p>
 Type "help", "copyright", "credits" or "license" for more information.
 </span><span class="gp">&gt;</span><span class="o">&gt;&gt;</span> 
 </code></pre></div></div>
-<p><strong>Warning:</strong> For production purposes you should use the <code class="language-plaintext highlighter-rouge">python3</code> or <code class="language-plaintext highlighter-rouge">python2</code>
-packages only. Other CPython versions might be <strong>unstable</strong> or even <strong>dangerous</strong>
+<p><strong>Warning:</strong> For production purposes you should use the <code class="language-plaintext highlighter-rouge">python3</code>
+package only. Other CPython versions might be <strong>unstable</strong> or even <strong>dangerous</strong>
 (either because they are extremely old or quite the contrary alpha/beta quality)
 and are intended solely for development.</p>
-<p><strong>*</strong> Interpreters marked with * do not work with Tox and virtualenv
-packaged in Fedora.
-For using tox, virtualenv or pip with these interpreters, see the bottom
-sections of this page.</p>
+<p><strong>*</strong> Interpreters marked with <sup>💀</sup> are to be removed in Fedora 35.</p>
 <h2 id="getting-it-and-running-it-all-with-tox">Getting it and running it all with tox</h2>
 <p><a href="https://tox.readthedocs.io/">Tox</a> is tool that helps you test your Python code
 on multiple Pythons. If you install it on Fedora via the dnf package manager,
@@ -312,6 +309,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 <span class="gp">(env)$</span><span class="w"> </span>deactivate  <span class="c"># go back to "normal"</span>
 </code></pre></div></div>
 <h3 id="jython">Jython</h3>
+<p><strong>Warning:</strong> Jython will be <a href="https://lists.fedoraproject.org/archives/list/users@lists.fedoraproject.org/thread/GCZL4Y63RPCSIHGX2KEJC5WRGTOKZVKS/">removed from Fedora in Fedora 35</a>.</p>
 <p>The versions of virtualenv and tox packages in Fedora do not support Jython,
 an interpreter that interoperates with the Java ecosystem.</p>
 <p>If you need to support it, you will need to install
@@ -349,7 +347,7 @@ install packages that support MicroPython. Run it to find out more:</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>micropython <span class="nt">-m</span> upip
 </code></pre></div></div>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%6D%69%72%6F@%68%72%6F%6E%63%6F%6B.%63%7A">Miro Hrončok</a>, <a href="mailto:%65%6E%63%75%6B%6F%75@%67%6D%61%69%6C.%63%6F%6D">Petr Viktorin</a>, <a href="mailto:%6F%70%65%6E%73%6F%75%72%63%65@%74%69%6C%6C.%6E%61%6D%65">Till Maas</a>, <a href="mailto:%76%73%74%69%6E%6E%65%72@%70%79%74%68%6F%6E.%6F%72%67">Victor Stinner</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%6D%69%72%6F@%68%72%6F%6E%63%6F%6B.%63%7A">Miro Hrončok</a>, <a href="mailto:%65%6E%63%75%6B%6F%75@%67%6D%61%69%6C.%63%6F%6D">Petr Viktorin</a>, <a href="mailto:%6F%70%65%6E%73%6F%75%72%63%65@%74%69%6C%6C.%6E%61%6D%65">Till Maas</a>, <a href="mailto:%76%73%74%69%6E%6E%65%72@%70%79%74%68%6F%6E.%6F%72%67">Victor Stinner</a>, <a href="mailto:%37%30%31%35%33%39%31%38+%6D%61%74%72%69%78%67%72%61%6D@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">matrixgram</a></p>
           </div>
         </div>
       </div>

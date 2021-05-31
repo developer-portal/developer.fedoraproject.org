@@ -164,8 +164,8 @@
 Python 3 is already pre-installed on Fedora. Let’s use it!</p>
 <h2 id="running-python">Running Python</h2>
 <ol>
-  <li>Open the <em>Terminal</em> (press <code class="language-plaintext highlighter-rouge">Alt</code> + <code class="language-plaintext highlighter-rouge">F1</code>, type <em>Terminal</em> and click on the black square icon or just press <code class="language-plaintext highlighter-rouge">Enter</code>).</li>
-  <li>To run Python 3 type <code class="language-plaintext highlighter-rouge">python3</code>. You should see something like this:</li>
+  <li>Open your <em>terminal</em>. (In GNOME, press <code class="language-plaintext highlighter-rouge">Alt</code> + <code class="language-plaintext highlighter-rouge">F1</code>, type <em>Terminal</em> and press <kbd>Enter</kbd>.)</li>
+  <li>To run Python, type <code class="language-plaintext highlighter-rouge">python</code> <kbd>Enter</kbd>. You should see something like this:</li>
 </ol>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Python</span> <span class="mf">3.9</span><span class="p">.</span><span class="mi">0</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Oct</span>  <span class="mi">6</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">)</span> 
 <span class="p">[</span><span class="n">GCC</span> <span class="mf">10.2</span><span class="p">.</span><span class="mi">1</span> <span class="mi">20201005</span> <span class="p">(</span><span class="n">Red</span> <span class="n">Hat</span> <span class="mf">10.2</span><span class="p">.</span><span class="mi">1</span><span class="o">-</span><span class="mi">5</span><span class="p">)]</span> <span class="n">on</span> <span class="n">linux</span>
@@ -176,11 +176,11 @@ Python 3 is already pre-installed on Fedora. Let’s use it!</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'Hello World!'</span><span class="p">)</span>
 </code></pre></div></div>
 <p>If you want to <strong>exit</strong> Python, press <code class="language-plaintext highlighter-rouge">Ctrl</code> + <code class="language-plaintext highlighter-rouge">D</code>.</p>
-<p>To run a program written in Python, type <code class="language-plaintext highlighter-rouge">python3</code> followed by the path and name of the program. Like this:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python3 example.py
+<p>To run a program written in Python, type <code class="language-plaintext highlighter-rouge">python</code> followed by the file name of the program. Like this:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python example.py
 </code></pre></div></div>
-<p>The command <code class="language-plaintext highlighter-rouge">python</code> (without the <code class="language-plaintext highlighter-rouge">3</code>) will also work.
-You can also use a specific version of Python, like <code class="language-plaintext highlighter-rouge">python3.9</code>, if you have that interpreter installed.
+<p>In some guides, you will see <code class="language-plaintext highlighter-rouge">python3</code> used instead of <code class="language-plaintext highlighter-rouge">python</code>. These commands are equivalent.
+You can also run a more specific version of Python, like <code class="language-plaintext highlighter-rouge">python3.9</code>, if you have that interpreter installed.
 See the <a href="https://developer.fedoraproject.org/tech/languages/python/multiple-pythons.html">Multiple Interpreters section</a> for details.</p>
 <h2 id="python-packages">Python packages</h2>
 <p>Fedora contains many popular packages for Python.
@@ -191,7 +191,7 @@ For software development or reproducible data analysis, it is better to use virt
 <p>When you work on a project, it is good to keep it inside a virtual environment. It will keep the dependencies you need in one place and you do not have to worry about different projects which need different versions of the same module.
 It also makes it easy to collaborate with people who don’t use Fedora yet.</p>
 <p>Let’s create a virtual environment called <code class="language-plaintext highlighter-rouge">project_venv</code> which will contain Python and pip. You can use pip to install a project’s dependencies.</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python3 <span class="nt">-m</span> venv project_venv
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python <span class="nt">-m</span> venv project_venv
 </code></pre></div></div>
 <p>If you want to work in the virtual environment, you have to activate it.</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">source </span>project_venv/bin/activate
@@ -209,16 +209,11 @@ As an alternative, you can create the environment with <code class="language-pla
 <h3 id="what-next">What next?</h3>
 <ul>
   <li><a href="https://www.python.org/">Python homepage</a></li>
-  <li><a href="https://docs.python.org/3/">Python 3 Documentation</a></li>
+  <li><a href="https://docs.python.org/">Python Documentation</a></li>
   <li><a href="https://docs.python.org/3/library/venv.html#module-venv">Python Documentation: venv</a></li>
 </ul>
-<h2 id="python-2">Python 2</h2>
-<p>If you are looking for the older major version of Python, Fedora also includes Python 2.7.</p>
-<ul>
-  <li><a href="https://docs.python.org/2/">Python 2 Documentation</a></li>
-</ul>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%76%69%77%6F%6C%6C@%67%6D%61%69%6C.%63%6F%6D">Avi Wollman</a>, <a href="mailto:%68%61%70%70%79%67%75%69%74%61%72@%67%6D%61%69%6C.%63%6F%6D">Jeff Donovan</a>, <a href="mailto:%77%68%79%64%6F%75%62%74@%67%6D%61%69%6C.%63%6F%6D">Jeff Smith</a>, <a href="mailto:%65%6E%63%75%6B%6F%75@%67%6D%61%69%6C.%63%6F%6D">Petr Viktorin</a>, <a href="mailto:%72%68%63%61%72%76%61%6C%68%6F@%67%6D%61%69%6C.%63%6F%6D">Rodolfo Carvalho</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%76%69%77%6F%6C%6C@%67%6D%61%69%6C.%63%6F%6D">Avi Wollman</a>, <a href="mailto:%68%61%70%70%79%67%75%69%74%61%72@%67%6D%61%69%6C.%63%6F%6D">Jeff Donovan</a>, <a href="mailto:%77%68%79%64%6F%75%62%74@%67%6D%61%69%6C.%63%6F%6D">Jeff Smith</a>, <a href="mailto:%70%76%69%6B%74%6F%72%69@%72%65%64%68%61%74.%63%6F%6D">Petr Viktorin</a>, <a href="mailto:%72%68%63%61%72%76%61%6C%68%6F@%67%6D%61%69%6C.%63%6F%6D">Rodolfo Carvalho</a></p>
           </div>
         </div>
       </div>

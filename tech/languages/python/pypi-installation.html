@@ -188,19 +188,26 @@ If you no longer need it, deactivate it and delete it with <code class="language
 <h2 id="user-specific-installation">User-specific installation</h2>
 <p>Sometimes, you don’t want to use a virtual environment.
 For example, you’re installing a tool you will use in multiple projects, but the tool is not available in Fedora repositories.
-In such cases, install with the <code class="language-plaintext highlighter-rouge">--user</code> option.
+In such cases, you might need to install <code class="language-plaintext highlighter-rouge">pip</code> if you do not already have it system-wide:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>python3-pip
+</code></pre></div></div>
+<p>Then, use pip’s <code class="language-plaintext highlighter-rouge">--user</code> option.
 For example, to install a Python implementation of <code class="language-plaintext highlighter-rouge">cowsay</code> (rather than the original Perl one available in Fedora), run:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python <span class="nt">-m</span> pip <span class="nb">install</span> <span class="nt">--user</span> cowsay
 </code></pre></div></div>
-<p>If you’re feeling lucky or impatient, you can use the shorter command <code class="language-plaintext highlighter-rouge">pip install cowsay</code>, without the <code class="language-plaintext highlighter-rouge">python -m</code>.
-Usually, this will install using the correct version of Python.</p>
+<h2 id="updating-packages">Updating packages</h2>
+<p>Since software installed using <code class="language-plaintext highlighter-rouge">pip</code> is not part of Fedora, it is your responsibility to keep it updated as needed.
+However you ran <code class="language-plaintext highlighter-rouge">pip install</code>, running it again with <code class="language-plaintext highlighter-rouge">--update</code> will update to the latest release.
+For example, to update the <code class="language-plaintext highlighter-rouge">requests</code> library:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>project_venv<span class="o">)</span> <span class="nv">$ </span>python <span class="nt">-m</span> pip <span class="nb">install</span> <span class="nt">--update</span> requests
+</code></pre></div></div>
 <h3 id="what-next">What next?</h3>
 <ul>
   <li><a href="https://pypi.python.org/">PyPI - the Python Package Index</a></li>
   <li><a href="https://docs.python.org/3/library/venv.html#module-venv">Python Documentation: venv</a></li>
 </ul>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%61%76%69%77%6F%6C%6C@%67%6D%61%69%6C.%63%6F%6D">Avi Wollman</a>, <a href="mailto:%64%6B%72%65%6A%63%69@%72%65%64%68%61%74.%63%6F%6D">Dominika Krejčí</a>, <a href="mailto:%6A%70%6F%70%65%6C%6B%61@%72%65%64%68%61%74.%63%6F%6D">Jiri Popelka</a>, <a href="mailto:%65%6E%63%75%6B%6F%75@%67%6D%61%69%6C.%63%6F%6D">Petr Viktorin</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%61%76%69%77%6F%6C%6C@%67%6D%61%69%6C.%63%6F%6D">Avi Wollman</a>, <a href="mailto:%64%6B%72%65%6A%63%69@%72%65%64%68%61%74.%63%6F%6D">Dominika Krejčí</a>, <a href="mailto:%6A%70%6F%70%65%6C%6B%61@%72%65%64%68%61%74.%63%6F%6D">Jiri Popelka</a>, <a href="mailto:%70%76%69%6B%74%6F%72%69@%72%65%64%68%61%74.%63%6F%6D">Petr Viktorin</a></p>
           </div>
         </div>
       </div>
