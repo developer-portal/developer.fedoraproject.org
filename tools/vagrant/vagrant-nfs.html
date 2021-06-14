@@ -164,10 +164,10 @@ needs to be running. If it is not, run:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install nfs-utils &amp;&amp; sudo systemctl enable nfs-server
 </code></pre></div></div>
 <p>Afterwards enable <code class="language-plaintext highlighter-rouge">nfs</code>, <code class="language-plaintext highlighter-rouge">rpc-bind</code> and <code class="language-plaintext highlighter-rouge">mountd</code> services for <code class="language-plaintext highlighter-rouge">firewalld</code>:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo firewall-cmd --permanent --add-service=nfs3 \
-    &amp;&amp; sudo firewall-cmd --permanent --add-service=nfs \
-    &amp;&amp; sudo firewall-cmd --permanent --add-service=rpc-bind \
-    &amp;&amp; sudo firewall-cmd --permanent --add-service=mountd \
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo firewall-cmd --permanent --zone=libvirt --add-service=nfs3 \
+    &amp;&amp; sudo firewall-cmd --permanent --zone=libvirt --add-service=nfs \
+    &amp;&amp; sudo firewall-cmd --permanent --zone=libvirt --add-service=rpc-bind \
+    &amp;&amp; sudo firewall-cmd --permanent --zone=libvirt --add-service=mountd \
     &amp;&amp; sudo firewall-cmd --reload
 </code></pre></div></div>
 <p>You need these services added for the zone you will run your virtual bridge
