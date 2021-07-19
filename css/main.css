@@ -310,6 +310,8 @@ div.content-content :first-child { margin-top: 0px; }
 
 div.content-content p { margin-left: 0px; color: #111; }
 
+div.content-content img { object-fit: scale-down; width: 100%; }
+
 .section-content { margin-bottom: 40px; margin-top: 10px; }
 
 .section-content h2 { color: #4d4d4d; font-size: 30px !important; padding-bottom: 0; padding-top: 30px; }

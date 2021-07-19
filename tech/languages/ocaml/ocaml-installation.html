@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Node.js &mdash; Fedora Developer Portal</title>
+  <title>OCaml &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/nodejs/nodejs.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/ocaml/ocaml-installation.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -118,9 +118,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/nodejs.png">
-          <h2>Node.js</h2>
-          <p>Open-source cross-platform server-side JavaScript runtime environment.</p>
+          <img class="img-rounded" src="/static/logo/ocaml.png">
+          <h2>OCaml</h2>
+          <p>An open source multi-paradigm programming language and toolchain.</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -135,9 +135,7 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="list-group content-menu">
-                <a href="/tech/languages/nodejs/nodejs.html" class="list-group-item  active ">Node.js</a>
-                <a href="/tech/languages/nodejs/modules.html" class="list-group-item ">Node.js modules</a>
-                <a href="/tech/languages/nodejs/SIG.html" class="list-group-item ">Node.js SIG</a>
+                <a href="/tech/languages/ocaml/ocaml-installation.html" class="list-group-item  active ">OCaml</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -147,53 +145,45 @@
 </div>
             </div>
           </div>
-          <a href="https://github.com/developer-portal/content/edit/master/tech/languages/nodejs/nodejs.md" class="btn btn-default">Edit this page</a>
-          <a href="https://github.com/developer-portal/content/issues/new?title=tech-languages:+nodejs+nodejs.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
+          <a href="https://github.com/developer-portal/content/edit/master/tech/languages/ocaml/ocaml-installation.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/issues/new?title=tech-languages:+ocaml+ocaml-installation.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h1 id="nodejs">Node.js</h1>
-<h2 id="nodejs-and-npm-installation">Node.js and npm installation</h2>
-<p>Starting from Fedora 24, npm is a part of Node.js package and does not need to be installed separately. Therefore, to install both npm and Node.js, you need to run:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install nodejs
+            <h1 id="what-is-ocaml">What is OCaml?</h1>
+<p>OCaml is an industrial-strength programming language supporting functional, imperative and object-oriented styles.</p>
+<h2 id="ocaml-installation">OCaml installation</h2>
+<p>To install the OCaml tools, type on a terminal:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>ocaml ocaml-findlib 
 </code></pre></div></div>
-<p>This will install V8 Javascript Engine, Node.js runtime and npm package manager and their dependencies. Versions present in repositories are usually current or to-be (in Rawhide) Node.js LTS releases, including npm and V8 engine that come with them.</p>
-<h3 id="alternative-versions">Alternative versions</h3>
-<p>There are alternative versions available as <a href="https://docs.fedoraproject.org/en-US/modularity/using-modules/">Fedora Modules</a>.</p>
-<p><strong>Note:</strong> Modules are available for all editions from Fedora 29, and on the Server Edition from Fedora 28.</p>
-<p>To list all available versions, run:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dnf module list
+<p>The REPL (Read-Evaluate-Print-Loop) tool (<code class="language-plaintext highlighter-rouge">ocaml</code>), the library manager ( <code class="language-plaintext highlighter-rouge">ocamlfind</code>), the bytecode compiler (<code class="language-plaintext highlighter-rouge">ocamlc</code>), and the native-code compiler binaries (<code class="language-plaintext highlighter-rouge">ocamlopt</code>) will become available on the system.</p>
+<h1 id="opam">OPAM</h1>
+<p>OPAM (<strong>O</strong>Caml <strong>Pa</strong>ckage <strong>M</strong>anager)  is a source-based package manager for OCaml. It supports multiple simultaneous compiler installations, flexible package constraints, and a Git-friendly development workflow.</p>
+<h3 id="installation">Installation</h3>
+<p>To install OPAM in your Fedora just:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>opam
 </code></pre></div></div>
-<p>And to install an alternative version, run a command similar to this:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf module install nodejs:8
+<h3 id="environment-setup">Environment setup</h3>
+<p>You can use OPAM to install and manage your OCaml environment. First, it is necessary to add the environment variables in your default shell, OPAM does it for you when you run the <code class="language-plaintext highlighter-rouge">init</code> command, and after it, you can use <code class="language-plaintext highlighter-rouge">eval</code> in your first time to load the configuration.</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>opam init
+<span class="gp">#</span><span class="w"> </span>the console will ask <span class="k">if </span>you want to really modify your ~/.bashrc <span class="o">(</span>or default<span class="o">)</span>, use <span class="s1">'y'</span> to confirm.
+<span class="gp">$</span><span class="w"> </span><span class="nb">eval</span> <span class="si">$(</span>opam <span class="nb">env</span><span class="si">)</span>
 </code></pre></div></div>
-<h3 id="managing-multiple-versions-with-nvm">Managing multiple versions with nvm</h3>
-<p><a href="https://github.com/nvm-sh/nvm#about">nvm</a> (Node Version Manager) is a bash script to manage multiple Node.js versions. nvm makes it easier to install, uninstall, and switch between different versions. Visit it’s Github page to follow the latest <a href="https://github.com/nvm-sh/nvm#installing-and-updating">installation instructions</a>.</p>
-<h2 id="yarn">Yarn</h2>
-<p><a href="https://yarnpkg.com/en/">Yarn</a> package manager is available since Fedora 29. You can install it by running:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install yarnpkg
+<p>After adding the environment variables in your default shell you can install the desired version of OCaml compiler using the <code class="language-plaintext highlighter-rouge">switch</code> command and you can load the new environment variables running <code class="language-plaintext highlighter-rouge">eval</code> soon after it.</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>opam switch create 4.12.0
+<span class="gp">$</span><span class="w"> </span><span class="nb">eval</span> <span class="si">$(</span>opam <span class="nb">env</span><span class="si">)</span>
 </code></pre></div></div>
-<p>Yarn can be used in the following manner:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ yarnpkg add request
-$ yarn add request
+<p>Now you can check if your OCaml version is the one you installed.</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>ocaml <span class="nt">-version</span>
 </code></pre></div></div>
-<h2 id="installing-npm-modules">Installing npm modules</h2>
-<p>Installing Node.js modules is covered in <a href="/tech/languages/nodejs/modules.html">Node.js modules</a>.</p>
-<h2 id="installing-global-modules">Installing Global Modules</h2>
-<p>Create a directory for global installations inside your home directory:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir ~/.npm-global
-</code></pre></div></div>
-<p>Set the new directory path for npm:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm config set prefix '~/.npm-global'
-</code></pre></div></div>
-<p>Open/create the <code class="language-plaintext highlighter-rouge">~/.profile</code> file and add the following line:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export PATH=~/.npm-global/bin:$PATH
-</code></pre></div></div>
-<p>Update your system variables with this command:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source ~/.profile
-</code></pre></div></div>
+<h2 id="references">References</h2>
+<ul>
+  <li><a href="https://ocaml.org/docs/install.html">OCaml Documentation</a></li>
+  <li><a href="https://opam.ocaml.org/doc/Manual.html">OPAM Documentation</a></li>
+  <li><a href="https://www.cs.cornell.edu/courses/cs3110/2019sp/textbook/">Functional Programming in OCaml</a></li>
+</ul>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%64%61%6D%69%61%6E%74%6F%63%7A%65%6B%70%72%69%76%61%74@%67%6D%61%69%6C.%63%6F%6D">Damian</a>, <a href="mailto:%66%6D%75%6E%69%72%64%65%76@%67%6D%61%69%6C.%63%6F%6D">Fahad Munir</a>, <a href="mailto:%70%76%61%6C%65%6E%61@%72%65%64%68%61%74.%63%6F%6D">Pavel Valena</a>, <a href="mailto:%7A%73%76%65%74%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Zuzana Svetlikova</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%33%30%38%38%30%37%32%33+%43%61%6D%69%6C%6F%74%6B@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Camilo Cunha de Azevedo</a></p>
           </div>
         </div>
       </div>
