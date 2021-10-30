@@ -165,12 +165,12 @@ TODOs
 server, server-compatible plug-ins and database connectors.</p>
 <h2 id="quick-start">Quick start</h2>
 <p>PostgreSQL installation on Fedora box and basic command-line usage:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>postgresql postgresql-server <span class="c"># install client/server</span>
-<span class="nv">$ </span><span class="nb">sudo </span>postgresql-setup initdb                  <span class="c"># initialize PG cluster</span>
-<span class="nv">$ </span><span class="nb">sudo </span>systemctl start postgresql               <span class="c"># start cluster</span>
-<span class="nv">$ </span><span class="nb">sudo </span>su - postgres                            <span class="c"># login as DB admin</span>
-<span class="nv">$ </span>createdb quick-start                          <span class="c"># create testing database</span>
-<span class="nv">$ </span>psql <span class="nt">-d</span> quick-start                           <span class="c"># connect to the new database</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>postgresql postgresql-server    <span class="c"># install client/server</span>
+<span class="nv">$ </span><span class="nb">sudo </span>postgresql-setup <span class="nt">--initdb</span> <span class="nt">--unit</span> postgresql <span class="c"># initialize PG cluster</span>
+<span class="nv">$ </span><span class="nb">sudo </span>systemctl start postgresql                  <span class="c"># start cluster</span>
+<span class="nv">$ </span><span class="nb">sudo </span>su - postgres                               <span class="c"># login as DB admin</span>
+<span class="nv">$ </span>createdb quick-start                             <span class="c"># create testing database</span>
+<span class="nv">$ </span>psql <span class="nt">-d</span> quick-start                              <span class="c"># connect to the new database</span>
 psql <span class="o">(</span>9.3.9<span class="o">)</span>
 Type <span class="s2">"help"</span> <span class="k">for </span>help.
 
@@ -285,7 +285,7 @@ page</a>.</p>
 <p>There is also a PostgreSQL image available
 <a href="https://github.com/openshift/postgresql">for OpenShift</a>.</p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%61%6E%74%6F%6E%69%6E.%6D%72%6B%76%69%63%61@%6F%75%74%6C%6F%6F%6B.%63%7A">antoninmrkvica</a>, <a href="mailto:%72%69%63%6B%79.%67%72%61%73%73%6D%75%63%6B@%67%6D%61%69%6C.%63%6F%6D">ricky grassmuck</a>, <a href="mailto:%77%66%66%67%65%72@%31%36%33.%63%6F%6D">wffger</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%73%61%6D%72%6F%62%62%69%6E%73%67%62@%67%6D%61%69%6C.%63%6F%6D">Sam Robbins</a>, <a href="mailto:%61%6E%74%6F%6E%69%6E.%6D%72%6B%76%69%63%61@%6F%75%74%6C%6F%6F%6B.%63%7A">antoninmrkvica</a>, <a href="mailto:%77%66%66%67%65%72@%31%36%33.%63%6F%6D">wffger</a></p>
           </div>
         </div>
       </div>
@@ -346,8 +346,8 @@ page</a>.</p>
               <dd><a href="https://fedoraproject.org/wiki/Communicating_and_getting_help">Get Help</a></dd>
               <dd><a href="https://ask.fedoraproject.org/">Ask Fedora</a></dd>
               <dd><a href="https://fedoraforum.org/">Forums</a></dd>
-              <dd><a href="https://fedoraproject.org/wiki/Common_F25_bugs">Common Bugs</a></dd>
-              <dd><a href="https://docs.fedoraproject.org/en-US/Fedora/25/html/Installation_Guide">Installation Guide</a></dd>
+              <dd><a href="https://fedoraproject.org/wiki/Common_F34_bugs">Common Bugs</a></dd>
+              <dd><a href="https://docs.fedoraproject.org/en-US/fedora/f34/install-guide/">Installation Guide</a></dd>
             </dl>
           </div>
         </div>

@@ -163,15 +163,15 @@ of images that you can use with Vagrant. To download an image using
 Vagrant you need to know the organization name as well as the individual
 image name. In the case of Fedora we have the <a href="https://app.vagrantup.com/fedora/">Fedora</a>
 organization and under that we have different boxes that can be used.
-An example of one of those is the <code class="language-plaintext highlighter-rouge">fedora/33-cloud-base</code> Vagrant box.
+An example of one of those is the <code class="language-plaintext highlighter-rouge">fedora/34-cloud-base</code> Vagrant box.
 You can download this box with the following command:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vagrant box add fedora/33-cloud-base
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vagrant box add fedora/34-cloud-base
 </code></pre></div></div>
 <p>This will ask you which provider you want to download the Vagrant box
 for. You can choose <code class="language-plaintext highlighter-rouge">libvirt</code> or <code class="language-plaintext highlighter-rouge">virtualbox</code> based on which one of
 those virtual machine technologies you are using.</p>
 <p>After downloading this image you can then start up a machine with:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vagrant init fedora/33-cloud-base &amp;&amp; vagrant up
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vagrant init fedora/34-cloud-base &amp;&amp; vagrant up
 </code></pre></div></div>
 <p><em>NOTE</em> you can skip the <code class="language-plaintext highlighter-rouge">vagrant box add</code> command if you want to. The
 <code class="language-plaintext highlighter-rouge">vagrant up</code> command will automatically consult Atlas for that named
@@ -179,7 +179,7 @@ box and download it if it exists.</p>
 <h1 id="upgrading-vagrant-images-from-atlas">Upgrading Vagrant images from Atlas</h1>
 <p>If you want to update the Vagrant box image at a later time you can do
 so by issuing the following command:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vagrant box update --box fedora/33-cloud-base
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vagrant box update --box fedora/34-cloud-base
 </code></pre></div></div>
 <hr id="authors-rule" />
 <p style="text-align: center">Authors: <a href="mailto:%61%6E%74%6F%6E%69%6E.%6D%72%6B%76%69%63%61@%6F%75%74%6C%6F%6F%6B.%63%7A">Antonín Mrkvica</a>, <a href="mailto:%64%75%73%74%79@%64%75%73%74%79%6D%61%62%65.%63%6F%6D">Dusty Mabe</a></p>
@@ -243,8 +243,8 @@ so by issuing the following command:</p>
               <dd><a href="https://fedoraproject.org/wiki/Communicating_and_getting_help">Get Help</a></dd>
               <dd><a href="https://ask.fedoraproject.org/">Ask Fedora</a></dd>
               <dd><a href="https://fedoraforum.org/">Forums</a></dd>
-              <dd><a href="https://fedoraproject.org/wiki/Common_F25_bugs">Common Bugs</a></dd>
-              <dd><a href="https://docs.fedoraproject.org/en-US/Fedora/25/html/Installation_Guide">Installation Guide</a></dd>
+              <dd><a href="https://fedoraproject.org/wiki/Common_F34_bugs">Common Bugs</a></dd>
+              <dd><a href="https://docs.fedoraproject.org/en-US/fedora/f34/install-guide/">Installation Guide</a></dd>
             </dl>
           </div>
         </div>

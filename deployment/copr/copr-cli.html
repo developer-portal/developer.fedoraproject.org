@@ -165,16 +165,16 @@
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vim ~/.config/copr
 </code></pre></div></div>
 <h2 id="creating-a-new-project">Creating a new project</h2>
-<p>To create a new project called <code class="language-plaintext highlighter-rouge">test-project</code>, which would provide packages for Fedora 33, type:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli create --chroot fedora-33-i386 --chroot fedora-33-x86_64 test-project
+<p>To create a new project called <code class="language-plaintext highlighter-rouge">test-project</code>, which would provide packages for Fedora 34, type:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli create --chroot fedora-34-i386 --chroot fedora-34-x86_64 test-project
 </code></pre></div></div>
 <h2 id="submitting-a-build">Submitting a build</h2>
 <p>There are curently two ways of getting your SRPM(s) into Copr:</p>
 <p>A. Building from URL:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli build test-project http://www.example.com/package-1.6-1.fc33.src.rpm
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli build test-project http://www.example.com/package-1.6-1.fc34.src.rpm
 </code></pre></div></div>
 <p>B. Uploading them into Copr directly:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli build test-project ~/packages/package-1.6-1.fc33.src.rpm
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli build test-project ~/packages/package-1.6-1.fc34.src.rpm
 </code></pre></div></div>
 <p>The command line tool will now monitor your build and keeps you updated about any changes and results. You can safely interrupt it with <code class="language-plaintext highlighter-rouge">ctrl+c</code> at any time. The build will continue running.</p>
 <h2 id="adding-a-repository-and-installing-the-package">Adding a repository and installing the package</h2>
@@ -256,8 +256,8 @@
               <dd><a href="https://fedoraproject.org/wiki/Communicating_and_getting_help">Get Help</a></dd>
               <dd><a href="https://ask.fedoraproject.org/">Ask Fedora</a></dd>
               <dd><a href="https://fedoraforum.org/">Forums</a></dd>
-              <dd><a href="https://fedoraproject.org/wiki/Common_F25_bugs">Common Bugs</a></dd>
-              <dd><a href="https://docs.fedoraproject.org/en-US/Fedora/25/html/Installation_Guide">Installation Guide</a></dd>
+              <dd><a href="https://fedoraproject.org/wiki/Common_F34_bugs">Common Bugs</a></dd>
+              <dd><a href="https://docs.fedoraproject.org/en-US/fedora/f34/install-guide/">Installation Guide</a></dd>
             </dl>
           </div>
         </div>
