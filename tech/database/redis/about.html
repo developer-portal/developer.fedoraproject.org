@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Get tools &mdash; Fedora Developer Portal</title>
+  <title>Redis &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="https://developer.fedoraproject.org/tools.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/database/redis/about.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -24,7 +24,7 @@
 </head>
   <body>
         <!-- The top blue thing -->
-    <div id="splash" class="splash-size-small splash-section-tools">
+    <div id="splash" class="splash-size-small splash-section-tech">
       <div class="container">
         <div class="row" id="top">
   <div class="col-sm-2" id="logo-col">
@@ -43,10 +43,10 @@
     <li class="">
       <a href="/start.html">Start a project</a>
     </li>
-    <li class=" active ">
+    <li class="">
       <a href="/tools.html">Get tools</a>
     </li>
-    <li class="">
+    <li class=" active ">
       <a href="/tech.html">Languages &amp; databases</a>
     </li>
     <li class="">
@@ -118,8 +118,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-  <h2>Get tools</h2>
-  <p>Prepare your environment with DevAssistant. Collaborate with Docker, Vagrant and Virt-builder. Handle and debug crashes with ABRT.</p>
+          <img class="img-rounded" src="/static/logo/redis.png">
+          <h2>Redis</h2>
+          <p>In-memory data structure store, used as a database, cache and message broker</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -131,126 +132,53 @@
     </div>
     <!-- Content -->
     <div class="container">
-      <div class="section-content">
-        <div class="row">
-  <div class="col-sm-12">
-    <h2> Development Tools Overview </h2>
-  </div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/abrt/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/abrt.png">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="list-group content-menu">
+                <a href="/tech/database/redis/about.html" class="list-group-item  active ">Redis</a>
           </div>
-          <div class="media-body">
-            <h3>
-              ABRT
-            </h3>
-            <p>Handle crashes of your applications automatically and debug with ease!</p>
+          <div class="panel panel-default">
+            <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
+              <div id="ask-fedora">
+  Have a question?
+    <a href="//ask.fedoraproject.org/">Ask Fedora.</a>
+</div>
+            </div>
+          </div>
+          <a href="https://github.com/developer-portal/content/edit/master/tech/database/redis/about.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/issues/new?title=tech-database:+redis+about.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
+        </div>
+        <div class="col-sm-9">
+          <div class="panel panel-default content-content">
+            <h1 id="redis">Redis</h1>
+<p>Redis is a free and open source in memory data structure store. It is widely used as a database, in memory cache or a message broker.</p>
+<h2 id="quick-start">Quick start</h2>
+<p>To install Redis on Fedora, run the following commands:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>redis     <span class="c"># Install redis cli and server</span>
+<span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>systemctl start redis <span class="c"># Initialize redis server</span>
+</code></pre></div></div>
+<p>To start redis on boot, run</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>systemctl <span class="nb">enable </span>redis
+</code></pre></div></div>
+<p>To test redis-cli, run</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>redis-cli ping
+<span class="go">pong
+</span></code></pre></div></div>
+<h2 id="configuring-redis">Configuring Redis</h2>
+<p>The config file for Redis is located at <code class="language-plaintext highlighter-rouge">/etc/redis/redis.conf</code>.</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>nano /etc/redis/redis.conf
+</code></pre></div></div>
+<p>Redis should be always restarted after changing settings. Restart redis by running</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>systemctl restart redis
+</code></pre></div></div>
+<p>Secure redis by enabling authentication. Add this line in <code class="language-plaintext highlighter-rouge">/etc/redis/redis.conf</code></p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">requirepass  &lt;AuthPassword&gt;</span><span class="w">
+</span></code></pre></div></div>
+<p>and after the Redis server restarts, all clients must execute <code class="language-plaintext highlighter-rouge">AUTH &lt;AuthPassword&gt;</code> to be able to execute commands in Redis.</p>
+<hr id="authors-rule" />
+<p style="text-align: center">Authors: <a href="mailto:%62%68%61%72%61%74%6B%61%6C%6C%75%72%69@%70%72%6F%74%6F%6E%6D%61%69%6C.%63%6F%6D">Bharat</a></p>
           </div>
         </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/docker/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/docker.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Docker
-            </h3>
-            <p>Platform for distributed applications.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/eclipse/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/eclipse.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Eclipse
-            </h3>
-            <p>Full featured development environment for various programming languages integrating with plethora of different tools to make development process as integrated as possible</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/vagrant/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/vagrant.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Vagrant
-            </h3>
-            <p>Create reproducible and portable development environments that can be easily shared in your team.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/virt-builder/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/virt-builder.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Virt-builder
-            </h3>
-            <p>Tool to quickly build (and customize) virtual machine images</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/virtualization/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/virtualization.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Virtualization
-            </h3>
-            <p>Run virtual machines at near-native speeds and manage them at ease</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-</div>
       </div>
     </div>
     <!-- Some other stuff -->

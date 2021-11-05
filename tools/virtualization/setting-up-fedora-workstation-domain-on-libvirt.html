@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Setting up Fedora Workstation domain on libvirt &mdash; Fedora Developer Portal</title>
+  <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
+">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tools/virtualization/setting-up-fedora-workstation-domain-on-libvirt.html">
+  <!-- Link to Sitemap -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <link href="/css/main.css" rel="stylesheet" media="screen, print">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-69605821-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+  <body>
+        <!-- The top blue thing -->
+    <div id="splash" class="splash-size-small splash-section-tools">
+      <div class="container">
+        <div class="row" id="top">
+  <div class="col-sm-2" id="logo-col">
+    <div class="text-center">
+      <h1>
+        <a href="/">
+          <img src="/static/logo_white.png" style="height: 46px; width: 152px;">
+          <span>Fedora Developer Portal</span>
+        </a>
+      </h1>
+    </div>
+  </div>
+  <div class="col-sm-7" id="menu-col">
+    <nav>
+  <ul class="nav navbar-nav">
+    <li class="">
+      <a href="/start.html">Start a project</a>
+    </li>
+    <li class=" active ">
+      <a href="/tools.html">Get tools</a>
+    </li>
+    <li class="">
+      <a href="/tech.html">Languages &amp; databases</a>
+    </li>
+    <li class="">
+      <a href="/deployment.html">Deploy and distribute</a>
+    </li>
+    <!--
+    <li class="">
+      <a href="/">Resources</a>
+    </li>
+    <li class="">
+      <a href="/">Blogs</a>
+    </li>
+    -->
+  </ul>
+</nav>
+  </div>
+  <div class="col-sm-3" id="search-col" style="display: none;">
+<!-- // every other page -->
+<style media="screen, print">
+#search-results {
+  position: absolute;
+  top: 44px;
+  right: 15px;
+  z-index: 10;
+  width: 288px;
+  max-height: 260px;
+  overflow-y: scroll;
+  padding: 0 10px 0 10px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+#search-results a {
+  color: #000;
+  text-decoration: none;
+}
+#search-results a:visited {
+  color: #000;
+}
+#search-results article, a {
+  width: 100%;
+}
+#search-results a {
+  display: block;
+}
+#search-results article:hover {
+  background-color: #e6e6e6;
+}
+</style>
+  <form class="input-group" id="search" action="/search.html" method="get">
+    <input type="text" id="search-query" class="form-control" name="q" placeholder="Search" autocomplete="off">
+    <span class="input-group-btn">
+      <button class="btn btn-default glyphicon glyphicon-search" type="submit" aria-hidden="true"></button>
+    </span>
+  </form>
+  <section id="search-results" style="display: none;">
+    <div class="entries">
+    </div>
+  </section>
+  <script id="search-results-template" type="text/mustache">
+    {{#entries}}
+      <article>
+        <a href="{{url}}">{{title}}</a>
+      </article>
+    {{/entries}}
+  </script>
+  </div>
+</div>
+        <div class="row" id="headlines">
+  <div class="col-sm-12">
+          <img class="img-rounded" src="/static/logo/virtualization.png">
+          <h2>Virtualization</h2>
+          <p>Run virtual machines at near-native speeds and manage them at ease</p>
+  </div>
+</div>
+<div class="row" id="attribution">
+  <div class="col-sm-12">
+    <a href=""></a>
+  </div>
+</div>
+      </div>
+    </div>
+    <!-- Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="list-group content-menu">
+                <a href="/tools/virtualization/about.html" class="list-group-item ">Virtualization</a>
+                <a href="/tools/virtualization/installing-qemu-on-fedora-linux.html" class="list-group-item ">Installing QEMU on Fedora Linux</a>
+                <a href="/tools/virtualization/fetching-ovmf-uefi-from-the-correct-source.html" class="list-group-item ">Fetching OVMF UEFI from the correct source</a>
+                <a href="/tools/virtualization/installing-libvirt-and-virt-install-on-fedora-linux.html" class="list-group-item ">Installing libvirt and virt-install on Fedora Linux</a>
+                <a href="/tools/virtualization/setting-up-fedora-workstation-vm-on-qemu-using-bios.html" class="list-group-item ">Setting up Fedora Workstation VM on QEMU using BIOS</a>
+                <a href="/tools/virtualization/setting-up-fedora-workstation-vm-on-qemu-using-uefi.html" class="list-group-item ">Setting up Fedora Workstation VM on QEMU using UEFI</a>
+                <a href="/tools/virtualization/setting-up-intrinsic-vnc-server-with-vms.html" class="list-group-item ">Setting up intrinsic VNC server with VMs</a>
+                <a href="/tools/virtualization/setting-viewport-resolution-using-ovmf-bios.html" class="list-group-item ">Setting viewport resolution using OVMF BIOS</a>
+                <a href="/tools/virtualization/setting-up-fedora-workstation-domain-on-libvirt.html" class="list-group-item  active ">Setting up Fedora Workstation domain on libvirt</a>
+                <a href="/tools/virtualization/sharing-memory-chunk-as-video-memory-in-qemu.html" class="list-group-item ">Sharing a chunk of memory as video memory in QEMU</a>
+                <a href="/tools/virtualization/mapping-a-virtualised-guest-port-to-a-host-port.html" class="list-group-item ">Mapping a virtualized guest port to a host port</a>
+                <a href="/tools/virtualization/playing-around-with-various-vga-providers.html" class="list-group-item ">Playing around with various VGA providers</a>
+                <a href="/tools/virtualization/offloading-domain-tty-output-to-console-with-custom-kernel-initramfs-images.html" class="list-group-item ">Offloading domain TTY output to console with custom kernel/initramfs images</a>
+                <a href="/tools/virtualization/offloading-domain-tty-output-to-console-with-original-kernel-initramfs-images.html" class="list-group-item ">Offloading domain TTY output to console with original kernel/initramfs images</a>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
+              <div id="ask-fedora">
+  Have a question?
+    <a href="//ask.fedoraproject.org/">Ask Fedora.</a>
+</div>
+            </div>
+          </div>
+          <a href="https://github.com/developer-portal/content/edit/master/tools/virtualization/setting-up-fedora-workstation-domain-on-libvirt.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/issues/new?title=:+virtualization+setting-up-fedora-workstation-domain-on-libvirt.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
+        </div>
+        <div class="col-sm-9">
+          <div class="panel panel-default content-content">
+            <h1 id="setting-up-fedora-workstation-domain-on-libvirt">Setting up Fedora Workstation domain on libvirt</h1>
+<ol>
+  <li>Download the Fedora Workstation ISO file from website and store it in a reference directory <code class="language-plaintext highlighter-rouge">cdromimg</code>.
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://getfedora.org
+</code></pre></div>    </div>
+  </li>
+  <li>Create a virtual disk image of type <code class="language-plaintext highlighter-rouge">16GB</code> and of format <code class="language-plaintext highlighter-rouge">RAW</code> in a reference directory <code class="language-plaintext highlighter-rouge">datadrct</code> by executing the following command.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>qemu-img create <span class="nt">-f</span> raw datadrct/fedovirt.raw 16G
+</code></pre></div>    </div>
+  </li>
+  <li>Invoke virt-install session for installing Fedora Workstation using BIOS on the virtual disk image by executing the following command on the host.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>virt-install <span class="se">\</span>
+    <span class="nt">--virt-type</span> kvm <span class="se">\</span>
+    <span class="nt">--name</span> fedoraXX-mstr <span class="se">\</span>
+    <span class="nt">--memory</span> 4096 <span class="se">\</span>
+    <span class="nt">--vcpus</span> 8 <span class="se">\</span>
+    <span class="nt">--cdrom</span> cdromimg/Fedora-Workstation-Live-x86_64-xx-y.z.iso <span class="se">\</span>
+    <span class="nt">--disk</span> datadrct/fedoraXX/fedoraXX-mstr.raw <span class="se">\</span>
+    <span class="nt">--graphics</span> vnc,listen<span class="o">=</span>0.0.0.0,port<span class="o">=</span>5920 <span class="se">\</span>
+    <span class="nt">--network</span> default,mac<span class="o">=</span>00:00:00:00:03:00 <span class="se">\</span>
+    <span class="nt">--noautoconsole</span> <span class="se">\</span>
+</code></pre></div>    </div>
+    <p>OR<br />
+Invoke virt-install session for installing Fedora Workstation using UEFI on the virtual disk image by executing the following command on the host.</p>
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>virt-install <span class="se">\</span>
+    <span class="nt">--virt-type</span> kvm <span class="se">\</span>
+    <span class="nt">--name</span> fedoraXX-mstr <span class="se">\</span>
+    <span class="nt">--memory</span> 4096 <span class="se">\</span>
+    <span class="nt">--vcpus</span> 8 <span class="se">\</span>
+    <span class="nt">--cdrom</span> cdromimg/Fedora-Workstation-Live-x86_64-xx-y.z.iso <span class="se">\</span>
+    <span class="nt">--disk</span> datadrct/fedoraXX/fedoraXX-mstr.raw <span class="se">\</span>
+    <span class="nt">--graphics</span> vnc,listen<span class="o">=</span>0.0.0.0,port<span class="o">=</span>5920 <span class="se">\</span>
+    <span class="nt">--network</span> default,mac<span class="o">=</span>00:00:00:00:03:00 <span class="se">\</span>
+    <span class="nt">--noautoconsole</span> <span class="se">\</span>
+    <span class="nt">--boot</span> uefi
+</code></pre></div>    </div>
+    <p>The following is an example output for the above command.</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Starting install...
+   
+Domain is still running. Installation may be in progress.
+You can reconnect to the console to complete the installation process.
+</code></pre></div>    </div>
+  </li>
+  <li>Execute the following command on the host to list currently defined domains. The <code class="language-plaintext highlighter-rouge">--all</code> flag lists all domains - even if they are running or not.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>virsh list <span class="nt">--all</span>
+<span class="go"> Id   Name            State
+-------------------------------
+ 1    fedoraXX-mstr   running
+</span></code></pre></div>    </div>
+  </li>
+  <li>Visit https://www.realvnc.com/en/connect/download/viewer/ in an internet browser of choice, download and install the VNC viewer application either on the host device or another device in the same network.</li>
+  <li>Switch to the VNC Viewer window and type in <code class="language-plaintext highlighter-rouge">0.0.0.0:5920</code> from the host device (or <code class="language-plaintext highlighter-rouge">&lt;ip-address-of-host-device&gt;:5920</code> if accessed from another device in the same network) to continue installing.</li>
+  <li>A greeting window would open up inside the VNC Viewer, providing with two options - Either to <code class="language-plaintext highlighter-rouge">Try Fedora</code> or <code class="language-plaintext highlighter-rouge">Install to Hard Drive</code>.<br />
+<img src="/content/tools/virtualization/images/setting-up-fedora-workstation-domain-on-libvirt/01.png" alt="01" /></li>
+  <li>Now, follow either the instructions <a href="/tools/virtualization/setting-up-fedora-workstation-vm-on-qemu-using-bios.html"><strong>Setting up Fedora Workstation VM on QEMU using BIOS</strong></a> guide if BIOS is being used or <a href="/tools/virtualization/setting-up-fedora-workstation-vm-on-qemu-using-uefi.html"><strong>Setting up Fedora Workstation VM on QEMU using UEFI</strong></a> guide if UEFI is being used to complete the installation.</li>
+  <li>Once the installation is completed, power off the domain. It would show up like the following when listed on the host.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>virsh list <span class="nt">--all</span>
+<span class="go"> Id   Name            State
+-------------------------------
+ 1    fedoraXX-mstr   shut off
+</span></code></pre></div>    </div>
+  </li>
+  <li>It can be started up again by executing the following command on the host.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>virsh start fedoraXX-mstr
+<span class="go">Domain 'fedoraXX-mstr' started
+</span></code></pre></div>    </div>
+    <p>Switch to the VNC Viewer window and type in <code class="language-plaintext highlighter-rouge">0.0.0.0:5920</code> from the host device (or <code class="language-plaintext highlighter-rouge">&lt;ip-address-of-host-device&gt;:5920</code> if accessed from another device in the same network) to continue using the domain.</p>
+  </li>
+  <li>To power off a domain externally, simply execute the following command from the host.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>virsh shutdown fedoraXX-mstr
+<span class="go">Domain 'fedoraXX-mstr' is being shutdown
+</span></code></pre></div>    </div>
+  </li>
+  <li>If the domain has become unresponsive to the shutdown command, it can be forcibly turned off by executing the following command from the host.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>virsh destroy fedoraXX-mstr
+<span class="go">Domain 'fedora34-mstr' destroyed
+</span></code></pre></div>    </div>
+  </li>
+  <li>If the domain is no longer required, it can be unlisted by executing the following command from the host.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>virsh undefine fedoraXX-mstr
+<span class="go">Domain 'fedora34-mstr' has been undefined
+</span></code></pre></div>    </div>
+    <p>Note that this would not remove the virtual disk image, the installation sources and other related elements for the domain and they must be removed manually.</p>
+  </li>
+  <li>To edit the configuration of the domain, execute the following command from the host.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>virsh edit fedoraXX-mstr
+</code></pre></div>    </div>
+    <p>This would open up the domain’s XML configuration specification in the default text editor of the host. Follow https://libvirt.org/formatdomain.html to learn more about it.</p>
+  </li>
+</ol>
+<hr id="authors-rule" />
+<p style="text-align: center">Authors: <a href="mailto:%61%6B%61%73%68%64%65%65%70.%64%68%61%72@%67%6D%61%69%6C.%63%6F%6D">Akashdeep Dhar</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Some other stuff -->
+    <div class=" banner-contribute">
+  <div class="container">
+    <h2> Share your knowledge </h2>
+    <p> Fedora Developer Portal is a community effort to share guides and information about open-source development. And we need your help! </p>
+    <a href="http://developer-portal.github.io/contributing/" class="btn btn-primary">Learn how to contribute</a>
+  </div>
+</div>
+    <footer class="footer">
+  <div class="container">
+    <div class="row footerlinks">
+      <div class="col-sm-3 col-xs-6 widget">
+        <h3 class="widget-title">About</h3>
+        <div class="widget-body">
+          <dl>
+            <dd><a href="/about.html">About Developer Portal</a></dd>
+            <dd><a href="https://docs.fedoraproject.org/en-US/project/">About Fedora</a></dd>
+            <dd><a href="https://getfedora.org/en/sponsors">Sponsors</a></dd>
+            <dd><a href="https://fedoramagazine.org">Fedora Magazine</a></dd>
+            <dd><a href="https://fedoraproject.org/wiki/Legal:Main#Legal">Legal</a></dd>
+          </dl>
+          <ul class="list-inline">
+            <li>
+              <a class="btn-social btn-outline" href="https://www.facebook.com/TheFedoraProject"><i class="fa fa-fw fa-facebook"></i></a>
+            </li>
+            <li>
+              <a class="btn-social btn-outline" href="https://plus.google.com/112917221531140868607"><i class="fa fa-fw fa-google-plus"></i></a>
+            </li>
+            <li>
+              <a class="btn-social btn-outline" href="https://twitter.com/fedora"><i class="fa fa-fw fa-twitter"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6 widget">
+        <h3 class="widget-title uppercase">Download</h3>
+        <div class="widget-body">
+          <dl>
+            <dd><a href="https://getfedora.org/en/workstation/download/">Get Fedora Workstation</a></dd>
+            <dd><a href="https://getfedora.org/en/server/download/">Get Fedora Server</a></dd>
+            <dd><a href="https://getfedora.org/en/atomic/download/">Get Fedora Atomic</a></dd>
+            <dd><a href="https://alt.fedoraproject.org/en/cloud/">Get Fedora Cloud</a></dd>
+            <dd><a href="https://spins.fedoraproject.org">Fedora Spins</a></dd>
+            <dd><a href="https://labs.fedoraproject.org">Fedora Labs</a></dd>
+            <dd><a href="https://arm.fedoraproject.org">Fedora ARM<span class="sup">&reg;</span></a></dd>
+            <dd><a href="https://alt.fedoraproject.org/">Alternative Downloads</a></dd>
+          </dl>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6 widget">
+        <h3 class="widget-title">Support</h3>
+          <div class="widget-body">
+            <dl>
+              <dd><a href="https://fedoraproject.org/wiki/Communicating_and_getting_help">Get Help</a></dd>
+              <dd><a href="https://ask.fedoraproject.org/">Ask Fedora</a></dd>
+              <dd><a href="https://fedoraforum.org/">Forums</a></dd>
+              <dd><a href="https://fedoraproject.org/wiki/Common_F34_bugs">Common Bugs</a></dd>
+              <dd><a href="https://docs.fedoraproject.org/en-US/fedora/f34/install-guide/">Installation Guide</a></dd>
+            </dl>
+          </div>
+        </div>
+        <div class="col-sm-3 col-xs-6 widget">
+          <h3 class="widget-title">Join</h3>
+            <div class="widget-body">
+            <dl>
+              <dd><a href="https://fedoraproject.org/wiki/Join">Join Fedora</a></dd>
+              <dd><a href="http://fedoraplanet.org">Planet Fedora</a></dd>
+              <dd><a href="https://fedoraproject.org/wiki/SIGs">Fedora SIGs</a></dd>
+              <dd><a href="https://admin.fedoraproject.org/accounts/">Fedora Account System</a></dd>
+              <dd><a href="https://fedoracommunity.org/">Fedora Community</a></dd>
+            </dl>
+          </div>
+        </div>
+      </div> <!-- /row of widgets -->
+      <div class="row">
+        <div class="col-md-2">
+          <div class="widget-body">
+            <a href="https://www.redhat.com/"><img alt="Red Hat Logo" src="/static/logo/redhat.png" class="rh-logo"></a>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="widget-body">
+            <p class="sponsor">Fedora is sponsored by Red Hat.</p>
+            <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
+          </div>
+        </div>
+        <!-- /row of widgets -->
+      </div>
+</footer>
+  </body>
+</html>

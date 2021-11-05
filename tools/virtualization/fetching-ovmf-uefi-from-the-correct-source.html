@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Get tools &mdash; Fedora Developer Portal</title>
+  <title>Fetching OVMF UEFI from the correct source &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="https://developer.fedoraproject.org/tools.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tools/virtualization/fetching-ovmf-uefi-from-the-correct-source.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -118,8 +118,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-  <h2>Get tools</h2>
-  <p>Prepare your environment with DevAssistant. Collaborate with Docker, Vagrant and Virt-builder. Handle and debug crashes with ABRT.</p>
+          <img class="img-rounded" src="/static/logo/virtualization.png">
+          <h2>Virtualization</h2>
+          <p>Run virtual machines at near-native speeds and manage them at ease</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -131,126 +132,73 @@
     </div>
     <!-- Content -->
     <div class="container">
-      <div class="section-content">
-        <div class="row">
-  <div class="col-sm-12">
-    <h2> Development Tools Overview </h2>
-  </div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/abrt/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/abrt.png">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="list-group content-menu">
+                <a href="/tools/virtualization/about.html" class="list-group-item ">Virtualization</a>
+                <a href="/tools/virtualization/installing-qemu-on-fedora-linux.html" class="list-group-item ">Installing QEMU on Fedora Linux</a>
+                <a href="/tools/virtualization/fetching-ovmf-uefi-from-the-correct-source.html" class="list-group-item  active ">Fetching OVMF UEFI from the correct source</a>
+                <a href="/tools/virtualization/installing-libvirt-and-virt-install-on-fedora-linux.html" class="list-group-item ">Installing libvirt and virt-install on Fedora Linux</a>
+                <a href="/tools/virtualization/setting-up-fedora-workstation-vm-on-qemu-using-bios.html" class="list-group-item ">Setting up Fedora Workstation VM on QEMU using BIOS</a>
+                <a href="/tools/virtualization/setting-up-fedora-workstation-vm-on-qemu-using-uefi.html" class="list-group-item ">Setting up Fedora Workstation VM on QEMU using UEFI</a>
+                <a href="/tools/virtualization/setting-up-intrinsic-vnc-server-with-vms.html" class="list-group-item ">Setting up intrinsic VNC server with VMs</a>
+                <a href="/tools/virtualization/setting-viewport-resolution-using-ovmf-bios.html" class="list-group-item ">Setting viewport resolution using OVMF BIOS</a>
+                <a href="/tools/virtualization/setting-up-fedora-workstation-domain-on-libvirt.html" class="list-group-item ">Setting up Fedora Workstation domain on libvirt</a>
+                <a href="/tools/virtualization/sharing-memory-chunk-as-video-memory-in-qemu.html" class="list-group-item ">Sharing a chunk of memory as video memory in QEMU</a>
+                <a href="/tools/virtualization/mapping-a-virtualised-guest-port-to-a-host-port.html" class="list-group-item ">Mapping a virtualized guest port to a host port</a>
+                <a href="/tools/virtualization/playing-around-with-various-vga-providers.html" class="list-group-item ">Playing around with various VGA providers</a>
+                <a href="/tools/virtualization/offloading-domain-tty-output-to-console-with-custom-kernel-initramfs-images.html" class="list-group-item ">Offloading domain TTY output to console with custom kernel/initramfs images</a>
+                <a href="/tools/virtualization/offloading-domain-tty-output-to-console-with-original-kernel-initramfs-images.html" class="list-group-item ">Offloading domain TTY output to console with original kernel/initramfs images</a>
           </div>
-          <div class="media-body">
-            <h3>
-              ABRT
-            </h3>
-            <p>Handle crashes of your applications automatically and debug with ease!</p>
+          <div class="panel panel-default">
+            <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
+              <div id="ask-fedora">
+  Have a question?
+    <a href="//ask.fedoraproject.org/">Ask Fedora.</a>
+</div>
+            </div>
+          </div>
+          <a href="https://github.com/developer-portal/content/edit/master/tools/virtualization/fetching-ovmf-uefi-from-the-correct-source.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/issues/new?title=:+virtualization+fetching-ovmf-uefi-from-the-correct-source.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
+        </div>
+        <div class="col-sm-9">
+          <div class="panel panel-default content-content">
+            <h1 id="fetching-ovmf-uefi-from-the-correct-source">Fetching OVMF UEFI from the correct source</h1>
+<ol>
+  <li>On the host device, execute either of the following commands to install OVMF, if not already installed.
+    <ol>
+      <li><strong>Stable builds from Fedora repos</strong><br />
+Since June 2016, OVMF is available in the default Fedora repositories as a part of the <code class="language-plaintext highlighter-rouge">edk2-ovmf</code> package. It would most likely be installed already on a default Fedora installation and the package also includes the firmware for secureboot.
+        <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>edk2-ovmf <span class="nt">-y</span>
+</code></pre></div>        </div>
+      </li>
+      <li><strong>Nightly builds from custom repo</strong><br />
+The nightly builds of OVMF can be found in a custom repository maintained by Gerd Hoffmann on his personal site where a collection of QEMU/KVM firmware, including EDK2/OVMF can be found. Due to their experimental nature, these builds can be occasionally broken.
+        <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>dnf-plugins-core
+<span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf config-manager <span class="nt">--add-repo</span> http://www.kraxel.org/repos/firmware.repo
+<span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>edk2.git-ovmf-x64
+</code></pre></div>        </div>
+      </li>
+    </ol>
+  </li>
+  <li>Navigate to the following directory where the OVMF assets are installed.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">cd</span> /usr/share/edk2/ovmf
+<span class="gp">$</span><span class="w"> </span><span class="nb">ls</span>
+<span class="go">EnrollDefaultKeys.efi
+OVMF_CODE.fd
+OVMF_CODE.secboot.fd
+OVMF_VARS.fd
+OVMF_VARS.secboot.fd
+Shell.efi
+UefiShell.iso
+</span></code></pre></div>    </div>
+  </li>
+  <li>Assets from this folder would be continually referred to in the dealings with QEMU.</li>
+</ol>
+<hr id="authors-rule" />
+<p style="text-align: center">Authors: <a href="mailto:%61%6B%61%73%68%64%65%65%70.%64%68%61%72@%67%6D%61%69%6C.%63%6F%6D">Akashdeep Dhar</a></p>
           </div>
         </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/docker/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/docker.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Docker
-            </h3>
-            <p>Platform for distributed applications.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/eclipse/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/eclipse.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Eclipse
-            </h3>
-            <p>Full featured development environment for various programming languages integrating with plethora of different tools to make development process as integrated as possible</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/vagrant/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/vagrant.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Vagrant
-            </h3>
-            <p>Create reproducible and portable development environments that can be easily shared in your team.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/virt-builder/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/virt-builder.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Virt-builder
-            </h3>
-            <p>Tool to quickly build (and customize) virtual machine images</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/virtualization/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/virtualization.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Virtualization
-            </h3>
-            <p>Run virtual machines at near-native speeds and manage them at ease</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-</div>
       </div>
     </div>
     <!-- Some other stuff -->

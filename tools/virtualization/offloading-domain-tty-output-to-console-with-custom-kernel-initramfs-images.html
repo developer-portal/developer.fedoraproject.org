@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Offloading domain TTY output to console with custom kernel/initramfs images &mdash; Fedora Developer Portal</title>
+  <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
+">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tools/virtualization/offloading-domain-tty-output-to-console-with-custom-kernel-initramfs-images.html">
+  <!-- Link to Sitemap -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <link href="/css/main.css" rel="stylesheet" media="screen, print">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-69605821-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+  <body>
+        <!-- The top blue thing -->
+    <div id="splash" class="splash-size-small splash-section-tools">
+      <div class="container">
+        <div class="row" id="top">
+  <div class="col-sm-2" id="logo-col">
+    <div class="text-center">
+      <h1>
+        <a href="/">
+          <img src="/static/logo_white.png" style="height: 46px; width: 152px;">
+          <span>Fedora Developer Portal</span>
+        </a>
+      </h1>
+    </div>
+  </div>
+  <div class="col-sm-7" id="menu-col">
+    <nav>
+  <ul class="nav navbar-nav">
+    <li class="">
+      <a href="/start.html">Start a project</a>
+    </li>
+    <li class=" active ">
+      <a href="/tools.html">Get tools</a>
+    </li>
+    <li class="">
+      <a href="/tech.html">Languages &amp; databases</a>
+    </li>
+    <li class="">
+      <a href="/deployment.html">Deploy and distribute</a>
+    </li>
+    <!--
+    <li class="">
+      <a href="/">Resources</a>
+    </li>
+    <li class="">
+      <a href="/">Blogs</a>
+    </li>
+    -->
+  </ul>
+</nav>
+  </div>
+  <div class="col-sm-3" id="search-col" style="display: none;">
+<!-- // every other page -->
+<style media="screen, print">
+#search-results {
+  position: absolute;
+  top: 44px;
+  right: 15px;
+  z-index: 10;
+  width: 288px;
+  max-height: 260px;
+  overflow-y: scroll;
+  padding: 0 10px 0 10px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+#search-results a {
+  color: #000;
+  text-decoration: none;
+}
+#search-results a:visited {
+  color: #000;
+}
+#search-results article, a {
+  width: 100%;
+}
+#search-results a {
+  display: block;
+}
+#search-results article:hover {
+  background-color: #e6e6e6;
+}
+</style>
+  <form class="input-group" id="search" action="/search.html" method="get">
+    <input type="text" id="search-query" class="form-control" name="q" placeholder="Search" autocomplete="off">
+    <span class="input-group-btn">
+      <button class="btn btn-default glyphicon glyphicon-search" type="submit" aria-hidden="true"></button>
+    </span>
+  </form>
+  <section id="search-results" style="display: none;">
+    <div class="entries">
+    </div>
+  </section>
+  <script id="search-results-template" type="text/mustache">
+    {{#entries}}
+      <article>
+        <a href="{{url}}">{{title}}</a>
+      </article>
+    {{/entries}}
+  </script>
+  </div>
+</div>
+        <div class="row" id="headlines">
+  <div class="col-sm-12">
+          <img class="img-rounded" src="/static/logo/virtualization.png">
+          <h2>Virtualization</h2>
+          <p>Run virtual machines at near-native speeds and manage them at ease</p>
+  </div>
+</div>
+<div class="row" id="attribution">
+  <div class="col-sm-12">
+    <a href=""></a>
+  </div>
+</div>
+      </div>
+    </div>
+    <!-- Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="list-group content-menu">
+                <a href="/tools/virtualization/about.html" class="list-group-item ">Virtualization</a>
+                <a href="/tools/virtualization/installing-qemu-on-fedora-linux.html" class="list-group-item ">Installing QEMU on Fedora Linux</a>
+                <a href="/tools/virtualization/fetching-ovmf-uefi-from-the-correct-source.html" class="list-group-item ">Fetching OVMF UEFI from the correct source</a>
+                <a href="/tools/virtualization/installing-libvirt-and-virt-install-on-fedora-linux.html" class="list-group-item ">Installing libvirt and virt-install on Fedora Linux</a>
+                <a href="/tools/virtualization/setting-up-fedora-workstation-vm-on-qemu-using-bios.html" class="list-group-item ">Setting up Fedora Workstation VM on QEMU using BIOS</a>
+                <a href="/tools/virtualization/setting-up-fedora-workstation-vm-on-qemu-using-uefi.html" class="list-group-item ">Setting up Fedora Workstation VM on QEMU using UEFI</a>
+                <a href="/tools/virtualization/setting-up-intrinsic-vnc-server-with-vms.html" class="list-group-item ">Setting up intrinsic VNC server with VMs</a>
+                <a href="/tools/virtualization/setting-viewport-resolution-using-ovmf-bios.html" class="list-group-item ">Setting viewport resolution using OVMF BIOS</a>
+                <a href="/tools/virtualization/setting-up-fedora-workstation-domain-on-libvirt.html" class="list-group-item ">Setting up Fedora Workstation domain on libvirt</a>
+                <a href="/tools/virtualization/sharing-memory-chunk-as-video-memory-in-qemu.html" class="list-group-item ">Sharing a chunk of memory as video memory in QEMU</a>
+                <a href="/tools/virtualization/mapping-a-virtualised-guest-port-to-a-host-port.html" class="list-group-item ">Mapping a virtualized guest port to a host port</a>
+                <a href="/tools/virtualization/playing-around-with-various-vga-providers.html" class="list-group-item ">Playing around with various VGA providers</a>
+                <a href="/tools/virtualization/offloading-domain-tty-output-to-console-with-custom-kernel-initramfs-images.html" class="list-group-item  active ">Offloading domain TTY output to console with custom kernel/initramfs images</a>
+                <a href="/tools/virtualization/offloading-domain-tty-output-to-console-with-original-kernel-initramfs-images.html" class="list-group-item ">Offloading domain TTY output to console with original kernel/initramfs images</a>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
+              <div id="ask-fedora">
+  Have a question?
+    <a href="//ask.fedoraproject.org/">Ask Fedora.</a>
+</div>
+            </div>
+          </div>
+          <a href="https://github.com/developer-portal/content/edit/master/tools/virtualization/offloading-domain-tty-output-to-console-with-custom-kernel-initramfs-images.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/issues/new?title=:+virtualization+offloading-domain-tty-output-to-console-with-custom-kernel-initramfs-images.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
+        </div>
+        <div class="col-sm-9">
+          <div class="panel panel-default content-content">
+            <h1 id="offloading-domain-tty-output-to-console-with-custom-kernelinitramfs-images">Offloading domain TTY output to console with custom kernel/initramfs images</h1>
+<h2 id="introduction">Introduction</h2>
+<p>In a headless virtual machine hosts accessible by SSH, the activities on a virtual machines can be discovered by offloading the console prompts on the current TTY. This is a great alternative to setting up SSH inside the virtual machine or connecting to the virtual machine via VNC or SPICE.</p>
+<h2 id="steps">Steps</h2>
+<ol>
+  <li>Navigate to the <code class="language-plaintext highlighter-rouge">/boot</code> directory of the Fedora installation of the host to grab some kernel and initramfs images.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">cd</span> /boot
+<span class="gp">$</span><span class="w"> </span><span class="nb">ls</span> <span class="nt">-l</span> vmlinuz-<span class="k">*</span>
+<span class="go">-rwxr-xr-x. 1 root root 10580240 Jul 12 00:09 vmlinuz-0-rescue-8ee701c92f0f486cbb7afe96e5b7ea67
+-rwxr-xr-x. 1 root root 10853744 Jul 21 02:13 vmlinuz-5.13.4-200.fc34.x86_64
+-rwxr-xr-x. 1 root root 10851312 Jul 25 22:05 vmlinuz-5.13.5-200.fc34.x86_64
+-rwxr-xr-x. 1 root root 10850800 Jul 28 21:17 vmlinuz-5.13.6-200.fc34.x86_64
+</span></code></pre></div>    </div>
+  </li>
+  <li>With appropriate permissions, copy the kernel images to a reference directory <code class="language-plaintext highlighter-rouge">linxkrnl</code> and the initramfs images to a reference directory <code class="language-plaintext highlighter-rouge">initrmfs</code>.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo cp</span> /boot/vmlinux-<span class="k">*</span> linxkrnl/
+<span class="gp">$</span><span class="w"> </span><span class="nb">sudo cp</span> /boot/initramfs-<span class="k">*</span> initrmfs/
+</code></pre></div>    </div>
+  </li>
+  <li>Take up the ownership of the copied kernel images and kernel images by executing the following command on the reference directories <code class="language-plaintext highlighter-rouge">linxkrnl</code> and <code class="language-plaintext highlighter-rouge">initrmfs</code> respectively.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo chown</span> <span class="si">$(</span><span class="nb">whoami</span><span class="si">)</span>:<span class="si">$(</span><span class="nb">whoami</span><span class="si">)</span> linxkrnl/ <span class="nt">--recursive</span>
+<span class="gp">$</span><span class="w"> </span><span class="nb">sudo chown</span> <span class="si">$(</span><span class="nb">whoami</span><span class="si">)</span>:<span class="si">$(</span><span class="nb">whoami</span><span class="si">)</span> initrmfs/ <span class="nt">--recursive</span>
+</code></pre></div>    </div>
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">ls</span> <span class="nt">-l</span> linxkrnl/
+<span class="go">total 42136
+-rwxr-xr-x. 1 t0xic0der t0xic0der 10580240 Aug  2 15:35 vmlinuz-0-rescue-8ee701c92f0f486cbb7afe96e5b7ea67
+-rwxr-xr-x. 1 t0xic0der t0xic0der 10853744 Aug  2 15:35 vmlinuz-5.13.4-200.fc34.x86_64
+-rwxr-xr-x. 1 t0xic0der t0xic0der 10851312 Aug  2 15:35 vmlinuz-5.13.5-200.fc34.x86_64
+-rwxr-xr-x. 1 t0xic0der t0xic0der 10850800 Aug  2 15:35 vmlinuz-5.13.6-200.fc34.x86_64
+</span></code></pre></div>    </div>
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">ls</span> <span class="nt">-l</span> initrmfs/
+<span class="go">total 179496
+-rw-------. 1 t0xic0der t0xic0der 84860404 Aug  2 15:36 initramfs-0-rescue-8ee701c92f0f486cbb7afe96e5b7ea67.img
+-rw-------. 1 t0xic0der t0xic0der 33023557 Aug  2 15:36 initramfs-5.13.4-200.fc34.x86_64.img
+-rw-------. 1 t0xic0der t0xic0der 33002599 Aug  2 15:36 initramfs-5.13.5-200.fc34.x86_64.img
+-rw-------. 1 t0xic0der t0xic0der 32910001 Aug  2 15:36 initramfs-5.13.6-200.fc34.x86_64.img
+</span></code></pre></div>    </div>
+  </li>
+  <li>Reuse the domain with the custom partitioning based on EXT4  that was created by the end of the <a href="/tools/virtualization/setting-up-fedora-workstation-vm-on-qemu-using-bios.html"><strong>Setting up Fedora Workstation VM on QEMU using BIOS</strong></a> and start it up by executing the following command.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>qemu-system-x86_64 <span class="se">\</span>
+    <span class="nt">-boot</span> <span class="nv">menu</span><span class="o">=</span>on <span class="se">\</span>
+    <span class="nt">-m</span> 2048 <span class="se">\</span>
+    <span class="nt">-cpu</span> max <span class="se">\</span>
+    <span class="nt">-smp</span> 4 <span class="se">\</span>
+    <span class="nt">-drive</span> <span class="nv">file</span><span class="o">=</span>datadrct/fedobios.raw,format<span class="o">=</span>raw <span class="se">\</span>
+    <span class="nt">-accel</span> kvm
+</code></pre></div>    </div>
+  </li>
+  <li>In a new terminal session inside the virtualized domain, execute the following command to fetch the parameters passed to the kernel during boot.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">cat</span> /proc/cmdline
+<span class="go">BOOT_IMAGE=(hd0,msdos1)/vmlinuz-5.11.12-300.fc34.x86_64 root=UUID=0fa356e9-9509-4e18-8283-8983254c79d1 ro rhgb quiet
+</span></code></pre></div>    </div>
+    <p>Take a note of the UUID for the root partition and the same can be confirmed by executing the following command in a terminal session inside the virtualized domain.</p>
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">cat</span> /etc/fstab
+<span class="gp">#</span><span class="w">
+</span><span class="gp">#</span><span class="w"> </span>/etc/fstab
+<span class="gp">#</span><span class="w"> </span>Created by anaconda on Mon Aug  2 09:36:54 2021
+<span class="gp">#</span><span class="w">
+</span><span class="gp">#</span><span class="w"> </span>Accessible filesystems, by reference, are maintained under <span class="s1">'/dev/disk/'</span><span class="nb">.</span>
+<span class="gp">#</span><span class="w"> </span>See man pages fstab<span class="o">(</span>5<span class="o">)</span>, findfs<span class="o">(</span>8<span class="o">)</span>, mount<span class="o">(</span>8<span class="o">)</span> and/or blkid<span class="o">(</span>8<span class="o">)</span> <span class="k">for </span>more info.
+<span class="gp">#</span><span class="w">
+</span><span class="gp">#</span><span class="w"> </span>After editing this file, run <span class="s1">'systemctl daemon-reload'</span> to update systemd
+<span class="gp">#</span><span class="w"> </span>units generated from this file.
+<span class="gp">#</span><span class="w">
+</span><span class="go">UUID=0fa356e9-9509-4e18-8283-8983254c79d1 /                       ext4    defaults        1 1
+UUID=2d2863bb-527b-4477-bae5-5955bdb44d7b /boot                   ext4    defaults        1 2
+</span></code></pre></div>    </div>
+  </li>
+  <li>Power off the virtualized domain and start it up again by executing the following command with the correct UUID for the root partition.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>qemu-system-x86_64 <span class="se">\</span>
+    <span class="nt">-boot</span> <span class="nv">menu</span><span class="o">=</span>on <span class="se">\</span>
+    <span class="nt">-m</span> 2048 <span class="se">\</span>
+    <span class="nt">-cpu</span> max <span class="se">\</span>
+    <span class="nt">-smp</span> 4 <span class="se">\</span>
+    <span class="nt">-drive</span> <span class="nv">file</span><span class="o">=</span>datadrct/fedobios.raw,format<span class="o">=</span>raw <span class="se">\</span>
+    <span class="nt">-accel</span> kvm <span class="se">\</span>
+    <span class="nt">-nographic</span> <span class="se">\</span>
+    <span class="nt">-kernel</span> linxkrnl/&lt;vmlinuz-x.yy.zz-aaa.fcRR.x86_64&gt; <span class="se">\</span>
+    <span class="nt">-initrd</span> initrmfs/&lt;initramfs-x.yy.zz-aaa.fcRR.x86_64.img&gt; <span class="se">\</span>
+    <span class="nt">-append</span> <span class="s2">"root=UUID=&lt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&gt; rw console=ttyS0"</span>
+</code></pre></div>    </div>
+  </li>
+  <li>A lot of <code class="language-plaintext highlighter-rouge">systemd</code> prompts would show up on the console and the virtualized domain would boot up. The following is an example output for the above command.
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+[  OK  ] Started Network Manager Script Dispatcher Service.
+[  OK  ] Finished Network Manager Wait Online.
+[  OK  ] Reached target Network is Online.
+[  OK  ] Reached target Remote File Systems (Pre).
+[  OK  ] Reached target Remote File Systems.
+         Starting Virtualization daemon...
+         Starting Notify NFS peers of a restart...
+         Starting Permit User Sessions...
+[  OK  ] Started Notify NFS peers of a restart.
+[  OK  ] Finished Permit User Sessions.
+         Starting GNOME Display Manager...
+         Starting Hold until boot process finishes up...
+[  OK  ] Started GNOME Display Manager.
+   
+Fedora 34 (Workstation Edition)
+Kernel 5.13.6-200.fc34.x86_64 on an x86_64 (ttyS0)
+   
+fedorable login: t0xic0der
+Password: 
+Last login: Tue Aug  3 09:31:12 on tty2
+[t0xic0der@fedorable ~]$
+</code></pre></div>    </div>
+  </li>
+  <li>As the kernel image and initramfs image versions that we used here are dissimilar from the version of the firmware installed on the virtualized domain, there can be kernel modules which are broken or incompletely loaded.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>ip a
+<span class="gp">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt;</span><span class="w"> </span>mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+<span class="go">    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+</span></code></pre></div>    </div>
+    <p>As evidenced by the output of the above command executed inside the console of the virtualized domain, the kernel modules for network are apparently broken and the hostname of the host is taken up by the virtualized domain due to the mismatch of kernel images, initramfs images and installed firmware versions.</p>
+  </li>
+  <li>For best compatibility, keep the versions for kernel image, initramfs image and installed firmware inline with each other. Instructions for the same have been provided in the <a href="/tools/virtualization/offloading-domain-tty-output-to-console-with-original-kernel-initramfs-images.html"><strong>Offloading domain TTY output to console with original kernel/initramfs images</strong></a> documentation.</li>
+</ol>
+<hr id="authors-rule" />
+<p style="text-align: center">Authors: <a href="mailto:%61%6B%61%73%68%64%65%65%70.%64%68%61%72@%67%6D%61%69%6C.%63%6F%6D">Akashdeep Dhar</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Some other stuff -->
+    <div class=" banner-contribute">
+  <div class="container">
+    <h2> Share your knowledge </h2>
+    <p> Fedora Developer Portal is a community effort to share guides and information about open-source development. And we need your help! </p>
+    <a href="http://developer-portal.github.io/contributing/" class="btn btn-primary">Learn how to contribute</a>
+  </div>
+</div>
+    <footer class="footer">
+  <div class="container">
+    <div class="row footerlinks">
+      <div class="col-sm-3 col-xs-6 widget">
+        <h3 class="widget-title">About</h3>
+        <div class="widget-body">
+          <dl>
+            <dd><a href="/about.html">About Developer Portal</a></dd>
+            <dd><a href="https://docs.fedoraproject.org/en-US/project/">About Fedora</a></dd>
+            <dd><a href="https://getfedora.org/en/sponsors">Sponsors</a></dd>
+            <dd><a href="https://fedoramagazine.org">Fedora Magazine</a></dd>
+            <dd><a href="https://fedoraproject.org/wiki/Legal:Main#Legal">Legal</a></dd>
+          </dl>
+          <ul class="list-inline">
+            <li>
+              <a class="btn-social btn-outline" href="https://www.facebook.com/TheFedoraProject"><i class="fa fa-fw fa-facebook"></i></a>
+            </li>
+            <li>
+              <a class="btn-social btn-outline" href="https://plus.google.com/112917221531140868607"><i class="fa fa-fw fa-google-plus"></i></a>
+            </li>
+            <li>
+              <a class="btn-social btn-outline" href="https://twitter.com/fedora"><i class="fa fa-fw fa-twitter"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6 widget">
+        <h3 class="widget-title uppercase">Download</h3>
+        <div class="widget-body">
+          <dl>
+            <dd><a href="https://getfedora.org/en/workstation/download/">Get Fedora Workstation</a></dd>
+            <dd><a href="https://getfedora.org/en/server/download/">Get Fedora Server</a></dd>
+            <dd><a href="https://getfedora.org/en/atomic/download/">Get Fedora Atomic</a></dd>
+            <dd><a href="https://alt.fedoraproject.org/en/cloud/">Get Fedora Cloud</a></dd>
+            <dd><a href="https://spins.fedoraproject.org">Fedora Spins</a></dd>
+            <dd><a href="https://labs.fedoraproject.org">Fedora Labs</a></dd>
+            <dd><a href="https://arm.fedoraproject.org">Fedora ARM<span class="sup">&reg;</span></a></dd>
+            <dd><a href="https://alt.fedoraproject.org/">Alternative Downloads</a></dd>
+          </dl>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6 widget">
+        <h3 class="widget-title">Support</h3>
+          <div class="widget-body">
+            <dl>
+              <dd><a href="https://fedoraproject.org/wiki/Communicating_and_getting_help">Get Help</a></dd>
+              <dd><a href="https://ask.fedoraproject.org/">Ask Fedora</a></dd>
+              <dd><a href="https://fedoraforum.org/">Forums</a></dd>
+              <dd><a href="https://fedoraproject.org/wiki/Common_F34_bugs">Common Bugs</a></dd>
+              <dd><a href="https://docs.fedoraproject.org/en-US/fedora/f34/install-guide/">Installation Guide</a></dd>
+            </dl>
+          </div>
+        </div>
+        <div class="col-sm-3 col-xs-6 widget">
+          <h3 class="widget-title">Join</h3>
+            <div class="widget-body">
+            <dl>
+              <dd><a href="https://fedoraproject.org/wiki/Join">Join Fedora</a></dd>
+              <dd><a href="http://fedoraplanet.org">Planet Fedora</a></dd>
+              <dd><a href="https://fedoraproject.org/wiki/SIGs">Fedora SIGs</a></dd>
+              <dd><a href="https://admin.fedoraproject.org/accounts/">Fedora Account System</a></dd>
+              <dd><a href="https://fedoracommunity.org/">Fedora Community</a></dd>
+            </dl>
+          </div>
+        </div>
+      </div> <!-- /row of widgets -->
+      <div class="row">
+        <div class="col-md-2">
+          <div class="widget-body">
+            <a href="https://www.redhat.com/"><img alt="Red Hat Logo" src="/static/logo/redhat.png" class="rh-logo"></a>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="widget-body">
+            <p class="sponsor">Fedora is sponsored by Red Hat.</p>
+            <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
+            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
+          </div>
+        </div>
+        <!-- /row of widgets -->
+      </div>
+</footer>
+  </body>
+</html>

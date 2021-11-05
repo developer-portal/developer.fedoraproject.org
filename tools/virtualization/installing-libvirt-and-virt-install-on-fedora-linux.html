@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Get tools &mdash; Fedora Developer Portal</title>
+  <title>Installing libvirt and virt-install on Fedora Linux &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="https://developer.fedoraproject.org/tools.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tools/virtualization/installing-libvirt-and-virt-install-on-fedora-linux.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -118,8 +118,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-  <h2>Get tools</h2>
-  <p>Prepare your environment with DevAssistant. Collaborate with Docker, Vagrant and Virt-builder. Handle and debug crashes with ABRT.</p>
+          <img class="img-rounded" src="/static/logo/virtualization.png">
+          <h2>Virtualization</h2>
+          <p>Run virtual machines at near-native speeds and manage them at ease</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -131,126 +132,77 @@
     </div>
     <!-- Content -->
     <div class="container">
-      <div class="section-content">
-        <div class="row">
-  <div class="col-sm-12">
-    <h2> Development Tools Overview </h2>
-  </div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/abrt/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/abrt.png">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="list-group content-menu">
+                <a href="/tools/virtualization/about.html" class="list-group-item ">Virtualization</a>
+                <a href="/tools/virtualization/installing-qemu-on-fedora-linux.html" class="list-group-item ">Installing QEMU on Fedora Linux</a>
+                <a href="/tools/virtualization/fetching-ovmf-uefi-from-the-correct-source.html" class="list-group-item ">Fetching OVMF UEFI from the correct source</a>
+                <a href="/tools/virtualization/installing-libvirt-and-virt-install-on-fedora-linux.html" class="list-group-item  active ">Installing libvirt and virt-install on Fedora Linux</a>
+                <a href="/tools/virtualization/setting-up-fedora-workstation-vm-on-qemu-using-bios.html" class="list-group-item ">Setting up Fedora Workstation VM on QEMU using BIOS</a>
+                <a href="/tools/virtualization/setting-up-fedora-workstation-vm-on-qemu-using-uefi.html" class="list-group-item ">Setting up Fedora Workstation VM on QEMU using UEFI</a>
+                <a href="/tools/virtualization/setting-up-intrinsic-vnc-server-with-vms.html" class="list-group-item ">Setting up intrinsic VNC server with VMs</a>
+                <a href="/tools/virtualization/setting-viewport-resolution-using-ovmf-bios.html" class="list-group-item ">Setting viewport resolution using OVMF BIOS</a>
+                <a href="/tools/virtualization/setting-up-fedora-workstation-domain-on-libvirt.html" class="list-group-item ">Setting up Fedora Workstation domain on libvirt</a>
+                <a href="/tools/virtualization/sharing-memory-chunk-as-video-memory-in-qemu.html" class="list-group-item ">Sharing a chunk of memory as video memory in QEMU</a>
+                <a href="/tools/virtualization/mapping-a-virtualised-guest-port-to-a-host-port.html" class="list-group-item ">Mapping a virtualized guest port to a host port</a>
+                <a href="/tools/virtualization/playing-around-with-various-vga-providers.html" class="list-group-item ">Playing around with various VGA providers</a>
+                <a href="/tools/virtualization/offloading-domain-tty-output-to-console-with-custom-kernel-initramfs-images.html" class="list-group-item ">Offloading domain TTY output to console with custom kernel/initramfs images</a>
+                <a href="/tools/virtualization/offloading-domain-tty-output-to-console-with-original-kernel-initramfs-images.html" class="list-group-item ">Offloading domain TTY output to console with original kernel/initramfs images</a>
           </div>
-          <div class="media-body">
-            <h3>
-              ABRT
-            </h3>
-            <p>Handle crashes of your applications automatically and debug with ease!</p>
+          <div class="panel panel-default">
+            <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
+              <div id="ask-fedora">
+  Have a question?
+    <a href="//ask.fedoraproject.org/">Ask Fedora.</a>
+</div>
+            </div>
+          </div>
+          <a href="https://github.com/developer-portal/content/edit/master/tools/virtualization/installing-libvirt-and-virt-install-on-fedora-linux.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/issues/new?title=:+virtualization+installing-libvirt-and-virt-install-on-fedora-linux.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
+        </div>
+        <div class="col-sm-9">
+          <div class="panel panel-default content-content">
+            <h1 id="installing-libvirt-and-virt-install-on-fedora-linux">Installing libvirt and virt-install on Fedora Linux</h1>
+<h2 id="common-terms">Common terms</h2>
+<h3 id="libvirt">Libvirt</h3>
+<p>Libvirt is an open-source API, daemon and management tool for managing platform virtualization. It can be used to manage KVM, Xen, VMware ESXi, QEMU and other virtualization technologies. These APIs are widely used in the orchestration layer of hypervisors in the development of a cloud-based solution.</p>
+<p>The Libvirt project:</p>
+<ul>
+  <li>is a toolkit to manage virtualization platforms</li>
+  <li>is accessible from C, Python, Perl, Go and more</li>
+  <li>supports KVM, QEMU, Xen, Virtuozzo, VMWare ESX, LXC, BHyve and more</li>
+  <li>targets Linux, FreeBSD, Windows and macOS</li>
+  <li>is used by many applications</li>
+</ul>
+<p><a href="https://libvirt.org/">Read more about Libvirt here</a></p>
+<h3 id="virt-install">Virt-install</h3>
+<p>virt-install is a command line tool for creating new KVM , Xen, or Linux container guests using the “libvirt” hypervisor management library. See the EXAMPLES section at the end of this document to quickly get started.</p>
+<p>virt-install tool supports both text based &amp; graphical installations, using VNC or SDL graphics, or a text serial console. The guest can be configured to use one or more virtual disks, network interfaces, audio devices, physical USB or PCI devices, among others.</p>
+<p>The installation media can be held locally or remotely on NFS , HTTP , FTP servers. In the latter case “virt-install” will fetch the minimal files necessary to kick off the installation process, allowing the guest to fetch the rest of the OS distribution as needed. PXE booting, and importing an existing disk image (thus skipping the install phase) are also supported.</p>
+<p>Given suitable command line arguments, “virt-install” is capable of running completely unattended, with the guest ‘kickstarting’ itself too. This allows for easy automation of guest installs. An interactive mode is also available with the –prompt option, but this will only ask for the minimum required options.</p>
+<p><a href="https://linux.die.net/man/1/virt-install">Read more about Virt-install here</a></p>
+<h2 id="installing-steps">Installing steps</h2>
+<ol>
+  <li>Execute the following command to install libvirt on the host device, if not already installed.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>libvirt <span class="nt">-y</span>
+</code></pre></div>    </div>
+    <p><img src="/content/tools/virtualization/images/installing-libvirt-and-virt-install-on-fedora-linux/01.png" alt="01" /></p>
+  </li>
+  <li>Execute the following command to install virt-install on the host device, if not already installed.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>virt-install <span class="nt">-y</span>
+</code></pre></div>    </div>
+    <p><img src="/content/tools/virtualization/images/installing-libvirt-and-virt-install-on-fedora-linux/02.png" alt="02" /></p>
+  </li>
+</ol>
+<h2 id="usages">Usages</h2>
+<ol>
+  <li><a href="/tools/virtualization/setting-up-fedora-workstation-domain-on-libvirt.html">Setting up Fedora Workstation domain on libvirt</a></li>
+</ol>
+<hr id="authors-rule" />
+<p style="text-align: center">Authors: <a href="mailto:%61%6B%61%73%68%64%65%65%70.%64%68%61%72@%67%6D%61%69%6C.%63%6F%6D">Akashdeep Dhar</a></p>
           </div>
         </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/docker/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/docker.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Docker
-            </h3>
-            <p>Platform for distributed applications.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/eclipse/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/eclipse.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Eclipse
-            </h3>
-            <p>Full featured development environment for various programming languages integrating with plethora of different tools to make development process as integrated as possible</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/vagrant/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/vagrant.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Vagrant
-            </h3>
-            <p>Create reproducible and portable development environments that can be easily shared in your team.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/virt-builder/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/virt-builder.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Virt-builder
-            </h3>
-            <p>Tool to quickly build (and customize) virtual machine images</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/virtualization/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/virtualization.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Virtualization
-            </h3>
-            <p>Run virtual machines at near-native speeds and manage them at ease</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-</div>
       </div>
     </div>
     <!-- Some other stuff -->

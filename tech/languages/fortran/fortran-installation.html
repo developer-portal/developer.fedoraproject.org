@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Get tools &mdash; Fedora Developer Portal</title>
+  <title>Fortran &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="https://developer.fedoraproject.org/tools.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/fortran/fortran-installation.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -24,7 +24,7 @@
 </head>
   <body>
         <!-- The top blue thing -->
-    <div id="splash" class="splash-size-small splash-section-tools">
+    <div id="splash" class="splash-size-small splash-section-tech">
       <div class="container">
         <div class="row" id="top">
   <div class="col-sm-2" id="logo-col">
@@ -43,10 +43,10 @@
     <li class="">
       <a href="/start.html">Start a project</a>
     </li>
-    <li class=" active ">
+    <li class="">
       <a href="/tools.html">Get tools</a>
     </li>
-    <li class="">
+    <li class=" active ">
       <a href="/tech.html">Languages &amp; databases</a>
     </li>
     <li class="">
@@ -118,8 +118,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-  <h2>Get tools</h2>
-  <p>Prepare your environment with DevAssistant. Collaborate with Docker, Vagrant and Virt-builder. Handle and debug crashes with ABRT.</p>
+          <img class="img-rounded" src="/static/logo/fortran.png">
+          <h2>Fortran</h2>
+          <p>A general-purpose, imperative computer programming language, especially suited to numeric computation and scientific computing.</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -131,126 +132,55 @@
     </div>
     <!-- Content -->
     <div class="container">
-      <div class="section-content">
-        <div class="row">
-  <div class="col-sm-12">
-    <h2> Development Tools Overview </h2>
-  </div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/abrt/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/abrt.png">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="list-group content-menu">
+                <a href="/tech/languages/fortran/fortran-installation.html" class="list-group-item  active ">Fortran</a>
           </div>
-          <div class="media-body">
-            <h3>
-              ABRT
-            </h3>
-            <p>Handle crashes of your applications automatically and debug with ease!</p>
+          <div class="panel panel-default">
+            <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
+              <div id="ask-fedora">
+  Have a question?
+    <a href="//ask.fedoraproject.org/">Ask Fedora.</a>
+</div>
+            </div>
+          </div>
+          <a href="https://github.com/developer-portal/content/edit/master/tech/languages/fortran/fortran-installation.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/issues/new?title=tech-languages:+fortran+fortran-installation.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
+        </div>
+        <div class="col-sm-9">
+          <div class="panel panel-default content-content">
+            <h1 id="fortran-installation-and-usage">Fortran installation and usage</h1>
+<h2 id="gfortran-installation">gfortran installation</h2>
+<p>Fortran is a compiled language and as such it needs a compiler. To install gfortran
+compiler, simply type:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install gcc-gfortran
+</code></pre></div></div>
+<p>This command should download and install package with compiler called gfortran. Create a Fortran program <code class="language-plaintext highlighter-rouge">your_source.f90</code>. <code class="language-plaintext highlighter-rouge">.f90</code> is the standard file extension for modern Fortran source files. The 90 refers to the first modern Fortran standard in 1990. To compile and link the program, simply run the <code class="language-plaintext highlighter-rouge">gfortran</code> command like this:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gfortran your_source.f90
+</code></pre></div></div>
+<p>This will produce a binary file created from your source code. By default, this binary
+file is named <code class="language-plaintext highlighter-rouge">a.out</code>.
+You can run this binary by typing:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./a.out
+</code></pre></div></div>
+<p>There are many options you can use when running the compiler. To specify the binary file name, you can use:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gfortran your_source.f90 -o your_binary
+</code></pre></div></div>
+<p>You can run this binary file by typing:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./your_binary
+</code></pre></div></div>
+<p>To see the man page of <code class="language-plaintext highlighter-rouge">gfortran</code>, simply type:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ man gfortran
+</code></pre></div></div>
+<h2 id="references">References</h2>
+<ul>
+  <li><a href="https://fortran-lang.org/">Fortran website</a></li>
+</ul>
+<hr id="authors-rule" />
+<p style="text-align: center">Authors: <a href="mailto:%34%33%37%31%39%39%38%35+%6A%61%6B%61%66%6C%65@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Jagat Kafle</a></p>
           </div>
         </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/docker/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/docker.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Docker
-            </h3>
-            <p>Platform for distributed applications.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/eclipse/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/eclipse.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Eclipse
-            </h3>
-            <p>Full featured development environment for various programming languages integrating with plethora of different tools to make development process as integrated as possible</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/vagrant/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/vagrant.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Vagrant
-            </h3>
-            <p>Create reproducible and portable development environments that can be easily shared in your team.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/virt-builder/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/virt-builder.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Virt-builder
-            </h3>
-            <p>Tool to quickly build (and customize) virtual machine images</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/virtualization/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/virtualization.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Virtualization
-            </h3>
-            <p>Run virtual machines at near-native speeds and manage them at ease</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-</div>
       </div>
     </div>
     <!-- Some other stuff -->

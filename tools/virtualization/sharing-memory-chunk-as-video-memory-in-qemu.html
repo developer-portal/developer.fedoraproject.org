@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Get tools &mdash; Fedora Developer Portal</title>
+  <title>Sharing a chunk of memory as video memory in QEMU &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="https://developer.fedoraproject.org/tools.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tools/virtualization/sharing-memory-chunk-as-video-memory-in-qemu.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -118,8 +118,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-  <h2>Get tools</h2>
-  <p>Prepare your environment with DevAssistant. Collaborate with Docker, Vagrant and Virt-builder. Handle and debug crashes with ABRT.</p>
+          <img class="img-rounded" src="/static/logo/virtualization.png">
+          <h2>Virtualization</h2>
+          <p>Run virtual machines at near-native speeds and manage them at ease</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -131,126 +132,79 @@
     </div>
     <!-- Content -->
     <div class="container">
-      <div class="section-content">
-        <div class="row">
-  <div class="col-sm-12">
-    <h2> Development Tools Overview </h2>
-  </div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/abrt/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/abrt.png">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="list-group content-menu">
+                <a href="/tools/virtualization/about.html" class="list-group-item ">Virtualization</a>
+                <a href="/tools/virtualization/installing-qemu-on-fedora-linux.html" class="list-group-item ">Installing QEMU on Fedora Linux</a>
+                <a href="/tools/virtualization/fetching-ovmf-uefi-from-the-correct-source.html" class="list-group-item ">Fetching OVMF UEFI from the correct source</a>
+                <a href="/tools/virtualization/installing-libvirt-and-virt-install-on-fedora-linux.html" class="list-group-item ">Installing libvirt and virt-install on Fedora Linux</a>
+                <a href="/tools/virtualization/setting-up-fedora-workstation-vm-on-qemu-using-bios.html" class="list-group-item ">Setting up Fedora Workstation VM on QEMU using BIOS</a>
+                <a href="/tools/virtualization/setting-up-fedora-workstation-vm-on-qemu-using-uefi.html" class="list-group-item ">Setting up Fedora Workstation VM on QEMU using UEFI</a>
+                <a href="/tools/virtualization/setting-up-intrinsic-vnc-server-with-vms.html" class="list-group-item ">Setting up intrinsic VNC server with VMs</a>
+                <a href="/tools/virtualization/setting-viewport-resolution-using-ovmf-bios.html" class="list-group-item ">Setting viewport resolution using OVMF BIOS</a>
+                <a href="/tools/virtualization/setting-up-fedora-workstation-domain-on-libvirt.html" class="list-group-item ">Setting up Fedora Workstation domain on libvirt</a>
+                <a href="/tools/virtualization/sharing-memory-chunk-as-video-memory-in-qemu.html" class="list-group-item  active ">Sharing a chunk of memory as video memory in QEMU</a>
+                <a href="/tools/virtualization/mapping-a-virtualised-guest-port-to-a-host-port.html" class="list-group-item ">Mapping a virtualized guest port to a host port</a>
+                <a href="/tools/virtualization/playing-around-with-various-vga-providers.html" class="list-group-item ">Playing around with various VGA providers</a>
+                <a href="/tools/virtualization/offloading-domain-tty-output-to-console-with-custom-kernel-initramfs-images.html" class="list-group-item ">Offloading domain TTY output to console with custom kernel/initramfs images</a>
+                <a href="/tools/virtualization/offloading-domain-tty-output-to-console-with-original-kernel-initramfs-images.html" class="list-group-item ">Offloading domain TTY output to console with original kernel/initramfs images</a>
           </div>
-          <div class="media-body">
-            <h3>
-              ABRT
-            </h3>
-            <p>Handle crashes of your applications automatically and debug with ease!</p>
+          <div class="panel panel-default">
+            <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
+              <div id="ask-fedora">
+  Have a question?
+    <a href="//ask.fedoraproject.org/">Ask Fedora.</a>
+</div>
+            </div>
+          </div>
+          <a href="https://github.com/developer-portal/content/edit/master/tools/virtualization/sharing-memory-chunk-as-video-memory-in-qemu.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/issues/new?title=:+virtualization+sharing-memory-chunk-as-video-memory-in-qemu.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
+        </div>
+        <div class="col-sm-9">
+          <div class="panel panel-default content-content">
+            <h1 id="sharing-a-chunk-of-memory-as-video-memory-in-qemu">Sharing a chunk of memory as video memory in QEMU</h1>
+<ol>
+  <li>Continuing on from the end of the guide about <a href="/tools/virtualization/setting-up-fedora-workstation-vm-on-qemu-using-bios.html"><strong>Setting up Fedora Workstation VM on QEMU using BIOS</strong></a>, start up the same VM by executing the following command.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>qemu-system-x86_64 <span class="se">\</span>
+    <span class="nt">-boot</span> <span class="nv">menu</span><span class="o">=</span>on <span class="se">\</span>
+    <span class="nt">-m</span> 2048 <span class="se">\</span>
+    <span class="nt">-cpu</span> max <span class="se">\</span>
+    <span class="nt">-smp</span> 4 <span class="se">\</span>
+    <span class="nt">-drive</span> <span class="nv">file</span><span class="o">=</span>datadrct/fedobios.raw,format<span class="o">=</span>raw <span class="se">\</span>
+    <span class="nt">-accel</span> kvm <span class="se">\</span>
+    <span class="nt">-vga</span> std <span class="se">\</span>
+    <span class="nt">-device</span> VGA,vgamem_mb<span class="o">=</span>512
+</code></pre></div>    </div>
+  </li>
+  <li>Execute the following command inside the console of the VM to view the list of the emulated PCI hardware attached.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>lspci
+<span class="go">00:00.0 Host bridge: Intel Corporation 440FX - 82441FX PMC [Natoma] (rev 02)
+00:01.0 ISA bridge: Intel Corporation 82371SB PIIX3 ISA [Natoma/Triton II]
+00:01.1 IDE interface: Intel Corporation 82371SB PIIX3 IDE [Natoma/Triton II]
+00:01.3 Bridge: Intel Corporation 82371AB/EB/MB PIIX4 ACPI (rev 03)
+00:02.0 VGA compatible controller: Device 1234:1111 (rev 02)
+00:03.0 Ethernet controller: Intel Corporation 82540EM Gigabit Ethernet Controller (rev 03)
+</span></code></pre></div>    </div>
+  </li>
+  <li>Probe into the output of <code class="language-plaintext highlighter-rouge">00:02.0</code> by executing the following command as it seems to be an emulated VGA controller.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>lspci <span class="nt">-v</span> <span class="nt">-s</span> 00:02.0
+<span class="go">00:02.0 VGA compatible controller: Device 1234:1111 (rev 02) (prog-if 00 [VGA controller])
+        Subsystem: Red Hat, Inc. Device 1100
+        Flags: fast devsel
+        Memory at fd000000 (32-bit, prefetchable) [size=512M]
+        Memory at febf0000 (32-bit, non-prefetchable) [size=4K]
+        Expansion ROM at 000c0000 [disabled] [size=128K]
+        Kernel driver in use: bochs-drm
+        Kernel modules: bochs_drm
+</span></code></pre></div>    </div>
+  </li>
+  <li>There are many providers like <code class="language-plaintext highlighter-rouge">qxl</code>, <code class="language-plaintext highlighter-rouge">virtio</code>, <code class="language-plaintext highlighter-rouge">vmware</code> etc. that can be used in place of <code class="language-plaintext highlighter-rouge">std</code>.</li>
+</ol>
+<hr id="authors-rule" />
+<p style="text-align: center">Authors: <a href="mailto:%61%6B%61%73%68%64%65%65%70.%64%68%61%72@%67%6D%61%69%6C.%63%6F%6D">Akashdeep Dhar</a></p>
           </div>
         </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/docker/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/docker.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Docker
-            </h3>
-            <p>Platform for distributed applications.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/eclipse/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/eclipse.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Eclipse
-            </h3>
-            <p>Full featured development environment for various programming languages integrating with plethora of different tools to make development process as integrated as possible</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/vagrant/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/vagrant.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Vagrant
-            </h3>
-            <p>Create reproducible and portable development environments that can be easily shared in your team.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/virt-builder/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/virt-builder.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Virt-builder
-            </h3>
-            <p>Tool to quickly build (and customize) virtual machine images</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-    <div class="col-sm-6">
-  <a class="panel-link" href="/tools/virtualization/about.html">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <img style="height:100px" src="/static/logo/virtualization.png">
-          </div>
-          <div class="media-body">
-            <h3>
-              Virtualization
-            </h3>
-            <p>Run virtual machines at near-native speeds and manage them at ease</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-</div>
-</div>
       </div>
     </div>
     <!-- Some other stuff -->
