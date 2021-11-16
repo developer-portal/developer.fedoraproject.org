@@ -491,6 +491,8 @@ h2 { font-size: 1.5em !important; font-weight: 700; color: #888; padding-bottom:
 
 .panel-link:hover .panel-default { border-top-color: #337ab7; border-right-color: #337ab7; border-bottom-color: #337ab7; border-left-color: #337ab7; }
 
+.rh-logo { width: 175px; margin-right: 10px; margin-bottom: 10px; }
+
 @media all and (max-width: 1100px) { nav .nav { clear: both; padding-left: 10px; } nav .nav li { float: left; } #search { margin-bottom: 20px; } .entries { width: calc(100% - 30px); right: none; left: 15px; } }
 
 @media all and (max-width: 768px) { .entries { top: 34px; } .carousel .headlines img { width: 250px; } }
