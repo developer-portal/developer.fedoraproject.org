@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DotNet SIG &mdash; Fedora Developer Portal</title>
+  <title>FastApi &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/dotnet/dotnet-sig.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/python/fastapi-installation.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -118,9 +118,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/dotnet.png">
-          <h2>.NET Platforms</h2>
-          <p>.NET Core and Mono are open-source .NET platforms. .NET applications are developed using the C#, F# and VB.NET programming languages.</p>
+          <img class="img-rounded" src="/static/logo/python.png">
+          <h2>Python</h2>
+          <p>General-purpose, high-level programming language supporting multiple programming paradigms.</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -135,12 +135,18 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="list-group content-menu">
-                <a href="/tech/languages/csharp/dotnet-installation.html" class="list-group-item ">.NET Platforms</a>
-                <a href="/tech/languages/dotnet/dotnetcore.html" class="list-group-item ">.NET Core</a>
-                <a href="/tech/languages/dotnet/mono.html" class="list-group-item ">Mono</a>
-                <a href="/tech/languages/dotnet/dotnet-ide.html" class="list-group-item ">IDEs</a>
-                <a href="/tech/languages/dotnet/dotnet-sig.html" class="list-group-item  active ">DotNet SIG</a>
-                <a href="/tech/languages/dotnet/mono-sig.html" class="list-group-item ">Mono SIG</a>
+                <a href="/tech/languages/python/python-installation.html" class="list-group-item ">Python</a>
+                <a href="/tech/languages/python/pypi-installation.html" class="list-group-item ">Pip & PyPI</a>
+                <a href="/tech/languages/python/multiple-pythons.html" class="list-group-item ">Multiple Pythons</a>
+                <a href="/tech/languages/python/django-installation.html" class="list-group-item ">Django</a>
+                <a href="/tech/languages/python/fastapi-installation.html" class="list-group-item  active ">FastApi</a>
+                <a href="/tech/languages/python/flask-installation.html" class="list-group-item ">Flask</a>
+                <a href="/tech/languages/python/micropython.html" class="list-group-item ">MicroPython</a>
+                <a href="/tech/languages/python/python-sig.html" class="list-group-item ">Python SIG</a>
+                <a href="/tech/languages/python/pygobject.html" class="list-group-item ">PyGObject</a>
+                <a href="/tech/languages/python/sphinx.html" class="list-group-item ">Sphinx</a>
+                <a href="/tech/languages/python/scipy.html" class="list-group-item ">Scientific Python Stack</a>
+                <a href="/tech/languages/python/pipenv.html" class="list-group-item ">Pipenv</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -150,17 +156,72 @@
 </div>
             </div>
           </div>
-          <a href="https://github.com/developer-portal/content/edit/master/tech/languages/dotnet/dotnet-sig.md" class="btn btn-default">Edit this page</a>
-          <a href="https://github.com/developer-portal/content/issues/new?title=:+dotnet+dotnet-sig.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
+          <a href="https://github.com/developer-portal/content/edit/master/tech/languages/python/fastapi-installation.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/issues/new?title=:+python+fastapi-installation.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h1 id="dotnet-sig">DotNet SIG</h1>
-<p>The <a href="https://fedoraproject.org/wiki/SIGs/DotNet">DotNet SIG</a> is a group of Fedora contributors that maintain <code class="language-plaintext highlighter-rouge">dotnet</code> (and related) packages in Fedora. The goal of this group is to help to anyone interested in dotnet and to support others in creating and maintaining dotnet applications. See our <a href="https://fedoraproject.org/wiki/SIGs/DotNet">wiki page</a> for more details, ways to get in touch, or information about <a href="https://fedoraproject.org/wiki/SIGs/DotNet/Join">joining the SIG</a>.</p>
-<h2 id="net-foundation">.NET Foundation</h2>
-<p>You can contribute to the .NET Core upstream on <a href="https://github.com/dotnet">GitHub.com/dotnet</a></p>
+            <h1 id="fastapi">FastApi</h1>
+<p><a href="https://fastapi.tiangolo.com/">FastApi</a> is a modern, fast (high-performance), web framework for building APIs with Python 3.6+ based on standard Python type hints.</p>
+<h2 id="installation-of-fastapi-in-a-virtual-environment">Installation of FastApi in a virtual environment</h2>
+<p>It is always useful to install FastApi as a third-party package inside a <em>virtual environemnt</em>.
+This will keep your project separate from your system, giving you more freedom in choosing additional libraries &amp; their versions. And it’s easy collaborating with
+a different operating system.</p>
+<p>Let’s create a new project a virtual environment.
+Open the terminal. Then, create a new folder ‘my_project’, enter it, and create a virtual environment called ‘project_env’.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir </span>my_project <span class="o">&amp;&amp;</span> <span class="nb">cd </span>my_project
+<span class="nv">$ </span>virtualenv project_env
+</code></pre></div></div>
+<p>To work in the virtual environment, you have to activate it.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">source </span>project-env/bin/activate
+</code></pre></div></div>
+<p>Now that we have an active virtual environment (this can be identified by having the <code class="language-plaintext highlighter-rouge">(project_env)</code> in the command line prompt), install FastApi and a server using <code class="language-plaintext highlighter-rouge">pip</code>.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>project_env<span class="o">)</span> <span class="nv">$ </span>pip <span class="nb">install </span>fastapi uvicorn[standard]
+</code></pre></div></div>
+<p>That is all, you have sucessfully installed FastApi in the virtual environment!
+Now you can start working on your project.</p>
+<h2 id="first-application">First Application</h2>
+<p>The following is an example of an application using FastApi.
+Create a file named ‘main.py’.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"/"</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">read_root</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s">"Hello"</span><span class="p">:</span> <span class="s">"World"</span><span class="p">}</span>
+
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"/items/{item_id}"</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">read_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s">"item_id"</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s">"q"</span><span class="p">:</span> <span class="n">q</span><span class="p">}</span>
+</code></pre></div></div>
+<h3 id="running">Running</h3>
+<p>To run a FastApi app on a development server, go to that directory in the terminal and run:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>uvicorn main:app <span class="nt">--reload</span>
+</code></pre></div></div>
+<p>This will start the server listening on <code class="language-plaintext highlighter-rouge">127.0.0.1:8000</code>.</p>
+<p>Then open the terminal and run this command to get the response.</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>curl <span class="nt">-X</span> <span class="s1">'GET'</span> <span class="se">\</span>
+  <span class="s1">'http://127.0.0.1:8000/'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'accept: application/json'</span>
+</code></pre></div></div>
+<p>The response looks like this:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"Hello":"World"}
+</code></pre></div></div>
+<p>See <a href="https://fastapi.tiangolo.com/">FastApi Website</a> for complete documentation &amp; deployment options.</p>
+<p>When you finish your work, you can deactivate the virtual environemnt.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>project_env<span class="o">)</span> <span class="nv">$ </span>deactivate
+</code></pre></div></div>
+<h3 id="whats-next">What’s next?</h3>
+<ul>
+  <li>[FastApi] (https://fastapi.tiangolo.com/)</li>
+</ul>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%72%61%64%6B%61.%6A%61%6E%65%6B@%72%65%64%68%61%74.%63%6F%6D">Radka Janek</a>, <a href="mailto:%74%6F%6D.%64%65%73%65%79%6E@%67%6D%61%69%6C.%63%6F%6D">Tom Deseyn</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%35%37%31%35%36%33%32%36+%74%61%68%6D%69%64%35%36@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">tahmid56</a></p>
           </div>
         </div>
       </div>

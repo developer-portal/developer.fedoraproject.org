@@ -180,6 +180,12 @@ kvm                   499712  1 kvm_intel
 end
 </code></pre></div></div>
 <p>Read more on the <code class="language-plaintext highlighter-rouge">vagrant-libvirt</code> configuration in the <a href="https://github.com/vagrant-libvirt/vagrant-libvirt">upstream documentation</a>.</p>
+<h2 id="manage-guest-networks-via-vagrant">Manage guest networks via Vagrant</h2>
+<p>In Fedora <code class="language-plaintext highlighter-rouge">qemu://session</code> is used by default. This allows causes vagrant to run in userspace, not requiring password and being much safer. Downside is that not all Vagrant features are accessible, as they require root. To revert for your selected boxes to <code class="language-plaintext highlighter-rouge">qemu://system</code>:</p>
+<ul>
+  <li>Fedora change: <a href="https://fedoraproject.org/wiki/Changes/Vagrant_2.2_with_QEMU_Session">https://fedoraproject.org/wiki/Changes/Vagrant_2.2_with_QEMU_Session</a></li>
+  <li>Upstream documentation: <a href="https://github.com/vagrant-libvirt/vagrant-libvirt#qemu-session-support">https://github.com/vagrant-libvirt/vagrant-libvirt#qemu-session-support</a></li>
+</ul>
 <h2 id="using-libvirt-from-vagrant-without-password-prompts">Using libvirt from Vagrant without password prompts</h2>
 <p>Using <code class="language-plaintext highlighter-rouge">libvirt</code> provider requires you to type your administrator password every time you create,
 start, halt or destroy your domains. Fortunately you can avoid this by adding yourself to the <code class="language-plaintext highlighter-rouge">libvirt</code> group:</p>
@@ -187,7 +193,7 @@ start, halt or destroy your domains. Fortunately you can avoid this by adding yo
 $ newgrp libvirt
 </code></pre></div></div>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%70%6F%70%65%6C%6B%61@%72%65%64%68%61%74.%63%6F%6D">Jiri Popelka</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%67%69%74@%6A%77%66.%69%6F">Justin W. Flory</a>, <a href="mailto:%76.%6F%6E%64%72%75%63%68@%74%69%73%63%61%6C%69.%63%7A">Vít Ondruch</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%67%69%74@%6A%77%66.%69%6F">Justin W. Flory</a>, <a href="mailto:%70%76%61%6C%65%6E%61@%72%65%64%68%61%74.%63%6F%6D">Pavel Valena</a></p>
           </div>
         </div>
       </div>
@@ -276,7 +282,7 @@ $ newgrp libvirt
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2022 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

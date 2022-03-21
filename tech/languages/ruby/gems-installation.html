@@ -192,8 +192,25 @@ gcc: error: /usr/lib/rpm/redhat/redhat-hardened-cc1: No such file or directory
 <a href="http://isitfedoraruby.com/">IsItFedoraRuby.com</a> site which tracks the Ruby
 integration within the Fedora project by listing available information about
 packaged gems.</p>
+<h2 id="configuring-rubygems">Configuring RubyGems</h2>
+<p>Fedora configures ruby to install gems on your user’s directory; as opposed to the system’s, by default. The gems get installed at: <code class="language-plaintext highlighter-rouge">$HOME/.local/share/gem</code>.</p>
+<p>You can check the defaults <a href="https://src.fedoraproject.org/rpms/ruby/blob/rawhide/f/operating_system.rb">here</a>.</p>
+<p>You can change these defaults by creating <code class="language-plaintext highlighter-rouge">$HOME/.gemrc</code>.</p>
+<p>For example, to disable documentation generation at install time, you can do the following:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>install: --no-document
+</code></pre></div></div>
+<p>This method will not override the system’s defaults.</p>
+<p>Or, in order to override the system’s default, use:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem: --user-install
+</code></pre></div></div>
+<p>Remember to add: <code class="language-plaintext highlighter-rouge">$HOME/.local/share/gem/ruby/bin</code> to your <code class="language-plaintext highlighter-rouge">$PATH</code> if you choose to use <code class="language-plaintext highlighter-rouge">gem: ...</code> since all default settings would be overriden if you do.</p>
+<p>One way of doing this is adding the following to <code class="language-plaintext highlighter-rouge">$HOME/.bash_profile</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># my path
+## ruby
+export PATH="$HOME/.local/share/gem/ruby/bin:$PATH"
+</code></pre></div></div>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%76.%6F%6E%64%72%75%63%68@%74%69%73%63%61%6C%69.%63%7A">Vít Ondruch</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%72%65%6E%69%63%68@%77%6F%72%61%6C%65%6C%61%6E%64%69%61.%63%6F%6D">Renich Bon Ciric</a>, <a href="mailto:%76.%6F%6E%64%72%75%63%68@%74%69%73%63%61%6C%69.%63%7A">Vít Ondruch</a></p>
           </div>
         </div>
       </div>
@@ -282,7 +299,7 @@ packaged gems.</p>
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2021 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2022 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->
