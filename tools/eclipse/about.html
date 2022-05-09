@@ -153,36 +153,35 @@
             <h1 id="what-is-eclipse">What is Eclipse</h1>
 <p><a href="https://www.eclipse.org/ide/">Eclipse</a> is a full featured, multi language IDE aiding developers in every step of software development lifecycle. Starting new project, working on established project with complex structure, monitoring and performance optimizing application, writing documentation, interacting with issue tracking systems or CI all from inside Eclipse IDE.</p>
 <h2 id="installing-eclipse-on-fedora">Installing Eclipse on Fedora</h2>
-<p>On Fedora install the eclipse package:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install eclipse
+<p>On Fedora the Eclipse IDE is available as a <a href="/deployment/flatpak/about.html">Flatpak</a>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ flatpak install org.eclipse.Java
 </code></pre></div></div>
-<p>This would give you Eclipse Platform with Java and Plugin development tools but it’s easy to install support for various other languages and ecosystems as they are packaged in Fedora:</p>
+<p>This would give you Eclipse Platform with Java and Plugin development tools but it’s easy to install support for various other languages and ecosystems as they are available in the Eclipse Marketplace:</p>
 <ul>
-  <li>C/C++ - eclipse-cdt packages</li>
-  <li>PHP - eclipse-pdt package</li>
-  <li>Ruby - eclipse-dltk-ruby package</li>
-  <li>TCL - eclipse-dltk-tcl package</li>
-  <li>Shell script - eclipse-dltk-sh package</li>
-  <li>Python - eclipse-pydev package</li>
-  <li>Photran - eclipse-photran package</li>
-  <li>Web technologies - eclipse-webtools-* packages</li>
+  <li>C/C++ - cdt</li>
+  <li>PHP - pdt</li>
+  <li>Ruby - dltk-ruby</li>
+  <li>TCL - dltk-tcl</li>
+  <li>Shell script - dltk-sh</li>
+  <li>Python - pydev</li>
+  <li>Photran - photran</li>
+  <li>Web technologies - webtools-*</li>
 </ul>
 <p>Plugins providing integration for various other technologies is also available:</p>
 <ul>
-  <li>Git - eclipse-egit and eclipse-egit-github</li>
-  <li>Subversion - eclipse-subclipse</li>
-  <li>Maven - eclipse-m2e-*</li>
-  <li>Gcov/Gprof - eclipse-gcov/eclipse-gprof</li>
-  <li>Systemtap - eclipse-systemtap</li>
-  <li>Kernel Perf - eclipse-perf</li>
-  <li>Oprofile - eclipse-oprofile</li>
-  <li>Bug trackers and CIs - eclipse-mylyn-* packages</li>
+  <li>Git - egit and egit-github</li>
+  <li>Subversion - subclipse</li>
+  <li>Maven - m2e-*</li>
+  <li>Gcov/Gprof - gcov/gprof</li>
+  <li>Systemtap - systemtap</li>
+  <li>Kernel Perf - perf</li>
+  <li>Oprofile - oprofile</li>
+  <li>Bug trackers and CIs - mylyn-*</li>
 </ul>
-<p>The list above doesn’t contain all Eclipse plugins available in Fedora but is supposed to serve as an example of the range of different technologies integrated.</p>
-<p>Alternative method for installing Eclipse on Fedora is by using <code class="language-plaintext highlighter-rouge">gnome-software</code>. Some of the packaged plugins ship proper metadata so they can be seen and installed directly from it.</p>
-<p>Last but not least there is <a href="http://marketplace.eclipse.org/">Eclipse Marketplace</a> (<code class="language-plaintext highlighter-rouge">sudo dnf install eclipse-mpc</code>) giving you access to even bigger list of plugins to integrate even more tools in your ide. Once Eclipse is running go to <code class="language-plaintext highlighter-rouge">Help\Eclipse Marketplace...</code> and search for plugins serving your needs.</p>
+<p>The list above doesn’t contain all Eclipse plugins available but is supposed to serve as an example of the range of different technologies integrated.</p>
+<p>Last but not least there is <a href="http://marketplace.eclipse.org/">Eclipse Marketplace</a> giving you access to even bigger list of plugins to integrate even more tools in your ide. Once Eclipse is running go to <code class="language-plaintext highlighter-rouge">Help\Eclipse Marketplace...</code> and search for plugins serving your needs.</p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%6B%75%72%74%61%6B%6F@%72%65%64%68%61%74.%63%6F%6D">Alexander Kurtakov</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%6B%75%72%74%61%6B%6F@%72%65%64%68%61%74.%63%6F%6D">Alexander Kurtakov</a>, <a href="mailto:%33%33%30%36%35%30%37%38+%6A%61%63%6B%6F%72%70@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Jaroslav Prokop</a></p>
           </div>
         </div>
       </div>

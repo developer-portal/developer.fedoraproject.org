@@ -164,10 +164,15 @@ It allows you to:</p>
   <li>upload the binary firmware to the board using variety of programmers</li>
   <li>connect to the board’s serial console and communicate with it</li>
 </ul>
-<p>To install Arduino IDE on Fedora, just run:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install arduino
+<p>Install Arduino IDE on Fedora through <a href="/deployment/flatpak/about.html">Flatpak</a>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ flatpak install cc.arduino.arduinoide
 </code></pre></div></div>
-<p>Now you are all set to start developing you project using Arduino IDE on Fedora. Just start it from your desktop environment applications menu or run the <code>arduino</code> command from the command line. For more information on how to use the Arduino IDE, please refer to the <a href="https://www.arduino.cc/en/Guide/Environment">documentation</a>.</p>
+<p>Now you are all set to start developing you project using Arduino IDE on Fedora. Just start it from your desktop environment applications menu or run the <code>arduino</code> command from the command line. For more information on how to use the Arduino IDE, please refer to the <a href="https://docs.arduino.cc/software/ide-v1/tutorials/arduino-ide-v1-basics">documentation</a>.</p>
+<h2 id="fix-denied-access">Fix denied access</h2>
+<p>When uploading sketch or connecting to arduino boards, following error might show up:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Error opening serial port...
+</code></pre></div></div>
+<p>You need to add your user to the <code class="language-plaintext highlighter-rouge">dialout</code> group. Follow the steps in this <a href="https://docs.arduino.cc/software/ide-v1/tutorials/Linux#please-read">Arduino guide</a>.</p>
 <!--
 ## Ino
 In contrast to Arduino IDE, the Ino tool is only command line oriented. It is ideal if you want to develop the project source using your favorite text editor and do all the tasks from the command line. You can even script some of the tasks and run those as part of the CI if you want.
@@ -184,7 +189,7 @@ Add this section once platform-io is packaged for Fedora
 http://platformio.org/
 -->
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%33%38%38%37%32%34%36%33+%44%61%72%74%6F%6D%69%63@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Herbert Smith</a>, <a href="mailto:%64%75%66%66%79@%72%65%64%68%61%74.%63%6F%6D">Máirín Duffy</a>, <a href="mailto:%74%68%6F%7A%7A%61@%72%65%64%68%61%74.%63%6F%6D">Tomas Hozza</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%33%38%38%37%32%34%36%33+%44%61%72%74%6F%6D%69%63@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Herbert Smith</a>, <a href="mailto:%33%33%30%36%35%30%37%38+%6A%61%63%6B%6F%72%70@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Jaroslav Prokop</a>, <a href="mailto:%64%75%66%66%79@%72%65%64%68%61%74.%63%6F%6D">Máirín Duffy</a>, <a href="mailto:%74%68%6F%7A%7A%61@%72%65%64%68%61%74.%63%6F%6D">Tomas Hozza</a></p>
           </div>
         </div>
       </div>

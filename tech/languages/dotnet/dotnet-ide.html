@@ -165,7 +165,6 @@
       <th>Mono</th>
       <th>Debugger</th>
       <th>Packaged in Fedora</th>
-      <th>Alternative download</th>
     </tr>
   </thead>
   <tbody>
@@ -175,7 +174,6 @@
       <td>✔</td>
       <td>✔</td>
       <td> </td>
-      <td>✔</td>
       <td> </td>
     </tr>
     <tr>
@@ -185,7 +183,6 @@
       <td>✔</td>
       <td>✔</td>
       <td>✔</td>
-      <td><a href="https://download.mono-project.com/repo/monodevelop.flatpakref">flatpak</a><sup>1</sup></td>
     </tr>
     <tr>
       <td><a href="http://jetbrains.com/rider">JetBrains Rider</a></td>
@@ -194,7 +191,6 @@
       <td>✔</td>
       <td>✔</td>
       <td> </td>
-      <td>tarball</td>
     </tr>
     <tr>
       <td><a href="https://code.visualstudio.com">Visual Studio Code</a> with <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp">C# plugin</a></td>
@@ -203,14 +199,12 @@
       <td> </td>
       <td>✔</td>
       <td> </td>
-      <td><a href="https://flathub.org/repo/appstream/com.visualstudio.code.flatpakref">flatpak</a><sup>1</sup>, copr &amp; rpm</td>
     </tr>
   </tbody>
 </table>
-<p><em>1. Download and install using direct link to <a href="/deployment/Flatpak/about.html">Flatpak</a></em></p>
 <h2 id="installing-eclipse">Installing Eclipse</h2>
-<p>First install Eclipse and Eclipse Marketplace</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install eclipse eclipse-mpc
+<p>First install Eclipse through <a href="/deployment/flatpak/about.html">Flatpak</a></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ flatpak install org.eclipse.Java
 </code></pre></div></div>
 <p>then install the aCute extension from the <a href="https://marketplace.eclipse.org/content/acute-c-edition-eclipse-ide-experimental">Marketplace</a></p>
 <h2 id="installing-monodevelop">Installing MonoDevelop</h2>
@@ -222,14 +216,22 @@
   <li>Or download the <a href="https://www.jetbrains.com/rider/eap">Early Access</a> version</li>
 </ul>
 <h2 id="installing-visual-studio-code">Installing Visual Studio Code</h2>
-<p>Download <a href="https://code.visualstudio.com">Visual Studio Code</a> and the C# Extension from the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp">Marketplace</a></p>
+<p><a href="https://code.visualstudio.com">Visual Studio Code</a> is available:</p>
+<ul>
+  <li>as an RPM downloadable from their website.</li>
+  <li>as a <a href="/deployment/flatpak/about.html">Flatpak</a> package installable like so:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  $ flatpak install com.visualstudio.code
+</code></pre></div>    </div>
+  </li>
+</ul>
+<p>After installing Visual Studio Code you can install the C# Extension from the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp">Marketplace</a>.</p>
 <p>Alternatively use the <a href="https://vscodium.com/">VSCodium</a> for Free/Libre Open Source Software Binaries of VSCode.</p>
 <h2 id="summary">Summary</h2>
 <p>JetBrains Rider is the most complete C# IDE, however it is not open source.</p>
 <p>VS Code and MonoDevelop work well for .NET Core and for Mono, respectively.</p>
 <p>C# via Eclipse is still young and not very friendly for the former Windows developer, but it can be useful if you’re already an Eclipse IDE user.</p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%72%61%64%6B%61.%6A%61%6E%65%6B@%72%65%64%68%61%74.%63%6F%6D">Radka Janek</a>, <a href="mailto:%74%6F%6D.%64%65%73%65%79%6E@%67%6D%61%69%6C.%63%6F%6D">Tom Deseyn</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%33%33%30%36%35%30%37%38+%6A%61%63%6B%6F%72%70@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Jaroslav Prokop</a>, <a href="mailto:%72%61%64%6B%61.%6A%61%6E%65%6B@%72%65%64%68%61%74.%63%6F%6D">Radka Janek</a>, <a href="mailto:%74%6F%6D.%64%65%73%65%79%6E@%67%6D%61%69%6C.%63%6F%6D">Tom Deseyn</a></p>
           </div>
         </div>
       </div>
