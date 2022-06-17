@@ -172,17 +172,22 @@
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>go run hello.go
 <span class="go">Hello, Fedora!
 </span></code></pre></div></div>
-<p>The command <code class="language-plaintext highlighter-rouge">go run</code> builds and runs a Go program, and is useful for quick experiments.
-To build the program and generate a compiled binary, use <code class="language-plaintext highlighter-rouge">go build</code>:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>go build
+<p>The command <code class="language-plaintext highlighter-rouge">go run</code> compiles and runs the named main Go program, and is useful for quick experiments.
+To build the program along with the dependencies, you need to configure the modules first, and use <code class="language-plaintext highlighter-rouge">go build</code>:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>go mod init
+<span class="go">go: creating new go.mod: module hello
+go: to add module requirements and sums:
+	go mod tidy
+</span><span class="gp">$</span><span class="w"> </span>go mod tidy
+<span class="gp">$</span><span class="w"> </span>go build
 <span class="gp">$</span><span class="w"> </span><span class="nb">ls</span>
-<span class="go">hello  hello.go
+<span class="go">go.mod  hello  hello.go
 </span></code></pre></div></div>
 <p>Without arguments, <code class="language-plaintext highlighter-rouge">go build</code> builds the package in the current directory, and in case of a main package it places a binary in the same directory. Let’s try it:</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>./hello
 <span class="go">Hello, Fedora!
 </span></code></pre></div></div>
-<p>Yet another option is to use <code class="language-plaintext highlighter-rouge">go install</code>:</p>
+<p>Yet another option is to use <code class="language-plaintext highlighter-rouge">go install</code>. You still need to configure the modules as mentioned above:</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>go <span class="nb">install</span>
 <span class="gp">$</span><span class="w"> </span><span class="nb">ls</span>
 <span class="go">hello.go
@@ -196,8 +201,12 @@ To build the program and generate a compiled binary, use <code class="language-p
 <span class="gp">$</span><span class="w"> </span>hello
 <span class="go">Hello, Fedora!
 </span></code></pre></div></div>
-<hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%72%68%63%61%72%76%61%6C%68%6F@%67%6D%61%69%6C.%63%6F%6D">Rodolfo Carvalho</a>, <a href="mailto:%74%69%61%6E%78%69%61%6E%67.%78%69%6F%6E%67@%67%6D%61%69%6C.%63%6F%6D">Tianxiang Xiong</a></p>
+<h2 id="references">References</h2>
+<ul id="authors-rule">
+  <li><a href="https://go.dev/doc/tutorial/create-module">Go Documentation: Create a Go module</a>
+_  _  _  _</li>
+</ul>
+<p style="text-align: center">Authors: <a href="mailto:%72%68%63%61%72%76%61%6C%68%6F@%67%6D%61%69%6C.%63%6F%6D">Rodolfo Carvalho</a>, <a href="mailto:%74%69%61%6E%78%69%61%6E%67.%78%69%6F%6E%67@%67%6D%61%69%6C.%63%6F%6D">Tianxiang Xiong</a>, <a href="mailto:%61%6C%65%78%73%61%65%7A%6D@%67%6D%61%69%6C.%63%6F%6D">Álex Sáez</a></p>
           </div>
         </div>
       </div>

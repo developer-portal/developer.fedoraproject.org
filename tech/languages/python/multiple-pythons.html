@@ -169,16 +169,17 @@ use <code class="language-plaintext highlighter-rouge">dnf</code> to install wha
 <p>At the time of this writing, Fedora has the following Pythons
 ready for you in the repositories:</p>
 <ul>
+  <li>CPython 3.11</li>
   <li>CPython 3.10</li>
   <li>CPython 3.9</li>
   <li>CPython 3.8</li>
   <li>CPython 3.7</li>
   <li>CPython 3.6</li>
-  <li>CPython 3.5<sup>💀</sup></li>
   <li>CPython 2.7</li>
   <li>PyPy 2</li>
-  <li>PyPy 3</li>
-  <li>Jython<sup>💀</sup></li>
+  <li>PyPy 3.7</li>
+  <li>PyPy 3.8</li>
+  <li>PyPy 3.9</li>
   <li>MicroPython</li>
 </ul>
 <p>Quite a nest, isn’t it?
@@ -188,7 +189,7 @@ You can install them like this:</p>
 <span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>python3.7  <span class="c"># to get CPython 3.7</span>
 <span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>python3.6  <span class="c"># to get CPython 3.6</span>
 <span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>python2.7  <span class="c"># to get CPython 2.7</span>
-<span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>pypy2 pypy3 python3.10  <span class="c"># to get more at once</span>
+<span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>pypy2 pypy3.9 python3.10  <span class="c"># to get more at once</span>
 </code></pre></div></div>
 <p>After that, you can run an interactive console or your script with, let’s say,
 CPython 3.6:</p>
@@ -202,7 +203,6 @@ Type "help", "copyright", "credits" or "license" for more information.
 package only. Other CPython versions might be <strong>unstable</strong> or even <strong>dangerous</strong>
 (either because they are extremely old or quite the contrary alpha/beta quality)
 and are intended solely for development.</p>
-<p><strong>*</strong> Interpreters marked with <sup>💀</sup> were removed in Fedora Linux 35 and are only available in Fedora Linux 34.</p>
 <h2 id="getting-it-and-running-it-all-with-tox">Getting it and running it all with tox</h2>
 <p><a href="https://tox.readthedocs.io/">Tox</a> is tool that helps you test your Python code
 on multiple Pythons. If you install it on Fedora via the dnf package manager,
@@ -309,37 +309,6 @@ Type "help", "copyright", "credits" or "license" for more information.
 <span class="gp">&gt;</span><span class="o">&gt;&gt;</span> ...
 <span class="gp">&gt;</span><span class="o">&gt;&gt;</span> <span class="nb">exit</span><span class="o">()</span>
 <span class="gp">(env)$</span><span class="w"> </span>deactivate  <span class="c"># go back to "normal"</span>
-</code></pre></div></div>
-<h3 id="jython">Jython</h3>
-<p><strong>Warning:</strong> Jython will be <a href="https://lists.fedoraproject.org/archives/list/users@lists.fedoraproject.org/thread/GCZL4Y63RPCSIHGX2KEJC5WRGTOKZVKS/">removed from Fedora in Fedora 35</a>.</p>
-<p>The versions of virtualenv and tox packages in Fedora do not support Jython,
-an interpreter that interoperates with the Java ecosystem.</p>
-<p>If you need to support it, you will need to install
-and use older virtualenv/tox versions from PyPI.</p>
-<p>First, create and activate a virtual environment with a newer Python, preferably <code class="language-plaintext highlighter-rouge">python3</code>:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>python3 <span class="nt">-m</span> venv py3env
-<span class="gp">$</span><span class="w"> </span><span class="nb">source </span>py3env/bin/activate  <span class="c"># activate it</span>
-</code></pre></div></div>
-<p>Then, install older packages (virtualenv 15 and tox 2) into it:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">(py3env)$</span><span class="w"> </span>python <span class="nt">-m</span> pip <span class="nb">install</span> <span class="s1">'virtualenv&lt;16'</span> <span class="s1">'tox&lt;3'</span>
-</code></pre></div></div>
-<p>Now, whenever the Python 3 virtual environment is activated, you can invoke
-tox 2 using the <code class="language-plaintext highlighter-rouge">tox</code> command.
-Include <code class="language-plaintext highlighter-rouge">jython</code> in the <code class="language-plaintext highlighter-rouge">envlist</code> section in <code class="language-plaintext highlighter-rouge">tox.ini</code> to test
-on that interpreters.</p>
-<p>You can also use the older virtualenv to create environments for Jython:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">(py3env)$</span><span class="w"> </span>python <span class="nt">-m</span> virtualenv <span class="nt">--python</span> /usr/bin/jython jyenv <span class="nt">--no-setuptools</span> <span class="nt">--no-pip</span> <span class="nt">--no-wheel</span>
-</code></pre></div></div>
-<p>To activate these, you don’t need the <code class="language-plaintext highlighter-rouge">py3env</code> activated.
-That is only needed to create them.</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">source </span>jyenv/bin/activate
-<span class="gp">(jyenv)$</span><span class="w"> </span>python <span class="nt">--version</span>
-<span class="go">Jython 2.7.1
-</span></code></pre></div></div>
-<p>To be able to install packages, run Jython’s <code class="language-plaintext highlighter-rouge">ensurepip</code> command.
-This will install a compatible version of <code class="language-plaintext highlighter-rouge">pip</code>.</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">(jyenv)$</span><span class="w"> </span>python <span class="nt">-m</span> ensurepip
-<span class="gp">(jyenv)$</span><span class="w"> </span>python <span class="nt">-m</span> pip <span class="nb">install </span>requests
 </code></pre></div></div>
 <h3 id="micropython">MicroPython</h3>
 <p>MicroPython does not support virtual environments.

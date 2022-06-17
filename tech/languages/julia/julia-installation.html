@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Go packages &mdash; Fedora Developer Portal</title>
+  <title>Julia &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/go/go-packages.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/julia/julia-installation.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -118,9 +118,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/go.png">
-          <h2>Go</h2>
-          <p>An open source programming language built to craft simple, reliable, and efficient software.</p>
+          <img class="img-rounded" src="/static/logo/julia.png">
+          <h2>Julia</h2>
+          <p>High-level, high-performance dynamic language for technical computing.</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -135,9 +135,7 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="list-group content-menu">
-                <a href="/tech/languages/go/go-installation.html" class="list-group-item ">Go</a>
-                <a href="/tech/languages/go/go-programs.html" class="list-group-item ">Writing Go programs</a>
-                <a href="/tech/languages/go/go-packages.html" class="list-group-item  active ">Go packages</a>
+                <a href="/tech/languages/julia/julia-installation.html" class="list-group-item  active ">Julia</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -147,36 +145,49 @@
 </div>
             </div>
           </div>
-          <a href="https://github.com/developer-portal/content/edit/master/tech/languages/go/go-packages.md" class="btn btn-default">Edit this page</a>
-          <a href="https://github.com/developer-portal/content/issues/new?title=:+go+go-packages.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
+          <a href="https://github.com/developer-portal/content/edit/master/tech/languages/julia/julia-installation.md" class="btn btn-default">Edit this page</a>
+          <a href="https://github.com/developer-portal/content/issues/new?title=tech-languages:+julia+julia-installation.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h1 id="go-packages-installation">Go packages installation</h1>
-<h2 id="go-packages-from-upstream">Go packages from upstream</h2>
-<p>Upstream projects can be installed with <code class="language-plaintext highlighter-rouge">go install</code> command, but only if they have <code class="language-plaintext highlighter-rouge">main</code> package. Package names follow the import paths so to install <code class="language-plaintext highlighter-rouge">github.com/go-delve/delve</code> from GitHub you need to reference the <code class="language-plaintext highlighter-rouge">main</code> package with a suffix like <code class="language-plaintext highlighter-rouge">@v1.2.3</code> or <code class="language-plaintext highlighter-rouge">@latest</code>.</p>
-<p>To install a specific version run:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>go <span class="nb">install </span>github.com/go-delve/delve/cmd/dlv@v1.8.2
+            <h1 id="julia-installation">Julia installation</h1>
+<p><a href="https://julialang.org/">Julia</a> is a high-level, general-purpose language usually suited for numerical analysis and computational science. It provides a sophisticated compiler, distributed parallel execution, numerical accuracy, and an extensive mathematical function library. To install Julia on Fedora, simply type:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>dnf <span class="nb">install </span>julia
 </code></pre></div></div>
-<p>To install the highest available version run:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>go <span class="nb">install </span>github.com/go-delve/delve/cmd/dlv@latest
+<p>You can now start the Julia REPL (read-eval-print loop), which is an interactive session by invoking the <code class="language-plaintext highlighter-rouge">julia</code> command in the terminal. You can expect an output as below.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>julia
+               _
+   _       _ _<span class="o">(</span>_<span class="o">)</span>_     |  Documentation: https://docs.julialang.org
+  <span class="o">(</span>_<span class="o">)</span>     | <span class="o">(</span>_<span class="o">)</span> <span class="o">(</span>_<span class="o">)</span>    |
+   _ _   _| |_  __ _   |  Type <span class="s2">"?"</span> <span class="k">for </span><span class="nb">help</span>, <span class="s2">"]?"</span> <span class="k">for </span>Pkg help.
+  | | | | | | |/ _<span class="sb">`</span> |  |
+  | | |_| | | | <span class="o">(</span>_| |  |  Version 1.7.3 <span class="o">(</span>2022-05-06<span class="o">)</span>
+ _/ |<span class="se">\_</span>_<span class="s1">'_|_|_|\__'</span>_|  |  Fedora 36 build
+|__/                   |
+
+julia&gt; 
+
 </code></pre></div></div>
-<p>This will build and install the binary in <code class="language-plaintext highlighter-rouge">$GOPATH/bin</code>. If you have not added that to your <code class="language-plaintext highlighter-rouge">PATH</code> environment variable yet, you can do so with these commands:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">echo</span> <span class="s1">'export PATH=$PATH:$GOPATH/bin'</span> <span class="o">&gt;&gt;</span> <span class="nv">$HOME</span>/.bashrc
-<span class="gp">$</span><span class="w"> </span><span class="nb">source</span> <span class="nv">$HOME</span>/.bashrc
+<p>Now, you can run julia commands inside the REPL.</p>
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">julia</span><span class="o">&gt;</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
+<span class="mi">2</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> 
+
 </code></pre></div></div>
-<h2 id="go-packages-from-fedora">Go packages from Fedora</h2>
-<p>Alternatively, various Go packages are packaged and available in Fedora.</p>
-<p>The package name idiom is that the import paths of libraries are fully qualified domain names. This way you have clarity to the precise upstream being used. By truncating domain names, using ‘-‘ instead of ‘/’ and appending <code class="language-plaintext highlighter-rouge">-devel</code> suffix you know how is the associated Fedora package called. For example, ‘github.com/gorilla/context’ would become <code class="language-plaintext highlighter-rouge">golang-github-gorilla-context-devel</code>. Similarly, the ‘code.google.com/p/go.net’ repository would become <code class="language-plaintext highlighter-rouge">golang-googlecode-net-devel</code>.</p>
-<p>To install <code class="language-plaintext highlighter-rouge">golang-x-net-devel</code> package, you use DNF as usual:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>golang-x-net-devel
+<p>To exit the REPL, you can use <kbd>Ctrl + D</kbd> or type <code class="language-plaintext highlighter-rouge">exit()</code>.</p>
+<p>Julia source files have the file extension <code class="language-plaintext highlighter-rouge">.jl</code>. Create a julia program <code class="language-plaintext highlighter-rouge">your_source.jl</code>. You can run the file using the command below:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>julia your_source.jl
+</code></pre></div></div>
+<p>To see the manual page of <code class="language-plaintext highlighter-rouge">julia</code>, simply type:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>man julia
 </code></pre></div></div>
 <h2 id="references">References</h2>
 <ul>
-  <li><a href="https://go.dev/doc/go-get-install-deprecation">Go Documentation: Deprecation of go get</a></li>
+  <li><a href="https://docs.julialang.org">Julia Documentation</a></li>
 </ul>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%72%68%63%61%72%76%61%6C%68%6F@%67%6D%61%69%6C.%63%6F%6D">Rodolfo Carvalho</a>, <a href="mailto:%61%6C%65%78%73%61%65%7A%6D@%67%6D%61%69%6C.%63%6F%6D">Álex Sáez</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%34%33%37%31%39%39%38%35+%6A%61%6B%61%66%6C%65@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Jagat Kafle</a></p>
           </div>
         </div>
       </div>
