@@ -55,9 +55,6 @@
 <loc>https://developer.fedoraproject.org/start/tips/documentation/about.html</loc>
 </url>
 <url>
-<loc>https://developer.fedoraproject.org/tech/database/cassandra/about.html</loc>
-</url>
-<url>
 <loc>https://developer.fedoraproject.org/tech/database/mariadb/about.html</loc>
 </url>
 <url>
@@ -67,10 +64,13 @@
 <loc>https://developer.fedoraproject.org/tech/database/postgresql/about.html</loc>
 </url>
 <url>
+<loc>https://developer.fedoraproject.org/tech/database/sqlite/about.html</loc>
+</url>
+<url>
 <loc>https://developer.fedoraproject.org/tech/database/redis/about.html</loc>
 </url>
 <url>
-<loc>https://developer.fedoraproject.org/tech/database/sqlite/about.html</loc>
+<loc>https://developer.fedoraproject.org/tech/database/cassandra/about.html</loc>
 </url>
 <url>
 <loc>https://developer.fedoraproject.org/tech/languages/csharp/dotnet-installation.html</loc>

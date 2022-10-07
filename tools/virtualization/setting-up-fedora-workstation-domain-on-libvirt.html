@@ -175,30 +175,30 @@
   </li>
   <li>Invoke virt-install session for installing Fedora Workstation using BIOS on the virtual disk image by executing the following command on the host.
     <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>virt-install <span class="se">\</span>
-    <span class="nt">--virt-type</span> kvm <span class="se">\</span>
-    <span class="nt">--name</span> fedoraXX-mstr <span class="se">\</span>
-    <span class="nt">--memory</span> 4096 <span class="se">\</span>
-    <span class="nt">--vcpus</span> 8 <span class="se">\</span>
-    <span class="nt">--cdrom</span> cdromimg/Fedora-Workstation-Live-x86_64-xx-y.z.iso <span class="se">\</span>
-    <span class="nt">--disk</span> datadrct/fedoraXX/fedoraXX-mstr.raw <span class="se">\</span>
-    <span class="nt">--graphics</span> vnc,listen<span class="o">=</span>0.0.0.0,port<span class="o">=</span>5920 <span class="se">\</span>
-    <span class="nt">--network</span> default,mac<span class="o">=</span>00:00:00:00:03:00 <span class="se">\</span>
-    <span class="nt">--noautoconsole</span> <span class="se">\</span>
-</code></pre></div>    </div>
+<span class="go">    --virt-type kvm \
+    --name fedoraXX-mstr \
+    --memory 4096 \
+    --vcpus 8 \
+    --cdrom cdromimg/Fedora-Workstation-Live-x86_64-xx-y.z.iso \
+    --disk datadrct/fedoraXX/fedoraXX-mstr.raw \
+    --graphics vnc,listen=0.0.0.0,port=5920 \
+    --network default,mac=00:00:00:00:03:00 \
+    --noautoconsole \
+</span></code></pre></div>    </div>
     <p>OR<br />
 Invoke virt-install session for installing Fedora Workstation using UEFI on the virtual disk image by executing the following command on the host.</p>
     <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>virt-install <span class="se">\</span>
-    <span class="nt">--virt-type</span> kvm <span class="se">\</span>
-    <span class="nt">--name</span> fedoraXX-mstr <span class="se">\</span>
-    <span class="nt">--memory</span> 4096 <span class="se">\</span>
-    <span class="nt">--vcpus</span> 8 <span class="se">\</span>
-    <span class="nt">--cdrom</span> cdromimg/Fedora-Workstation-Live-x86_64-xx-y.z.iso <span class="se">\</span>
-    <span class="nt">--disk</span> datadrct/fedoraXX/fedoraXX-mstr.raw <span class="se">\</span>
-    <span class="nt">--graphics</span> vnc,listen<span class="o">=</span>0.0.0.0,port<span class="o">=</span>5920 <span class="se">\</span>
-    <span class="nt">--network</span> default,mac<span class="o">=</span>00:00:00:00:03:00 <span class="se">\</span>
-    <span class="nt">--noautoconsole</span> <span class="se">\</span>
-    <span class="nt">--boot</span> uefi
-</code></pre></div>    </div>
+<span class="go">    --virt-type kvm \
+    --name fedoraXX-mstr \
+    --memory 4096 \
+    --vcpus 8 \
+    --cdrom cdromimg/Fedora-Workstation-Live-x86_64-xx-y.z.iso \
+    --disk datadrct/fedoraXX/fedoraXX-mstr.raw \
+    --graphics vnc,listen=0.0.0.0,port=5920 \
+    --network default,mac=00:00:00:00:03:00 \
+    --noautoconsole \
+    --boot uefi
+</span></code></pre></div>    </div>
     <p>The following is an example output for the above command.</p>
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Starting install...
    

@@ -165,7 +165,7 @@
 </code></pre></div></div>
 <h2 id="getting-started">Getting started</h2>
 <p>To begin our introduction to Gtk+, we will start with the simplest program possible. This program will simply create a gtk+ window with the title “Hello World”.</p>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;gtk/gtk.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;gtk/gtk.h&gt;</span><span class="cp">
 </span>
 <span class="kt">int</span> 
 <span class="nf">main</span><span class="p">(</span><span class="kt">int</span>   <span class="n">argc</span><span class="p">,</span>
@@ -188,10 +188,10 @@
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcc hello.c -o hello `pkg-config --cflags --libs gtk+-3.0`
 </code></pre></div></div>
 <p>In the program above we initially included gtk/gtk.h, which declares all the gtk+ objects used in the rest of the program:</p>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;gtk/gtk.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;gtk/gtk.h&gt;</span><span class="cp">
 </span></code></pre></div></div>
 <p>or</p>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;gtk-3.0/gtk/gtk.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;gtk-3.0/gtk/gtk.h&gt;</span><span class="cp">
 </span></code></pre></div></div>
 <p>After the declaration of the window object variable, we call the gtk_init method which initializes the library and its internal procedures.</p>
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gtk_init</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">argv</span><span class="p">);</span>

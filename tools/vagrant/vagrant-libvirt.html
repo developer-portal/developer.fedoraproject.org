@@ -181,10 +181,17 @@ end
 </code></pre></div></div>
 <p>Read more on the <code class="language-plaintext highlighter-rouge">vagrant-libvirt</code> configuration in the <a href="https://github.com/vagrant-libvirt/vagrant-libvirt">upstream documentation</a>.</p>
 <h2 id="manage-guest-networks-via-vagrant">Manage guest networks via Vagrant</h2>
-<p>In Fedora <code class="language-plaintext highlighter-rouge">qemu://session</code> is used by default. This allows causes vagrant to run in userspace, not requiring password and being much safer. Downside is that not all Vagrant features are accessible, as they require root. To revert for your selected boxes to <code class="language-plaintext highlighter-rouge">qemu://system</code>:</p>
+<p>In Fedora <code class="language-plaintext highlighter-rouge">qemu://session</code> is used by default. This allows causes vagrant to run in userspace, not requiring password and being much safer. Downside is that if some Vagrant functionality requires root permissions, it might not be available (some cases are resolved via “qemu bridge”).</p>
+<p>To revert for your box to <code class="language-plaintext highlighter-rouge">qemu://system</code>, you can put something like the following into your Vagrantfile:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Vagrant</span><span class="p">.</span><span class="nf">configure</span><span class="p">(</span><span class="s2">"2"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">vm</span><span class="p">.</span><span class="nf">provider</span> <span class="ss">:libvirt</span> <span class="k">do</span> <span class="o">|</span><span class="n">libvirt</span><span class="o">|</span>
+    <span class="c1"># Use QEMU session instead of system connection</span>
+    <span class="n">libvirt</span><span class="p">.</span><span class="nf">qemu_use_session</span> <span class="o">=</span> <span class="kp">true</span>
+
+</code></pre></div></div>
 <ul>
   <li>Fedora change: <a href="https://fedoraproject.org/wiki/Changes/Vagrant_2.2_with_QEMU_Session">https://fedoraproject.org/wiki/Changes/Vagrant_2.2_with_QEMU_Session</a></li>
-  <li>Upstream documentation: <a href="https://github.com/vagrant-libvirt/vagrant-libvirt#qemu-session-support">https://github.com/vagrant-libvirt/vagrant-libvirt#qemu-session-support</a></li>
+  <li>Upstream documentation: <a href="https://github.com/vagrant-libvirt/vagrant-libvirt/blob/main/docs/examples.markdown#qemu-session-support">https://github.com/vagrant-libvirt/vagrant-libvirt/blob/main/docs/examples.markdown#qemu-session-support</a></li>
 </ul>
 <h2 id="using-libvirt-from-vagrant-without-password-prompts">Using libvirt from Vagrant without password prompts</h2>
 <p>Using <code class="language-plaintext highlighter-rouge">libvirt</code> provider requires you to type your administrator password every time you create,

@@ -150,23 +150,29 @@
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h1 id="mongodb">MongoDB</h1>
+            <div class="alert alert-warning" role="alert">
+  <strong>This page is deprecated!</strong>
+  The following information is outdated
+  and will be removed in 6 months.
+</div>
+<h1 id="mongodb">MongoDB</h1>
 <p>MongoDB is a free and open source database and uses a document-oriented data model.</p>
-<h2 id="installation">Installation</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># dnf install mongodb mongodb-server
-# service mongod start
-</code></pre></div></div>
-<h2 id="how-to-install-a-specific-version">How to install a specific version</h2>
+<h2 id="security">Security</h2>
+<p>Fedora has determined that the Server Side Public Licensev1 (SSPL) is not a Free Software License. Therefore, we need to drop MongoDB from Fedora or never update it again. Never updating it would bring security issues, hence we decided to remove it.</p>
+<p>References:</p>
+<ul>
+  <li><a href="https://fedoraproject.org/wiki/Changes/MongoDB_Removal">MongoDB removal from Fedora</a></li>
+</ul>
+<h2 id="how-to-install-a-specific-upstream-version">How to install a specific upstream version</h2>
 <p>First we need configure the package management system, please note that:</p>
 <blockquote>
   <p>DNF by default uses the global configuration file at /etc/dnf/dnf.conf and all *.repo files found under /etc/yum.repos.d. The
 latter is typically used for repository configuration and takes precedence over global configuration.</p>
 </blockquote>
-<p>Access the directory and create a file mongodb-org-<em>release_series</em>.repo</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd /etc/yum.repos.d/
-$ sudo touch mongodb-org-4.4.repo  
+<p>Create a file mongodb-org-<em>release_series</em>.repo</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>nano /etc/yum.repos.d/mongodb-org-4.4.repo
 </code></pre></div></div>
-<p>Insert this content inside mongodb-org-<em>release_series</em>.repo, edit if you want install another version.</p>
+<p>Insert this content inside the mongodb-org-<em>release_series</em>.repo file, edit the <em>release_series</em> in the filename and the baseurl and gpgkey fields URLs if you want to install another version.</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Mongodb]
 name=MongoDB Repository
 baseurl=https://repo.mongodb.org/yum/redhat/8/mongodb-org/4.4/x86_64/
@@ -175,19 +181,28 @@ enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-4.4.asc
 </code></pre></div></div>
 <p>Now you can install with dnf</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install -y mongodb-org
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>mongodb-org
 </code></pre></div></div>
-<h2 id="run-mongodb">Run mongoDB</h2>
-<p>Start mongoDB service and after run mongoshell to test connection</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo service mongod start
-$ mongo
-MongoDB shell version: 4.0.0
+<p>Currently some packages do not install, however those packages do not affect the functionality of MongoDB.</p>
+<p><strong>Warning:</strong> MongoDB does not guarantee compatibility with Fedora Linux, so newer MongoDB server packages might fail to install. <a href="https://jira.mongodb.org/browse/SERVER-58870">See MongoDB issue ticket SERVER-58871</a>.</p>
+<h2 id="enable-mongodb-services">Enable MongoDB services</h2>
+<p>To enable and start MongoDB service run:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>systemctl <span class="nb">enable </span>mongod.service
+<span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>systemctl start mongod.service
+</code></pre></div></div>
+<h2 id="check-mongodb-current-status">Check MongoDB current status</h2>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>systemctl status mongod.service
+</code></pre></div></div>
+<h2 id="test-mongodb-connection">Test MongoDB connection</h2>
+<p>Run mongoshell to test the connection:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>mongo
+<span class="go">MongoDB shell version: 4.0.0
 connecting to: test
-</code></pre></div></div>
+</span></code></pre></div></div>
 <h2 id="mongodb-gui-not-tested">MongoDB GUI (not tested)</h2>
 <p><a href="https://github.com/hatamiarash7/MongoDB_Admin/wiki/1.-Getting-Start">MongoDB Admin</a> is a Cross Platform GUI.</p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%64%61%6E%69%65%6C%61%6D%6F%72%61%69%73@%74%75%74%61.%69%6F">Daniela Marques de Morais</a>, <a href="mailto:%6B%65%6E%6E%65%74%68%6B%61%75@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Kenneth K Au</a>, <a href="mailto:%6C%75%69%73.%63%6F%6E%74%72%65%72%61%73.%64%6F@%67%6D%61%69%6C.%63%6F%6D">Luis Contreras</a>, <a href="mailto:%61%6C%73%61%64%69@%67%6D%61%69%6C.%63%6F%6D">Muayyad Alsadi</a>, <a href="mailto:%73%65%72%67%75%73%68%61%6B%6F%76@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Sergey Ushakov</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%6C%75%69%73.%63%6F%6E%74%72%65%72%61%73.%64%6F@%67%6D%61%69%6C.%63%6F%6D">Luis Contreras</a>, <a href="mailto:%61%6C%73%61%64%69@%67%6D%61%69%6C.%63%6F%6D">Muayyad Alsadi</a>, <a href="mailto:%73%65%72%67%75%73%68%61%6B%6F%76@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Sergey Ushakov</a>, <a href="mailto:%33%37%31%39%35%37%31%39+%6F%73%63%61%72%37%36%39%32@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">oscarPulido</a></p>
           </div>
         </div>
       </div>

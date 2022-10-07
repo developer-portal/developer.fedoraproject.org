@@ -171,15 +171,15 @@
   </li>
   <li>Start a virtual machine for setting up intrinsic VNC server for the live ISO and there is no need for a virtual disk image here.
     <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>qemu-system-x86_64 <span class="se">\</span>
-    <span class="nt">-boot</span> <span class="nv">menu</span><span class="o">=</span>on <span class="se">\</span>
-    <span class="nt">-m</span> 2048 <span class="se">\</span>
-    <span class="nt">-cpu</span> max <span class="se">\</span>
-    <span class="nt">-smp</span> 4 <span class="se">\</span>
-    <span class="nt">-cdrom</span> cdromimg/&lt;Fedora-Workstation-Live-x86_64-xx-y.z.iso&gt; <span class="se">\</span>
-    <span class="nt">-vnc</span> 0.0.0.0:59,password<span class="o">=</span>on <span class="se">\</span>
-    <span class="nt">-accel</span> kvm <span class="se">\</span>
-    <span class="nt">-monitor</span> stdio
-</code></pre></div>    </div>
+<span class="go">    -boot menu=on \
+    -m 2048 \
+    -cpu max \
+    -smp 4 \
+</span><span class="gp">    -cdrom cdromimg/&lt;Fedora-Workstation-Live-x86_64-xx-y.z.iso&gt;</span><span class="w"> </span><span class="se">\</span>
+<span class="go">    -vnc 0.0.0.0:59,password=on \
+    -accel kvm \
+    -monitor stdio
+</span></code></pre></div>    </div>
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>QEMU 5.2.0 monitor - type 'help' for more information
 (qemu) 
 </code></pre></div>    </div>

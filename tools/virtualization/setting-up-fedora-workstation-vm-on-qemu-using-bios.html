@@ -175,14 +175,14 @@
   </li>
   <li>Start a virtual machine for installing Fedora Workstation on the virtual disk image by executing the following command on the host.
     <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>qemu-system-x86_64 <span class="se">\</span>
-    <span class="nt">-boot</span> <span class="nv">menu</span><span class="o">=</span>on <span class="se">\</span>
-    <span class="nt">-m</span> 2048 <span class="se">\</span>
-    <span class="nt">-cpu</span> max <span class="se">\</span>
-    <span class="nt">-smp</span> 4 <span class="se">\</span>
-    <span class="nt">-cdrom</span> cdromimg/&lt;Fedora-Workstation-Live-x86_64-xx-y.z.iso&gt; <span class="se">\</span>
-    <span class="nt">-drive</span> <span class="nv">file</span><span class="o">=</span>datadrct/fedobios.raw,format<span class="o">=</span>raw <span class="se">\</span>
-    <span class="nt">-accel</span> kvm
-</code></pre></div>    </div>
+<span class="go">    -boot menu=on \
+    -m 2048 \
+    -cpu max \
+    -smp 4 \
+</span><span class="gp">    -cdrom cdromimg/&lt;Fedora-Workstation-Live-x86_64-xx-y.z.iso&gt;</span><span class="w"> </span><span class="se">\</span>
+<span class="go">    -drive file=datadrct/fedobios.raw,format=raw \
+    -accel kvm
+</span></code></pre></div>    </div>
     <p><img src="/content/tools/virtualization/images/setting-up-fedora-workstation-vm-on-qemu-using-bios/01.png" alt="01" /><br />
 <img src="/content/tools/virtualization/images/setting-up-fedora-workstation-vm-on-qemu-using-bios/02.png" alt="02" /></p>
   </li>
@@ -241,13 +241,13 @@ For the sake of simplicity, the partitions are configured in the following manne
 <img src="/content/tools/virtualization/images/setting-up-fedora-workstation-vm-on-qemu-using-bios/09.png" alt="09" /></li>
   <li>Start a virtual machine where Fedora Workstation was just installed by executing the following command on the host.
     <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp"> $</span><span class="w"> </span>qemu-system-x86_64 <span class="se">\</span>
-     <span class="nt">-boot</span> <span class="nv">menu</span><span class="o">=</span>on <span class="se">\</span>
-     <span class="nt">-m</span> 2048 <span class="se">\</span>
-     <span class="nt">-cpu</span> max <span class="se">\</span>
-     <span class="nt">-smp</span> 4 <span class="se">\</span>
-     <span class="nt">-drive</span> <span class="nv">file</span><span class="o">=</span>datadrct/fedobios.raw,format<span class="o">=</span>raw <span class="se">\</span>
-     <span class="nt">-accel</span> kvm
-</code></pre></div>    </div>
+<span class="go">     -boot menu=on \
+     -m 2048 \
+     -cpu max \
+     -smp 4 \
+     -drive file=datadrct/fedobios.raw,format=raw \
+     -accel kvm
+</span></code></pre></div>    </div>
   </li>
   <li>Set up the Fedora Workstation according to preferences.<br />
  <img src="/content/tools/virtualization/images/setting-up-fedora-workstation-vm-on-qemu-using-bios/10.png" alt="10" /></li>

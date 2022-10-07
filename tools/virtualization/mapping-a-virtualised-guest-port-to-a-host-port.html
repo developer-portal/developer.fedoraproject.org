@@ -171,15 +171,15 @@
   </li>
   <li>Start a virtual machine for mapping a virtualized guest port to a host port for the live ISO and there is no need for a virtual disk image here.
     <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>qemu-system-x86_64 <span class="se">\</span>
-    <span class="nt">-boot</span> <span class="nv">menu</span><span class="o">=</span>on <span class="se">\</span>
-    <span class="nt">-m</span> 4096 <span class="se">\</span>
-    <span class="nt">-cpu</span> max <span class="se">\</span>
-    <span class="nt">-smp</span> 4 <span class="se">\</span>
-    <span class="nt">-cdrom</span> cdromimg/&lt;Fedora-Workstation-Live-x86_64-xx-y.z.iso&gt; <span class="se">\</span>
-    <span class="nt">-accel</span> kvm <span class="se">\</span>
-    <span class="nt">-net</span> nic <span class="se">\</span>
-    <span class="nt">-net</span> user,hostfwd<span class="o">=</span>tcp::2323-:22
-</code></pre></div>    </div>
+<span class="go">    -boot menu=on \
+    -m 4096 \
+    -cpu max \
+    -smp 4 \
+</span><span class="gp">    -cdrom cdromimg/&lt;Fedora-Workstation-Live-x86_64-xx-y.z.iso&gt;</span><span class="w"> </span><span class="se">\</span>
+<span class="go">    -accel kvm \
+    -net nic \
+    -net user,hostfwd=tcp::2323-:22
+</span></code></pre></div>    </div>
   </li>
   <li>Wait for the virtual machine to boot up.<br />
 <img src="/content/tools/virtualization/images/mapping-a-virtualised-guest-port-to-a-host-port/01.png" alt="01" /></li>

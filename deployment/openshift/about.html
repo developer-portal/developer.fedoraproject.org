@@ -206,10 +206,11 @@ First, install the dependencies. We’ll need <a href="/tools/docker/docker-inst
 </span></code></pre></div></div>
 <p>If you are running a default installation of Docker, you will run into the error above.
 That is okay. We will follow the suggestion on screen. The good news is that <code class="language-plaintext highlighter-rouge">oc cluster up</code> downloaded the Docker image for running OpenShift Origin, so next time we run it, we already have the images offline.</p>
-<p>To change the Docker configuration permanently, edit (as the <code class="language-plaintext highlighter-rouge">root</code> user) the file <code class="language-plaintext highlighter-rouge">/etc/containers/registries.conf</code> and add <code class="language-plaintext highlighter-rouge">172.30.0.0/16</code> to the list of <code class="language-plaintext highlighter-rouge">registries</code> under <code class="language-plaintext highlighter-rouge">[registries.insecure]</code> category. For example:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[registries.insecure]
-registries = ['172.30.0.0/16']
-</code></pre></div></div>
+<p>To change the Docker configuration permanently, edit (as the <code class="language-plaintext highlighter-rouge">root</code> user) the file <code class="language-plaintext highlighter-rouge">/etc/docker/daemon.json</code> and add <code class="language-plaintext highlighter-rouge">172.30.0.0/16</code> to the key <code class="language-plaintext highlighter-rouge">insecure-registries</code>. For example:</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"insecure-registries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"172.30.0.0/16"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 <p>Then, restart the Docker daemon:</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>systemctl restart docker
 </code></pre></div></div>
@@ -307,7 +308,7 @@ For more information, consult the <a href="#references">References</a> below.</p
   </li>
 </ul>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6C%65%61%6E%64%72%6F%65%6D%62%75@%67%6D%61%69%6C.%63%6F%6D">Leandro Ramos</a>, <a href="mailto:%72%68%63%61%72%76%61%6C%68%6F@%67%6D%61%69%6C.%63%6F%6D">Rodolfo Carvalho</a>, <a href="mailto:%74%61%64%65%6A.%6A@%6E%65%7A.%73%69">Tadej Janež</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%6C%65%61%6E%64%72%6F%65%6D%62%75@%67%6D%61%69%6C.%63%6F%6D">Leandro Ramos</a>, <a href="mailto:%72%68%63%61%72%76%61%6C%68%6F@%67%6D%61%69%6C.%63%6F%6D">Rodolfo Carvalho</a>, <a href="mailto:%74%61%64%65%6A.%6A@%6E%65%7A.%73%69">Tadej Janež</a></p>
           </div>
         </div>
       </div>

@@ -172,14 +172,14 @@
   <li>Source OVMF UEFI assets by following the <a href="/tools/virtualization/fetching-ovmf-uefi-from-the-correct-source.html"><strong>Fetching OVMF UEFI from the correct source</strong></a> guide, if not done already.</li>
   <li>Start a virtual machine for playing around with setting viewport resolution for the live ISO and there is no need for a virtual disk image here.
     <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>qemu-system-x86_64 <span class="se">\</span>
-    <span class="nt">-boot</span> <span class="nv">menu</span><span class="o">=</span>on <span class="se">\</span>
-    <span class="nt">-m</span> 2048 <span class="se">\</span>
-    <span class="nt">-cpu</span> max <span class="se">\</span>
-    <span class="nt">-smp</span> 4 <span class="se">\</span>
-    <span class="nt">-bios</span> /usr/share/edk2/ovmf/OVMF_CODE.fd <span class="se">\</span>
-    <span class="nt">-cdrom</span> cdromimg/&lt;Fedora-Workstation-Live-x86_64-xx-y.z.iso&gt; <span class="se">\</span>
-    <span class="nt">-accel</span> kvm
-</code></pre></div>    </div>
+<span class="go">    -boot menu=on \
+    -m 2048 \
+    -cpu max \
+    -smp 4 \
+    -bios /usr/share/edk2/ovmf/OVMF_CODE.fd \
+</span><span class="gp">    -cdrom cdromimg/&lt;Fedora-Workstation-Live-x86_64-xx-y.z.iso&gt;</span><span class="w"> </span><span class="se">\</span>
+<span class="go">    -accel kvm
+</span></code></pre></div>    </div>
   </li>
   <li>Press <code class="language-plaintext highlighter-rouge">ESC</code> key when the following screen is visible during the startup to navigate into the OVMF UEFI settings.<br />
 <img src="/content/tools/virtualization/images/setting-viewport-resolution-using-ovmf-bios/01.png" alt="01" /></li>

@@ -164,8 +164,9 @@
             <h1 id="fastapi">FastApi</h1>
 <p><a href="https://fastapi.tiangolo.com/">FastApi</a> is a modern, fast (high-performance), web framework for building APIs with Python 3.6+ based on standard Python type hints.</p>
 <h2 id="installation-of-fastapi-in-a-virtual-environment">Installation of FastApi in a virtual environment</h2>
-<p>Fedora includes a <code class="language-plaintext highlighter-rouge">python3-fastapi</code> package that you can install and import.
-However, unless you are developing or packaging an application for Fedora, it is more useful to install FastAPI as a third-party package inside a <em>virtual environment</em>.
+<p>Fedora includes a <code class="language-plaintext highlighter-rouge">python3-fastapi</code> package that you can install and import.</p>
+<p><strong>Warning:</strong> The <code class="language-plaintext highlighter-rouge">python-fastapi</code> package <a href="https://src.fedoraproject.org/rpms/python-fastapi/c/584bd1fef19c95576a4511a3dae77b4d35136258?branch=f37">will be removed from Fedora in Fedora 37</a>.</p>
+<p>However, unless you are developing or packaging an application for Fedora, it is more useful to install FastAPI as a third-party package inside a <em>virtual environment</em>.
 This will keep your project separate from your system, giving you more freedom in choosing additional libraries and their versions, and easing collaboration with people who aren’t using Fedora yet.</p>
 <p>Let’s create a new project a virtual environment.
 Open the terminal. Then, create a new folder ‘my_project’, enter it, and create a virtual environment called ‘project_env’.</p>
@@ -206,9 +207,9 @@ Create a file named ‘main.py’.</p>
 <p>This will start the server listening on <code class="language-plaintext highlighter-rouge">127.0.0.1:8000</code>.</p>
 <p>Then open the terminal and run this command to get the response.</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>curl <span class="nt">-X</span> <span class="s1">'GET'</span> <span class="se">\</span>
-  <span class="s1">'http://127.0.0.1:8000/'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'accept: application/json'</span>
-</code></pre></div></div>
+<span class="go">  'http://127.0.0.1:8000/' \
+  -H 'accept: application/json'
+</span></code></pre></div></div>
 <p>The response looks like this:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"Hello":"World"}
 </code></pre></div></div>
@@ -221,7 +222,7 @@ Create a file named ‘main.py’.</p>
   <li><a href="https://fastapi.tiangolo.com/">FastApi</a></li>
 </ul>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%63%6F%64%65@%6D%75%73%69%63%69%6E%6D%79%62%72%61%69%6E.%6E%65%74">Ben Beasley</a>, <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%35%37%31%35%36%33%32%36+%74%61%68%6D%69%64%35%36@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">tahmid56</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%63%6F%64%65@%6D%75%73%69%63%69%6E%6D%79%62%72%61%69%6E.%6E%65%74">Ben Beasley</a>, <a href="mailto:%63%6F%64%65@%6D%75%73%69%63%69%6E%6D%79%62%72%61%69%6E.%6E%65%74">Benjamin A. Beasley</a>, <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%35%37%31%35%36%33%32%36+%74%61%68%6D%69%64%35%36@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">tahmid56</a></p>
           </div>
         </div>
       </div>

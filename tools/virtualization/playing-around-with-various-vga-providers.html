@@ -182,13 +182,13 @@ virtio               Virtio VGA
   </li>
   <li>Start a virtual machine for playing around with various VGA providers for the live ISO and there is no need for a virtual disk image here.
     <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>qemu-system-x86_64 <span class="se">\</span>
-    <span class="nt">-boot</span> <span class="nv">menu</span><span class="o">=</span>on <span class="se">\</span>
-    <span class="nt">-m</span> 8192 <span class="se">\</span>
-    <span class="nt">-cpu</span> max <span class="se">\</span>
-    <span class="nt">-smp</span> 4 <span class="se">\</span>
-    <span class="nt">-cdrom</span> cdromimg/&lt;Fedora-Workstation-Live-x86_64-xx-y.z.iso&gt; <span class="se">\</span>
-    <span class="nt">-accel</span> kvm
-</code></pre></div>    </div>
+<span class="go">    -boot menu=on \
+    -m 8192 \
+    -cpu max \
+    -smp 4 \
+</span><span class="gp">    -cdrom cdromimg/&lt;Fedora-Workstation-Live-x86_64-xx-y.z.iso&gt;</span><span class="w"> </span><span class="se">\</span>
+<span class="go">    -accel kvm
+</span></code></pre></div>    </div>
   </li>
   <li>Open up <code class="language-plaintext highlighter-rouge">Settings</code> inside the VM and head over to the <code class="language-plaintext highlighter-rouge">About</code> section. Information about the <code class="language-plaintext highlighter-rouge">Graphics</code> can be seen here.</li>
   <li>Open up <code class="language-plaintext highlighter-rouge">Terminal</code> inside the VM and execute the <code class="language-plaintext highlighter-rouge">lspci</code> commands in regards with the current VGA controller to find more information on it.</li>
@@ -197,14 +197,14 @@ virtio               Virtio VGA
 <ol>
   <li>Standard VGA (Default)
     <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>qemu-system-x86_64 <span class="se">\</span>
-    <span class="nt">-boot</span> <span class="nv">menu</span><span class="o">=</span>on <span class="se">\</span>
-    <span class="nt">-m</span> 8192 <span class="se">\</span>
-    <span class="nt">-cpu</span> max <span class="se">\</span>
-    <span class="nt">-smp</span> 4 <span class="se">\</span>
-    <span class="nt">-cdrom</span> cdromimg/&lt;Fedora-Workstation-Live-x86_64-xx-y.z.iso&gt; <span class="se">\</span>
-    <span class="nt">-accel</span> kvm <span class="se">\</span>
-    <span class="nt">-vga</span> std
-</code></pre></div>    </div>
+<span class="go">    -boot menu=on \
+    -m 8192 \
+    -cpu max \
+    -smp 4 \
+</span><span class="gp">    -cdrom cdromimg/&lt;Fedora-Workstation-Live-x86_64-xx-y.z.iso&gt;</span><span class="w"> </span><span class="se">\</span>
+<span class="go">    -accel kvm \
+    -vga std
+</span></code></pre></div>    </div>
     <ol>
       <li><code class="language-plaintext highlighter-rouge">Settings</code> -&gt; <code class="language-plaintext highlighter-rouge">About</code><br />
 <img src="/content/tools/virtualization/images/playing-around-with-various-vga-providers/01.png" alt="01" /></li>
@@ -214,26 +214,26 @@ virtio               Virtio VGA
   </li>
   <li>No graphic card
     <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>qemu-system-x86_64 <span class="se">\</span>
-    <span class="nt">-boot</span> <span class="nv">menu</span><span class="o">=</span>on <span class="se">\</span>
-    <span class="nt">-m</span> 8192 <span class="se">\</span>
-    <span class="nt">-cpu</span> max <span class="se">\</span>
-    <span class="nt">-smp</span> 4 <span class="se">\</span>
-    <span class="nt">-cdrom</span> cdromimg/&lt;Fedora-Workstation-Live-x86_64-xx-y.z.iso&gt; <span class="se">\</span>
-    <span class="nt">-accel</span> kvm <span class="se">\</span>
-    <span class="nt">-vga</span> none
-</code></pre></div>    </div>
+<span class="go">    -boot menu=on \
+    -m 8192 \
+    -cpu max \
+    -smp 4 \
+</span><span class="gp">    -cdrom cdromimg/&lt;Fedora-Workstation-Live-x86_64-xx-y.z.iso&gt;</span><span class="w"> </span><span class="se">\</span>
+<span class="go">    -accel kvm \
+    -vga none
+</span></code></pre></div>    </div>
     <p><img src="/content/tools/virtualization/images/playing-around-with-various-vga-providers/03.png" alt="03" /></p>
   </li>
   <li>Cirrus VGA
     <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>qemu-system-x86_64 <span class="se">\</span>
-    <span class="nt">-boot</span> <span class="nv">menu</span><span class="o">=</span>on <span class="se">\</span>
-    <span class="nt">-m</span> 8192 <span class="se">\</span>
-    <span class="nt">-cpu</span> max <span class="se">\</span>
-    <span class="nt">-smp</span> 4 <span class="se">\</span>
-    <span class="nt">-cdrom</span> cdromimg/&lt;Fedora-Workstation-Live-x86_64-xx-y.z.iso&gt; <span class="se">\</span>
-    <span class="nt">-accel</span> kvm <span class="se">\</span>
-    <span class="nt">-vga</span> cirrus
-</code></pre></div>    </div>
+<span class="go">    -boot menu=on \
+    -m 8192 \
+    -cpu max \
+    -smp 4 \
+</span><span class="gp">    -cdrom cdromimg/&lt;Fedora-Workstation-Live-x86_64-xx-y.z.iso&gt;</span><span class="w"> </span><span class="se">\</span>
+<span class="go">    -accel kvm \
+    -vga cirrus
+</span></code></pre></div>    </div>
     <ol>
       <li><code class="language-plaintext highlighter-rouge">Settings</code> -&gt; <code class="language-plaintext highlighter-rouge">About</code><br />
 <img src="/content/tools/virtualization/images/playing-around-with-various-vga-providers/04.png" alt="04" /></li>
@@ -243,14 +243,14 @@ virtio               Virtio VGA
   </li>
   <li>VMware SVGA
     <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>qemu-system-x86_64 <span class="se">\</span>
-    <span class="nt">-boot</span> <span class="nv">menu</span><span class="o">=</span>on <span class="se">\</span>
-    <span class="nt">-m</span> 8192 <span class="se">\</span>
-    <span class="nt">-cpu</span> max <span class="se">\</span>
-    <span class="nt">-smp</span> 4 <span class="se">\</span>
-    <span class="nt">-cdrom</span> cdromimg/&lt;Fedora-Workstation-Live-x86_64-xx-y.z.iso&gt; <span class="se">\</span>
-    <span class="nt">-accel</span> kvm <span class="se">\</span>
-    <span class="nt">-vga</span> vmware
-</code></pre></div>    </div>
+<span class="go">    -boot menu=on \
+    -m 8192 \
+    -cpu max \
+    -smp 4 \
+</span><span class="gp">    -cdrom cdromimg/&lt;Fedora-Workstation-Live-x86_64-xx-y.z.iso&gt;</span><span class="w"> </span><span class="se">\</span>
+<span class="go">    -accel kvm \
+    -vga vmware
+</span></code></pre></div>    </div>
     <ol>
       <li><code class="language-plaintext highlighter-rouge">Settings</code> -&gt; <code class="language-plaintext highlighter-rouge">About</code><br />
 <img src="/content/tools/virtualization/images/playing-around-with-various-vga-providers/06.png" alt="06" /></li>
@@ -260,26 +260,26 @@ virtio               Virtio VGA
   </li>
   <li>Xen paravirtualized framebuffer
     <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>qemu-system-x86_64 <span class="se">\</span>
-    <span class="nt">-boot</span> <span class="nv">menu</span><span class="o">=</span>on <span class="se">\</span>
-    <span class="nt">-m</span> 8192 <span class="se">\</span>
-    <span class="nt">-cpu</span> max <span class="se">\</span>
-    <span class="nt">-smp</span> 4 <span class="se">\</span>
-    <span class="nt">-cdrom</span> cdromimg/&lt;Fedora-Workstation-Live-x86_64-xx-y.z.iso&gt; <span class="se">\</span>
-    <span class="nt">-accel</span> kvm <span class="se">\</span>
-    <span class="nt">-vga</span> xenfb
-</code></pre></div>    </div>
+<span class="go">    -boot menu=on \
+    -m 8192 \
+    -cpu max \
+    -smp 4 \
+</span><span class="gp">    -cdrom cdromimg/&lt;Fedora-Workstation-Live-x86_64-xx-y.z.iso&gt;</span><span class="w"> </span><span class="se">\</span>
+<span class="go">    -accel kvm \
+    -vga xenfb
+</span></code></pre></div>    </div>
     <p><img src="/content/tools/virtualization/images/playing-around-with-various-vga-providers/08.png" alt="08" /></p>
   </li>
   <li>QXL VGA
     <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>qemu-system-x86_64 <span class="se">\</span>
-    <span class="nt">-boot</span> <span class="nv">menu</span><span class="o">=</span>on <span class="se">\</span>
-    <span class="nt">-m</span> 8192 <span class="se">\</span>
-    <span class="nt">-cpu</span> max <span class="se">\</span>
-    <span class="nt">-smp</span> 4 <span class="se">\</span>
-    <span class="nt">-cdrom</span> cdromimg/&lt;Fedora-Workstation-Live-x86_64-xx-y.z.iso&gt; <span class="se">\</span>
-    <span class="nt">-accel</span> kvm <span class="se">\</span>
-    <span class="nt">-vga</span> qxl
-</code></pre></div>    </div>
+<span class="go">    -boot menu=on \
+    -m 8192 \
+    -cpu max \
+    -smp 4 \
+</span><span class="gp">    -cdrom cdromimg/&lt;Fedora-Workstation-Live-x86_64-xx-y.z.iso&gt;</span><span class="w"> </span><span class="se">\</span>
+<span class="go">    -accel kvm \
+    -vga qxl
+</span></code></pre></div>    </div>
     <ol>
       <li><code class="language-plaintext highlighter-rouge">Settings</code> -&gt; <code class="language-plaintext highlighter-rouge">About</code><br />
 <img src="/content/tools/virtualization/images/playing-around-with-various-vga-providers/09.png" alt="09" /></li>
@@ -289,14 +289,14 @@ virtio               Virtio VGA
   </li>
   <li>VirtIO VGA
     <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>qemu-system-x86_64 <span class="se">\</span>
-    <span class="nt">-boot</span> <span class="nv">menu</span><span class="o">=</span>on <span class="se">\</span>
-    <span class="nt">-m</span> 8192 <span class="se">\</span>
-    <span class="nt">-cpu</span> max <span class="se">\</span>
-    <span class="nt">-smp</span> 4 <span class="se">\</span>
-    <span class="nt">-cdrom</span> cdromimg/&lt;Fedora-Workstation-Live-x86_64-xx-y.z.iso&gt; <span class="se">\</span>
-    <span class="nt">-accel</span> kvm <span class="se">\</span>
-    <span class="nt">-vga</span> virtio
-</code></pre></div>    </div>
+<span class="go">    -boot menu=on \
+    -m 8192 \
+    -cpu max \
+    -smp 4 \
+</span><span class="gp">    -cdrom cdromimg/&lt;Fedora-Workstation-Live-x86_64-xx-y.z.iso&gt;</span><span class="w"> </span><span class="se">\</span>
+<span class="go">    -accel kvm \
+    -vga virtio
+</span></code></pre></div>    </div>
     <ol>
       <li><code class="language-plaintext highlighter-rouge">Settings</code> -&gt; <code class="language-plaintext highlighter-rouge">About</code><br />
 <img src="/content/tools/virtualization/images/playing-around-with-various-vga-providers/11.png" alt="11" /></li>
