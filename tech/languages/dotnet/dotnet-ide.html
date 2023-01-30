@@ -120,7 +120,7 @@
   <div class="col-sm-12">
           <img class="img-rounded" src="/static/logo/dotnet.png">
           <h2>.NET Platforms</h2>
-          <p>.NET Core and Mono are open-source .NET platforms. .NET applications are developed using the C#, F# and VB.NET programming languages.</p>
+          <p>.NET and Mono are open-source .NET platforms. .NET applications are developed using the C#, F# and VB.NET programming languages.</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -136,7 +136,7 @@
         <div class="col-sm-3">
           <div class="list-group content-menu">
                 <a href="/tech/languages/csharp/dotnet-installation.html" class="list-group-item ">.NET Platforms</a>
-                <a href="/tech/languages/dotnet/dotnetcore.html" class="list-group-item ">.NET Core</a>
+                <a href="/tech/languages/dotnet/dotnetcore.html" class="list-group-item ">.NET</a>
                 <a href="/tech/languages/dotnet/mono.html" class="list-group-item ">Mono</a>
                 <a href="/tech/languages/dotnet/dotnet-ide.html" class="list-group-item  active ">IDEs</a>
                 <a href="/tech/languages/dotnet/dotnet-sig.html" class="list-group-item ">DotNet SIG</a>
@@ -202,28 +202,25 @@
     </tr>
   </tbody>
 </table>
-<h2 id="installing-eclipse">Installing Eclipse</h2>
-<p>First install Eclipse through <a href="/deployment/flatpak/about.html">Flatpak</a></p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ flatpak install org.eclipse.Java
-</code></pre></div></div>
-<p>then install the aCute extension from the <a href="https://marketplace.eclipse.org/content/acute-c-edition-eclipse-ide-experimental">Marketplace</a></p>
-<h2 id="installing-monodevelop">Installing MonoDevelop</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install monodevelop
-</code></pre></div></div>
+<h2 id="overview">Overview</h2>
+<p><a href="#installing-jetbrains-rider">JetBrains Rider</a> is the most complete C# IDE, however it is not open source.</p>
+<p><a href="#installing-visual-studio-code">Visual Studio Code</a> and <a href="#installing-monodevelop">MonoDevelop</a> work well for .NET Core and for Mono, respectively.</p>
+<p><a href="#installing-eclipse">Eclipse</a> is still young and not yet friendly for the former Windows developer. It is a good choice if you’re already an Eclipse IDE user.</p>
 <h2 id="installing-jetbrains-rider">Installing JetBrains Rider</h2>
 <ul>
   <li>Apply for a <a href="https://www.jetbrains.com/store/?fromMenu#edition=discounts">license for Open Source projects or students</a> and <a href="http://jetbrains.com/rider">download Rider</a></li>
   <li>Or download the <a href="https://www.jetbrains.com/rider/eap">Early Access</a> version</li>
 </ul>
 <h2 id="installing-visual-studio-code">Installing Visual Studio Code</h2>
+<h3 id="from-microsoft">From Microsoft</h3>
 <p><a href="https://code.visualstudio.com">Visual Studio Code</a> is available:</p>
 <ul>
   <li>
-    <p>as an RPM downloadable from their website like so:</p>
-    <p>First import the GPG key:</p>
+    <p>packaged as an RPM</p>
+    <p>First, lets import the GPG key:</p>
     <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>rpm <span class="nt">--import</span> https://packages.microsoft.com/keys/microsoft.asc
 </code></pre></div>    </div>
-    <p>Then create a repo file <code class="language-plaintext highlighter-rouge">/etc/yum.repos.d/vscode.repo</code> with the following content:</p>
+    <p>Then, we need to create a repo file <code class="language-plaintext highlighter-rouge">/etc/yum.repos.d/vscode.repo</code> with the following content:</p>
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[code]
 name=Visual Studio Code
 baseurl=https://packages.microsoft.com/yumrepos/vscode
@@ -231,28 +228,34 @@ enabled=1
 gpgcheck=1
 gpgkey=https://packages.microsoft.com/keys/microsoft.asc
 </code></pre></div>    </div>
-    <p>After creating the repo file to install the Visual Studio Code run:</p>
+    <p><em>You need root permissions to create file in this location.</em></p>
+    <p>After creating the repo file you can install the Visual Studio Code with:</p>
     <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>code
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>as a <a href="/deployment/flatpak/about.html">Flatpak</a> package installable like so:</p>
+    <p>distributed as a <a href="/deployment/flatpak/about.html">Flatpak</a></p>
     <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>flatpak <span class="nb">install </span>com.visualstudio.code
 </code></pre></div>    </div>
   </li>
 </ul>
-<p>After installing Visual Studio Code you can install the C# Extension from the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp">Marketplace</a>.</p>
-<p>Alternatively use the <a href="https://vscodium.com/">VSCodium</a> for Free/Libre Open Source Software Binaries of VSCode.</p>
-<h2 id="summary">Summary</h2>
-<p>JetBrains Rider is the most complete C# IDE, however it is not open source.</p>
-<p>VS Code and MonoDevelop work well for .NET Core and for Mono, respectively.</p>
-<p>C# via Eclipse is still young and not very friendly for the former Windows developer, but it can be useful if you’re already an Eclipse IDE user.</p>
+<p>After installing Visual Studio Code, to get full features of the editor, install the C# Extension from the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp">Visual Studio Marketplace</a>.</p>
+<h3 id="vscodium">VSCodium</h3>
+<p><a href="https://vscodium.com/">VSCodium</a> are Free/Libre Open Source Software Binaries of VSCode.</p>
+<h2 id="installing-monodevelop">Installing MonoDevelop</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install monodevelop
+</code></pre></div></div>
+<h2 id="installing-eclipse">Installing Eclipse</h2>
+<p>First install Eclipse through <a href="/deployment/flatpak/about.html">Flatpak</a></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ flatpak install org.eclipse.Java
+</code></pre></div></div>
+<p>then install the aCute extension from the <a href="https://marketplace.eclipse.org/content/acute-c-edition-eclipse-ide-experimental">Eclipse Marketplace</a></p>
 <h2 id="references">References</h2>
 <ul>
   <li><a href="https://code.visualstudio.com/docs/setup/linux#_rhel-fedora-and-centos-based-distributions">Installing VSCode as an RPM</a></li>
 </ul>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%33%33%30%36%35%30%37%38+%6A%61%63%6B%6F%72%70@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Jaroslav Prokop</a>, <a href="mailto:%72%61%64%6B%61.%6A%61%6E%65%6B@%72%65%64%68%61%74.%63%6F%6D">Radka Janek</a>, <a href="mailto:%74%6F%6D.%64%65%73%65%79%6E@%67%6D%61%69%6C.%63%6F%6D">Tom Deseyn</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%33%33%30%36%35%30%37%38+%6A%61%63%6B%6F%72%70@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Jaroslav Prokop</a>, <a href="mailto:%70%76%61%6C%65%6E%61@%72%65%64%68%61%74.%63%6F%6D">Pavel Valena</a>, <a href="mailto:%72%61%64%6B%61.%6A%61%6E%65%6B@%72%65%64%68%61%74.%63%6F%6D">Radka Janek</a>, <a href="mailto:%74%6F%6D.%64%65%73%65%79%6E@%67%6D%61%69%6C.%63%6F%6D">Tom Deseyn</a></p>
           </div>
         </div>
       </div>
@@ -341,7 +344,7 @@ gpgkey=https://packages.microsoft.com/keys/microsoft.asc
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2022 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2023 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

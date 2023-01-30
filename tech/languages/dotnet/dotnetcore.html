@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>.NET Core &mdash; Fedora Developer Portal</title>
+  <title>.NET &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
   <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/dotnet/dotnetcore.html">
@@ -120,7 +120,7 @@
   <div class="col-sm-12">
           <img class="img-rounded" src="/static/logo/dotnet.png">
           <h2>.NET Platforms</h2>
-          <p>.NET Core and Mono are open-source .NET platforms. .NET applications are developed using the C#, F# and VB.NET programming languages.</p>
+          <p>.NET and Mono are open-source .NET platforms. .NET applications are developed using the C#, F# and VB.NET programming languages.</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -136,7 +136,7 @@
         <div class="col-sm-3">
           <div class="list-group content-menu">
                 <a href="/tech/languages/csharp/dotnet-installation.html" class="list-group-item ">.NET Platforms</a>
-                <a href="/tech/languages/dotnet/dotnetcore.html" class="list-group-item  active ">.NET Core</a>
+                <a href="/tech/languages/dotnet/dotnetcore.html" class="list-group-item  active ">.NET</a>
                 <a href="/tech/languages/dotnet/mono.html" class="list-group-item ">Mono</a>
                 <a href="/tech/languages/dotnet/dotnet-ide.html" class="list-group-item ">IDEs</a>
                 <a href="/tech/languages/dotnet/dotnet-sig.html" class="list-group-item ">DotNet SIG</a>
@@ -155,33 +155,50 @@
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h2 id="net-core-installation">.NET Core Installation</h2>
-<p>It is not advised to mix these packages with those provided by Microsoft, please disable any other repositories providing dotnet before installing these.</p>
-<h3 id="net-core-21">.NET Core 2.1</h3>
-<p>.NET Core 2.1 is not packaged in the proper Fedora repository and an extra step to enable the .NET SIG’s <a href="/deployment/copr/about.html">copr repository</a> repository is required:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf copr enable @dotnet-sig/dotnet
+            <h2 id="net-installation">.NET Installation</h2>
+<p>.NET packages are available in Fedora repositories.</p>
+<p>It is not advised to mix these packages with those provided by Microsoft. Please disable any other repositories providing dotnet before installing these. If you run into errors, see <a href="https://learn.microsoft.com/en-us/dotnet/core/install/linux-package-mixup">troubleshooting linux package mixup</a> for some suggestions on how to fix the issue.</p>
+<p>To install a .NET SDK only, run this command, where <em>x</em> stands for major and <em>y</em> stands for minor version:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dotnet-sdk-x.y
 </code></pre></div></div>
-<h3 id="net-core-31">.NET Core 3.1</h3>
-<p>.NET Core 3.1 is included in Fedora 32 (and later versions.) Simply install it using one of the below variants:</p>
-<p>Install the latest SDK:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dotnet
+<p>To install the ASP.NET Core Runtime only, for example to deploy an already built ASP.NET Core applications, where <em>x</em> stands for major and <em>y</em> stands for minor version:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install aspnetcore-runtime-x.y
 </code></pre></div></div>
-<p>Or a specific version:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Install .NET Core 3.1 SDK
-$ sudo dnf install dotnet-sdk-3.1
-</code></pre></div></div>
-<p>To install runtime only, for example to merely deploy already prebuilt applications, where <em>x</em> stands for major and <em>y</em> stands for minor version:</p>
+<p>To install runtime only, for example to merely deploy an already built (non ASP.NET Core) applications, where <em>x</em> stands for major and <em>y</em> stands for minor version:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dotnet-runtime-x.y
+</code></pre></div></div>
+<h3 id="net-7">.NET 7</h3>
+<p>.NET 7 is a Standard Term Support release and will reach its End of Life in May 2024.</p>
+<p>Install the .NET 7 SDK:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dotnet-sdk-7.0
+</code></pre></div></div>
+<p>Install the ASP.NET Core 7 Runtime:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install aspnetcore-runtime-7.0
+</code></pre></div></div>
+<p>Install the .NET 7 Runtime:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dotnet-runtime-7.0
+</code></pre></div></div>
+<h3 id="net-6">.NET 6</h3>
+<p>.NET 6 is a Long Term Support release and will reach its End of Life in November 2024.</p>
+<p>Install the .NET 6 SDK:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dotnet-sdk-6.0
+</code></pre></div></div>
+<p>Install the ASP.NET Core 6 Runtime:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install aspnetcore-runtime-6.0
+</code></pre></div></div>
+<p>Install the .NET 6 Runtime:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dotnet-runtime-6.0
 </code></pre></div></div>
 <h3 id="preview-versions">Preview versions</h3>
 <p>Preview packages can be installed after enabling the preview <a href="/deployment/copr/about.html">copr repository</a> repository:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf copr enable @dotnet-sig/dotnet-preview
 $ sudo dnf install dotnet-sdk-x.y
 </code></pre></div></div>
+<p>Please note that these preview packages aren’t fully tested. They may contain bugs and may destroy data.</p>
 <h2 id="getting-started">Getting Started</h2>
 <p>You can create your first console app following instructions in <a href="https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/create">this official guide</a>.</p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%70%68%69%6C%6C%69%70%73%6A@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Jamie Phillips</a>, <a href="mailto:%72%61%64%6B%61.%6A%61%6E%65%6B@%72%65%64%68%61%74.%63%6F%6D">Radka Janek</a>, <a href="mailto:%74%6F%6D.%64%65%73%65%79%6E@%67%6D%61%69%6C.%63%6F%6D">Tom Deseyn</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%70%68%69%6C%6C%69%70%73%6A@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Jamie Phillips</a>, <a href="mailto:%6F%6D%61%6A%69%64@%72%65%64%68%61%74.%63%6F%6D">Omair Majid</a>, <a href="mailto:%72%61%64%6B%61.%6A%61%6E%65%6B@%72%65%64%68%61%74.%63%6F%6D">Radka Janek</a>, <a href="mailto:%74%6F%6D.%64%65%73%65%79%6E@%67%6D%61%69%6C.%63%6F%6D">Tom Deseyn</a></p>
           </div>
         </div>
       </div>
@@ -270,7 +287,7 @@ $ sudo dnf install dotnet-sdk-x.y
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2022 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2023 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

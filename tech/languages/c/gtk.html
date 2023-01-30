@@ -158,10 +158,10 @@
             <h1 id="gtk">Gtk+</h1>
 <p>Gtk+ is a cross-platform GUI toolkit created for the development of the GIMP project. Offering a complete set of widgets, Gtk+ is suitable for projects ranging from small one-off tools to complete applications suites.</p>
 <p>For C programming with Gtk+ you need to install the development version of the important GNOME libraries. Those contain the header files and additional linker information:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install gtk3-devel gstreamer1-devel clutter-devel webkit2gtk3-devel libgda-devel gobject-introspection-devel
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>gtk3-devel gstreamer1-devel clutter-devel webkit2gtk3-devel libgda-devel gobject-introspection-devel
 </code></pre></div></div>
-<p>In addition, you will want to install the documentation packages of this libraries so you can view them in the API browser (devhelp):</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install devhelp gtk3-devel-docs gstreamer1-devel-docs clutter-doc
+<p>In addition, you will want to install the documentation packages of the libraries so you can view them in the API browser (devhelp):</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>devhelp gtk3-devel-docs clutter-doc
 </code></pre></div></div>
 <h2 id="getting-started">Getting started</h2>
 <p>To begin our introduction to Gtk+, we will start with the simplest program possible. This program will simply create a gtk+ window with the title “Hello World”.</p>
@@ -185,24 +185,24 @@
 <span class="p">}</span>
 </code></pre></div></div>
 <p>You can compile the above program with gcc using:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcc hello.c -o hello `pkg-config --cflags --libs gtk+-3.0`
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>gcc hello.c <span class="nt">-o</span> hello <span class="sb">`</span>pkg-config <span class="nt">--cflags</span> <span class="nt">--libs</span> gtk+-3.0<span class="sb">`</span>
 </code></pre></div></div>
-<p>In the program above we initially included gtk/gtk.h, which declares all the gtk+ objects used in the rest of the program:</p>
+<p>In the program above we initially included <code class="language-plaintext highlighter-rouge">gtk/gtk.h</code>, which declares all the gtk+ objects used in the rest of the program:</p>
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;gtk/gtk.h&gt;</span><span class="cp">
 </span></code></pre></div></div>
 <p>or</p>
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;gtk-3.0/gtk/gtk.h&gt;</span><span class="cp">
 </span></code></pre></div></div>
-<p>After the declaration of the window object variable, we call the gtk_init method which initializes the library and its internal procedures.</p>
+<p>After the declaration of the window object variable, we call the <code class="language-plaintext highlighter-rouge">gtk_init</code> method which initializes the library and its internal procedures.</p>
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gtk_init</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">argv</span><span class="p">);</span>
 </code></pre></div></div>
-<p>The next line creates a GtkWindow object with the GTK_WINDOW_TOPLEVEL type. Nearly always, that’s the type of the GtkWindow, but it could differ if you are implementing something else.</p>
+<p>The next line creates a GtkWindow object with the <code class="language-plaintext highlighter-rouge">GTK_WINDOW_TOPLEVEL</code> type. Nearly always, that’s the type of the GtkWindow, but it could differ if you are implementing something else.</p>
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">window</span> <span class="o">=</span> <span class="n">gtk_window_new</span> <span class="p">(</span><span class="n">GTK_WINDOW_TOPLEVEL</span><span class="p">);</span>
 </code></pre></div></div>
 <p>Below that, we set the title of the GtkWindow to a string of our choice:</p>
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gtk_window_set_title</span> <span class="p">(</span><span class="n">GTK_WINDOW</span> <span class="p">(</span><span class="n">window</span><span class="p">),</span> <span class="s">"Hello World"</span><span class="p">);</span>
 </code></pre></div></div>
-<p>After that, the gtk_widget_show() function lets Gtk+ know that we are done setting the attributes of this widget, and that it can display it.</p>
+<p>After that, the <code class="language-plaintext highlighter-rouge">gtk_widget_show()</code> function lets Gtk+ know that we are done setting the attributes of this widget, and that it can display it.</p>
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gtk_window_show</span> <span class="p">(</span><span class="n">window</span><span class="p">);</span>
 </code></pre></div></div>
 <p>Finally, the last line enters the Gtk+ main processing loop.</p>
@@ -215,7 +215,7 @@
   <li><a href="https://developer.gnome.org/gtk3/stable/gtk-compiling.html">Compiling Gtk+ Applications</a></li>
 </ul>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%6E%64%72%65%77.%67.%72.%68%6F%6C%6D%65%73@%67%6D%61%69%6C.%63%6F%6D">Andy Holmes</a>, <a href="mailto:%63.%6C%6F%62%72%61%6E%6F@%67%6D%61%69%6C.%63%6F%6D">Carlo Lobrano</a>, <a href="mailto:%66%65%6C%69%70%65%31%30%62%6F%72%67%65%73@%67%6D%61%69%6C.%63%6F%6D">Felipe Borges</a>, <a href="mailto:%6D%61%63%72%6F%63%6F%64%65@%79%61%68%6F%6F.%63%6F%6D">Gabe Ron</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%6E%64%72%65%77.%67.%72.%68%6F%6C%6D%65%73@%67%6D%61%69%6C.%63%6F%6D">Andy Holmes</a>, <a href="mailto:%63.%6C%6F%62%72%61%6E%6F@%67%6D%61%69%6C.%63%6F%6D">Carlo Lobrano</a>, <a href="mailto:%66%65%6C%69%70%65%31%30%62%6F%72%67%65%73@%67%6D%61%69%6C.%63%6F%6D">Felipe Borges</a>, <a href="mailto:%6D%61%63%72%6F%63%6F%64%65@%79%61%68%6F%6F.%63%6F%6D">Gabe Ron</a>, <a href="mailto:%33%33%30%36%35%30%37%38+%6A%61%63%6B%6F%72%70@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Jarek Prokop</a></p>
           </div>
         </div>
       </div>
@@ -304,7 +304,7 @@
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2022 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2023 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

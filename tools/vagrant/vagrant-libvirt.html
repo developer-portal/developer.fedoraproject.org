@@ -185,9 +185,10 @@ end
 <p>To revert for your box to <code class="language-plaintext highlighter-rouge">qemu://system</code>, you can put something like the following into your Vagrantfile:</p>
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Vagrant</span><span class="p">.</span><span class="nf">configure</span><span class="p">(</span><span class="s2">"2"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">vm</span><span class="p">.</span><span class="nf">provider</span> <span class="ss">:libvirt</span> <span class="k">do</span> <span class="o">|</span><span class="n">libvirt</span><span class="o">|</span>
-    <span class="c1"># Use QEMU session instead of system connection</span>
-    <span class="n">libvirt</span><span class="p">.</span><span class="nf">qemu_use_session</span> <span class="o">=</span> <span class="kp">true</span>
-
+    <span class="c1"># Use QEMU system instead of session connection</span>
+    <span class="n">libvirt</span><span class="p">.</span><span class="nf">qemu_use_session</span> <span class="o">=</span> <span class="kp">false</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 </code></pre></div></div>
 <ul>
   <li>Fedora change: <a href="https://fedoraproject.org/wiki/Changes/Vagrant_2.2_with_QEMU_Session">https://fedoraproject.org/wiki/Changes/Vagrant_2.2_with_QEMU_Session</a></li>
@@ -200,7 +201,7 @@ start, halt or destroy your domains. Fortunately you can avoid this by adding yo
 $ newgrp libvirt
 </code></pre></div></div>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%67%69%74@%6A%77%66.%69%6F">Justin W. Flory</a>, <a href="mailto:%70%76%61%6C%65%6E%61@%72%65%64%68%61%74.%63%6F%6D">Pavel Valena</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%33%30%30%34%39%39%30%39+%48%6F%66%65%72-%4A%75%6C%69%61%6E@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Hofer-Julian</a>, <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%67%69%74@%6A%77%66.%69%6F">Justin W. Flory</a>, <a href="mailto:%70%76%61%6C%65%6E%61@%72%65%64%68%61%74.%63%6F%6D">Pavel Valena</a></p>
           </div>
         </div>
       </div>
@@ -289,7 +290,7 @@ $ newgrp libvirt
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2022 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2023 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->

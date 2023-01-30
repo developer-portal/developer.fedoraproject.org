@@ -120,7 +120,7 @@
   <div class="col-sm-12">
           <img class="img-rounded" src="/static/logo/dotnet.png">
           <h2>.NET Platforms</h2>
-          <p>.NET Core and Mono are open-source .NET platforms. .NET applications are developed using the C#, F# and VB.NET programming languages.</p>
+          <p>.NET and Mono are open-source .NET platforms. .NET applications are developed using the C#, F# and VB.NET programming languages.</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -136,7 +136,7 @@
         <div class="col-sm-3">
           <div class="list-group content-menu">
                 <a href="/tech/languages/csharp/dotnet-installation.html" class="list-group-item  active ">.NET Platforms</a>
-                <a href="/tech/languages/dotnet/dotnetcore.html" class="list-group-item ">.NET Core</a>
+                <a href="/tech/languages/dotnet/dotnetcore.html" class="list-group-item ">.NET</a>
                 <a href="/tech/languages/dotnet/mono.html" class="list-group-item ">Mono</a>
                 <a href="/tech/languages/dotnet/dotnet-ide.html" class="list-group-item ">IDEs</a>
                 <a href="/tech/languages/dotnet/dotnet-sig.html" class="list-group-item ">DotNet SIG</a>
@@ -155,18 +155,15 @@
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <p>.NET Core and Mono are available on Fedora. .NET applications are developed using the C#, F# and VB.NET programming languages.</p>
-<h2 id="net-core">.NET Core</h2>
-<p><a href="https://docs.microsoft.com/en-us/dotnet/core/">.NET Core</a> is a general-purpose, modular, cross-platform and open-source development Platform.</p>
-<p>.NET Core 3.1 and later versions are packaged in Fedora since 32. Installing the latest SDK can be done with a simple</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dotnet
+            <p>.NET, .NET Core and Mono are available on Fedora. .NET applications are developed using the C#, F# and VB.NET programming languages.</p>
+<h2 id="net-and-net-core">.NET and .NET Core</h2>
+<p><a href="https://docs.microsoft.com/en-us/dotnet/core/">.NET</a> is a general-purpose, modular, cross-platform and open-source development Platform.</p>
+<p>.NET 7 and .NET 6 are available in all supported versions of Fedora. Installing an SDK can be done with a simple</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dotnet-sdk-x.y
 </code></pre></div></div>
-<p>For older versions of Fedora and .NET Core 2.1, add the .NET SIG’s <a href="/deployment/copr/about.html">copr repository</a> repository and install the <code class="language-plaintext highlighter-rouge">dotnet-sdk-2.1</code> package.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf copr enable @dotnet-sig/dotnet
-$ sudo dnf install dotnet-sdk-2.1
-</code></pre></div></div>
-<p>It is not advised to mix these packages with those provided by Microsoft, please disable any other repositories providing dotnet before installing these.</p>
-<p>See the <a href="dotnetcore.html">.NET Core</a> page for more information.</p>
+<p>Where <code class="language-plaintext highlighter-rouge">x.y</code> is a .NET version number, like <code class="language-plaintext highlighter-rouge">7.0</code> or <code class="language-plaintext highlighter-rouge">6.0</code>.</p>
+<p>It is not advised to mix these packages with those provided by Microsoft. Please disable any other repositories providing dotnet before installing these. If you run into any errors that refer to <code class="language-plaintext highlighter-rouge">/usr/share/dotnet</code> or a missing <code class="language-plaintext highlighter-rouge">libhostfxr.so</code> see <a href="https://learn.microsoft.com/en-us/dotnet/core/install/linux-package-mixup">troubleshoot .NET errors related to missing files on Linux</a> which describes how to fix the errors.</p>
+<p>See the <a href="../dotnet/dotnetcore.html">.NET</a> page for more information.</p>
 <h2 id="mono">Mono</h2>
 <p><a href="http://www.mono-project.com/">Mono</a> is a free and open source implementation of the .NET Framework.</p>
 <p>To install Mono, simply type:</p>
@@ -174,7 +171,7 @@ $ sudo dnf install dotnet-sdk-2.1
 </code></pre></div></div>
 <p>See the <a href="mono.html">Mono</a> page for more information.</p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%72%61%64%6B%61.%6A%61%6E%65%6B@%72%65%64%68%61%74.%63%6F%6D">Radka Janek</a>, <a href="mailto:%52%61%64%6F%73%6C%61%76%43%61%70@%70%72%6F%74%6F%6E%6D%61%69%6C.%63%6F%6D">Radoslav Čáp</a>, <a href="mailto:%74%6F%6D.%64%65%73%65%79%6E@%67%6D%61%69%6C.%63%6F%6D">Tom Deseyn</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%6F%6D%61%6A%69%64@%72%65%64%68%61%74.%63%6F%6D">Omair Majid</a>, <a href="mailto:%72%61%64%6B%61.%6A%61%6E%65%6B@%72%65%64%68%61%74.%63%6F%6D">Radka Janek</a>, <a href="mailto:%52%61%64%6F%73%6C%61%76%43%61%70@%70%72%6F%74%6F%6E%6D%61%69%6C.%63%6F%6D">Radoslav Čáp</a>, <a href="mailto:%74%6F%6D.%64%65%73%65%79%6E@%67%6D%61%69%6C.%63%6F%6D">Tom Deseyn</a></p>
           </div>
         </div>
       </div>
@@ -263,7 +260,7 @@ $ sudo dnf install dotnet-sdk-2.1
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2022 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2023 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->
