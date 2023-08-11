@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Gems &mdash; Fedora Developer Portal</title>
+  <title>Dune &mdash; Fedora Developer Portal</title>
   <meta name="description" content="Fedora Developer Portal provides information for developers running Fedora on their workstation or virtual machines.
 ">
-  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/ruby/gems-installation.html">
+  <link rel="canonical" href="https://developer.fedoraproject.org/tech/languages/ocaml/dune.html">
   <!-- Link to Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <link href="/css/main.css" rel="stylesheet" media="screen, print">
@@ -118,9 +118,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/ruby.png">
-          <h2>Ruby</h2>
-          <p>A dynamic programming language with a focus on readability, simplicity and productivity.</p>
+          <img class="img-rounded" src="/static/logo/ocaml.png">
+          <h2>OCaml</h2>
+          <p>An open source multi-paradigm programming language and toolchain.</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -135,12 +135,8 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="list-group content-menu">
-                <a href="/tech/languages/ruby/ruby-installation.html" class="list-group-item ">Ruby</a>
-                <a href="/tech/languages/ruby/gems-installation.html" class="list-group-item  active ">Gems</a>
-                <a href="/tech/languages/ruby/bundler-installation.html" class="list-group-item ">Bundler</a>
-                <a href="/tech/languages/ruby/ror-installation.html" class="list-group-item ">Ruby on Rails</a>
-                <a href="/tech/languages/ruby/sinatra-installation.html" class="list-group-item ">Sinatra</a>
-                <a href="/tech/languages/ruby/ruby-sig.html" class="list-group-item ">Ruby SIG</a>
+                <a href="/tech/languages/ocaml/ocaml-installation.html" class="list-group-item ">OCaml</a>
+                <a href="/tech/languages/ocaml/dune.html" class="list-group-item  active ">Dune</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -150,62 +146,57 @@
 </div>
             </div>
           </div>
-          <a target="_blank" href="https://github.com/developer-portal/content/edit/master/tech/languages/ruby/gems-installation.md" class="btn btn-default">Edit this page</a>
-          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=:+ruby+gems-installation.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
+          <a target="_blank" href="https://github.com/developer-portal/content/edit/master/tech/languages/ocaml/dune.md" class="btn btn-default">Edit this page</a>
+          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=:+ocaml+dune.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <h1 id="gems-installation">Gems installation</h1>
-<p>You can install new gems on Fedora by either installing upstream gems from RubyGems.org or packaged gems from Fedora official repositories.</p>
-<h2 id="installing-gems-from-rubygemsorg">Installing gems from RubyGems.org</h2>
-<p>Installing upstream gems is as easy as running <code class="language-plaintext highlighter-rouge">gem install GEM_NAME</code> command, however some gems might fail to install due to compilation errors. If you need to compile gems C extensions, install Ruby header files with the following command:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install ruby-devel
+            <h1 id="dune">Dune</h1>
+<p>Dune is a build system for OCaml. It provides a comprehensive and uniform interface for the building, testing, and intalling OCaml projects, making it incredibly easy for developers to manage dependencies between packages. Its primary focus is to offer simplicity, speed, and ease of use, making it a suitable solution for even the most complex and extensive OCaml projects. With Dune, you can enjoy the benefits of incremental builds, which result in faster build times by recompiling only the necessary files. Moreover, Dune makes it convenient to generate optimized native code and perform static analysis, contributing to the development of high-performance and reliable OCaml applications.</p>
+<h2 id="install">Install</h2>
+<p>You can install Dune with OPAM that we installed in the enviroment setup.</p>
+<p>To install Dune using OPAM run:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>opam <span class="nb">install </span>dune
 </code></pre></div></div>
-<p>In case you lack the C compiler on your Fedora, you can install C development tools group:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf group install "C Development Tools and Libraries"
+<h2 id="starting-a-new-project">Starting a new Project</h2>
+<p>Create a new directory for your project.</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">mkdir </span>yourprojectname
 </code></pre></div></div>
-<p>Other missing header files will depend on the particular gem you want to install. In Fedora the sub-packages containing header files are always suffixed with <code class="language-plaintext highlighter-rouge">-devel</code> so for example to install the <code class="language-plaintext highlighter-rouge">pg</code> gem, you will need to compile its C extensions against PostgreSQL header files that can be installed by installing <code class="language-plaintext highlighter-rouge">postgresql-devel</code> sub-package.</p>
-<p>If you installed all the above, but the extensions would still not compile, you are probably running a Fedora image that misses <code class="language-plaintext highlighter-rouge">redhat-rpm-config</code> package. In that case <code class="language-plaintext highlighter-rouge">gcc</code> compiler would complain about one of the following:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcc: error: conftest.c: No such file or directory
-gcc: error: /usr/lib/rpm/redhat/redhat-hardened-cc1: No such file or directory
+<p>To initialize a Dune project change into the new directory and run the following command:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>yourprojectname
+<span class="gp">$</span><span class="w"> </span>dune init
 </code></pre></div></div>
-<p>To solve this, simply run <code class="language-plaintext highlighter-rouge">sudo dnf install redhat-rpm-config</code>.</p>
-<p>If you are getting compilation issues mentioning <code class="language-plaintext highlighter-rouge">Failed to complete patch task</code>, you are likely missing <code class="language-plaintext highlighter-rouge">patch</code> command:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install patch
+<p>This will create the necessary files and directories for a basic Dune project, including a <code class="language-plaintext highlighter-rouge">dune</code> file and a <code class="language-plaintext highlighter-rouge">src</code> directory.</p>
+<h2 id="building-the-project">Building the project</h2>
+<p>Change into the <strong>root</strong> directory of your project.
+Run the following command to build the project:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>dune build
 </code></pre></div></div>
-<h2 id="installing-gems-from-official-fedora-repositories">Installing gems from official Fedora repositories</h2>
-<p>Many gems from RubyGems.org are packaged and available in base Fedora to install. These packages have <code class="language-plaintext highlighter-rouge">rubygem-</code> prefix to upstream gem names and a <code class="language-plaintext highlighter-rouge">rubygem(name)</code> virtual provide, and also comes with precompiled extensions.</p>
-<p>To install <code class="language-plaintext highlighter-rouge">thor</code> gem you therefore install <code class="language-plaintext highlighter-rouge">rubygem-thor</code> package:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install rubygem-thor
+<p>Dune will compile the source files and generate the necessary executables.</p>
+<h2 id="running-the-project">Running the project</h2>
+<p>Change into the <strong>root</strong> directory of your project.
+Run the following command to run the main executable:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>dune <span class="nb">exec</span> ./bin/your-executable.exe
 </code></pre></div></div>
-<p>or</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install 'rubygem(thor)'
+<blockquote>
+  <p>Replace <code class="language-plaintext highlighter-rouge">your-executable.exe</code> with the actual name of your executable.</p>
+</blockquote>
+<h2 id="adding-a-library-to-project">Adding a library to project</h2>
+<p>First, make sure you have the required library installed. You can use the following command to install a library using Opam:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>opam <span class="nb">install </span>library-name
 </code></pre></div></div>
-<p>This variant have the advantage of properly stating of all system dependencies and no need for any header files or development tools. Therefore you can just install the package and run it. It might also contain any security fixes or fixes that makes the gems run smoothly on Fedora without additional tweaking. This makes it a safer choice as you get the security fixes for your gems with your system updates.</p>
-<p>The disadvantage of installing Fedora packaged gems is the lack of versions to choose from. There is only one version that is usually available for a given Fedora at a time. To use the packaged gems successfully with Bundler, you will need to lock the exact version of the gem in the project’s Gemfile. If all gems are installed from Fedora repositories, you can take advantage of Bundler’s <code class="language-plaintext highlighter-rouge">--local</code> switch:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle --local
+<p>Open the <code class="language-plaintext highlighter-rouge">dune</code> file in your project’s root directory.
+Add the following line to the <code class="language-plaintext highlighter-rouge">(library ...)</code> section to include the library:</p>
+<pre><code class="language-dune">(libraries library-name)
+</code></pre>
+<p>Replace <code class="language-plaintext highlighter-rouge">library-name</code> with the actual name of the library you want to add.
+Save and close the <code class="language-plaintext highlighter-rouge">dune</code> file.
+Rebuild the project using the following command:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>dune build
 </code></pre></div></div>
-<p>This way Bundler won’t try to get other gems from RubyGems.org and will only use and lock the gems found on your machine.</p>
-<p>Note that system gems are installed into <code class="language-plaintext highlighter-rouge">/usr/share/gems</code> and this path needs to be included in <code class="language-plaintext highlighter-rouge">$GEM_PATH</code> in case you are about to modify it.</p>
-<h2 id="configuring-rubygems">Configuring RubyGems</h2>
-<p>Fedora configures ruby to install gems on your user’s directory; as opposed to the system’s, by default. The gems get installed at: <code class="language-plaintext highlighter-rouge">$HOME/.local/share/gem</code>.</p>
-<p>You can check the defaults <a href="https://src.fedoraproject.org/rpms/ruby/blob/rawhide/f/operating_system.rb">here</a>.</p>
-<p>You can change these defaults by creating <code class="language-plaintext highlighter-rouge">$HOME/.gemrc</code>.</p>
-<p>For example, to disable documentation generation at install time, you can do the following:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>install: --no-document
-</code></pre></div></div>
-<p>This method will not override the system’s defaults.</p>
-<p>Or, in order to override the system’s default, use:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem: --user-install
-</code></pre></div></div>
-<p>Remember to add: <code class="language-plaintext highlighter-rouge">$HOME/.local/share/gem/ruby/bin</code> to your <code class="language-plaintext highlighter-rouge">$PATH</code> if you choose to use <code class="language-plaintext highlighter-rouge">gem: ...</code> since all default settings would be overriden if you do.</p>
-<p>One way of doing this is adding the following to <code class="language-plaintext highlighter-rouge">$HOME/.bash_profile</code>:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># my path
-## ruby
-export PATH="$HOME/.local/share/gem/ruby/bin:$PATH"
-</code></pre></div></div>
+<p>The added library should now be available for use in your project.</p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%33%33%30%36%35%30%37%38+%6A%61%63%6B%6F%72%70@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%72%65%6E%69%63%68@%77%6F%72%61%6C%65%6C%61%6E%64%69%61.%63%6F%6D">Renich Bon Ciric</a>, <a href="mailto:%76.%6F%6E%64%72%75%63%68@%74%69%73%63%61%6C%69.%63%7A">Vít Ondruch</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%63%61%6D%69%6C%6F%74%6B@%67%6D%61%69%6C.%63%6F%6D">Camilo Cunha de Azevedo</a></p>
           </div>
         </div>
       </div>

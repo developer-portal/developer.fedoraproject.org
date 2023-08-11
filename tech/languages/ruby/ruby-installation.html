@@ -160,61 +160,50 @@
 <p>To install CRuby, simply type:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install ruby
 </code></pre></div></div>
-<p>Above command will install latest stable CRuby packages including RDoc, Psych, JSON, BigDecimal and IO/Console. Other bundled libraries such as TclTk bindings, Rake, the interactive Ruby shell <code class="language-plaintext highlighter-rouge">irb</code> and Test::Unit found in upstream Ruby distribution needs to be installed separately:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install rubygem-{tk{,-doc},rake,irb,test-unit}
+<p>Above command will install latest stable CRuby packages including RDoc, Psych, JSON, BigDecimal and IO/Console. Other bundled libraries such as Rake, the interactive Ruby shell <code class="language-plaintext highlighter-rouge">irb</code>, Test::Unit and other bundled libraries found in upstream Ruby distribution need to be installed separately:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install rubygem-{irb,rake,rbs,rexml,typeprof,test-unit} ruby-bundled-gems
 </code></pre></div></div>
 <p>Please note that we have already unbundled these libraries from Ruby itself, so they come in their own packages and need a specific dependency requirement in .gemspec or Gemfile as well as a specific <code class="language-plaintext highlighter-rouge">require()</code> call in your Ruby code.</p>
-<h2 id="jruby">JRuby</h2>
-<p>Alternatively Fedora comes with JRuby packages that can be installed via:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install jruby
-</code></pre></div></div>
-<p>Please note that JRuby packages in Fedora are not yet in the best shape and things might be broken. If you are not willing to experiment, please use the CRuby packages for now or use a Ruby version manager of your choice.</p>
 <h2 id="choosing-ruby-with-rubypick">Choosing Ruby with RubyPick</h2>
-<p>All Rubies come installed with RubyPick, the Fedora Ruby manager. Therefore CRuby has its executable at <code class="language-plaintext highlighter-rouge">/usr/bin/ruby-mri</code>, JRuby has its at <code class="language-plaintext highlighter-rouge">/usr/bin/jruby</code> and <code class="language-plaintext highlighter-rouge">/usr/bin/ruby</code> is a RubyPick executable that chooses the right version of Ruby to run.</p>
+<p>All Fedora Rubies come installed with RubyPick, the Fedora Ruby manager. Therefore CRuby has its executable at <code class="language-plaintext highlighter-rouge">/usr/bin/ruby-mri</code>, and <code class="language-plaintext highlighter-rouge">/usr/bin/ruby</code> is a RubyPick executable that chooses the right version of Ruby to run.</p>
 <p>You don’t need to do anything to set up RubyPick to use CRuby as CRuby is the default. RubyPick was actually introduced to enable Fedora users run other Ruby implementations that might make their way into official Fedora repositories such as JRuby.</p>
 <p>To use different Ruby via RubyPick run:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby _mri_ [params]
-ruby _jruby_ [params]
 </code></pre></div></div>
 <p>Or set the expected environment variables as follows:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RUBYPICK=_mri_
-RUBYPICK=_jruby_
 </code></pre></div></div>
 <p><a href="https://github.com/fedora-ruby/rubypick">Read more about RubyPick</a>.</p>
 <h2 id="installing-ruby-with-rbenv">Installing Ruby with rbenv</h2>
 <p>The first step is to install dependencies for Ruby.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install git-core zlib zlib-devel gcc-c++ patch readline readline-devel libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison curl sqlite-devel
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>git-core zlib zlib-devel gcc-c++ patch readline readline-devel libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison curl sqlite-devel perl-FindBin
 </code></pre></div></div>
-<p>Install rbenv</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' &gt;&gt; ~/.bashrc
-echo 'eval "$(rbenv init -)"' &gt;&gt; ~/.bashrc
-source ~/.bashrc
-exec $SHELL
-
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' &gt;&gt; ~/.bashrc
-source ~/.bashrc
-exec $SHELL
+<p>Then we are going to clone rbenv and the ruby-build rbenv plugin into the home directory.
+To make rbenv command available we append your shell’s rc file with initialization.</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+<span class="gp">$</span><span class="w"> </span>git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+<span class="gp">$</span><span class="w"> </span><span class="nb">echo</span> <span class="s1">'eval "$(~/.rbenv/bin/rbenv init -)"'</span> <span class="o">&gt;&gt;</span> ~/.bashrc
 </code></pre></div></div>
-<p>Install Ruby</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rbenv install 2.6.6
-rbenv global 2.6.6
-ruby -v
-
+<p>Next step we have to refresh the shell to make the binaries available. This can be achieved
+by either the following command or opening a new terminal:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">exec</span> <span class="nv">$SHELL</span>
+</code></pre></div></div>
+<p>Now you can install Ruby simply via <code class="language-plaintext highlighter-rouge">rbenv install</code></p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>rbenv <span class="nb">install </span>3.0.4
+<span class="gp">$</span><span class="w"> </span>rbenv global 3.0.4
+<span class="gp">$</span><span class="w"> </span>ruby <span class="nt">-v</span>
 </code></pre></div></div>
 <p>Use this command if you do not want rubygems to install the documentation for each package locally.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "gem: --no-document" &gt; ~/.gemrc
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">echo</span> <span class="s2">"gem: --no-document"</span> <span class="o">&gt;</span> ~/.gemrc
 </code></pre></div></div>
 <p>Install bundler</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install bundler
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>gem <span class="nb">install </span>bundler
 </code></pre></div></div>
 <p>Whenever you install a new version of Ruby or a gem, you should run the rehash sub-command. This will make executables known to rbenv, which will allow us to run those executables:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rbenv rehash 
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>rbenv rehash
 </code></pre></div></div>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%62%6B%6D%67%69%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Benson Muite</a>, <a href="mailto:%6D%61%74%74%61@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Matt Armstrong</a>, <a href="mailto:%72%65%6E%69%63%68@%77%6F%72%61%6C%65%6C%61%6E%64%69%61.%63%6F%6D">Renich Bon Ciric</a>, <a href="mailto:%73%6B%62%69%65%72%6D@%67%6D%61%69%6C.%63%6F%6D">Sascha</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%62%6B%6D%67%69%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Benson Muite</a>, <a href="mailto:%33%33%30%36%35%30%37%38+%6A%61%63%6B%6F%72%70@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%6D%61%74%74%61@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Matt Armstrong</a>, <a href="mailto:%72%65%6E%69%63%68@%77%6F%72%61%6C%65%6C%61%6E%64%69%61.%63%6F%6D">Renich Bon Ciric</a>, <a href="mailto:%73%6B%62%69%65%72%6D@%67%6D%61%69%6C.%63%6F%6D">Sascha</a></p>
           </div>
         </div>
       </div>

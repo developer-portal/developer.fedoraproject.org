@@ -150,12 +150,7 @@
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
-            <div class="alert alert-warning" role="alert">
-  <strong>This page is deprecated!</strong>
-  The following information is outdated
-  and will be removed in 6 months.
-</div>
-<h1 id="mongodb">MongoDB</h1>
+            <h1 id="mongodb">MongoDB</h1>
 <p>MongoDB is a database that uses a document-oriented data model and used to be free and open source.</p>
 <h2 id="security">Security</h2>
 <p>Fedora has determined that the Server Side Public Licensev1 (SSPL) is not a Free Software License. Therefore, we need to drop MongoDB from Fedora or never update it again. Never updating it would bring security issues, hence we decided to remove it.</p>
@@ -170,15 +165,15 @@
 latter is typically used for repository configuration and takes precedence over global configuration.</p>
 </blockquote>
 <p>Create a file mongodb-org-<em>release_series</em>.repo</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>nano /etc/yum.repos.d/mongodb-org-4.4.repo
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>nano /etc/yum.repos.d/mongodb-org-6.0.repo
 </code></pre></div></div>
 <p>Insert this content inside the mongodb-org-<em>release_series</em>.repo file, edit the <em>release_series</em> in the filename and the baseurl and gpgkey fields URLs if you want to install another version.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Mongodb]
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[mongodb-org-6.0]
 name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/8/mongodb-org/4.4/x86_64/
+baseurl=https://repo.mongodb.org/yum/redhat/9/mongodb-org/6.0/x86_64/
 gpgcheck=1
 enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-4.4.asc
+gpgkey=https://www.mongodb.org/static/pgp/server-6.0.asc
 </code></pre></div></div>
 <p>Now you can install with dnf</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>mongodb-org
@@ -195,14 +190,15 @@ gpgkey=https://www.mongodb.org/static/pgp/server-4.4.asc
 </code></pre></div></div>
 <h2 id="test-mongodb-connection">Test MongoDB connection</h2>
 <p>Run mongoshell to test the connection:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>mongo
-<span class="go">MongoDB shell version: 4.0.0
-connecting to: test
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>mongosh
+<span class="gp">Current Mongosh Log ID:	&lt;ID&gt;</span><span class="w">
+</span><span class="gp">Connecting to:		mongodb://&lt;address:port&gt;</span><span class="w">
+</span><span class="go">Using MongoDB:		6.0.8
 </span></code></pre></div></div>
 <h2 id="mongodb-gui-not-tested">MongoDB GUI (not tested)</h2>
 <p><a href="https://github.com/hatamiarash7/MongoDB_Admin/wiki/1.-Getting-Start">MongoDB Admin</a> is a Cross Platform GUI.</p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%4B%65%76%69%6E@%74%69%67%63%63.%74%69%63%61%6C%63.%6F%72%67">Kevin Kofler</a>, <a href="mailto:%61%6C%73%61%64%69@%67%6D%61%69%6C.%63%6F%6D">Muayyad Alsadi</a>, <a href="mailto:%73%65%72%67%75%73%68%61%6B%6F%76@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Sergey Ushakov</a>, <a href="mailto:%33%37%31%39%35%37%31%39+%6F%73%63%61%72%37%36%39%32@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">oscarPulido</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%4B%65%76%69%6E@%74%69%67%63%63.%74%69%63%61%6C%63.%6F%72%67">Kevin Kofler</a>, <a href="mailto:%61%6C%73%61%64%69@%67%6D%61%69%6C.%63%6F%6D">Muayyad Alsadi</a>, <a href="mailto:%33%37%31%39%35%37%31%39+%6F%73%63%61%72%37%36%39%32@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">oscarPulido</a>, <a href="mailto:%75%6C%6C%61%73%6B%75%6E%64%65%72%33@%67%6D%61%69%6C.%63%6F%6D">ullas kunder</a></p>
           </div>
         </div>
       </div>

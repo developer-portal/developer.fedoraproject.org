@@ -199,13 +199,23 @@ Please use `make &lt;target&gt;' where &lt;target&gt; is one of
   ...
 </code></pre></div></div>
 <p>You will probably want to use <code class="language-plaintext highlighter-rouge">html</code> for local testing purposes and <code class="language-plaintext highlighter-rouge">dirhtml</code> for deploying. You are able to test it by hitting <code class="language-plaintext highlighter-rouge">make html</code> to the command line. If Sphinx tells you that “Build finished. The HTML pages are in _build/html”, all is well. Open the web browser in the current working directory (if you are not sure which one it is, just run <code class="language-plaintext highlighter-rouge">pwd</code> to make sure), navigate to the build directory that Sphinx told you (i.e. <code class="language-plaintext highlighter-rouge">_build/html</code>) and open <code class="language-plaintext highlighter-rouge">index.html</code> – your new documentation.</p>
+<h2 id="latexpdf">latexpdf</h2>
+<p>In order to be able to run the <code class="language-plaintext highlighter-rouge">latexpdf</code> target, you will need to install the following dependencies:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf <span class="nt">-y</span> <span class="nb">install </span>latexmk texlive-capt-of texlive-cmap texlive-ec texlive-fncychap texlive-framed texlive-makeindex texlive-metafont texlive-needspace texlive-parskip texlive-tabulary texlive-tex-gyre texlive-upquote texlive-wrapfig
+</code></pre></div></div>
+<p>Additionally, you need to install babel support for your project’s language. for example, if your default language is English, install <code class="language-plaintext highlighter-rouge">texlive-babel-english</code>:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf <span class="nt">-y</span> <span class="nb">install </span>texlive-babel-english
+</code></pre></div></div>
+<p>After that, you can continue building the target:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make latexpdf
+</code></pre></div></div>
 <h2 id="what-next">What next</h2>
 <ul>
   <li>See working examples to get an inspiration <a href="http://sphinx-doc.org/examples.html">Sphinx examples</a></li>
   <li>See the full Sphinx possibilities and features <a href="http://sphinx-doc.org/contents.html">Sphinx contents</a></li>
 </ul>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%64%6B%72%65%6A%63%69@%72%65%64%68%61%74.%63%6F%6D">Dominika Krejčí</a>, <a href="mailto:%66%72%6F%73%74%79%78@%65%6D%61%69%6C.%63%7A">Jakub Kadlčík</a>, <a href="mailto:%70%68%72%61%63%65%6B@%72%65%64%68%61%74.%63%6F%6D">Petr Hracek</a>, <a href="mailto:%65%6E%63%75%6B%6F%75@%67%6D%61%69%6C.%63%6F%6D">Petr Viktorin</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%64%6B%72%65%6A%63%69@%72%65%64%68%61%74.%63%6F%6D">Dominika Krejčí</a>, <a href="mailto:%70%68%72%61%63%65%6B@%72%65%64%68%61%74.%63%6F%6D">Petr Hracek</a>, <a href="mailto:%65%6E%63%75%6B%6F%75@%67%6D%61%69%6C.%63%6F%6D">Petr Viktorin</a>, <a href="mailto:%72%65%6E%69%63%68@%77%6F%72%61%6C%65%6C%61%6E%64%69%61.%63%6F%6D">Renich Bon Ciric</a></p>
           </div>
         </div>
       </div>
