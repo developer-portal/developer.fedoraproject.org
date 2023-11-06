@@ -162,23 +162,23 @@
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">Gtk</span> <span class="o">=</span> <span class="nx">imports</span><span class="p">.</span><span class="nx">gi</span><span class="p">.</span><span class="nx">Gtk</span><span class="p">;</span>
 </code></pre></div></div>
 <p>After that, we will initialize Gtk+.</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Gtk</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Gtk</span><span class="p">.</span><span class="nf">init</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 </code></pre></div></div>
 <p>To create our window, we need to create a GtkWindow object. Gjs allows the initialization of object attributes to be made when the object is constructed.</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nb">window</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Gtk</span><span class="p">.</span><span class="nx">Window</span><span class="p">({</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nb">window</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Gtk</span><span class="p">.</span><span class="nc">Window</span><span class="p">({</span>
     <span class="na">title</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Hello World</span><span class="dl">"</span>
 <span class="p">});</span>
 </code></pre></div></div>
 <p>In the lines below we are connecting the destroy event of the window to ensure that the application is terminated if we click on the x button to close the window.</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">window</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="dl">"</span><span class="s2">destroy</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">Gtk</span><span class="p">.</span><span class="nx">main_quit</span><span class="p">();</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">window</span><span class="p">.</span><span class="nf">connect</span><span class="p">(</span><span class="dl">"</span><span class="s2">destroy</span><span class="dl">"</span><span class="p">,</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">Gtk</span><span class="p">.</span><span class="nf">main_quit</span><span class="p">();</span>
 <span class="p">});</span>
 </code></pre></div></div>
 <p>After that, we need to display the window, by calling its show method:</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">window</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">window</span><span class="p">.</span><span class="nf">show</span><span class="p">();</span>
 </code></pre></div></div>
 <p>Finally, we start the GTK+ processing loop which we quit when the window is closed.</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Gtk</span><span class="p">.</span><span class="nx">main</span><span class="p">();</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Gtk</span><span class="p">.</span><span class="nf">main</span><span class="p">();</span>
 </code></pre></div></div>
 <p>To run the program, open a terminal, change to the directory of the file, and enter:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gjs hello.gjs
@@ -186,18 +186,18 @@
 <p>The complete program can be seen below:</p>
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">Gtk</span> <span class="o">=</span> <span class="nx">imports</span><span class="p">.</span><span class="nx">gi</span><span class="p">.</span><span class="nx">Gtk</span><span class="p">;</span>
 
-<span class="nx">Gtk</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="nx">Gtk</span><span class="p">.</span><span class="nf">init</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nb">window</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Gtk</span><span class="p">.</span><span class="nx">Window</span><span class="p">({</span>
+<span class="kd">let</span> <span class="nb">window</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Gtk</span><span class="p">.</span><span class="nc">Window</span><span class="p">({</span>
     <span class="na">title</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Hello World</span><span class="dl">"</span>
 <span class="p">});</span>
 
-<span class="nb">window</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="dl">"</span><span class="s2">destroy</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">Gtk</span><span class="p">.</span><span class="nx">main_quit</span><span class="p">();</span>
+<span class="nb">window</span><span class="p">.</span><span class="nf">connect</span><span class="p">(</span><span class="dl">"</span><span class="s2">destroy</span><span class="dl">"</span><span class="p">,</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">Gtk</span><span class="p">.</span><span class="nf">main_quit</span><span class="p">();</span>
 <span class="p">});</span>
-<span class="nb">window</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
+<span class="nb">window</span><span class="p">.</span><span class="nf">show</span><span class="p">();</span>
 
-<span class="nx">Gtk</span><span class="p">.</span><span class="nx">main</span><span class="p">();</span>
+<span class="nx">Gtk</span><span class="p">.</span><span class="nf">main</span><span class="p">();</span>
 </code></pre></div></div>
 <h2 id="more-information">More information</h2>
 <ul>

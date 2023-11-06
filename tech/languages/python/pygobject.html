@@ -193,16 +193,16 @@ from gi.repository import Gtk
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python hello.py
 </code></pre></div></div>
 <p>The complete program can be seen below:</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">gi</span>
-<span class="n">gi</span><span class="p">.</span><span class="n">require_version</span><span class="p">(</span><span class="s">'Gtk'</span><span class="p">,</span> <span class="s">'3.0'</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">gi.repository</span> <span class="kn">import</span> <span class="n">Gtk</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">gi</span>
+<span class="n">gi</span><span class="p">.</span><span class="nf">require_version</span><span class="p">(</span><span class="s">'Gtk'</span><span class="p">,</span> <span class="s">'3.0'</span><span class="p">)</span>
+<span class="kn">from</span> <span class="n">gi.repository</span> <span class="kn">import</span> <span class="n">Gtk</span>
 
-<span class="n">win</span> <span class="o">=</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">Window</span><span class="p">()</span>
-<span class="n">win</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"delete-event"</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">main_quit</span><span class="p">)</span>
-<span class="n">win</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">)</span>
-<span class="n">win</span><span class="p">.</span><span class="n">show_all</span><span class="p">()</span>
+<span class="n">win</span> <span class="o">=</span> <span class="n">Gtk</span><span class="p">.</span><span class="nc">Window</span><span class="p">()</span>
+<span class="n">win</span><span class="p">.</span><span class="nf">connect</span><span class="p">(</span><span class="s">"delete-event"</span><span class="p">,</span> <span class="n">Gtk</span><span class="p">.</span><span class="n">main_quit</span><span class="p">)</span>
+<span class="n">win</span><span class="p">.</span><span class="nf">set_title</span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">)</span>
+<span class="n">win</span><span class="p">.</span><span class="nf">show_all</span><span class="p">()</span>
 
-<span class="n">Gtk</span><span class="p">.</span><span class="n">main</span><span class="p">()</span>
+<span class="n">Gtk</span><span class="p">.</span><span class="nf">main</span><span class="p">()</span>
 
 </code></pre></div></div>
 <h2 id="what-next">What next?</h2>

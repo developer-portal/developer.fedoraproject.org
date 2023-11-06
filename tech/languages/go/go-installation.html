@@ -176,12 +176,20 @@
 </span></code></pre></div></div>
 <p>Where ‘user’ will be your user name.</p>
 <p>Writing Go programs is covered in <a href="/tech/languages/go/go-programs.html">Go programs</a>.</p>
+<h2 id="fedora-specific-notes">Fedora Specific Notes</h2>
+<p>The default installation of Go on Fedora contains two changes that Go developers should be aware of.</p>
+<h3 id="goproxy">GOPROXY</h3>
+<p>The value of <code class="language-plaintext highlighter-rouge">GOPROXY</code> in <code class="language-plaintext highlighter-rouge">$GOROOT/go.env</code> is set to <code class="language-plaintext highlighter-rouge">direct</code>. A value of <code class="language-plaintext highlighter-rouge">direct</code> disables access to the module mirror. See <a href="https://proxy.golang.org">https://proxy.golang.org</a> for more information on <code class="language-plaintext highlighter-rouge">GOPROXY</code> and the module mirror. A project specifc <code class="language-plaintext highlighter-rouge">go.env</code> can override this setting.</p>
+<h3 id="gotoolchain">GOTOOLCHAIN</h3>
+<p>Go 1.21 introduces <code class="language-plaintext highlighter-rouge">GOTOOLCHAIN</code> which facilitates project specific choices for the Go language toolchain of compiler, standard library, assembler, and other tools. The value of <code class="language-plaintext highlighter-rouge">GOTOOLCHAIN</code> is set to <code class="language-plaintext highlighter-rouge">local</code> instead of the default <code class="language-plaintext highlighter-rouge">auto</code>. See the <a href="https://go.dev/doc/toolchain">Go Toolchain</a> documentation for more information on toolchains in Go and the implications of using <code class="language-plaintext highlighter-rouge">local</code> as the default. A project specific <code class="language-plaintext highlighter-rouge">go.env</code> file can override this setting.</p>
 <h2 id="references">References</h2>
 <ul>
   <li><a href="https://golang.org/doc/">Go Documentation</a></li>
+  <li><a href="https://proxy.golang.org">Go Module Proxy</a></li>
+  <li><a href="https://go.dev/doc/toolchain">Go Toolchain</a></li>
 </ul>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%72%68%63%61%72%76%61%6C%68%6F@%67%6D%61%69%6C.%63%6F%6D">Rodolfo Carvalho</a>, <a href="mailto:%74%74%6F%6D%65%63%65%6B@%72%65%64%68%61%74.%63%6F%6D">Tomas Tomecek</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%62%72%61%64%6C%65%79.%67.%73%6D%69%74%68@%67%6D%61%69%6C.%63%6F%6D">Brad Smith</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%72%68%63%61%72%76%61%6C%68%6F@%67%6D%61%69%6C.%63%6F%6D">Rodolfo Carvalho</a></p>
           </div>
         </div>
       </div>

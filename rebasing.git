@@ -1,0 +1,74 @@
+pick b6f01d8 Gemfile pruning
+pick 7c88e79 Enhance Dockerfile, drop usage of setup.sh script for container build.
+s a8e2854 Add webrick to Dockerfile to serve the pages.
+pick 841ea39 WIP Openshift 4.13 template.
+s f022703 Extend the openshift template with new variables.
+s dac7b25 Better and more vars for openshift template
+s 56cd026 Proper Chained build (hopefully), and removed invalid characters from variable values.
+s df3b95d Try HTTPS termination, do a proper copy, fix the source strategy for chained builds, fix DC name.
+s 648d3e2 Remove unused variable.
+s 29a9357 Add intermediary image that regenerates RSS feed periodically.
+s 6d59b5b Corrections to the RSS additions to OC template.
+s 088559c Correct whitespacing in OC template.
+s 0cead30 OC template field corrections.
+s ea6ec29 Delete the 'spec' key fugitive
+s 3f099ba More spacing...
+s 70e906d Correct source for runtime.
+s 5e27e42 Let's be more conservative about what we pull in.
+s 9404413 Let's try this for cronjob
+s ecc774f Let's hardcode the API URL for now.
+s d7bf883 s2i nginx does not have save-artifact script for incremental builds.
+s 51c785a Fixup rss webhook called from the cronjob
+s c80b2c7 Builder image parameter description adjustment.
+s 9d5ec4f Use k8s downward API to get the namespace for the webhook.
+s d1b6ed6 Use secretKeyReference in the RSS generic webhook.
+s 57d1c31 Wrong name for secretKeyRef...
+s 81204ea Variable webhook secret.
+s b5ed9f1 Limit the history of build images.
+s d965e36 Add history limit for deployment config.
+pick 941bc82 Enhance s2i assemble script
+s 16a7262 Add webrick as some webserver that remains in the container after s2i assemble.
+s c825acc Enhance the assemble script.
+s 86b267b Fixup s2i assemble, it should check exit status and continue correctly without `test`
+s 6e06db1 Exempt files needed to refresh the RSS feed.
+pick 98c1247 requirements.txt for python intermediate container
+pick f25dba3 Try incremental builds.
+s 65926a2 save-artifacts instrumentation
+s 4a8ce82 Additional logging might mess up the artifact saving process.
+s 75a6d07 Take inspiration from ubi9/php-81 artifact restoration, it actually works there...
+s a3567ab Instrumentation for restoring artifacts.
+s 5245171 don't delete the bundle dir if we plan on saving it...
+s a027c4f Remove artifact restoration instrumentation, it works now.
+d 21e40d7 We do our own bundle install, there is little to no advantage to rely on upstream assemble script.
+d 34beace We still need upstream s2i assemble to move files and directories to correct places.
+
+# Rebase 67379f3..d965e36 onto 67379f3 (43 commands)
+#
+# Commands:
+# p, pick <commit> = use commit
+# r, reword <commit> = use commit, but edit the commit message
+# e, edit <commit> = use commit, but stop for amending
+# s, squash <commit> = use commit, but meld into previous commit
+# f, fixup [-C | -c] <commit> = like "squash" but keep only the previous
+#                    commit's log message, unless -C is used, in which case
+#                    keep only this commit's message; -c is same as -C but
+#                    opens the editor
+# x, exec <command> = run command (the rest of the line) using shell
+# b, break = stop here (continue rebase later with 'git rebase --continue')
+# d, drop <commit> = remove commit
+# l, label <label> = label current HEAD with a name
+# t, reset <label> = reset HEAD to a label
+# m, merge [-C <commit> | -c <commit>] <label> [# <oneline>]
+#         create a merge commit using the original merge commit's
+#         message (or the oneline, if no original merge commit was
+#         specified); use -c <commit> to reword the commit message
+# u, update-ref <ref> = track a placeholder for the <ref> to be updated
+#                       to this position in the new commits. The <ref> is
+#                       updated at the end of the rebase
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#

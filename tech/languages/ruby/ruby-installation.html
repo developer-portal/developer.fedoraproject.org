@@ -176,17 +176,17 @@
 <p><a href="https://github.com/fedora-ruby/rubypick">Read more about RubyPick</a>.</p>
 <h2 id="installing-ruby-with-rbenv">Installing Ruby with rbenv</h2>
 <p>The first step is to install dependencies for Ruby.</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>git-core zlib zlib-devel gcc-c++ patch readline readline-devel libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison curl sqlite-devel perl-FindBin
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install</span> <span class="nt">-y</span> git-core gcc rust patch make bzip2 openssl-devel libyaml-devel libffi-devel readline-devel zlib-devel gdbm-devel ncurses-devel perl-FindBin perl-lib perl-File-Compare
 </code></pre></div></div>
 <p>Then we are going to clone rbenv and the ruby-build rbenv plugin into the home directory.
 To make rbenv command available we append your shell’s rc file with initialization.</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 <span class="gp">$</span><span class="w"> </span>git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-<span class="gp">$</span><span class="w"> </span><span class="nb">echo</span> <span class="s1">'eval "$(~/.rbenv/bin/rbenv init -)"'</span> <span class="o">&gt;&gt;</span> ~/.bashrc
+<span class="gp">$</span><span class="w"> </span><span class="nb">echo</span> <span class="s1">'eval "$(~/.rbenv/bin/rbenv init -)"'</span> <span class="o">&gt;&gt;</span> ~/.bash_profile
 </code></pre></div></div>
 <p>Next step we have to refresh the shell to make the binaries available. This can be achieved
 by either the following command or opening a new terminal:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">exec</span> <span class="nv">$SHELL</span>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">exec</span> <span class="nv">$SHELL</span> <span class="nt">-l</span>
 </code></pre></div></div>
 <p>Now you can install Ruby simply via <code class="language-plaintext highlighter-rouge">rbenv install</code></p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>rbenv <span class="nb">install </span>3.0.4
@@ -196,14 +196,11 @@ by either the following command or opening a new terminal:</p>
 <p>Use this command if you do not want rubygems to install the documentation for each package locally.</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">echo</span> <span class="s2">"gem: --no-document"</span> <span class="o">&gt;</span> ~/.gemrc
 </code></pre></div></div>
-<p>Install bundler</p>
+<p>Install bundler:</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>gem <span class="nb">install </span>bundler
 </code></pre></div></div>
-<p>Whenever you install a new version of Ruby or a gem, you should run the rehash sub-command. This will make executables known to rbenv, which will allow us to run those executables:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>rbenv rehash
-</code></pre></div></div>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%62%6B%6D%67%69%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Benson Muite</a>, <a href="mailto:%33%33%30%36%35%30%37%38+%6A%61%63%6B%6F%72%70@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%6D%61%74%74%61@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Matt Armstrong</a>, <a href="mailto:%72%65%6E%69%63%68@%77%6F%72%61%6C%65%6C%61%6E%64%69%61.%63%6F%6D">Renich Bon Ciric</a>, <a href="mailto:%73%6B%62%69%65%72%6D@%67%6D%61%69%6C.%63%6F%6D">Sascha</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%35%32%34%39%33%30%37%37+%61%6C%61%62%68%79%61%6A%69%6E%64%61%6C@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Alabhya Jindal</a>, <a href="mailto:%62%6B%6D%67%69%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Benson Muite</a>, <a href="mailto:%33%33%30%36%35%30%37%38+%6A%61%63%6B%6F%72%70@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%6D%61%74%74%61@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Matt Armstrong</a>, <a href="mailto:%72%65%6E%69%63%68@%77%6F%72%61%6C%65%6C%61%6E%64%69%61.%63%6F%6D">Renich Bon Ciric</a></p>
           </div>
         </div>
       </div>

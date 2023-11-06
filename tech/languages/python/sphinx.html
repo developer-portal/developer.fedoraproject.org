@@ -200,6 +200,7 @@ Please use `make &lt;target&gt;' where &lt;target&gt; is one of
 </code></pre></div></div>
 <p>You will probably want to use <code class="language-plaintext highlighter-rouge">html</code> for local testing purposes and <code class="language-plaintext highlighter-rouge">dirhtml</code> for deploying. You are able to test it by hitting <code class="language-plaintext highlighter-rouge">make html</code> to the command line. If Sphinx tells you that “Build finished. The HTML pages are in _build/html”, all is well. Open the web browser in the current working directory (if you are not sure which one it is, just run <code class="language-plaintext highlighter-rouge">pwd</code> to make sure), navigate to the build directory that Sphinx told you (i.e. <code class="language-plaintext highlighter-rouge">_build/html</code>) and open <code class="language-plaintext highlighter-rouge">index.html</code> – your new documentation.</p>
 <h2 id="latexpdf">latexpdf</h2>
+<p>Sphinx allows you to render your work in PDF format.</p>
 <p>In order to be able to run the <code class="language-plaintext highlighter-rouge">latexpdf</code> target, you will need to install the following dependencies:</p>
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf <span class="nt">-y</span> <span class="nb">install </span>latexmk texlive-capt-of texlive-cmap texlive-ec texlive-fncychap texlive-framed texlive-makeindex texlive-metafont texlive-needspace texlive-parskip texlive-tabulary texlive-tex-gyre texlive-upquote texlive-wrapfig
 </code></pre></div></div>
@@ -209,6 +210,7 @@ Please use `make &lt;target&gt;' where &lt;target&gt; is one of
 <p>After that, you can continue building the target:</p>
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make latexpdf
 </code></pre></div></div>
+<p>You will see a lot of output showing the process of producing the PDF file and, finally; if successful, find the rendered PDF at <code class="language-plaintext highlighter-rouge">build/latex/&lt;projectname&gt;.pdf</code>; along with many other files used to produce it.</p>
 <h2 id="what-next">What next</h2>
 <ul>
   <li>See working examples to get an inspiration <a href="http://sphinx-doc.org/examples.html">Sphinx examples</a></li>
