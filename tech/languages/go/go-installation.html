@@ -177,15 +177,28 @@
 <p>Where ‘user’ will be your user name.</p>
 <p>Writing Go programs is covered in <a href="/tech/languages/go/go-programs.html">Go programs</a>.</p>
 <h2 id="fedora-specific-notes">Fedora Specific Notes</h2>
-<p>The default installation of Go on Fedora contains two changes that Go developers should be aware of.</p>
+<p>The default installation of Go on Fedora contains changes to the default values of <code class="language-plaintext highlighter-rouge">GOPROXY</code>, <code class="language-plaintext highlighter-rouge">GOSUMDB</code>, and <code class="language-plaintext highlighter-rouge">GOTOOLCHAIN</code> environment variables that Go developers should be aware of. The <code class="language-plaintext highlighter-rouge">go</code> command and related tools make extensive use of environment variables for configuration. Default values are set globally in <code class="language-plaintext highlighter-rouge">/usr/lib/golang/go.env</code>, and can be overridden on per user or per project basis.</p>
+<p>For extensive help and information see:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>go <span class="nb">help </span>environment
+</code></pre></div></div>
 <h3 id="goproxy">GOPROXY</h3>
-<p>The value of <code class="language-plaintext highlighter-rouge">GOPROXY</code> in <code class="language-plaintext highlighter-rouge">$GOROOT/go.env</code> is set to <code class="language-plaintext highlighter-rouge">direct</code>. A value of <code class="language-plaintext highlighter-rouge">direct</code> disables access to the module mirror. See <a href="https://proxy.golang.org">https://proxy.golang.org</a> for more information on <code class="language-plaintext highlighter-rouge">GOPROXY</code> and the module mirror. A project specifc <code class="language-plaintext highlighter-rouge">go.env</code> can override this setting.</p>
+<p>The value of <code class="language-plaintext highlighter-rouge">GOPROXY</code> in <code class="language-plaintext highlighter-rouge">$GOROOT/go.env</code> is set to <code class="language-plaintext highlighter-rouge">direct</code>. A value of <code class="language-plaintext highlighter-rouge">direct</code> disables access to the module mirror. See <a href="https://proxy.golang.org">https://proxy.golang.org</a> for more information on <code class="language-plaintext highlighter-rouge">GOPROXY</code> and the module mirror. A project specific <code class="language-plaintext highlighter-rouge">go.env</code> can override this setting. A user specific override can be set with:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>go <span class="nb">env</span> <span class="nt">-w</span> <span class="nv">GOPROXY</span><span class="o">=</span>https://proxy.golang.org,direct
+</code></pre></div></div>
+<h3 id="gosumdb">GOSUMDB</h3>
+<p>The value of <code class="language-plaintext highlighter-rouge">GOSUMDB</code> in <code class="language-plaintext highlighter-rouge">$GOROOT/go.env</code> is set to <code class="language-plaintext highlighter-rouge">off</code> replacing the default value of <code class="language-plaintext highlighter-rouge">sum.golang.org</code>. The GOSUMDB environment variable identifies the name of the checksum database used to help validate downloaded modules. A project specific <code class="language-plaintext highlighter-rouge">go.env</code> can override this setting. A user specific override can be set with:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>go <span class="nb">env</span> <span class="nt">-w</span> <span class="nv">GOSUMDB</span><span class="o">=</span>sum.golang.org
+</code></pre></div></div>
 <h3 id="gotoolchain">GOTOOLCHAIN</h3>
-<p>Go 1.21 introduces <code class="language-plaintext highlighter-rouge">GOTOOLCHAIN</code> which facilitates project specific choices for the Go language toolchain of compiler, standard library, assembler, and other tools. The value of <code class="language-plaintext highlighter-rouge">GOTOOLCHAIN</code> is set to <code class="language-plaintext highlighter-rouge">local</code> instead of the default <code class="language-plaintext highlighter-rouge">auto</code>. See the <a href="https://go.dev/doc/toolchain">Go Toolchain</a> documentation for more information on toolchains in Go and the implications of using <code class="language-plaintext highlighter-rouge">local</code> as the default. A project specific <code class="language-plaintext highlighter-rouge">go.env</code> file can override this setting.</p>
+<p>Go 1.21 introduces <code class="language-plaintext highlighter-rouge">GOTOOLCHAIN</code> which facilitates project specific choices for the Go language toolchain of compiler, standard library, assembler, and other tools. The value of <code class="language-plaintext highlighter-rouge">GOTOOLCHAIN</code> is set to <code class="language-plaintext highlighter-rouge">local</code> instead of the default <code class="language-plaintext highlighter-rouge">auto</code>. When GOTOOLCHAIN is set to local, the go command always runs the bundled Go toolchain. See the <a href="https://go.dev/doc/toolchain">Go Toolchain</a> documentation for more information on toolchains in Go. A project specific <code class="language-plaintext highlighter-rouge">go.env</code> file can override this setting. A user specific override can be set with:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>go <span class="nb">env</span> <span class="nt">-w</span> <span class="nv">GOTOOLCHAIN</span><span class="o">=</span>auto
+</code></pre></div></div>
 <h2 id="references">References</h2>
 <ul>
   <li><a href="https://golang.org/doc/">Go Documentation</a></li>
+  <li><a href="https://pkg.go.dev/cmd/go#hdr-Environment_variables">Go Environment Variables</a></li>
   <li><a href="https://proxy.golang.org">Go Module Proxy</a></li>
+  <li><a href="https://goproxy.io/docs/GOSUMDB-env.html">GOSUMDB Environment</a></li>
   <li><a href="https://go.dev/doc/toolchain">Go Toolchain</a></li>
 </ul>
 <hr id="authors-rule" />

@@ -172,8 +172,31 @@
 <a href="https://docs.rs/">docs.rs</a></p>
 <h1 id="ide-recommendations">IDE recommendations</h1>
 <p>There are plugins for popular editor such as Vim, Atom or Gnome Builder which are based on the rust-analyzer implementation. Alternatively, IntelliJ IDEA provides their own, custom plugin. Unfortunatelly, the debugging support is available only in paid CLion IDE.</p>
-<p>Before you try to configure your editor or IDE, it is recommended to use install <code class="language-plaintext highlighter-rouge">rustup</code>:
-<a href="https://rustup.rs/">rustup.rs</a></p>
+<h2 id="rustup">Rustup</h2>
+<p>Before you try to configure your editor or IDE, it is recommended to install <code class="language-plaintext highlighter-rouge">rustup</code></p>
+<p>You can do so with DNF. Run:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>rustup
+</code></pre></div></div>
+<p>The above command will install <code class="language-plaintext highlighter-rouge">rustup-init</code> command that you can then run to setup <code class="language-plaintext highlighter-rouge">rustup</code>.</p>
+<p>Note that if you have installed rust via <code class="language-plaintext highlighter-rouge">dnf</code>, there may be warnings like:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>warning: it looks like you have an existing installation of Rust at:
+warning: /usr/bin
+warning: It is recommended that rustup be the primary Rust installation.
+warning: Otherwise you may have confusion unless you are careful with your PATH
+warning: If you are sure that you want both rustup and your already installed Rust
+warning: then please reply `y' or `yes' or set RUSTUP_INIT_SKIP_PATH_CHECK to yes
+warning: or pass `-y' to ignore all ignorable checks.
+error: cannot install while Rust is installed
+
+Continue? (y/N)
+</code></pre></div></div>
+<p>This can be safely ignored as it is not known to cause any issues, simply answer with <code class="language-plaintext highlighter-rouge">y</code> and
+continue.</p>
+<p>To then register system installation with <code class="language-plaintext highlighter-rouge">rustup</code> run the following command:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>rustup toolchain <span class="nb">link </span>system /usr
+</code></pre></div></div>
+<p>Alternatively you install upstream <code class="language-plaintext highlighter-rouge">rustup</code> as described here: <a href="https://rustup.rs/">rustup.rs</a>.</p>
+<h2 id="ides">IDEs</h2>
 <p>If you want to start with Rust programming, it is easiest to try the rust-analyzer for Visual Studio Code:</p>
 <ol>
   <li>Install the VSCode RPM package: <a href="https://code.visualstudio.com/docs/setup/linux">code.visualstudio.com/docs/setup/linux</a></li>
@@ -192,7 +215,7 @@
 <p>If you are brave enough and you want to try the nightly compiler edition (or you just want to try the awesome <a href="https://rocket.rs/">Rocket framework</a>), it is recommended to use rustup:
 <a href="https://rustup.rs/">rustup.rs</a></p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%6A%69%73%74%6F%6E%65@%72%65%64%68%61%74.%63%6F%6D">Josh Stone</a>, <a href="mailto:%6D%61%74%75%73.%66%65%72%65%63%68@%67%6D%61%69%6C.%63%6F%6D">Matúš Ferech</a>, <a href="mailto:%6D%73%65%68%6E%6F%75%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">msehnout</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%33%33%30%36%35%30%37%38+%6A%61%63%6B%6F%72%70@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%6A%69%73%74%6F%6E%65@%72%65%64%68%61%74.%63%6F%6D">Josh Stone</a>, <a href="mailto:%6D%61%74%75%73.%66%65%72%65%63%68@%67%6D%61%69%6C.%63%6F%6D">Matúš Ferech</a>, <a href="mailto:%6D%73%65%68%6E%6F%75%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">msehnout</a></p>
           </div>
         </div>
       </div>

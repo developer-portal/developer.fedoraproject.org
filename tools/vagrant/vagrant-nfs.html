@@ -191,13 +191,12 @@ your <code class="language-plaintext highlighter-rouge">/etc/sudoers</code> file
 directly, <code class="language-plaintext highlighter-rouge">visudo</code> will check that the content of the file is correct before
 saving):</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Allow Vagrant to manage /etc/exports
-Cmnd_Alias VAGRANT_EXPORTS_ADD = /usr/bin/tee -a /etc/exports
+Cmnd_Alias VAGRANT_EXPORTS_CHOWN = /bin/chown 0\:0 /tmp/vagrant-exports
+Cmnd_Alias VAGRANT_EXPORTS_MV = /bin/mv -f /tmp/vagrant-exports /etc/exports
 Cmnd_Alias VAGRANT_NFSD_CHECK = /usr/bin/systemctl status --no-pager nfs-server.service
 Cmnd_Alias VAGRANT_NFSD_START = /usr/bin/systemctl start nfs-server.service
 Cmnd_Alias VAGRANT_NFSD_APPLY = /usr/sbin/exportfs -ar
-Cmnd_Alias VAGRANT_EXPORTS_REMOVE = /bin/sed -r -e * d -ibak /*/exports
-Cmnd_Alias VAGRANT_EXPORTS_REMOVE_2 = /bin/cp /*/exports /etc/exports
-%vagrant ALL=(root) NOPASSWD: VAGRANT_EXPORTS_ADD, VAGRANT_NFSD_CHECK, VAGRANT_NFSD_START, VAGRANT_NFSD_APPLY, VAGRANT_EXPORTS_REMOVE, VAGRANT_EXPORTS_REMOVE_2
+%vagrant ALL=(root) NOPASSWD: VAGRANT_NFSD_CHECK, VAGRANT_NFSD_START, VAGRANT_NFSD_APPLY, VAGRANT_EXPORTS_CHOWN, VAGRANT_EXPORTS_MV
 </code></pre></div></div>
 <p>Afterwards add yourself to the <code class="language-plaintext highlighter-rouge">vagrant</code> group if you are not there already by running:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo getent group vagrant &gt;/dev/null || sudo groupadd -r vagrant
@@ -205,7 +204,7 @@ $ sudo gpasswd -a ${USER} vagrant
 $ sudo -u ${USER} ${SHELL}
 </code></pre></div></div>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%6E%74%6F%6E%69%6E.%6D%72%6B%76%69%63%61@%6F%75%74%6C%6F%6F%6B.%63%7A">Antonín Mrkvica</a>, <a href="mailto:%64%75%73%74%79@%64%75%73%74%79%6D%61%62%65.%63%6F%6D">Dusty Mabe</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%6D%62%6F%63%65%6B@%72%65%64%68%61%74.%63%6F%6D">Michal Bocek</a>, <a href="mailto:%70%76%61%6C%65%6E%61@%72%65%64%68%61%74.%63%6F%6D">Pavel Valena</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%6E%74%6F%6E%69%6E.%6D%72%6B%76%69%63%61@%6F%75%74%6C%6F%6F%6B.%63%7A">Antonín Mrkvica</a>, <a href="mailto:%33%33%30%36%35%30%37%38+%6A%61%63%6B%6F%72%70@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%6D%62%6F%63%65%6B@%72%65%64%68%61%74.%63%6F%6D">Michal Bocek</a>, <a href="mailto:%70%76%61%6C%65%6E%61@%72%65%64%68%61%74.%63%6F%6D">Pavel Valena</a></p>
           </div>
         </div>
       </div>
