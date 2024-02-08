@@ -161,50 +161,62 @@
           <div class="panel panel-default content-content">
             <h1 id="installing-ruby-and-rails-with-rbenv">Installing Ruby and Rails with rbenv</h1>
 <p>The first step is to install dependencies for Ruby and rbenv.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install git-core zlib zlib-devel gcc-c++ patch readline-devel libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison libcurl-devel sqlite-devel rbenv rbenv-build-rbenv
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>git-core zlib zlib-devel gcc-c++ patch readline-devel libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison libcurl-devel sqlite-devel perl-FindBin perl-lib perl-File-Compare
 </code></pre></div></div>
+<p>To use Fedora packaged rbenv also install:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>rbenv ruby-build-rbenv
+</code></pre></div></div>
+<p>To use upstream rbenv, follow the steps in <a href="/tech/languages/ruby/ruby-installation.html#installing-ruby-with-rbenv">Installing Ruby with
+rbenv</a>.</p>
 <p>Then configure your shell to enable rbenv:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo 'eval "$(rbenv init -)"' &gt;&gt; ~/.bashrc
-source ~/.bashrc
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">echo</span> <span class="s1">'eval "$(rbenv init -)"'</span> <span class="o">&gt;&gt;</span> ~/.bashrc
+<span class="gp">$</span><span class="w"> </span><span class="nb">source</span> ~/.bashrc
 </code></pre></div></div>
 <p>Install a Ruby version, such as 3.1.2. See <code class="language-plaintext highlighter-rouge">rbenv install --list</code> for available versions.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rbenv install 3.1.2
-rbenv global 3.1.2
-ruby -v
-
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>rbenv <span class="nb">install </span>3.1.2
+<span class="gp">$</span><span class="w"> </span>rbenv global 3.1.2
+<span class="gp">$</span><span class="w"> </span>ruby <span class="nt">-v</span>
 </code></pre></div></div>
 <p>Use this command if you do not want rubygems to install the documentation for each package locally.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "gem: --no-ri --no-rdoc" &gt; ~/.gemrc
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">echo</span> <span class="s2">"gem: --no-ri --no-rdoc"</span> <span class="o">&gt;</span> ~/.gemrc
 </code></pre></div></div>
-<p>Whenever you install a new version of Ruby or a gem, you should run the rehash sub-command. This will make rails executables known to rbenv, which will allow us to run those executables:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rbenv rehash 
+<h2 id="rbenv-rehash">Rbenv rehash</h2>
+<p><code class="language-plaintext highlighter-rouge">rbenv rehash</code> is not needed when installing gems via <code class="language-plaintext highlighter-rouge">gem install</code> as rbenv will automatically
+trigger the rehash. You may need to trigger a rehash manually after installing gems using bundler.
+You can do so by running</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>rbenv rehash
 </code></pre></div></div>
+<p>Since <a href="https://github.com/rbenv/rbenv/commit/325abac17de79a230152bb7038126a0641c6aa64">rbenv commit 325abac</a>,
+there is no need to run <code class="language-plaintext highlighter-rouge">rbenv rehash</code> when installing gems via bundler or <code class="language-plaintext highlighter-rouge">gem install</code>.
+Rbenv will automatically trigger the rehash using either of those methods. To ensure you have this
+version installed, follow the <a href="https://github.com/rbenv/rbenv?tab=readme-ov-file#basic-git-checkout">basic git checkout installation instructions</a>.</p>
 <h1 id="installing-rails">Installing Rails</h1>
-<p>Rails depends on a Javascript runtime, install nodejs.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install nodejs
+<p>Rails depends on a Javascript runtime. Follow <a href="https://github.com/nodenv/nodenv?tab=readme-ov-file#basic-github-checkout">this guide</a>
+to install <code class="language-plaintext highlighter-rouge">nodejs</code> using <code class="language-plaintext highlighter-rouge">nodenv</code>.</p>
+<p>If you would rather have Fedora packaged <code class="language-plaintext highlighter-rouge">nodejs</code> and will not need multiple versions of <code class="language-plaintext highlighter-rouge">nodejs</code> (like for different projects)
+you can install it with <code class="language-plaintext highlighter-rouge">dnf</code>:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>nodejs
 </code></pre></div></div>
 <p>And now install Rails</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install rails -v 7.1.2
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>gem <span class="nb">install </span>rails <span class="nt">-v</span> 7.1.2
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rbenv rehash
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>rails <span class="nt">-v</span>
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rails -v
-</code></pre></div></div>
-<p>#Create your first Rails app</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rails new myapp
-
-# Move into the application directory
-cd myapp
-
-# Create the database
-rake db:create
-
-# Start the server
-rails server
+<h1 id="create-your-first-rails-app">Create your first Rails app</h1>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>rails new myapp
+<span class="go">
+</span><span class="gp">#</span><span class="w"> </span>Move into the application directory
+<span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>myapp
+<span class="go">
+</span><span class="gp">#</span><span class="w"> </span>Create the database
+<span class="gp">$</span><span class="w"> </span>rake db:create
+<span class="go">
+</span><span class="gp">#</span><span class="w"> </span>Start the server
+<span class="gp">$</span><span class="w"> </span>rails server
 </code></pre></div></div>
 <p>You can now visit http://localhost:3000 to view your new website.</p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%62%6B%6D%67%69%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Benson Muite</a>, <a href="mailto:%65%77%6F%75%64@%6B%6F%68%6C%76%61%6E%77%69%6A%6E%67%61%61%72%64%65%6E.%6E%6C">Ewoud Kohl van Wijngaarden</a>, <a href="mailto:%6A%72%69%64%6B%79@%72%65%64%68%61%74.%63%6F%6D">Josef Ridky</a>, <a href="mailto:%6D%65%6C%6C%6F%68%65%79@%69%63%6C%6F%75%64.%63%6F%6D">MelloHey</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%62%6B%6D%67%69%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Benson Muite</a>, <a href="mailto:%65%77%6F%75%64@%6B%6F%68%6C%76%61%6E%77%69%6A%6E%67%61%61%72%64%65%6E.%6E%6C">Ewoud Kohl van Wijngaarden</a>, <a href="mailto:%33%33%30%36%35%30%37%38+%6A%61%63%6B%6F%72%70@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%6A%72%69%64%6B%79@%72%65%64%68%61%74.%63%6F%6D">Josef Ridky</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a></p>
           </div>
         </div>
       </div>
@@ -293,7 +305,7 @@ rails server
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2023 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2024 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->
