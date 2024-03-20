@@ -118,9 +118,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/python.png">
-          <h2>Python</h2>
-          <p>General-purpose, high-level programming language supporting multiple programming paradigms.</p>
+    <img class="img-rounded" src="/static/logo/python.png">
+    <h2>FastApi</h2>
+    <p></p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -157,7 +157,7 @@
             </div>
           </div>
           <a target="_blank" href="https://github.com/developer-portal/content/edit/master/tech/languages/python/fastapi-installation.md" class="btn btn-default">Edit this page</a>
-          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=:+python+fastapi-installation.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
+          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=tech-languages:+python+fastapi-installation.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
@@ -191,14 +191,14 @@ Create a file named ‘main.py’.</p>
 <span class="n">app</span> <span class="o">=</span> <span class="nc">FastAPI</span><span class="p">()</span>
 
 
-<span class="nd">@app.get</span><span class="p">(</span><span class="s">"/"</span><span class="p">)</span>
+<span class="nd">@app.get</span><span class="p">(</span><span class="sh">"</span><span class="s">/</span><span class="sh">"</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">read_root</span><span class="p">():</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s">"Hello"</span><span class="p">:</span> <span class="s">"World"</span><span class="p">}</span>
+    <span class="k">return</span> <span class="p">{</span><span class="sh">"</span><span class="s">Hello</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">World</span><span class="sh">"</span><span class="p">}</span>
 
 
-<span class="nd">@app.get</span><span class="p">(</span><span class="s">"/items/{item_id}"</span><span class="p">)</span>
+<span class="nd">@app.get</span><span class="p">(</span><span class="sh">"</span><span class="s">/items/{item_id}</span><span class="sh">"</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">read_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s">"item_id"</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s">"q"</span><span class="p">:</span> <span class="n">q</span><span class="p">}</span>
+    <span class="k">return</span> <span class="p">{</span><span class="sh">"</span><span class="s">item_id</span><span class="sh">"</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="sh">"</span><span class="s">q</span><span class="sh">"</span><span class="p">:</span> <span class="n">q</span><span class="p">}</span>
 </code></pre></div></div>
 <h3 id="running">Running</h3>
 <p>To run a FastApi app on a development server, go to that directory in the terminal and run:</p>
@@ -222,7 +222,7 @@ Create a file named ‘main.py’.</p>
   <li><a href="https://fastapi.tiangolo.com/">FastApi</a></li>
 </ul>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%63%6F%64%65@%6D%75%73%69%63%69%6E%6D%79%62%72%61%69%6E.%6E%65%74">Ben Beasley</a>, <a href="mailto:%63%6F%64%65@%6D%75%73%69%63%69%6E%6D%79%62%72%61%69%6E.%6E%65%74">Benjamin A. Beasley</a>, <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%35%37%31%35%36%33%32%36+%74%61%68%6D%69%64%35%36@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">tahmid56</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%63%6F%64%65@%6D%75%73%69%63%69%6E%6D%79%62%72%61%69%6E.%6E%65%74">Ben Beasley</a>, <a href="mailto:%63%6F%64%65@%6D%75%73%69%63%69%6E%6D%79%62%72%61%69%6E.%6E%65%74">Benjamin A. Beasley</a>, <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a>, <a href="mailto:%35%37%31%35%36%33%32%36+%74%61%68%6D%69%64%35%36@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">tahmid56</a></p>
           </div>
         </div>
       </div>

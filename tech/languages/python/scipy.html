@@ -118,9 +118,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/python.png">
-          <h2>Python</h2>
-          <p>General-purpose, high-level programming language supporting multiple programming paradigms.</p>
+    <img class="img-rounded" src="/static/logo/python.png">
+    <h2>Scientific Python Stack</h2>
+    <p></p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -157,7 +157,7 @@
             </div>
           </div>
           <a target="_blank" href="https://github.com/developer-portal/content/edit/master/tech/languages/python/scipy.md" class="btn btn-default">Edit this page</a>
-          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=:+python+scipy.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
+          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=tech-languages:+python+scipy.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
@@ -255,8 +255,8 @@ statistics and others. See a <a href="https://docs.scipy.org/doc/scipy/reference
 <p>Test it by typing:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">plt</span><span class="p">.</span><span class="nf">ion</span><span class="p">()</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">plt</span><span class="p">.</span><span class="nf">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="s">'ro--'</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="s">"Hello, matplotlib!"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">plt</span><span class="p">.</span><span class="nf">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="sh">'</span><span class="s">ro--</span><span class="sh">'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="sh">"</span><span class="s">Hello, matplotlib!</span><span class="sh">"</span><span class="p">)</span>
 </code></pre></div></div>
 <p>You should see the plot already.</p>
 <p>See lots of other examples at a <a href="http://matplotlib.org/gallery.html">showcases gallery</a>:</p>
@@ -294,14 +294,14 @@ which is used a lot as an example in pattern recognition and machine learning
 literature.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">pandas</span> <span class="k">as</span> <span class="n">pd</span>
 
-<span class="n">iris_data_set_url</span> <span class="o">=</span> <span class="p">(</span><span class="s">"http://archive.ics.uci.edu/ml/"</span>
-                     <span class="s">"machine-learning-databases/iris/iris.data"</span><span class="p">)</span>
+<span class="n">iris_data_set_url</span> <span class="o">=</span> <span class="p">(</span><span class="sh">"</span><span class="s">http://archive.ics.uci.edu/ml/</span><span class="sh">"</span>
+                     <span class="sh">"</span><span class="s">machine-learning-databases/iris/iris.data</span><span class="sh">"</span><span class="p">)</span>
 
 <span class="c1"># pandas likes CSV files, it can read them from file or provided URL
 </span><span class="n">my_first_pandas_DataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="n">iris_data_set_url</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
 
 <span class="c1"># See!
-</span><span class="nf">print</span><span class="p">(</span><span class="s">"Pandas DataFrame:"</span><span class="p">)</span>
+</span><span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Pandas DataFrame:</span><span class="sh">"</span><span class="p">)</span>
 <span class="nf">print</span><span class="p">(</span><span class="n">my_first_pandas_DataFrame</span><span class="p">)</span>
 
 <span class="c1"># Let us find a record with maximal value in the first column
@@ -319,7 +319,7 @@ capabilities, i.e. manipulation with algebraic variables, symbols and precise va
 <span class="o">&gt;&gt;&gt;</span> <span class="n">sympy</span><span class="p">.</span><span class="nf">sqrt</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 <span class="mi">2</span><span class="o">*</span><span class="nf">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="n">sympy</span> <span class="kn">import</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">integrate</span><span class="p">,</span> <span class="n">oo</span><span class="p">,</span> <span class="n">diff</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="nf">symbols</span><span class="p">(</span><span class="s">'x'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="nf">symbols</span><span class="p">(</span><span class="sh">'</span><span class="s">x</span><span class="sh">'</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nf">integrate</span><span class="p">(</span><span class="nf">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">+</span><span class="n">oo</span><span class="p">))</span>
 <span class="mi">1</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nf">integrate</span><span class="p">(</span><span class="nf">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="n">oo</span><span class="p">,</span> <span class="o">+</span><span class="n">oo</span><span class="p">))</span>
@@ -347,7 +347,7 @@ transformation, numerical simulation, statistical modeling, machine learning.</p
   <li><a href="http://matplotlib.org/gallery.html">matplotlib examples gallery</a></li>
 </ul>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%62%72%65%6E%6E%61%6E%76%30%33@%67%6D%61%69%6C.%63%6F%6D">Brennan Vincello</a>, <a href="mailto:%6D%69%72%6F@%68%72%6F%6E%63%6F%6B.%63%7A">Miro Hrončok</a>, <a href="mailto:%65%6E%63%75%6B%6F%75@%67%6D%61%69%6C.%63%6F%6D">Petr Viktorin</a>, <a href="mailto:%72%70%61%76%65%6C%6B%61@%72%65%64%68%61%74.%63%6F%6D">Roman Pavelka</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%62%72%65%6E%6E%61%6E%76%30%33@%67%6D%61%69%6C.%63%6F%6D">Brennan Vincello</a>, <a href="mailto:%6D%69%72%6F@%68%72%6F%6E%63%6F%6B.%63%7A">Miro Hrončok</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a>, <a href="mailto:%65%6E%63%75%6B%6F%75@%67%6D%61%69%6C.%63%6F%6D">Petr Viktorin</a></p>
           </div>
         </div>
       </div>

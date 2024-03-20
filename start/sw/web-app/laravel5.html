@@ -118,9 +118,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/web-app.png">
-          <h2>Web Application</h2>
-          <p>Short introduction to web application development</p>
+    <img class="img-rounded" src="/static/logo/web-app.png">
+    <h2>PHP Laravel 5</h2>
+    <p></p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -155,7 +155,7 @@
             </div>
           </div>
           <a target="_blank" href="https://github.com/developer-portal/content/edit/master/start/sw/web-app/laravel5.md" class="btn btn-default">Edit this page</a>
-          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=:+web-app+laravel5.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
+          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=start-sw:+web-app+laravel5.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
@@ -179,14 +179,14 @@
 </code></pre></div></div>
 <p>Your web server needs to be restarted after installing PHP package.</p>
 <h4 id="install-valet-linux">Install Valet Linux</h4>
-<p>We will need to set it up for easier development. Valet is original designed for MacOS by the Laravel Team; Valet Linux is a port to that. It setups up the neccesary environments for PHP Development, including a test domain. Please do not run valet as root. 
-For More Information, you can check them out here: 
+<p>We will need to set it up for easier development. Valet is original designed for MacOS by the Laravel Team; Valet Linux is a port to that. It setups up the neccesary environments for PHP Development, including a test domain. Please do not run valet as root.
+For More Information, you can check them out here:
 <a href="https://cpriego.github.io/valet-linux/">Valet Linux</a>  and  <a href="https://laravel.com/docs/5.7/valet">Laravel Valet</a></p>
 <p>You can also setup Laravel using <a href="/tools/vagrant/about.html">Vagrant</a>, <a href="/tools/docker/about.html">Docker</a>.</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Place the ~/.config/composer/vendor/bin directory in your PATH so the composer </span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Place the ~/.config/composer/vendor/bin directory in your PATH so the composer</span>
 <span class="c"># global executable can be located by your system.</span>
 <span class="nv">$ </span><span class="nb">echo</span> <span class="s1">'export PATH="$PATH:$HOME/.config/composer/vendor/bin"'</span> <span class="o">&gt;&gt;</span> ~/.bashrc
-<span class="c"># Install valet </span>
+<span class="c"># Install valet</span>
 <span class="nv">$ </span>composer global require cpriego/valet-linux
 <span class="c"># Initialize valet</span>
 <span class="nv">$ </span>valet <span class="nb">install</span>
@@ -202,7 +202,7 @@ For More Information, you can check them out here:
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>ProjectName
 <span class="nv">$ </span><span class="nb">cp</span> .env.example .env
 <span class="c">#Editing your environment file</span>
-<span class="nv">$ </span>gedit .env 
+<span class="nv">$ </span>gedit .env
 </code></pre></div></div>
 <p>Edit the .env file with DB_* lines with the correct info</p>
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DB_HOST</span><span class="o">=</span><span class="nx">localhost</span>
@@ -229,7 +229,7 @@ For More Information, you can check them out here:
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>valet share
 </code></pre></div></div>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%6A%75%6E%68%61%69@%6B%6F%72%65%63%6F%6E%78.%63%6F%6D">Junhai</a>, <a href="mailto:%70%76%61%6C%65%6E%61@%72%65%64%68%61%74.%63%6F%6D">Pavel Valena</a>, <a href="mailto:%64%61%6E%6E%79%6D%72%74%31@%67%6D%61%69%6C.%63%6F%6D">Superdanby</a>, <a href="mailto:%6D%6D%68%79%61%6D%69%6E@%67%6D%61%69%6C.%63%6F%6D">Syed Muhammad Mahmudul Haque</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%6A%75%6E%68%61%69@%6B%6F%72%65%63%6F%6E%78.%63%6F%6D">Junhai</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a>, <a href="mailto:%70%76%61%6C%65%6E%61@%72%65%64%68%61%74.%63%6F%6D">Pavel Valena</a>, <a href="mailto:%64%61%6E%6E%79%6D%72%74%31@%67%6D%61%69%6C.%63%6F%6D">Superdanby</a>, <a href="mailto:%6D%6D%68%79%61%6D%69%6E@%67%6D%61%69%6C.%63%6F%6D">Syed Muhammad Mahmudul Haque</a></p>
           </div>
         </div>
       </div>

@@ -118,9 +118,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/virtualization.png">
-          <h2>Virtualization</h2>
-          <p>Run virtual machines at near-native speeds and manage them at ease</p>
+    <img class="img-rounded" src="/static/logo/virtualization.png">
+    <h2>Setting viewport resolution using OVMF BIOS</h2>
+    <p></p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -159,7 +159,7 @@
             </div>
           </div>
           <a target="_blank" href="https://github.com/developer-portal/content/edit/master/tools/virtualization/setting-viewport-resolution-using-ovmf-bios.md" class="btn btn-default">Edit this page</a>
-          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=:+virtualization+setting-viewport-resolution-using-ovmf-bios.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
+          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=tools:+virtualization+setting-viewport-resolution-using-ovmf-bios.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
@@ -181,13 +181,13 @@
 <span class="go">    -accel kvm
 </span></code></pre></div>    </div>
   </li>
-  <li>Press <code class="language-plaintext highlighter-rouge">ESC</code> key when the following screen is visible during the startup to navigate into the OVMF UEFI settings.<br />
+  <li>Press <code class="language-plaintext highlighter-rouge">ESC</code> key when the following screen is visible during the startup to navigate into the OVMF UEFI settings.
 <img src="/content/tools/virtualization/images/setting-viewport-resolution-using-ovmf-bios/01.png" alt="01" /></li>
-  <li>Once inside the OVMF UEFI settings, just use the arrow keys to point at <code class="language-plaintext highlighter-rouge">Continue</code> and press <code class="language-plaintext highlighter-rouge">ENTER</code> to resume booting.<br />
+  <li>Once inside the OVMF UEFI settings, just use the arrow keys to point at <code class="language-plaintext highlighter-rouge">Continue</code> and press <code class="language-plaintext highlighter-rouge">ENTER</code> to resume booting.
 <img src="/content/tools/virtualization/images/setting-viewport-resolution-using-ovmf-bios/02.png" alt="02" /></li>
-  <li>QEMU would now boot into the live environment of Fedora Workstation so use the arrow keys to point at the first option and press <code class="language-plaintext highlighter-rouge">ENTER</code> to boot up.<br />
+  <li>QEMU would now boot into the live environment of Fedora Workstation so use the arrow keys to point at the first option and press <code class="language-plaintext highlighter-rouge">ENTER</code> to boot up.
 <img src="/content/tools/virtualization/images/setting-viewport-resolution-using-ovmf-bios/03.png" alt="03" /></li>
-  <li>Once the live environment of Fedora Workstation has booted up, open up a terminal instance.<br />
+  <li>Once the live environment of Fedora Workstation has booted up, open up a terminal instance.
 <img src="/content/tools/virtualization/images/setting-viewport-resolution-using-ovmf-bios/04.png" alt="04" /></li>
   <li>Execute the following command to install <code class="language-plaintext highlighter-rouge">xrandr</code> on the live environment.
     <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>xrandr
@@ -198,18 +198,18 @@
 </code></pre></div>    </div>
     <p><img src="/content/tools/virtualization/images/setting-viewport-resolution-using-ovmf-bios/05.png" alt="05" /></p>
   </li>
-  <li>Restart the live environment and press the <code class="language-plaintext highlighter-rouge">ESC</code> key during the startup to navigate into the OVMF UEFI settings.<br />
+  <li>Restart the live environment and press the <code class="language-plaintext highlighter-rouge">ESC</code> key during the startup to navigate into the OVMF UEFI settings.
 <img src="/content/tools/virtualization/images/setting-viewport-resolution-using-ovmf-bios/06.png" alt="06" /></li>
-  <li>Use the arrow keys to point at <code class="language-plaintext highlighter-rouge">Device Manager</code>, press <code class="language-plaintext highlighter-rouge">ENTER</code> and then select the <code class="language-plaintext highlighter-rouge">OVMF Platform Configuration</code> option.<br />
+  <li>Use the arrow keys to point at <code class="language-plaintext highlighter-rouge">Device Manager</code>, press <code class="language-plaintext highlighter-rouge">ENTER</code> and then select the <code class="language-plaintext highlighter-rouge">OVMF Platform Configuration</code> option.
 <img src="/content/tools/virtualization/images/setting-viewport-resolution-using-ovmf-bios/07.png" alt="07" /></li>
-  <li>Observe that the <code class="language-plaintext highlighter-rouge">Preferred Resolution at Next Boot</code> is <code class="language-plaintext highlighter-rouge">UNSET</code>. Open up the popup for <code class="language-plaintext highlighter-rouge">Change Preferred Resolution for Next Boot</code> and select <code class="language-plaintext highlighter-rouge">1280x720</code>.<br />
+  <li>Observe that the <code class="language-plaintext highlighter-rouge">Preferred Resolution at Next Boot</code> is <code class="language-plaintext highlighter-rouge">UNSET</code>. Open up the popup for <code class="language-plaintext highlighter-rouge">Change Preferred Resolution for Next Boot</code> and select <code class="language-plaintext highlighter-rouge">1280x720</code>.
 <img src="/content/tools/virtualization/images/setting-viewport-resolution-using-ovmf-bios/08.png" alt="08" /></li>
-  <li>Press <code class="language-plaintext highlighter-rouge">F10</code> key and then press <code class="language-plaintext highlighter-rouge">Y</code> to confirm saving the configuration. Press <code class="language-plaintext highlighter-rouge">Ctrl</code> + <code class="language-plaintext highlighter-rouge">Alt</code> + <code class="language-plaintext highlighter-rouge">Del</code> to reboot the VM.<br />
+  <li>Press <code class="language-plaintext highlighter-rouge">F10</code> key and then press <code class="language-plaintext highlighter-rouge">Y</code> to confirm saving the configuration. Press <code class="language-plaintext highlighter-rouge">Ctrl</code> + <code class="language-plaintext highlighter-rouge">Alt</code> + <code class="language-plaintext highlighter-rouge">Del</code> to reboot the VM.
 <img src="/content/tools/virtualization/images/setting-viewport-resolution-using-ovmf-bios/09.png" alt="09" /></li>
   <li>Once the booting into the live environment, the set resolution would be made available to select from the list of all other resolution.</li>
 </ol>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%6B%61%73%68%64%65%65%70.%64%68%61%72@%67%6D%61%69%6C.%63%6F%6D">Akashdeep Dhar</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%6B%61%73%68%64%65%65%70.%64%68%61%72@%67%6D%61%69%6C.%63%6F%6D">Akashdeep Dhar</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a></p>
           </div>
         </div>
       </div>

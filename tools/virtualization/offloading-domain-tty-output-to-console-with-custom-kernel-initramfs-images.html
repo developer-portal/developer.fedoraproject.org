@@ -118,9 +118,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/virtualization.png">
-          <h2>Virtualization</h2>
-          <p>Run virtual machines at near-native speeds and manage them at ease</p>
+    <img class="img-rounded" src="/static/logo/virtualization.png">
+    <h2>Offloading domain TTY output to console with custom kernel/initramfs images</h2>
+    <p></p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -159,7 +159,7 @@
             </div>
           </div>
           <a target="_blank" href="https://github.com/developer-portal/content/edit/master/tools/virtualization/offloading-domain-tty-output-to-console-with-custom-kernel-initramfs-images.md" class="btn btn-default">Edit this page</a>
-          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=:+virtualization+offloading-domain-tty-output-to-console-with-custom-kernel-initramfs-images.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
+          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=tools:+virtualization+offloading-domain-tty-output-to-console-with-custom-kernel-initramfs-images.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
@@ -260,12 +260,12 @@ UUID=2d2863bb-527b-4477-bae5-5955bdb44d7b /boot                   ext4    defaul
          Starting GNOME Display Manager...
          Starting Hold until boot process finishes up...
 [  OK  ] Started GNOME Display Manager.
-   
+
 Fedora 34 (Workstation Edition)
 Kernel 5.13.6-200.fc34.x86_64 on an x86_64 (ttyS0)
-   
+
 fedorable login: t0xic0der
-Password: 
+Password:
 Last login: Tue Aug  3 09:31:12 on tty2
 [t0xic0der@fedorable ~]$
 </code></pre></div>    </div>
@@ -276,7 +276,7 @@ Last login: Tue Aug  3 09:31:12 on tty2
 <span class="go">    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
        valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host 
+    inet6 ::1/128 scope host
        valid_lft forever preferred_lft forever
 </span></code></pre></div>    </div>
     <p>As evidenced by the output of the above command executed inside the console of the virtualized domain, the kernel modules for network are apparently broken and the hostname of the host is taken up by the virtualized domain due to the mismatch of kernel images, initramfs images and installed firmware versions.</p>
@@ -284,7 +284,7 @@ Last login: Tue Aug  3 09:31:12 on tty2
   <li>For best compatibility, keep the versions for kernel image, initramfs image and installed firmware inline with each other. Instructions for the same have been provided in the <a href="/tools/virtualization/offloading-domain-tty-output-to-console-with-original-kernel-initramfs-images.html"><strong>Offloading domain TTY output to console with original kernel/initramfs images</strong></a> documentation.</li>
 </ol>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%6B%61%73%68%64%65%65%70.%64%68%61%72@%67%6D%61%69%6C.%63%6F%6D">Akashdeep Dhar</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%6B%61%73%68%64%65%65%70.%64%68%61%72@%67%6D%61%69%6C.%63%6F%6D">Akashdeep Dhar</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a></p>
           </div>
         </div>
       </div>

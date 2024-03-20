@@ -118,9 +118,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/c.png">
-          <h2>C</h2>
-          <p>A general-purpose, imperative computer programming language.</p>
+    <img class="img-rounded" src="/static/logo/c.png">
+    <h2>Gtk+</h2>
+    <p></p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -151,7 +151,7 @@
             </div>
           </div>
           <a target="_blank" href="https://github.com/developer-portal/content/edit/master/tech/languages/c/gtk.md" class="btn btn-default">Edit this page</a>
-          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=:+c+gtk.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
+          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=tech-languages:+c+gtk.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
@@ -167,20 +167,20 @@
 <p>To begin our introduction to Gtk+, we will start with the simplest program possible. This program will simply create a gtk+ window with the title “Hello World”.</p>
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;gtk/gtk.h&gt;</span><span class="cp">
 </span>
-<span class="kt">int</span> 
+<span class="kt">int</span>
 <span class="nf">main</span><span class="p">(</span><span class="kt">int</span>   <span class="n">argc</span><span class="p">,</span>
      <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
 <span class="p">{</span>
   <span class="n">GtkWidget</span> <span class="o">*</span><span class="n">window</span><span class="p">;</span>
-    
+
   <span class="n">gtk_init</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">argv</span><span class="p">);</span>
-    
+
   <span class="n">window</span> <span class="o">=</span> <span class="n">gtk_window_new</span> <span class="p">(</span><span class="n">GTK_WINDOW_TOPLEVEL</span><span class="p">);</span>
   <span class="n">gtk_window_set_title</span> <span class="p">(</span><span class="n">GTK_WINDOW</span> <span class="p">(</span><span class="n">window</span><span class="p">),</span> <span class="s">"Hello World"</span><span class="p">);</span>
   <span class="n">gtk_widget_show</span>  <span class="p">(</span><span class="n">window</span><span class="p">);</span>
-    
+
   <span class="n">gtk_main</span> <span class="p">();</span>
-    
+
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
@@ -215,7 +215,7 @@
   <li><a href="https://developer.gnome.org/gtk3/stable/gtk-compiling.html">Compiling Gtk+ Applications</a></li>
 </ul>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%6E%64%72%65%77.%67.%72.%68%6F%6C%6D%65%73@%67%6D%61%69%6C.%63%6F%6D">Andy Holmes</a>, <a href="mailto:%63.%6C%6F%62%72%61%6E%6F@%67%6D%61%69%6C.%63%6F%6D">Carlo Lobrano</a>, <a href="mailto:%66%65%6C%69%70%65%31%30%62%6F%72%67%65%73@%67%6D%61%69%6C.%63%6F%6D">Felipe Borges</a>, <a href="mailto:%6D%61%63%72%6F%63%6F%64%65@%79%61%68%6F%6F.%63%6F%6D">Gabe Ron</a>, <a href="mailto:%33%33%30%36%35%30%37%38+%6A%61%63%6B%6F%72%70@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Jarek Prokop</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%6E%64%72%65%77.%67.%72.%68%6F%6C%6D%65%73@%67%6D%61%69%6C.%63%6F%6D">Andy Holmes</a>, <a href="mailto:%63.%6C%6F%62%72%61%6E%6F@%67%6D%61%69%6C.%63%6F%6D">Carlo Lobrano</a>, <a href="mailto:%6D%61%63%72%6F%63%6F%64%65@%79%61%68%6F%6F.%63%6F%6D">Gabe Ron</a>, <a href="mailto:%33%33%30%36%35%30%37%38+%6A%61%63%6B%6F%72%70@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a></p>
           </div>
         </div>
       </div>

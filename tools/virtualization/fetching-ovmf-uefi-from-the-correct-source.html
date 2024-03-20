@@ -118,9 +118,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/virtualization.png">
-          <h2>Virtualization</h2>
-          <p>Run virtual machines at near-native speeds and manage them at ease</p>
+    <img class="img-rounded" src="/static/logo/virtualization.png">
+    <h2>Fetching OVMF UEFI from the correct source</h2>
+    <p></p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -159,7 +159,7 @@
             </div>
           </div>
           <a target="_blank" href="https://github.com/developer-portal/content/edit/master/tools/virtualization/fetching-ovmf-uefi-from-the-correct-source.md" class="btn btn-default">Edit this page</a>
-          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=:+virtualization+fetching-ovmf-uefi-from-the-correct-source.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
+          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=tools:+virtualization+fetching-ovmf-uefi-from-the-correct-source.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
@@ -167,12 +167,12 @@
 <ol>
   <li>On the host device, execute either of the following commands to install OVMF, if not already installed.
     <ol>
-      <li><strong>Stable builds from Fedora repos</strong><br />
+      <li><strong>Stable builds from Fedora repos</strong>
 Since June 2016, OVMF is available in the default Fedora repositories as a part of the <code class="language-plaintext highlighter-rouge">edk2-ovmf</code> package. It would most likely be installed already on a default Fedora installation and the package also includes the firmware for secureboot.
         <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>edk2-ovmf <span class="nt">-y</span>
 </code></pre></div>        </div>
       </li>
-      <li><strong>Nightly builds from custom repo</strong><br />
+      <li><strong>Nightly builds from custom repo</strong>
 The nightly builds of OVMF can be found in a custom repository maintained by Gerd Hoffmann on his personal site where a collection of QEMU/KVM firmware, including EDK2/OVMF can be found. Due to their experimental nature, these builds can be occasionally broken.
         <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>dnf-plugins-core
 <span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf config-manager <span class="nt">--add-repo</span> http://www.kraxel.org/repos/firmware.repo
@@ -196,7 +196,7 @@ UefiShell.iso
   <li>Assets from this folder would be continually referred to in the dealings with QEMU.</li>
 </ol>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%6B%61%73%68%64%65%65%70.%64%68%61%72@%67%6D%61%69%6C.%63%6F%6D">Akashdeep Dhar</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%6B%61%73%68%64%65%65%70.%64%68%61%72@%67%6D%61%69%6C.%63%6F%6D">Akashdeep Dhar</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a></p>
           </div>
         </div>
       </div>

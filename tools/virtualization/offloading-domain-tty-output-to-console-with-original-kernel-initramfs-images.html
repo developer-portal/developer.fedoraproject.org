@@ -118,9 +118,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/virtualization.png">
-          <h2>Virtualization</h2>
-          <p>Run virtual machines at near-native speeds and manage them at ease</p>
+    <img class="img-rounded" src="/static/logo/virtualization.png">
+    <h2>Offloading domain TTY output to console with original kernel/initramfs images</h2>
+    <p></p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -159,7 +159,7 @@
             </div>
           </div>
           <a target="_blank" href="https://github.com/developer-portal/content/edit/master/tools/virtualization/offloading-domain-tty-output-to-console-with-original-kernel-initramfs-images.md" class="btn btn-default">Edit this page</a>
-          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=:+virtualization+offloading-domain-tty-output-to-console-with-original-kernel-initramfs-images.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
+          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=tools:+virtualization+offloading-domain-tty-output-to-console-with-original-kernel-initramfs-images.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
@@ -278,12 +278,12 @@ UUID=2d2863bb-527b-4477-bae5-5955bdb44d7b /boot                   ext4    defaul
          Starting GNOME Display Manager...
          Starting Hold until boot process finishes up...
 [  OK  ] Started GNOME Display Manager.
-   
+
 Fedora 34 (Workstation Edition)
 Kernel 5.13.6-200.fc34.x86_64 on an x86_64 (ttyS0)
-   
+
 fedora login: t0xic0der
-Password: 
+Password:
 Last login: Tue Aug  3 10:31:46 on tty2
 [t0xic0der@fedora ~]$
 </code></pre></div>    </div>
@@ -294,23 +294,23 @@ Last login: Tue Aug  3 10:31:46 on tty2
 <span class="go">    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
        valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host 
+    inet6 ::1/128 scope host
        valid_lft forever preferred_lft forever
 </span><span class="gp">2: ens3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt;</span><span class="w"> </span>mtu 1500 qdisc fq_codel state UP group default qlen 1000
 <span class="go">    link/ether 52:54:00:12:34:56 brd ff:ff:ff:ff:ff:ff
     altname enp0s3
     inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic noprefixroute ens3
        valid_lft 86298sec preferred_lft 86298sec
-    inet6 fec0::26ff:70eb:26b2:5923/64 scope site dynamic noprefixroute 
+    inet6 fec0::26ff:70eb:26b2:5923/64 scope site dynamic noprefixroute
        valid_lft 86302sec preferred_lft 14302sec
-    inet6 fe80::486a:c7b3:ca0a:43cf/64 scope link noprefixroute 
+    inet6 fe80::486a:c7b3:ca0a:43cf/64 scope link noprefixroute
        valid_lft forever preferred_lft forever
 </span></code></pre></div>    </div>
     <p>As evidenced by the output of the above command executed inside the console of the virtualized domain, the kernel modules for network now work just fine and the hostname of the virtualized host has been retained as the kernel images, initramfs images and installed firmware versions correspond with each other.</p>
   </li>
 </ol>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%6B%61%73%68%64%65%65%70.%64%68%61%72@%67%6D%61%69%6C.%63%6F%6D">Akashdeep Dhar</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%6B%61%73%68%64%65%65%70.%64%68%61%72@%67%6D%61%69%6C.%63%6F%6D">Akashdeep Dhar</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a></p>
           </div>
         </div>
       </div>

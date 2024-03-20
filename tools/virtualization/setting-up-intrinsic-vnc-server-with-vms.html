@@ -118,9 +118,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/virtualization.png">
-          <h2>Virtualization</h2>
-          <p>Run virtual machines at near-native speeds and manage them at ease</p>
+    <img class="img-rounded" src="/static/logo/virtualization.png">
+    <h2>Setting up intrinsic VNC server with VMs</h2>
+    <p></p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -159,7 +159,7 @@
             </div>
           </div>
           <a target="_blank" href="https://github.com/developer-portal/content/edit/master/tools/virtualization/setting-up-intrinsic-vnc-server-with-vms.md" class="btn btn-default">Edit this page</a>
-          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=:+virtualization+setting-up-intrinsic-vnc-server-with-vms.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
+          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=tools:+virtualization+setting-up-intrinsic-vnc-server-with-vms.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
@@ -181,7 +181,7 @@
     -monitor stdio
 </span></code></pre></div>    </div>
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>QEMU 5.2.0 monitor - type 'help' for more information
-(qemu) 
+(qemu)
 </code></pre></div>    </div>
   </li>
   <li>Visit <a href="https://www.realvnc.com/en/connect/download/viewer/">https://www.realvnc.com/en/connect/download/viewer/</a> in an internet browser of choice, download and install the VNC viewer application either on the host device or another device in the same network.</li>
@@ -193,13 +193,13 @@
 Password: ********
 </code></pre></div>    </div>
   </li>
-  <li>Switch to the VNC Viewer window and type in <code class="language-plaintext highlighter-rouge">0.0.0.0:5959</code> from the host device (or <code class="language-plaintext highlighter-rouge">&lt;ip-address-of-host-device&gt;:5959</code> if accessed from another device in the same network) - <code class="language-plaintext highlighter-rouge">59</code> from the command referring to the offset from <code class="language-plaintext highlighter-rouge">5900</code> which is the default VNC port.<br />
+  <li>Switch to the VNC Viewer window and type in <code class="language-plaintext highlighter-rouge">0.0.0.0:5959</code> from the host device (or <code class="language-plaintext highlighter-rouge">&lt;ip-address-of-host-device&gt;:5959</code> if accessed from another device in the same network) - <code class="language-plaintext highlighter-rouge">59</code> from the command referring to the offset from <code class="language-plaintext highlighter-rouge">5900</code> which is the default VNC port.
 <img src="/content/tools/virtualization/images/setting-up-intrinsic-vnc-server-with-vms/01.png" alt="01" /></li>
-  <li>A window would appear warning about the nature of the connection being unencrypted. This is fine for a closed network so click on the <code class="language-plaintext highlighter-rouge">Continue</code> button.<br />
+  <li>A window would appear warning about the nature of the connection being unencrypted. This is fine for a closed network so click on the <code class="language-plaintext highlighter-rouge">Continue</code> button.
 <img src="/content/tools/virtualization/images/setting-up-intrinsic-vnc-server-with-vms/02.png" alt="02" /></li>
-  <li>Another window would appear which would ask for password. Enter the password that was set in the step #5 and then click on the <code class="language-plaintext highlighter-rouge">OK</code> button.<br />
+  <li>Another window would appear which would ask for password. Enter the password that was set in the step #5 and then click on the <code class="language-plaintext highlighter-rouge">OK</code> button.
 <img src="/content/tools/virtualization/images/setting-up-intrinsic-vnc-server-with-vms/03.png" alt="03" /></li>
-  <li>Finally a window showing the virtual desktop of the live environment would show up and it can be used to interact with the VM.<br />
+  <li>Finally a window showing the virtual desktop of the live environment would show up and it can be used to interact with the VM.
 <img src="/content/tools/virtualization/images/setting-up-intrinsic-vnc-server-with-vms/04.png" alt="04" /></li>
 </ol>
 <h2 id="references">References</h2>
@@ -207,7 +207,7 @@ Password: ********
   <li><a href="https://qemu-project.gitlab.io/qemu/system/vnc-security.html">https://qemu-project.gitlab.io/qemu/system/vnc-security.html</a></li>
 </ol>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%6B%61%73%68%64%65%65%70.%64%68%61%72@%67%6D%61%69%6C.%63%6F%6D">Akashdeep Dhar</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%6B%61%73%68%64%65%65%70.%64%68%61%72@%67%6D%61%69%6C.%63%6F%6D">Akashdeep Dhar</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a></p>
           </div>
         </div>
       </div>

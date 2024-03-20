@@ -118,9 +118,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-          <img class="img-rounded" src="/static/logo/rust.png">
-          <h2>Rust</h2>
-          <p>Systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.</p>
+    <img class="img-rounded" src="/static/logo/rust.png">
+    <h2>Rust</h2>
+    <p>Systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -155,13 +155,26 @@
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
             <h1 id="rust-installation">Rust installation</h1>
-<p>In order to get started with Rust programming, type:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install rust cargo
+<h2 id="installing-fedoras-rust-distribution">Installing Fedora’s Rust distribution</h2>
+<p>Fedora’s repositories provide packaged versions of Rust and its package manager. They can be installed as follows:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>rust cargo
 </code></pre></div></div>
-<p>This will install the compiler (<code class="language-plaintext highlighter-rouge">rustc</code>), standard library, gdb support, documentation generator (<code class="language-plaintext highlighter-rouge">rustdoc</code>) and the package manager (<code class="language-plaintext highlighter-rouge">cargo</code>).</p>
-<p>Continue to the next section where project creation is discussed.</p>
-<hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%6A%69%73%74%6F%6E%65@%72%65%64%68%61%74.%63%6F%6D">Josh Stone</a>, <a href="mailto:%73%65%68%6E%6F%75%74%6B%61.%6D%61%72%74%69%6E@%67%6D%61%69%6C.%63%6F%6D">Sehny</a>, <a href="mailto:%6A%68%6F%72%6E%69%63%65@%72%65%64%68%61%74.%63%6F%6D">jhornice</a>, <a href="mailto:%6D%73%65%68%6E%6F%75%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">msehnout</a></p>
+<p>This command will install the <code class="language-plaintext highlighter-rouge">rustc</code> compiler, the standard library, gdb support, the <code class="language-plaintext highlighter-rouge">rustdoc</code> documentation generator and the <code class="language-plaintext highlighter-rouge">cargo</code> package manager.</p>
+<h2 id="installing-rust-with-rustup">Installing Rust with rustup</h2>
+<p>Rust’s <a href="https://www.rust-lang.org/learn/get-started">official installation instructions</a> recommend its own installation mechanism, <code class="language-plaintext highlighter-rouge">rustup</code>.</p>
+<p>To install the <code class="language-plaintext highlighter-rouge">rustup</code> installer run:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>rustup
+</code></pre></div></div>
+<p>Run <code class="language-plaintext highlighter-rouge">rustup-init</code> after installing the package to start the Rust installation.</p>
+<h2 id="which-one-do-i-need">Which one do I need?</h2>
+<p>It depends on your preferences. Some people may prefer prepackaged Rust because it automatically updates via <code class="language-plaintext highlighter-rouge">dnf</code>. Others may prefer a standardized installation. If you go for prepackaged Rust, keep this in mind:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">cargo clippy</code> is not included in Fedora’s <code class="language-plaintext highlighter-rouge">cargo</code> package, but is available via the <code class="language-plaintext highlighter-rouge">clippy</code> package.</li>
+  <li>To enable autocompletions and other code intelligence features in your IDE, you may need to install the <code class="language-plaintext highlighter-rouge">rust-src</code> and <code class="language-plaintext highlighter-rouge">rustfmt</code> packages.</li>
+</ul>
+<p id="authors-rule">To avoid conflicts, do not use the <code class="language-plaintext highlighter-rouge">rust</code> and <code class="language-plaintext highlighter-rouge">rustup</code> packages side by side.
+_  _  _  _</p>
+<p style="text-align: center">Authors: <a href="mailto:%6A%69%73%74%6F%6E%65@%72%65%64%68%61%74.%63%6F%6D">Josh Stone</a>, <a href="mailto:%70%69%65%74%65%72%64%64@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Pieter</a>, <a href="mailto:%73%65%68%6E%6F%75%74%6B%61.%6D%61%72%74%69%6E@%67%6D%61%69%6C.%63%6F%6D">Sehny</a>, <a href="mailto:%6A%68%6F%72%6E%69%63%65@%72%65%64%68%61%74.%63%6F%6D">jhornice</a>, <a href="mailto:%6D%73%65%68%6E%6F%75%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">msehnout</a></p>
           </div>
         </div>
       </div>
