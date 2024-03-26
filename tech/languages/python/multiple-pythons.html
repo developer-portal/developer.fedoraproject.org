@@ -118,9 +118,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-    <img class="img-rounded" src="/static/logo/python.png">
-    <h2>Multiple Pythons</h2>
-    <p></p>
+          <img class="img-rounded" src="/static/logo/python.png">
+          <h2>Python</h2>
+          <p>General-purpose, high-level programming language supporting multiple programming paradigms.</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -135,18 +135,18 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="list-group content-menu">
-                <a href="/tech/languages/python/python-installation.html" class="list-group-item ">Python</a>
-                <a href="/tech/languages/python/pypi-installation.html" class="list-group-item ">Pip & PyPI</a>
-                <a href="/tech/languages/python/multiple-pythons.html" class="list-group-item  active ">Multiple Pythons</a>
-                <a href="/tech/languages/python/django-installation.html" class="list-group-item ">Django</a>
-                <a href="/tech/languages/python/fastapi-installation.html" class="list-group-item ">FastApi</a>
-                <a href="/tech/languages/python/flask-installation.html" class="list-group-item ">Flask</a>
-                <a href="/tech/languages/python/micropython.html" class="list-group-item ">MicroPython</a>
-                <a href="/tech/languages/python/python-sig.html" class="list-group-item ">Python SIG</a>
-                <a href="/tech/languages/python/pygobject.html" class="list-group-item ">PyGObject</a>
-                <a href="/tech/languages/python/sphinx.html" class="list-group-item ">Sphinx</a>
-                <a href="/tech/languages/python/scipy.html" class="list-group-item ">Scientific Python Stack</a>
-                <a href="/tech/languages/python/pipenv.html" class="list-group-item ">Pipenv</a>
+              <a href="/tech/languages/python/python-installation.html" class="list-group-item ">Python</a>
+              <a href="/tech/languages/python/pypi-installation.html" class="list-group-item ">Pip & PyPI</a>
+              <a href="/tech/languages/python/multiple-pythons.html" class="list-group-item  active ">Multiple Pythons</a>
+              <a href="/tech/languages/python/django-installation.html" class="list-group-item ">Django</a>
+              <a href="/tech/languages/python/fastapi-installation.html" class="list-group-item ">FastApi</a>
+              <a href="/tech/languages/python/flask-installation.html" class="list-group-item ">Flask</a>
+              <a href="/tech/languages/python/micropython.html" class="list-group-item ">MicroPython</a>
+              <a href="/tech/languages/python/python-sig.html" class="list-group-item ">Python SIG</a>
+              <a href="/tech/languages/python/pygobject.html" class="list-group-item ">PyGObject</a>
+              <a href="/tech/languages/python/sphinx.html" class="list-group-item ">Sphinx</a>
+              <a href="/tech/languages/python/scipy.html" class="list-group-item ">Scientific Python Stack</a>
+              <a href="/tech/languages/python/pipenv.html" class="list-group-item ">Pipenv</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -157,7 +157,7 @@
             </div>
           </div>
           <a target="_blank" href="https://github.com/developer-portal/content/edit/master/tech/languages/python/multiple-pythons.md" class="btn btn-default">Edit this page</a>
-          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=tech-languages:+python+multiple-pythons.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
+          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=tech:+python+multiple-pythons.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
@@ -194,10 +194,10 @@ You can install them like this:</p>
 <p>After that, you can run an interactive console or your script with, let’s say,
 CPython 3.6:</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>python3.6
-<span class="go">Python 3.6.12 (default, Aug 19 2020, 00:00:00)
+<span class="go">Python 3.6.12 (default, Aug 19 2020, 00:00:00) 
 [GCC 10.2.1 20200723 (Red Hat 10.2.1-1)] on linux
 Type "help", "copyright", "credits" or "license" for more information.
-</span><span class="gp">&gt;</span><span class="o">&gt;&gt;</span>
+</span><span class="gp">&gt;</span><span class="o">&gt;&gt;</span> 
 </code></pre></div></div>
 <p><strong>Warning:</strong> For production purposes you should use the <code class="language-plaintext highlighter-rouge">python3</code>
 package only. Other CPython versions might be <strong>unstable</strong> or even <strong>dangerous</strong>
@@ -279,7 +279,7 @@ See the <a href="https://developer.fedoraproject.org/tech/languages/python/pypi-
 <span class="gp">(env)$</span><span class="w"> </span>python <span class="nt">-m</span> pip <span class="nb">install </span>requests  <span class="c"># install a package with pip</span>
 <span class="c">...
 </span><span class="gp">(env)$</span><span class="w"> </span>python  <span class="c"># run python from that environment</span>
-<span class="go">Python 3.9.0 (default, Oct  6 2020, 00:00:00)
+<span class="go">Python 3.9.0 (default, Oct  6 2020, 00:00:00) 
 [GCC 10.2.1 20200723 (Red Hat 10.2.1-1)] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 </span><span class="gp">&gt;</span><span class="o">&gt;&gt;</span> import requests
@@ -302,7 +302,7 @@ Installing setuptools, pip...done.
 <span class="gp">(env)$</span><span class="w"> </span>python <span class="nt">-m</span> pip <span class="nb">install </span>requests  <span class="c"># install a package with pip</span>
 <span class="c">...
 </span><span class="gp">(env)$</span><span class="w"> </span>python  <span class="c"># run python from that virtualenv</span>
-<span class="go">Python 2.7.11 (default, Jul  8 2016, 19:45:00)
+<span class="go">Python 2.7.11 (default, Jul  8 2016, 19:45:00) 
 [GCC 5.3.1 20160406 (Red Hat 5.3.1-6)] on linux2
 Type "help", "copyright", "credits" or "license" for more information.
 </span><span class="gp">&gt;</span><span class="o">&gt;&gt;</span> import requests
@@ -318,7 +318,7 @@ install packages that support MicroPython. Run it to find out more:</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>micropython <span class="nt">-m</span> upip
 </code></pre></div></div>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%6D%69%72%6F@%68%72%6F%6E%63%6F%6B.%63%7A">Miro Hrončok</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a>, <a href="mailto:%65%6E%63%75%6B%6F%75@%67%6D%61%69%6C.%63%6F%6D">Petr Viktorin</a>, <a href="mailto:%76%73%74%69%6E%6E%65%72@%70%79%74%68%6F%6E.%6F%72%67">Victor Stinner</a>, <a href="mailto:%37%30%31%35%33%39%31%38+%6D%61%74%72%69%78%67%72%61%6D@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">matrixgram</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%6D%69%72%6F@%68%72%6F%6E%63%6F%6B.%63%7A">Miro Hrončok</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a>, <a href="mailto:%65%6E%63%75%6B%6F%75@%67%6D%61%69%6C.%63%6F%6D">Petr Viktorin</a>, <a href="mailto:%37%30%31%35%33%39%31%38+%6D%61%74%72%69%78%67%72%61%6D@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">matrixgram</a></p>
           </div>
         </div>
       </div>
@@ -379,8 +379,8 @@ install packages that support MicroPython. Run it to find out more:</p>
               <dd><a href="https://fedoraproject.org/wiki/Communicating_and_getting_help">Get Help</a></dd>
               <dd><a href="https://ask.fedoraproject.org/">Ask Fedora</a></dd>
               <dd><a href="https://fedoraforum.org/">Forums</a></dd>
-              <dd><a href="https://fedoraproject.org/wiki/Common_F34_bugs">Common Bugs</a></dd>
-              <dd><a href="https://docs.fedoraproject.org/en-US/fedora/f34/install-guide/">Installation Guide</a></dd>
+              <dd><a href="https://fedoraproject.org/wiki/Common_F39_bugs">Common Bugs</a></dd>
+              <dd><a href="https://docs.fedoraproject.org/en-US/fedora/f39/install-guide/">Installation Guide</a></dd>
             </dl>
           </div>
         </div>

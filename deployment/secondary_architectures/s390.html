@@ -118,9 +118,9 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-    <img class="img-rounded" src="/static/logo/secondary_architectures.png">
-    <h2>s390(x)</h2>
-    <p></p>
+          <img class="img-rounded" src="/static/logo/secondary_architectures.png">
+          <h2>Secondary Architectures</h2>
+          <p>Building your application for architectures like s390(x), PowerPC, ARMv8</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -135,9 +135,9 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="list-group content-menu">
-                <a href="/deployment/secondary_architectures/about.html" class="list-group-item ">Secondary Architectures</a>
-                <a href="/deployment/secondary_architectures/powerpc.html" class="list-group-item ">PowerPC</a>
-                <a href="/deployment/secondary_architectures/s390.html" class="list-group-item  active ">s390(x)</a>
+              <a href="/deployment/secondary_architectures/about.html" class="list-group-item ">Secondary Architectures</a>
+              <a href="/deployment/secondary_architectures/powerpc.html" class="list-group-item ">PowerPC</a>
+              <a href="/deployment/secondary_architectures/s390.html" class="list-group-item  active ">s390(x)</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -148,7 +148,7 @@
             </div>
           </div>
           <a target="_blank" href="https://github.com/developer-portal/content/edit/master/deployment/secondary_architectures/s390.md" class="btn btn-default">Edit this page</a>
-          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=deployment:+secondary_architectures+s390.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
+          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=deploy:+secondary_architectures+s390.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
@@ -169,7 +169,7 @@
 <p>In Secondary Architectures section, we saw how to get/create iprutils srpm as an example. Now, you already have srpm (src.rpm) file of iprutils.
 The following example will demonstrate how to build an application for s390(x) architecture from srpm:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Initiate iprutils package build for s390(x) architecture
-$ s390-koji build --scratch rawhide iprutils-2.4.11.1-1.fc25.src.rpm
+$ s390-koji build --scratch rawhide iprutils-2.4.11.1-1.fc25.src.rpm 
   Created task: 2183374
   Task info: http://s390.koji.fedoraproject.org/koji/taskinfo?taskID=2183374
   ....
@@ -188,7 +188,7 @@ $ s390-koji build --scratch rawhide iprutils-2.4.11.1-1.fc25.src.rpm
 <h2 id="more-documentation">More documentation</h2>
 <p>More Fedora s390(x) specific details can be found at <a href="https://fedoraproject.org/wiki/Architectures/s390x">Fedora Project  wiki</a></p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%33%33%30%36%35%30%37%38+%6A%61%63%6B%6F%72%70@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Jaroslav Prokop</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a>, <a href="mailto:%70%76%61%6C%65%6E%61@%72%65%64%68%61%74.%63%6F%6D">Pavel Valena</a>, <a href="mailto:%74%61%63%68%6F%6B%6E%69%67%68%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Ron Olson</a>, <a href="mailto:%73%69%6E%6E%79@%72%65%64%68%61%74.%63%6F%6D">Sinny Kumari</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%33%33%30%36%35%30%37%38+%6A%61%63%6B%6F%72%70@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Jaroslav Prokop</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a>, <a href="mailto:%70%76%61%6C%65%6E%61@%72%65%64%68%61%74.%63%6F%6D">Pavel Valena</a>, <a href="mailto:%74%61%63%68%6F%6B%6E%69%67%68%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Ron Olson</a></p>
           </div>
         </div>
       </div>
@@ -249,8 +249,8 @@ $ s390-koji build --scratch rawhide iprutils-2.4.11.1-1.fc25.src.rpm
               <dd><a href="https://fedoraproject.org/wiki/Communicating_and_getting_help">Get Help</a></dd>
               <dd><a href="https://ask.fedoraproject.org/">Ask Fedora</a></dd>
               <dd><a href="https://fedoraforum.org/">Forums</a></dd>
-              <dd><a href="https://fedoraproject.org/wiki/Common_F34_bugs">Common Bugs</a></dd>
-              <dd><a href="https://docs.fedoraproject.org/en-US/fedora/f34/install-guide/">Installation Guide</a></dd>
+              <dd><a href="https://fedoraproject.org/wiki/Common_F39_bugs">Common Bugs</a></dd>
+              <dd><a href="https://docs.fedoraproject.org/en-US/fedora/f39/install-guide/">Installation Guide</a></dd>
             </dl>
           </div>
         </div>

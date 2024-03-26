@@ -118,9 +118,10 @@
 </div>
         <div class="row" id="headlines">
   <div class="col-sm-12">
-    <img class="img-rounded" src="/static/logo/copr.png">
-    <h2>Copr command line interface</h2>
-    <p></p>
+          <img class="img-rounded" src="/static/logo/copr.png">
+          <h2>Copr Build Service</h2>
+          <p>Copr is a service that builds your application as an RPM and provides you with your own Dnf/Yum repository.
+</p>
   </div>
 </div>
 <div class="row" id="attribution">
@@ -135,8 +136,8 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="list-group content-menu">
-                <a href="/deployment/copr/about.html" class="list-group-item ">Copr Build Service</a>
-                <a href="/deployment/copr/copr-cli.html" class="list-group-item  active ">Copr command line interface</a>
+              <a href="/deployment/copr/about.html" class="list-group-item ">Copr Build Service</a>
+              <a href="/deployment/copr/copr-cli.html" class="list-group-item  active ">Copr command line interface</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -147,7 +148,7 @@
             </div>
           </div>
           <a target="_blank" href="https://github.com/developer-portal/content/edit/master/deployment/copr/copr-cli.md" class="btn btn-default">Edit this page</a>
-          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=deployment:+copr+copr-cli.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
+          <a target="_blank" href="https://github.com/developer-portal/content/issues/new?title=deploy:+copr+copr-cli.md&body=Describe+the+problem" class="btn btn-default">Report an issue</a>
         </div>
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
@@ -164,16 +165,16 @@
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vim ~/.config/copr
 </code></pre></div></div>
 <h2 id="creating-a-new-project">Creating a new project</h2>
-<p>To create a new project called <code class="language-plaintext highlighter-rouge">test-project</code>, which would provide packages for Fedora 34, type:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli create --chroot fedora-34-i386 --chroot fedora-34-x86_64 test-project
+<p>To create a new project called <code class="language-plaintext highlighter-rouge">test-project</code>, which would provide packages for Fedora 39, type:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli create --chroot fedora-39-i386 --chroot fedora-39-x86_64 test-project
 </code></pre></div></div>
 <h2 id="submitting-a-build">Submitting a build</h2>
 <p>There are curently two ways of getting your SRPM(s) into Copr:</p>
 <p>A. Building from URL:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli build test-project http://www.example.com/package-1.6-1.fc34.src.rpm
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli build test-project http://www.example.com/package-1.6-1.fc39.src.rpm
 </code></pre></div></div>
 <p>B. Uploading them into Copr directly:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli build test-project ~/packages/package-1.6-1.fc34.src.rpm
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ copr-cli build test-project ~/packages/package-1.6-1.fc39.src.rpm
 </code></pre></div></div>
 <p>The command line tool will now monitor your build and keeps you updated about any changes and results. You can safely interrupt it with <code class="language-plaintext highlighter-rouge">ctrl+c</code> at any time. The build will continue running.</p>
 <h2 id="adding-a-repository-and-installing-the-package">Adding a repository and installing the package</h2>
@@ -194,7 +195,7 @@
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf copr disable your_name/test-project
 </code></pre></div></div>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%6E%74%6F%6E%69%6E.%6D%72%6B%76%69%63%61@%6F%75%74%6C%6F%6F%6B.%63%7A">Antonín Mrkvica</a>, <a href="mailto:%67%61%76%69%6E.%72%6F%6D%69%67.%6B%6F%63%68@%67%6D%61%69%6C.%63%6F%6D">Gavin Romig-Koch</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a>, <a href="mailto:%73%73%62%61%72%6E%65%61@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Sorin Sbarnea</a>, <a href="mailto:%67%61%6C%6F%67%65%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">galoget</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%6E%74%6F%6E%69%6E.%6D%72%6B%76%69%63%61@%6F%75%74%6C%6F%6F%6B.%63%7A">Antonín Mrkvica</a>, <a href="mailto:%67%61%76%69%6E.%72%6F%6D%69%67.%6B%6F%63%68@%67%6D%61%69%6C.%63%6F%6D">Gavin Romig-Koch</a>, <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a>, <a href="mailto:%67%61%6C%6F%67%65%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">galoget</a></p>
           </div>
         </div>
       </div>
@@ -255,8 +256,8 @@
               <dd><a href="https://fedoraproject.org/wiki/Communicating_and_getting_help">Get Help</a></dd>
               <dd><a href="https://ask.fedoraproject.org/">Ask Fedora</a></dd>
               <dd><a href="https://fedoraforum.org/">Forums</a></dd>
-              <dd><a href="https://fedoraproject.org/wiki/Common_F34_bugs">Common Bugs</a></dd>
-              <dd><a href="https://docs.fedoraproject.org/en-US/fedora/f34/install-guide/">Installation Guide</a></dd>
+              <dd><a href="https://fedoraproject.org/wiki/Common_F39_bugs">Common Bugs</a></dd>
+              <dd><a href="https://docs.fedoraproject.org/en-US/fedora/f39/install-guide/">Installation Guide</a></dd>
             </dl>
           </div>
         </div>
