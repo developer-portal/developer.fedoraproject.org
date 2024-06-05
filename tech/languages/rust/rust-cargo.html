@@ -186,14 +186,25 @@ looks like this:</p>
      Running `target/debug/my_project`
 Hello, world!
 </code></pre></div></div>
-<h1 id="cratesio-repository">crates.io repository</h1>
+<h1 id="using-rust-libraries-crates">Using Rust libraries (“crates”)</h1>
 <p>Rust calls its compilation unit (either library or executable) a crate. Your project
 is such a crate and it can also depend on other crates specified in <code class="language-plaintext highlighter-rouge">Cargo.toml</code>. The
 default repository to look for dependencies is <a href="https://crates.io/">crates.io</a> but you
-can also specify dependencies on a git repository.</p>
-<p><strong>Note:</strong> Cargo currently supports only source dependencies.</p>
+can also specify dependencies on a git repository. More information about all the
+different ways of specifying dependencies is available in the
+<a href="https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html">cargo book</a>.</p>
+<p>While many Rust crates are also packaged for Fedora Linux (as <code class="language-plaintext highlighter-rouge">rust-$crate</code>, with
+<code class="language-plaintext highlighter-rouge">rust-$crate-*-devel</code> packages available from the package repositories), the crates
+packaged this way are primarily intended to be used for building RPM packages for Rust
+applications. Using these crates as a replacement for <a href="https://crates.io/">crates.io</a>
+is not a supported use case. In some cases they also diverge from crates as published
+on crates.io because of downstream-specific patches (both concerning crate dependencies
+and behaviour), so they might not even be a suitable development target.</p>
+<p><strong>Note:</strong> Both crates.io and Fedora only distribute Rust crates as source code. Rust
+does not yet provide a stable ABI, so it is not possible to distribute pre-compiled Rust
+crates / libraries in a binary format.</p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%6A%69%73%74%6F%6E%65@%72%65%64%68%61%74.%63%6F%6D">Josh Stone</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a>, <a href="mailto:%61%6E%74%6F%6E%69%6E.%6D%72%6B%76%69%63%61@%6F%75%74%6C%6F%6F%6B.%63%7A">antoninmrkvica</a>, <a href="mailto:%6D%73%65%68%6E%6F%75%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">msehnout</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%64%65%63%61%74%68%6F%72%70%65@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Fabio Valentini</a>, <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%6A%69%73%74%6F%6E%65@%72%65%64%68%61%74.%63%6F%6D">Josh Stone</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a>, <a href="mailto:%6D%73%65%68%6E%6F%75%74@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">msehnout</a></p>
           </div>
         </div>
       </div>
