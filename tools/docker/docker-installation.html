@@ -158,16 +158,29 @@
           <div class="panel panel-default content-content">
             <h1 id="getting-started-with-docker">Getting started with Docker</h1>
 <h2 id="installation">Installation</h2>
+<p>RPM packages to install Docker are available directly from Fedora repositories or from Docker and the Docker community. Fedora rpms have a slightly different naming convention.</p>
+<h3 id="fedora-rpms-and-installation-guidelines">Fedora rpms and installation guidelines</h3>
+<p>The <a href="https://docs.fedoraproject.org/en-US/quick-docs/installing-docker/">Installing Docker and Docker-Compose</a> Quick Doc has information on the Docker rpms available directly from Fedora as well as installation guidelines.</p>
+<h3 id="docker-community-rpms-and-installation-guidelines">Docker Community rpms and installation guidelines</h3>
 <p>Install the <code class="language-plaintext highlighter-rouge">docker-ce</code> package using the Docker repository:</p>
 <p>To install the dnf-plugins-core package (which provides the commands to manage your DNF repositories) and set up the stable repository.</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>dnf-plugins-core
 </code></pre></div></div>
 <p>To add the <code class="language-plaintext highlighter-rouge">docker-ce</code> repository</p>
+<ul>
+  <li>on Fedora 40:</li>
+</ul>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf config-manager <span class="nt">--add-repo</span> https://download.docker.com/linux/fedora/docker-ce.repo
+</code></pre></div></div>
+<ul>
+  <li>on Fedora 41 and newer:</li>
+</ul>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf config-manager addrepo <span class="nt">--from-repofile</span><span class="o">=</span><span class="s2">"https://download.docker.com/linux/fedora/docker-ce.repo"</span>
 </code></pre></div></div>
 <p>To install the docker engine. The Docker daemon relies on a OCI compliant runtime (invoked via the containerd daemon) as its interface to the Linux kernel namespaces, cgroups, and SELinux.</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install </span>docker-ce docker-ce-cli containerd.io
 </code></pre></div></div>
+<h2 id="starting-the-docker-service">Starting the Docker service</h2>
 <p>To start the Docker service use:</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>systemctl start docker
 </code></pre></div></div>
@@ -190,7 +203,7 @@
 </code></pre></div></div>
 <p>You have to log out and log back in (or restart Docker daemon and use <code class="language-plaintext highlighter-rouge">newgrp</code> command as mentioned here) for these changes to take effect. Then you can verify if your changes were successful by running Docker without <code class="language-plaintext highlighter-rouge">sudo</code>.</p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%62%65@%68%61%62%65%74.%64%65%76">Abe Hanoka</a>, <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%34%39%36%39%36%31%36%35+%4A%6F%73%68%75%61-%72%6F%73%65@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Joshua Rose</a>, <a href="mailto:%6E%67%6F%6D%70%61%31%33@%67%6D%61%69%6C.%63%6F%6D">Neal Gompa</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%62%65@%68%61%62%65%74.%64%65%76">Abe Hanoka</a>, <a href="mailto:%62%72%61%64%6C%65%79.%67.%73%6D%69%74%68@%67%6D%61%69%6C.%63%6F%6D">Brad Smith</a>, <a href="mailto:%37%39%39%37%30%32%39%30+%68%61%74%77%65%61%72%69%6E%67%64%75%6D%62@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">HatMann</a>, <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a></p>
           </div>
         </div>
       </div>

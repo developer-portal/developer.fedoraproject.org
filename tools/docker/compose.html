@@ -157,7 +157,8 @@
         <div class="col-sm-9">
           <div class="panel panel-default content-content">
             <h1 id="docker-compose">Docker Compose</h1>
-<p><a href="https://docs.docker.com/compose/">Docker Compose</a> is a tool to orchestrate Docker containers using a simple YAML file which describes your whole setup.</p>
+<p><a href="https://docs.docker.com/compose/">Docker Compose</a> is a tool to orchestrate one or more containers using a simple YAML file which describes your whole setup.</p>
+<p>The Docker community released Docker Compose V2 in 2020 with many changes and new features. With V2, Compose runs as a plug-in to Docker rather than the V1 stand-alone application. For example, <code class="language-plaintext highlighter-rouge">docker compose [opts]</code> instead of the older <code class="language-plaintext highlighter-rouge">docker-compose [opts]</code>. The <a href="https://docs.docker.com/compose/releases/migrate/">Docker Compose V2 Migration Guide</a> is a good reference. The legacy <code class="language-plaintext highlighter-rouge">docker-compose</code> command line is available as an option using <a href="https://github.com/docker/compose-switch">Docker Compose Switch</a>.</p>
 <h2 id="installation">Installation</h2>
 <p>The package is named <code class="language-plaintext highlighter-rouge">docker-compose</code>, you can install it easily with:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install docker-compose
@@ -330,7 +331,7 @@ Cannot start container bg1f8cb2d227a6efa5e82d9669235430f63dadc76a5ddd4907248f1ed
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ elinks -dump http://$(docker inspect -f '{{ .NetworkSettings.IPAddress }}' awesomeweb_web_1):8000
 </code></pre></div></div>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%76%6F%6E%62%72%61%6E%64@%69%6E%66.%75%74%66%73%6D.%63%6C">Horst H. von Brand</a>, <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a>, <a href="mailto:%74%74%6F%6D%65%63%65%6B@%72%65%64%68%61%74.%63%6F%6D">Tomas Tomecek</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%62%72%61%64%6C%65%79.%67.%73%6D%69%74%68@%67%6D%61%69%6C.%63%6F%6D">Brad Smith</a>, <a href="mailto:%76%6F%6E%62%72%61%6E%64@%69%6E%66.%75%74%66%73%6D.%63%6C">Horst H. von Brand</a>, <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a></p>
           </div>
         </div>
       </div>
