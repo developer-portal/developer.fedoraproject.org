@@ -167,6 +167,17 @@
 <p>To install runtime only, for example to merely deploy an already built (non ASP.NET Core) applications, where <em>x</em> stands for major and <em>y</em> stands for minor version:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dotnet-runtime-x.y
 </code></pre></div></div>
+<h3 id="net-9">.NET 9</h3>
+<p>.NET 9 is a Standard Term Support release and will reach its End of Life in May 2026.</p>
+<p>Install the .NET 9 SDK:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dotnet-sdk-9.0
+</code></pre></div></div>
+<p>Install the ASP.NET Core 9 Runtime:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install aspnetcore-runtime-9.0
+</code></pre></div></div>
+<p>Install the .NET 9 Runtime:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dotnet-runtime-9.0
+</code></pre></div></div>
 <h3 id="net-8">.NET 8</h3>
 <p>.NET 8 is a Long Term Support release and will reach its End of Life in Nov 2026.</p>
 <p>Install the .NET 8 SDK:</p>
@@ -178,17 +189,6 @@
 <p>Install the .NET 8 Runtime:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dotnet-runtime-8.0
 </code></pre></div></div>
-<h3 id="net-6">.NET 6</h3>
-<p>.NET 6 is a Long Term Support release and will reach its End of Life in November 2024.</p>
-<p>Install the .NET 6 SDK:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dotnet-sdk-6.0
-</code></pre></div></div>
-<p>Install the ASP.NET Core 6 Runtime:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install aspnetcore-runtime-6.0
-</code></pre></div></div>
-<p>Install the .NET 6 Runtime:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install dotnet-runtime-6.0
-</code></pre></div></div>
 <h3 id="preview-versions">Preview versions</h3>
 <p>Preview packages can be installed after enabling the preview <a href="/deployment/copr/about.html">copr repository</a> repository:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf copr enable @dotnet-sig/dotnet-preview
@@ -198,7 +198,7 @@ $ sudo dnf install dotnet-sdk-x.y
 <h2 id="getting-started">Getting Started</h2>
 <p>You can create your first console app following instructions in <a href="https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/create">this official guide</a>.</p>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%70%68%69%6C%6C%69%70%73%6A@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Jamie Phillips</a>, <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a>, <a href="mailto:%6F%6D%61%6A%69%64@%72%65%64%68%61%74.%63%6F%6D">Omair Majid</a>, <a href="mailto:%72%61%64%6B%61.%6A%61%6E%65%6B@%72%65%64%68%61%74.%63%6F%6D">Radka Janek</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a>, <a href="mailto:%6F%6D%61%6A%69%64@%72%65%64%68%61%74.%63%6F%6D">Omair Majid</a>, <a href="mailto:%72%61%64%6B%61.%6A%61%6E%65%6B@%72%65%64%68%61%74.%63%6F%6D">Radka Janek</a>, <a href="mailto:%72%6F%73%73.%6E%65%6C%73%6F%6E@%67%6D%61%69%6C.%63%6F%6D">Ross Nelson</a></p>
           </div>
         </div>
       </div>
@@ -287,7 +287,7 @@ $ sudo dnf install dotnet-sdk-x.y
           <div class="widget-body">
             <p class="sponsor">Fedora is sponsored by Red Hat.</p>
             <p class="sponsor"><a href="https://www.redhat.com/en/technologies/linux-platforms/articles/relationship-between-fedora-and-rhel">Learn more about the relationship between Red Hat and Fedora »</a></p>
-            <p class="copy">&copy; 2024 Red Hat, Inc. and others.</p>
+            <p class="copy">&copy; 2025 Red Hat, Inc. and others.</p>
           </div>
         </div>
         <!-- /row of widgets -->
