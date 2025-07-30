@@ -177,10 +177,28 @@
 <p>Where ‘user’ will be your user name.</p>
 <p>Writing Go programs is covered in <a href="/tech/languages/go/go-programs.html">Go programs</a>.</p>
 <h2 id="fedora-specific-notes">Fedora Specific Notes</h2>
-<p>The default installation of Go on Fedora contains changes to the default values of <code class="language-plaintext highlighter-rouge">GOPROXY</code>, <code class="language-plaintext highlighter-rouge">GOSUMDB</code>, and <code class="language-plaintext highlighter-rouge">GOTOOLCHAIN</code> environment variables that Go developers should be aware of. The <code class="language-plaintext highlighter-rouge">go</code> command and related tools make extensive use of environment variables for configuration. Default values are set globally in <code class="language-plaintext highlighter-rouge">/usr/lib/golang/go.env</code>, and can be overridden on per user or per project basis.</p>
+<h3 id="fedora-43-and-newer">Fedora 43 and newer</h3>
+<p>Starting with Go 1.25 in Fedora 43, The default values of <code class="language-plaintext highlighter-rouge">GOPROXY</code>and <code class="language-plaintext highlighter-rouge">GOSUMDB</code>as
+provided by the Go development team are retained.
+These defaults are: <code class="language-plaintext highlighter-rouge">GOPROXY=https://proxy.golang.org,direct</code> and <code class="language-plaintext highlighter-rouge">GOSUMDB=sum.golang.org</code>.
+To restore the previous behavior, set “GOPROXY=direct” and “GOSUMDB=off”.</p>
+<p>The <code class="language-plaintext highlighter-rouge">GOTOOLCHAIN</code> environment variable is set to <code class="language-plaintext highlighter-rouge">GOTOOLCHAIN=local</code>.
+We change this default from <code class="language-plaintext highlighter-rouge">auto</code> to <code class="language-plaintext highlighter-rouge">local</code> so that the distribution-packaged Go
+toolchain is always used and go doesn’t automatically download pre-compiled
+alternative versions.</p>
+<h3 id="fedora-42-and-older">Fedora 42 and older</h3>
+<p>The standard rpm-based installation of Go on Fedora contains changes to the default values of <code class="language-plaintext highlighter-rouge">GOPROXY</code>, <code class="language-plaintext highlighter-rouge">GOSUMDB</code>, and <code class="language-plaintext highlighter-rouge">GOTOOLCHAIN</code> environment variables that Go developers should be aware of. The <code class="language-plaintext highlighter-rouge">go</code> command and related tools make extensive use of environment variables for configuration. Default values are set globally in <code class="language-plaintext highlighter-rouge">/usr/lib/golang/go.env</code>, and can be overridden on per user or per project basis.</p>
 <p>For extensive help and information see:</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>go <span class="nb">help </span>environment
 </code></pre></div></div>
+<h3 id="installing-the-latest-version">Installing the latest version</h3>
+<p>Fedora avoids making <a href="https://docs.fedoraproject.org/en-US/fesco/Updates_Policy/#stable-releases">major software updates within a stable release</a>. This means each Fedora version typically includes just one major version of Go.</p>
+<p>Sometimes, when a Go version reaches end-of-life (EOL), the Go Special Interest Group (SIG) will try to update the current Fedora version to the next stable Go release.</p>
+<p>If you need the newest version of Go right away, you can use <a href="https://copr.fedorainfracloud.org/coprs/g/go-sig/golang-rawhide/">the special repository maintained by the Go SIG</a>. To enable it, run these commands in your terminal:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>dnf copr <span class="nb">enable</span> @go-sig/golang-rawhide
+<span class="gp">$</span><span class="w"> </span>dnf update golang
+</code></pre></div></div>
+<p>This will give you the most recent version of Go, even if it’s not in the regular Fedora updates yet.</p>
 <h3 id="goproxy">GOPROXY</h3>
 <p>The value of <code class="language-plaintext highlighter-rouge">GOPROXY</code> in <code class="language-plaintext highlighter-rouge">$GOROOT/go.env</code> is set to <code class="language-plaintext highlighter-rouge">direct</code>. A value of <code class="language-plaintext highlighter-rouge">direct</code> disables access to the module mirror. See <a href="https://proxy.golang.org">https://proxy.golang.org</a> for more information on <code class="language-plaintext highlighter-rouge">GOPROXY</code> and the module mirror. A project specific <code class="language-plaintext highlighter-rouge">go.env</code> can override this setting. A user specific override can be set with:</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>go <span class="nb">env</span> <span class="nt">-w</span> <span class="nv">GOPROXY</span><span class="o">=</span>https://proxy.golang.org,direct
@@ -202,7 +220,7 @@
   <li><a href="https://go.dev/doc/toolchain">Go Toolchain</a></li>
 </ul>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%62%72%61%64%6C%65%79.%67.%73%6D%69%74%68@%67%6D%61%69%6C.%63%6F%6D">Brad Smith</a>, <a href="mailto:%6A%73%74%72%69%62%6E%79@%72%65%64%68%61%74.%63%6F%6D">Josef Stribny</a>, <a href="mailto:%73%74%72%7A%69%62%6E%79@%73%74%72%7A%69%62%6E%79.%6E%61%6D%65">Josef Strzibny</a>, <a href="mailto:%72%68%63%61%72%76%61%6C%68%6F@%67%6D%61%69%6C.%63%6F%6D">Rodolfo Carvalho</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%62%72%61%64%6C%65%79.%67.%73%6D%69%74%68@%67%6D%61%69%6C.%63%6F%6D">Brad Smith</a>, <a href="mailto:%62%72%61%64%6C%65%79.%67.%73%6D%69%74%68@%67%6D%61%69%6C.%63%6F%6D">Bradley G Smith</a>, <a href="mailto:%72%68%63%61%72%76%61%6C%68%6F@%67%6D%61%69%6C.%63%6F%6D">Rodolfo Carvalho</a>, <a href="mailto:%61%73%6D@%72%65%64%68%61%74.%63%6F%6D">Álex Sáez</a></p>
           </div>
         </div>
       </div>
