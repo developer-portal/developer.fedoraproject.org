@@ -146,7 +146,6 @@
               <a href="/tech/languages/python/pygobject.html" class="list-group-item ">PyGObject</a>
               <a href="/tech/languages/python/sphinx.html" class="list-group-item ">Sphinx</a>
               <a href="/tech/languages/python/scipy.html" class="list-group-item ">Scientific Python Stack</a>
-              <a href="/tech/languages/python/pipenv.html" class="list-group-item ">Pipenv</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -222,6 +221,13 @@ The download page includes detailed (but not Fedora-specific) information. If yo
 <p><code class="language-plaintext highlighter-rouge">esptool</code> is a handy CLI application that helps you flash your device. To install it, type</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install esptool
 </code></pre></div></div>
+<p>Check the <code class="language-plaintext highlighter-rouge">esptool</code> version to differentiate between commands below.
+Version 5+ (available from Fedora 44) has changed the command names - they
+contain <code class="language-plaintext highlighter-rouge">-</code> instead of the previous <code class="language-plaintext highlighter-rouge">_</code> in their names.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ esptool version
+esptool.py v4.8.1
+4.8.1
+</code></pre></div></div>
 <p>With the firmware downloaded and <code class="language-plaintext highlighter-rouge">esptool</code> installed, you need to know the last
 thing to connect and flash your device - the device’s name. You can find it in
 the result of the <code class="language-plaintext highlighter-rouge">dmesg</code> command. Use <code class="language-plaintext highlighter-rouge">dmesg</code> with <code class="language-plaintext highlighter-rouge">tail</code> to obtain the last
@@ -246,13 +252,17 @@ user account to a special system group <em>dialout</em>. To do it, type</p>
 Alternatively, re-login with the command <code class="language-plaintext highlighter-rouge">su - $(whoami)</code>, but note that this will only affect the your current console session.</p>
 <p>Use <code class="language-plaintext highlighter-rouge">esptool</code> to flash your device. It is suggested to erase the flash
 memory before writing new firmware. To do it, type the following and do not forget to replace <code class="language-plaintext highlighter-rouge">ttyUSB0</code> with the name of your device.</p>
+<p>For <code class="language-plaintext highlighter-rouge">esptool</code> &lt; 5.0.0, type</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ esptool --port /dev/ttyUSB0 erase_flash
 esptool.py v1.1
 Connecting...
 Erasing flash (this may take a while)...
 </code></pre></div></div>
+<p>For <code class="language-plaintext highlighter-rouge">esptool</code> &gt;= 5.0.0, the command is as follows</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ esptool --port /dev/ttyUSB0 erase-flash
+</code></pre></div></div>
 <p>And now you can write MicroPython firmware to empty the flash memory. Again, do not forget to replace <code class="language-plaintext highlighter-rouge">ttyUSB0</code> with the name of your device.</p>
-<p>For an ESP8266:</p>
+<p>For an ESP8266 and <code class="language-plaintext highlighter-rouge">esptool</code> &lt; 5.0.0:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ esptool --port /dev/ttyUSB0 --baud 115200 write_flash --flash_size=detect 0 esp8266-20200911-v1.13.bin
 esptool.py v1.1
 Connecting...
@@ -262,11 +272,18 @@ Writing 565248 @ 0x0... 565248 (100 %)
 Wrote 565248 bytes at 0x0 in 49.0 seconds (92.3 kbit/s)...
 Leaving...
 </code></pre></div></div>
-<p>For an ESP32, the command is slightly different:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 460800 write_flash -z 0x1000 esp32-idf3-20200902-v1.13.bin
+<p>For an ESP8266 and <code class="language-plaintext highlighter-rouge">esptool</code> &gt;= 5.0.0:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ esptool --port /dev/ttyUSB0 --baud 115200 write-flash --flash-size=detect 0 esp8266-20200911-v1.13.bin
+</code></pre></div></div>
+<p>For an ESP32 and <code class="language-plaintext highlighter-rouge">esptool</code> &lt; 5.0.0, the command is slightly different:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ esptool --chip esp32 --port /dev/ttyUSB0 --baud 460800 write_flash -z 0x1000 esp32-idf3-20200902-v1.13.bin
+</code></pre></div></div>
+<p>For an ESP32 and <code class="language-plaintext highlighter-rouge">esptool</code> &gt;= 5.0.0:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ esptool --chip esp32 --port /dev/ttyUSB0 --baud 460800 write-flash -z 0x1000 esp32-idf3-20200902-v1.13.bin
 </code></pre></div></div>
 <p>You might need to change the name of your device and the name of the binary file with
-firmware, and some devices require a different <code class="language-plaintext highlighter-rouge">--flash_mode</code> setting – see <code class="language-plaintext highlighter-rouge">esptool write_flash --help</code> for the options.
+firmware, and some devices require a different <code class="language-plaintext highlighter-rouge">--flash_mode</code> (<code class="language-plaintext highlighter-rouge">--flash-mode</code> in <code class="language-plaintext highlighter-rouge">esptool</code> &gt;= 5.0.0) setting
+– see <code class="language-plaintext highlighter-rouge">esptool write_flash --help</code> (<code class="language-plaintext highlighter-rouge">esptool write-flash --help</code> in <code class="language-plaintext highlighter-rouge">esptool</code> &gt;= 5.0.0) for the options.
 Other parameters such as a baud-rate (connection speed) should be OK in most cases.</p>
 <h2 id="picocom---minimal-terminal-emulation-program">Picocom - minimal terminal emulation program</h2>
 <p>A lot of microcontrollers (like those with the ESP8266/ESP32 chip) provide a serial
@@ -307,7 +324,7 @@ Let the connecting to IoT begin!
 &gt;&gt;&gt;
 </code></pre></div></div>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%6C%62%61%6C%68%61%72@%72%65%64%68%61%74.%63%6F%6D">Lumir Balhar</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a>, <a href="mailto:%65%6E%63%75%6B%6F%75@%67%6D%61%69%6C.%63%6F%6D">Petr Viktorin</a>, <a href="mailto:%6A%68%6F%72%6E%69%63%65@%72%65%64%68%61%74.%63%6F%6D">jhornice</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%6B%73%75%72%6D%61@%72%65%64%68%61%74.%63%6F%6D">Karolina Surma</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a>, <a href="mailto:%65%6E%63%75%6B%6F%75@%67%6D%61%69%6C.%63%6F%6D">Petr Viktorin</a>, <a href="mailto:%6A%68%6F%72%6E%69%63%65@%72%65%64%68%61%74.%63%6F%6D">jhornice</a></p>
           </div>
         </div>
       </div>

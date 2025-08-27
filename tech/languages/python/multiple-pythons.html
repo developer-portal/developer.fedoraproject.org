@@ -146,7 +146,6 @@
               <a href="/tech/languages/python/pygobject.html" class="list-group-item ">PyGObject</a>
               <a href="/tech/languages/python/sphinx.html" class="list-group-item ">Sphinx</a>
               <a href="/tech/languages/python/scipy.html" class="list-group-item ">Scientific Python Stack</a>
-              <a href="/tech/languages/python/pipenv.html" class="list-group-item ">Pipenv</a>
           </div>
           <div class="panel panel-default">
             <div class="panel-body" style="padding-top:8px;padding-bottom:8px">
@@ -169,17 +168,18 @@ use <code class="language-plaintext highlighter-rouge">dnf</code> to install wha
 <p>At the time of this writing, Fedora has the following Pythons
 ready for you in the repositories:</p>
 <ul>
-  <li>CPython 3.14</li>
-  <li>CPython 3.13 (System <code class="language-plaintext highlighter-rouge">python3</code> on Fedora 41)</li>
-  <li>CPython 3.12 (System <code class="language-plaintext highlighter-rouge">python3</code> on Fedora 40)</li>
+  <li>CPython 3.14 (System <code class="language-plaintext highlighter-rouge">python3</code> on Fedora 43)</li>
+  <li>CPython 3.13 (System <code class="language-plaintext highlighter-rouge">python3</code> on Fedora 41 and 42)</li>
+  <li>CPython 3.12</li>
   <li>CPython 3.11</li>
   <li>CPython 3.10</li>
   <li>CPython 3.9</li>
-  <li>CPython 3.8</li>
+  <li>CPython 3.8 (Retired from Fedora 42+, only available on Fedora 41)</li>
   <li>CPython 3.6</li>
   <li>PyPy 2.7</li>
-  <li>PyPy 3.9</li>
+  <li>PyPy 3.9 (Retired from Fedora 42+, only available on Fedora 41)</li>
   <li>PyPy 3.10</li>
+  <li>PyPy 3.11</li>
   <li>MicroPython</li>
 </ul>
 <p>Quite a nest, isn’t it?
@@ -218,7 +218,7 @@ you how to start.</p>
 We’ll create a simple configuration file for tox, <code class="language-plaintext highlighter-rouge">tox.ini</code>, in the same
 directory:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[tox]
-envlist = py27,py37,py38,py39,pypy,pypy3
+envlist = py39,py310,py311,py312,pypy,pypy3
 skipsdist = True
 [testenv]
 commands=python say.py
@@ -233,10 +233,10 @@ Normally, that would be <code class="language-plaintext highlighter-rouge">pytho
 <p>With <code class="language-plaintext highlighter-rouge">tox.ini</code> in place, run <code class="language-plaintext highlighter-rouge">tox</code> in the same directory:</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>tox
 <span class="go">[...]
-ERROR:   py27: commands failed
-  py37: commands succeeded
-  py38: commands succeeded
   py39: commands succeeded
+  py310: commands succeeded
+  py311: commands succeeded
+  py312: commands succeeded
 ERROR:   pypy: commands failed
   pypy3: commands succeeded
 </span></code></pre></div></div>
@@ -249,10 +249,10 @@ If you want to support old Python 2 as well, you’ll have to fix it:</p>
 </code></pre></div></div>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>tox
 <span class="go">[...]
-  py27: commands succeeded
-  py37: commands succeeded
-  py38: commands succeeded
   py39: commands succeeded
+  py310: commands succeeded
+  py311: commands succeeded
+  py312: commands succeeded
   pypy: commands succeeded
   pypy3: commands succeeded
   congratulations :)
@@ -288,21 +288,22 @@ Type "help", "copyright", "credits" or "license" for more information.
 </code></pre></div></div>
 <p>The environment is a directory.
 If you no longer need it, deactivate it and delete it with <code class="language-plaintext highlighter-rouge">rm -rv env</code>.</p>
-<h3 id="python-27-pypy-2">Python 2.7, PyPy 2</h3>
-<p>For other Python versions, a tool called <code class="language-plaintext highlighter-rouge">virtualenv</code> can create virtual
+<h3 id="pypy-2">PyPy 2</h3>
+<p>For very old Python versions, a tool called <code class="language-plaintext highlighter-rouge">virtualenv</code> can create virtual
 environments:</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>dnf <span class="nb">install</span> /usr/bin/virtualenv  <span class="c"># install the necessary tool</span>
-<span class="gp">$</span><span class="w"> </span>virtualenv <span class="nt">--python</span> /usr/bin/python2.7 <span class="nb">env</span>  <span class="c"># create the virtualenv</span>
-<span class="go">Running virtualenv with interpreter /usr/bin/python2.7
-New python executable in env/bin/python2.7
-Also creating executable in env/bin/python
-Installing setuptools, pip...done.
+<span class="gp">$</span><span class="w"> </span>virtualenv <span class="nt">--python</span> /usr/bin/pypy2.7 <span class="nb">env</span>  <span class="c"># create the virtualenv</span>
+<span class="go">created virtual environment PyPy2.7.18.final.42-64 in 229ms
+  creator PyPy2Posix(dest=/home/foo/dev/content/env, clear=False, no_vcs_ignore=False, global=False)
+  seeder FromAppData(extra_search_dir=/usr/lib64/pypy-7.3/lib-python/2.7/ensurepip/_bundled, /usr/share/python-wheels,download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/foo/.local/share/virtualenv)
+    added seed packages: pip==20.0.2, setuptools==44.0.0, wheel==0.37.1
+  activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
 </span><span class="gp">$</span><span class="w"> </span><span class="nb">source env</span>/bin/activate  <span class="c"># activate it</span>
 <span class="gp">(env)$</span><span class="w"> </span>python <span class="nt">-m</span> pip <span class="nb">install </span>requests  <span class="c"># install a package with pip</span>
 <span class="c">...
 </span><span class="gp">(env)$</span><span class="w"> </span>python  <span class="c"># run python from that virtualenv</span>
-<span class="go">Python 2.7.11 (default, Jul  8 2016, 19:45:00) 
-[GCC 5.3.1 20160406 (Red Hat 5.3.1-6)] on linux2
+<span class="go">Python 2.7.18 (cd449bbf1df7, Jul 10 2025, 22:49:12)
+[PyPy 7.3.20 with GCC 14.3.1 20250523 (Red Hat 14.3.1-1)] on linux2
 Type "help", "copyright", "credits" or "license" for more information.
 </span><span class="gp">&gt;</span><span class="o">&gt;&gt;</span> import requests
 <span class="gp">&gt;</span><span class="o">&gt;&gt;</span> ...
@@ -317,7 +318,7 @@ install packages that support MicroPython. Run it to find out more:</p>
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>micropython <span class="nt">-m</span> upip
 </code></pre></div></div>
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%67%69%74@%78%61%6E%64%65%72%6C%65%6E%74.%63%6F%6D">Alexander Lent</a>, <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%6D%69%72%6F@%68%72%6F%6E%63%6F%6B.%63%7A">Miro Hrončok</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a>, <a href="mailto:%37%30%31%35%33%39%31%38+%6D%61%74%72%69%78%67%72%61%6D@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">matrixgram</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%67%69%74@%78%61%6E%64%65%72%6C%65%6E%74.%63%6F%6D">Alexander Lent</a>, <a href="mailto:%6A%70%72%6F%6B%6F%70@%72%65%64%68%61%74.%63%6F%6D">Jarek Prokop</a>, <a href="mailto:%6B%73%75%72%6D%61@%72%65%64%68%61%74.%63%6F%6D">Karolina Surma</a>, <a href="mailto:%6D%69%72%6F@%68%72%6F%6E%63%6F%6B.%63%7A">Miro Hrončok</a>, <a href="mailto:%64%69%72%73%63%68%6E@%67%6D%61%69%6C.%63%6F%6D">Nick Dirschel</a></p>
           </div>
         </div>
       </div>
