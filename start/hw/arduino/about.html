@@ -171,14 +171,14 @@ It allows you to:</p>
 </code></pre></div></div>
 <p><em>See <a href="/deployment/flatpak/flatpak-usage.html">Flatpak Usage</a> for more details on Flatpak remotes.</em></p>
 <p>Then install the Arduino IDE with flatpak:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ flatpak install cc.arduino.arduinoide
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ flatpak install flathub cc.arduino.IDE2
 </code></pre></div></div>
-<p>Now you are all set to start developing you project using Arduino IDE on Fedora. Just start it from your desktop environment applications menu or run the <code>flatpak run cc.arduino.arduinoide</code> command from the command line. For more information on how to use the Arduino IDE, please refer to the <a href="https://docs.arduino.cc/software/ide-v1/tutorials/arduino-ide-v1-basics">documentation</a>.</p>
+<p>Now you are all set to start developing you project using Arduino IDE on Fedora. Just start it from your desktop environment applications menu or run the <code>flatpak run cc.arduino.IDE2</code> command from the command line. For more information on how to use the Arduino IDE, please refer to the <a href="https://docs.arduino.cc/software/ide-v2/tutorials/getting-started-ide-v2/">documentation</a>.</p>
 <h2 id="fix-denied-access">Fix denied access</h2>
 <p>When uploading sketch or connecting to arduino boards, following error might show up:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Error opening serial port...
 </code></pre></div></div>
-<p>You need to add your user to the <code class="language-plaintext highlighter-rouge">dialout</code> group. Follow the steps in this <a href="https://docs.arduino.cc/software/ide-v1/tutorials/Linux#please-read">Arduino guide</a>.</p>
+<p>You need to add your user to the <code class="language-plaintext highlighter-rouge">dialout</code> group. Follow the steps in this <a href="https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-uploading-a-sketch/#please-read-only-linux-users">Arduino guide</a>.</p>
 <!--
 ## Ino
 In contrast to Arduino IDE, the Ino tool is only command line oriented. It is ideal if you want to develop the project source using your favorite text editor and do all the tasks from the command line. You can even script some of the tasks and run those as part of the CI if you want.
@@ -195,7 +195,7 @@ Add this section once platform-io is packaged for Fedora
 http://platformio.org/
 -->
 <hr id="authors-rule" />
-<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%33%38%38%37%32%34%36%33+%44%61%72%74%6F%6D%69%63@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Herbert Smith</a>, <a href="mailto:%33%33%30%36%35%30%37%38+%6A%61%63%6B%6F%72%70@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Jaroslav Prokop</a>, <a href="mailto:%64%75%66%66%79@%72%65%64%68%61%74.%63%6F%6D">Máirín Duffy</a>, <a href="mailto:%70%76%61%6C%65%6E%61@%72%65%64%68%61%74.%63%6F%6D">Pavel Valena</a></p>
+<p style="text-align: center">Authors: <a href="mailto:%61%73%61%6D%61%6C%69%6B@%72%65%64%68%61%74.%63%6F%6D">Adam Samalik</a>, <a href="mailto:%33%38%38%37%32%34%36%33+%44%61%72%74%6F%6D%69%63@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Herbert Smith</a>, <a href="mailto:%33%33%30%36%35%30%37%38+%6A%61%63%6B%6F%72%70@%75%73%65%72%73.%6E%6F%72%65%70%6C%79.%67%69%74%68%75%62.%63%6F%6D">Jaroslav Prokop</a>, <a href="mailto:%6B%61%72%61%74%65%6B%68%64@%6F%70%65%6E%73%75%73%65.%6F%72%67">Jens</a>, <a href="mailto:%70%76%61%6C%65%6E%61@%72%65%64%68%61%74.%63%6F%6D">Pavel Valena</a></p>
           </div>
         </div>
       </div>
